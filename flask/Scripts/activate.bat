@@ -1,30 +1,32 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\VYCTOR\DOCUME~1\UEA\4PEROD~1\MP49DD~1.S\Skull\zelda\flask"
+set "VIRTUAL_ENV=D:\Documentos\Mikael\EST\Modelagem e Projeto de Sistemas\SGD\ZELDA\Git\zelda\flask"
+
+if not defined PROMPT (
+    set "PROMPT=$P$G"
+)
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
-) else (
-    if not defined PROMPT (
-        set "PROMPT=$P$G"
-    )
-    set "_OLD_VIRTUAL_PROMPT=%PROMPT%"
 )
+
+if defined _OLD_VIRTUAL_PYTHONHOME (
+    set "PYTHONHOME=%_OLD_VIRTUAL_PYTHONHOME%"
+)
+
+set "_OLD_VIRTUAL_PROMPT=%PROMPT%"
 set "PROMPT=(flask) %PROMPT%"
 
-REM Don't use () to avoid problems with them in %PATH%
-if defined _OLD_VIRTUAL_PYTHONHOME goto ENDIFVHOME
+if defined PYTHONHOME (
     set "_OLD_VIRTUAL_PYTHONHOME=%PYTHONHOME%"
-:ENDIFVHOME
+    set PYTHONHOME=
+)
 
-set PYTHONHOME=
-
-REM if defined _OLD_VIRTUAL_PATH (
-if not defined _OLD_VIRTUAL_PATH goto ENDIFVPATH1
+if defined _OLD_VIRTUAL_PATH (
     set "PATH=%_OLD_VIRTUAL_PATH%"
-:ENDIFVPATH1
-REM ) else (
-if defined _OLD_VIRTUAL_PATH goto ENDIFVPATH2
+) else (
     set "_OLD_VIRTUAL_PATH=%PATH%"
-:ENDIFVPATH2
+)
 
 set "PATH=%VIRTUAL_ENV%\Scripts;%PATH%"
+
+:END

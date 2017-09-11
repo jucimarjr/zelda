@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" style="text/css "href="static/style.css"/>
+{% endblock %}
+
+{% block content %}
+	<div style="text-align:center;">
+	<div class="container" id="login-page-container">
+	  <div class="row" id="central-content">
+	    <!--Define a largura das colunas pra cada largura de tela-->
+      <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-4 col-md-push-4">
+	      <h2 id="uea-logo">UEA</h2>
+        <form>
+			    <div class="form-group input-group">
+    	      	<span class="input-group-addon">
+	    	        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	              </span>
+	              <input class="form-control" placeholder="Nome de Usuário">
+						</div>
+						<div class="form-group input-group">
+	        	  <span class="input-group-addon">
+	        	    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+	            </span>
+	            <input class="form-control" placeholder="Senha">
+           	</div>
+        </form>
+				<button class="round-button" type="submit">LOGIN</button>
+			</div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

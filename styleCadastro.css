@@ -1,0 +1,84 @@
+﻿html{
+    width: 720px;
+}
+
+
+body {
+    background-color: #22c595;
+}
+
+body {
+    /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
+    width: device-width;
+    height: device-height;
+}
+
+h1{
+    font-family: Segoi UI;
+    font-size: 30;
+    color: white;
+    position: relative;
+    top: -120px;
+    left: 25px;
+}
+
+p{
+    font-family: Segoi UI;
+    font-size: 15;
+    color: white;
+    position: relative;
+    top: -110px;
+    left: 25px;
+}
+
+
+input {
+    width:1250px;
+    height:40px;
+    position: relative;
+    top: -110px;
+    left: 20px;
+}
+
+#login-page-container {
+    /*Pra fazer uma div interna centralizar na altura, a div externa deve cobrir toda a altura onde se quer centralizar (nesse caso, toda a altura da tela)*/
+    height: 100%;
+}
+
+#central-content {
+    position: relative;
+    /*Uma margem de 50% da altura do elemento pai*/
+    top: 50%;
+    /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
+    transform: translateY(-50%);
+}
+
+.round-button {
+    /*Retira as bordas padrão do botão html*/
+    outline: none;
+    border: none;
+
+    border-radius: 20px;
+    background-color: #18a178;
+    color: white;
+    width: 212px;
+    height: 40px;
+    position: relative;
+    top: 150px;
+    left:830px;
+
+}
+
+#wrapper1{
+    position: relative;
+    top: 150px;
+    left:800px
+
+}
+
+#login-page-container .input-group-addon {
+    background-color: #18a178;
+    border: none;
+    color: white;
+}
+

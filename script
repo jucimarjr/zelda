@@ -1,0 +1,21 @@
+clear;
+
+echo -e "Adding user to git: $1 ... ";
+git config --global --replace-all user.name "$1";
+echo "done"
+
+echo -e "Adding email to git: $2 ... ";
+git config --global --replace-all user.email "$2";
+echo "done"
+
+echo -e "Adding files to git ... "
+git add *;
+echo "done"
+
+echo -e "Commit with message: $3 ... "
+git commit -m "$3";
+echo "done"
+
+echo "Pushing to remote"
+git push;
+echo "done"

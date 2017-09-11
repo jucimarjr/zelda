@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link  href="/static/style.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="login-page-container" style="width: 80%;">
+        <p style="font-family:Segoe UI; font-weight:normal; font-size:30; color:white">Cadastro de Funcionários</p>
+        <div class="row">
+            <div class="col-md-9">
+                <p style="font-family:Segoe UI; font-weight:normal; font-size:18; color:white">Nome:</p>
+                <div class="input-group">
+                    <span class="input-group-addon">
+	    	            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	                </span>
+                    <input type="text" class="form-control"aria-describedby="input_nome">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1%;">
+            <div class="col-md-3" style="margin-right: 3%;">
+                <p style="font-family:Segoe UI; font-weight:normal; font-size:18; color:white">Login:</p>
+                <div class="input-group">
+                    <span class="input-group-addon">
+	    	            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+	                </span>
+                    <input type="text" class="form-control" aria-describedby="input_login">
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-right: 5%;">
+                <p style="font-family:Segoe UI; font-weight:normal; font-size:18; color:white">Senha:</p>
+                <div class="input-group">
+                    <span class="input-group-addon">
+	        	        <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+	                </span>
+                    <input type="text" class="form-control" aria-describedby="input_senha">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <p style="font-family:Segoe UI; font-weight:normal; font-size:18; color:white">Setor:</p>
+                <div class="dropdown" style="width: auto;">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Escolha um setor
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" style="margin-top: 5%;">
+            <button class="round-button" type="submit" style="width: 20%; margin-left: 30%; margin-right: 2%">CANCELAR</button>
+            <button class="round-button" type="submit" style="width: 20%;">LOGIN</button>
+        </div>
+    </div>
+{% endblock %}

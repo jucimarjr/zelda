@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <!--Links CDN (um serviço de armazenamento de plugins JS online que todo plugin conhecido usa) são online (não precisa baixar os arquivos do bootstrap local)-->
+
+  {% if title %}
+  <title>{{ title }} - Zelda</title>
+  {% else %}
+  <title>Zelda</title>
+  {% endif %}
+  <!-- CSS compactado da última versão do bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Meu CSS (na mesma pasta deste html)-->
+  <link rel="stylesheet" href="../static/bootstrap/css/styleFuncionario.css">
+
+  <div>Welcome to Zelda: <a href="/index">Home</a> <a href="/cadastrar_funcionario">Cadastrar Funcionario</a>
+  <a href="/editar_funcionario">Editar Funcionario</a></div>
+
+</head>
+
+<body>
+
+    <!--A div externa deve ocupar toda a altura para a div interna ser centralizada (style.css)-->
+  <div id="large-div">
+
+    <form>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <h2 id="titulo-funcao">Edição de Dados do Funcionário</h2>
+        </div>
+      </div>
+      <div class="form-row">
+        <!--Adicionar form-group numa div estiliza os inputs automaticamente (classe do bootstrap)-->
+        <div class="form-group col-md-11">
+          <label for="nome_funcionario" class="col-form-label">Nome do Funcionário</label>
+          <!--Inputs da classe form-control já recebem estilização própria para forms (classe do bootstrap)-->
+          <input type="text" class="form-control" id="nome_funcionario">
+        </div>
+        <div class="form-group col-md-9 "></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="login_funcionario" class="col-form-label">Login do Funcionário</label>
+          <input type="text" class="form-control" id="login_funcionario">
+        </div>
+        <div class="form-group col-md-4">
+          <label  for="senha_funcionario" class="col-form-label">Senha do Funcionário</label>
+          <input type="text" class="form-control" id="senha_funcionario">
+        </div>
+        <div class="form-group col-md-9 "></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="setor_funcionario" class="col-form-label">Setor do Funcionário</label>
+            <!--Inputs da classe form-control já recebem estilização própria para forms (classe do bootstrap)-->
+            <input type="text" class="form-control" id="setor_funcionario">
+        </div>
+      </div>
+
+      <button class="round-button type="submit">CANCELAR</button>
+      <button class="round-button" type="submit">ATUALIZAR</button>
+      <!-- Classe round-button é personalizada, está no style.css -->
+    </form>
+  </div>
+
+
+    <!-- Scripts JS do boostrap (são necessários somente para modals, popups, animações e afins)
+    Por convenção, coloca-se os JS antes do fim do body, pois ele altera os elementos da página dinamicamente,
+    então pra prevenir qualquer tipo de não-carregamento dos elementos do html, coloca-se depois deles -->
+
+    <!-- Bootstrap requer o JQuery (um framework JS) pra usar seus recursos javascript (JQuery sempre vem antes dos scripts dependentes)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Javascript comprimido da última versão do bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

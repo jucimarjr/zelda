@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if title %}
+    <title>{{ title }} - Zelda</title>
+    {% else %}
+    <title>Zelda</title>
+    {% endif %}
+
+    <!-- CSS do Bootstrap -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="{{url_for('static',filename='global.css')}}" rel="stylesheet">
+
+    {% block styles %}{% endblock %}
+
+    <!-- Visitem: http://getbootstrap.com/docs/3.3/components/ para conhecer os componentes do Bootstrap-->
+  </head>
+  <body>
+
+    <!--Início do código principal aqui -->
+
+    {% block content %}{% endblock %}
+
+    <!--Final do código principal aqui-->
+
+    <!-- jQuery (necessário para os plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclua todos os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bloco onde scripts personalizados dos templates serão utilizados -->
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

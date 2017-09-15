@@ -4,7 +4,6 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from .forms import *
 from .classes import Criptografador
-from flask_login import login_user, logout_user
 from flask_mysqldb import MySQL
 from .db_interface import Zelda
 from .funcionario import Funcionario

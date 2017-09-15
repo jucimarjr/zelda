@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='setor_crud_style.css')}}">
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-xs-push-1 col-md-6 col-md-push-3">
+        <h2 id="cad-setor">Atualizar Dados de Setor</h2>
+
+            <form class="form" action="" method="post">
+                {{form.hidden_tag()}}
+                {{form.setor_id()}}
+
+                <!--Adicionar form-group numa div estiliza os inputs automaticamente (classe do bootstrap)-->
+                <div class="form-group">
+                    <label id="nome-setor">Nome do Setor</label>
+                    {{form.setor_nome(class_='form-control')}}
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <a href="{{url_for('admin')}}"><button class="round-button" type="button">CANCELAR</button></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <button class="round-button" type="submit">ATUALIZAR</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

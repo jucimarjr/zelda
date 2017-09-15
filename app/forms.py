@@ -1,37 +1,48 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from flask_wtf import FlaskForm
+from flask_wtf import Form
 from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators,BooleanField
+from wtforms import StringField, TextAreaField, PasswordField, BooleanField, SelectField, HiddenField
 from passlib.hash import sha256_crypt
 from functools import wraps
 from wtforms.validators import DataRequired
 
-class LoginForms(FlaskForm):
-	usuario = StringField('Email',validators=[DataRequired()])
-	senha = PasswordField('Senha', validators=[DataRequired()])
+#Cadastra Login
+class LoginForm(Form):
+    login = StringField('Nome de Usuário', validators=[DataRequired('Nome de Usuário é obrigatório')])
+    senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
 
 #Cadastra Funcionario
-class CadastraFuncionarioForms(Form):
-    funcionario_id = StringField('ID', [validators.Length(min=1, max=12)])
-    funcionario_nome = StringField('Name', [validators.Length(min=1, max=50)])
-    funcionario_login = StringField('Username', [validators.Length(min=4, max=50)])
-    funcionario_senha = PasswordField('Password', [
-        validators.DataRequired(),
-        validators.EqualTo('confirm', message='Passwords do not match')
-    ])
-    confirm = PasswordField('Confirm Password')
-    funcionario_email = StringField('Email', [validators.Length(min=6, max=50)])
-    funcionario_status = StringField('Status (-1, 0, 1)', [validators.Length(min=1 , max=1)])
-    funcionario_matricula = StringField('Matrícula', [validators.Length(min=6, max=12)])
-    funcionario_ultimo_acesso = StringField('Ultimo acesso', [validators.Length(min=10, max=10)])
-    funcionario_enviados = StringField('Enviados', [validators.Length(min=1, max=100)])
-    funcionario_recebidos = StringField('Recebidos', [validators.Length(min=1, max=100)])
-    funcionario_telefone = StringField('Telefone', [validators.Length(min=9, max=9)])
-    funcionario_unidade = StringField('Unidade', [validators.Length(min=2, max=100)])
+class CadastraFuncionarioForm(Form):
+    funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
+    funcionario_login = StringField('Login Funcionário', validators=[DataRequired('Login do Funcionário é obrigatório')])
+    funcionario_senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
+    funcionario_setor_id = SelectField ('Setor', coerce=int)
 
 #Cadastra Setor
-class CadastraSetorForms(Form):
-        setor_id = StringField('ID',[validators.Length(min=1, max=12)])
-        setor_nome = StringField('Name', [validators.Length(min=1, max=50)])
-        setor_status = StringField('Satatus (-1, 0, 1)',[validators.Length(min=1 , max=1)])
+class CadastraSetorForm(Form):
+    setor_nome = StringField('Nome Setor', validators=[DataRequired('Nome do Setor é obrigatório')])
 
+# Atualiza Setor
+class AtualizaSetorForm(Form):
+    setor_nome = StringField('Nome Setor', validators=[DataRequired('Nome do Setor é obrigatório')])
+    # Hidden Field é muito usado em CRUDs para passar dados do model entre requisições, nesse caso, a tela de
+    # atualizar deve ter um id do elemento a ser alterado sendo transmitido no formulário de maneira escondida
+    setor_id = HiddenField('ID Setor', validators=[DataRequired('O ID do Setor não pode ser indefinido')])
+
+
+#Atualiza Funcionario
+class AtualizaFuncionarioForm(Form):
+    funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
+    funcionario_login = StringField('Login Funcionário', validators=[DataRequired('Login do Funcionário é obrigatório')])
+    funcionario_senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
+    funcionario_setor_id = SelectField ('Setor', coerce=int)
+    funcionario_id = HiddenField('ID Funcionário', validators=[DataRequired('O ID do Funcionário não pode ser indefinido')])
+
+
+# Remover Funcionário
+class RemoveFuncionarioForm(Form):
+    funcionario_id = HiddenField('ID Funcionário', validators=[DataRequired('O ID do Funcionário não pode ser indefinido')])
+
+# Remover Setor
+class RemoveSetorForm(Form):
+    setor_id = HiddenField('ID Setor', validators=[DataRequired('O ID do Setor não pode ser indefinido')])

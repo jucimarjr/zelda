@@ -1,0 +1,38 @@
+﻿body {
+    background-color: #22c595;
+}
+
+h2, h4, p {
+	color: white;
+}
+
+html, body {
+    /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
+    width: 100%;
+    height: 100%;
+}
+
+.round-button {
+    /*Retira as bordas padrão do botão html*/
+    outline: none;
+    border: none;
+
+    border-radius: 15px;
+    background-color: #18a178;
+    color: white;
+    width: 25%;
+    height: 40px;
+
+    font-family: Yu Gothic;
+    font-size: 13px;
+
+    margin-bottom: 25px;
+	margin-right: 30px;
+
+	float: right;
+	transform: translateY(100%)
+}
+
+select {
+	width: 100%;
+}

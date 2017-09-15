@@ -1,0 +1,58 @@
+﻿body {
+    background-color: #22c595;
+}
+
+html, body {
+    /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
+    width: 100%;
+    height: 100%;
+}
+
+#login-page-container {
+    /*Pra fazer uma div interna centralizar na altura, a div externa deve cobrir toda a altura onde se quer centralizar (nesse caso, toda a altura da tela)*/
+    height: 100%;
+}
+
+#central-content {
+    position: relative;
+    /*Uma margem de 50% da altura do elemento pai*/
+    top: 30%;
+    /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
+    transform: translateY(-50%);
+}
+
+.round-button {
+    /*Retira as bordas padrão do botão html*/
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    background-color: #18a178;
+    color: white;
+    width: 100%;
+    height: 35px;
+}
+
+#cad-setor {
+
+    font-weight: bolder;
+    font-size: 30px;
+    color: white;
+}
+
+button {
+	margin-bottom:15px;
+}
+
+#nome-setor {
+    transform: translateX(-9%);
+    font-weight: bolder;
+    font-size: 15px;
+    color: white;
+    margin:2%;
+}
+
+#login-page-container .input-group-addon {
+    background-color: #18a178;
+    border: none;
+    color: white;  
+}

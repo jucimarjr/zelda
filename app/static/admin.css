@@ -1,0 +1,48 @@
+body {
+    background-color: #22c595;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+h4 {
+    color: grey;
+    font-family: "Segoe UI";
+    margin: 25px;
+    padding: 5px;
+	margin-left: 250px;
+}
+
+#fundo-branco {
+    background-color: white;
+    padding: 5px;
+    top: 50px;
+}
+
+#center {
+    left: 100px;
+    bottom: 70px;
+}
+
+.round-button {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: #18a178;
+    color: white;
+    width: 25%;
+    height: 40px;
+    margin-top: 25px;
+    margin-right: 40px;
+    transform: translateY(300%);
+}
+
+img {
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+	top: 100px;
+}

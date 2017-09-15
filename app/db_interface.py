@@ -21,6 +21,21 @@ class Zelda:
         data = self.execute_query("select count(*) from funcionario where funcionario_login = '{}' and funcionario_senha = '{}'".format(login, senha))
         return int(data[0]['count(*)']) > 0
 
+    #função que verifica se o usuário está logado. Utilizado no login único.
+    def verifica_logado(self, login):
+        data = self.execute_query("select funcionario_logado from funcionario where funcionario_login = '{}'".format(login))
+        if (data[0]['funcionario_logado'] == 1):
+            return False
+        return True
+
+    def set_logado_true(self, login):
+        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
+        self.execute_query("update funcionario set funcionario_logado = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+
+    def set_logado_false(self, login):
+        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
+        self.execute_query("update funcionario set funcionario_logado = 1 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):

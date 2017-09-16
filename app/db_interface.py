@@ -85,13 +85,12 @@ class Zelda:
         self.execute_query("insert into funcionario (funcionario_nome, setor_id) values ('{}', '{}')".format(funcionario.nome,funcionario.setor_id), True)
 
     def get_funcionarios(self):
-        data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_login, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario.setor_id = setor.setor_id''')
+        data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario.setor_id = setor.setor_id''')
         funcionarios = []
         for d in data:
             funcionario = Funcionario(
                           id=d["funcionario_id"],
                           nome=d["funcionario_nome"],
-                          login=d["funcionario_login"],
                           situacao=d["funcionario_situacao"],
                           setor_id=d["setor_id"],
                           setor_nome=d["setor_nome"],
@@ -100,7 +99,7 @@ class Zelda:
         return funcionarios
 
     def edita_funcionario(self, funcionario):
-        self.execute_query("update funcionario set funcionario_nome = '{}', funcionario_login = '{}', funcionario_senha = '{}', setor_id = '{}' where funcionario_id = '{}'".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id, funcionario.id), True)
+        self.execute_query("update funcionario set funcionario_nome = '{}', setor_id = '{}' where funcionario_id = '{}'".format(funcionario.nome, funcionario.setor_id, funcionario.id), True)
 
     def deleta_funcionario(self, funcionario_id):
         self.execute_query("update funcionario set funcionario_situacao = 1 where funcionario_id = '{}'".format(funcionario_id), True)
@@ -114,7 +113,6 @@ class Zelda:
         	funcionario = Funcionario(
                               id=d["funcionario_id"],
                               nome=d["funcionario_nome"],
-                              login=d["funcionario_login"],
                               situacao=d["funcionario_situacao"],
                               setor_id=d["setor_id"],
                               setor_nome=d["setor_nome"],

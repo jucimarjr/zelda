@@ -46,7 +46,7 @@ funcionarios = [
 
 
 @app.route("/get/funcionarios", methods=['GET'])
-def id():
+def get_funcionarios():
     if request.method == 'GET':
         # funcionarios = db.get_funcionarios()
         return funcionarios.__str__()

@@ -105,7 +105,7 @@ class Zelda:
         self.execute_query("update funcionario set funcionario_situacao = 1 where funcionario_id = '{}'".format(funcionario_id), True)
 
     def get_funcionario(self, id):
-        data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_login, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario_id = {} and funcionario.setor_id = setor.setor_id'''.format(id))
+        data = self.execute_query('''select funcionario_id, funcionario_nome,funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario_id = {} and funcionario.setor_id = setor.setor_id'''.format(id))
         if len(data) < 1:
         	return None
         funcionarios = []

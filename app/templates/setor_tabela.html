@@ -2,14 +2,15 @@
 <html>
 
 <head>
+	<meta charset="UTF-8">
+	<title>Menu Setor</title>
+	<!--Links CDN (um serviço de armazenamento de plugins JS online que todo plugin conhecido usa) são online (não precisa baixar os arquivos do bootstrap local)-->
 
-<!--Links CDN (um serviço de armazenamento de plugins JS online que todo plugin conhecido usa) são online (não precisa baixar os arquivos do bootstrap local)-->
+	<!-- CSS compactado da última versão do bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- CSS compactado da última versão do bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Meu CSS (na mesma pasta deste html)-->
-<link rel="stylesheet" href="../static/setor_tabela_style.css">
+	<!-- Meu CSS (na mesma pasta deste html)-->
+	<link rel="stylesheet" href="../static/setor_tabela_style.css">
 
 </head>
 
@@ -17,7 +18,7 @@
 
     <div class="container" id="setor-menu">
         <div class="row">
-            <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
+            <div>
 
                 <!-- Classe section personalizada -->
                 <div class="section">
@@ -25,15 +26,15 @@
 
                         <div class="row">
                                 <div class="col-xs-12 col-sm-4">
-                                    <button class="round-button">Cadastrar Setor</button>
+                                    <button class="round-button">CADASTRAR SETOR</button>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
-                                    <button class="round-button">Editar Setor</button>
+                                    <button class="round-button">EDITAR SETOR</button>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
-                                    <button class="round-button">Excluir Setor</button>
+                                    <button class="round-button">EXCLUIR SETOR</button>
                                 </div>
-                            </div>
+                        </div>
 
                     <!-- Classe table-responsive adiciona um scroll horizontal responsivo para dispositivos pequenos (bootstrap) -->
                     <div class="table-responsive">
@@ -42,6 +43,7 @@
                         <table class="table table-bordered table-hover table-condensed">
                             <thead>
                                 <tr>
+									<th id="titulo-setor">Nº</th>
                                     <th id="titulo-setor">Código</th>
                                     <th id="titulo-setor">Nome do Setor</th>
                                 </tr>
@@ -50,24 +52,29 @@
 
                                 <!-- Dados estáticos, insira dados do back-end aqui -->
                                 <tr>
-                                    <td> 1</td>
+                                    <td>1</td>
                                     <td> </td>
+									<td> </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td> </td>
+									<td> </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td> </td>
+									<td> </td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td> </td>
+									<td> </td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td> </td>
+									<td> </td>
                                 </tr>
                             </tbody>
                         </table>

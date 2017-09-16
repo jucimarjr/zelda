@@ -53,6 +53,17 @@ def get_funcionarios():
     else:
         return ERROR_REQUEST_MESSAGE
 
+@app.route("/get/usuarios/setor?=<setor_nome>", methods=['GET'])
+def get_usuarios(self, setor = setor_nome):
+
+    if request.method == 'GET':
+       usuarios = db.get_usuarios(self.setor)
+       return usuarios.__str__()
+
+    else:
+        return ERROR_REQUEST_MESSAGE
+        
+
 
 if __name__ == '__main__':
     app.run(host=IP,

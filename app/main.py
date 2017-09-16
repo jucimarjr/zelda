@@ -44,10 +44,11 @@ def login():
             return redirect(url_for('admin'))
 
         ans = db.verifica_login(login = form.login.data, senha = senhaHash)
-
         if ans:
-            if (not db.verifica_logado(login=form.login.data)):
-                db.set_logado_true(login=form.login.data)
+            if (not db.verifica_logado(login = form.login.data)):
+                db.set_logado_true(login = form.login.data)
+                if (db.verifica_admin(login = form.login.data)):
+                    return redirect(url_for('admin'))
                 return redirect(url_for('home'))
             flash("Usuario já logado!")
             #como ainda não foi implementado botão de logout, quando o usuário digitar duas vezes o mesmo user ele automaticamente assume que o usuário deslogou. Só para testes.

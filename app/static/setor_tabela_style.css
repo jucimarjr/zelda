@@ -16,13 +16,14 @@ html, body {
     border-radius: 5px;
     background-color: #18a178;
     color: white;
-    width: 100%;
+    width: 60%;
     height: 40px;
 
     font-family: Yu Gothic;
     font-size: 13px;
-
-    margin-bottom: 15px;
+	
+	margin-left: 16%;
+    margin-bottom: 6%;
 }
 
 .setor-menu-label {
@@ -35,7 +36,7 @@ html, body {
 
 
 #titulo-setor {
-    color: gray;
+    color: #95989A;
 }
 
 
@@ -48,5 +49,5 @@ html, body {
 }
 
 #setor-menu .section {
-    margin-top: 35px;
+    margin-top: 10%;
 }

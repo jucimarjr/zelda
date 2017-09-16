@@ -89,8 +89,7 @@ def funcionario_criar():
     form.funcionario_setor_id.default = 1 # O setor de id 1 no banco é o Nenhum
 
     if form.validate_on_submit():
-        funcionario = Funcionario(nome = form.funcionario_nome.data, login = form.funcionario_login.data,senha =
-        Criptografador.gerarHash(form.funcionario_senha.data, ''), setor_id = form.funcionario_setor_id.data)
+        funcionario = Funcionario(nome = form.funcionario_nome.data, setor_id = form.funcionario_setor_id.data)
 
         db.cadastra_funcionario(funcionario)
         return redirect(url_for('admin'))
@@ -117,8 +116,6 @@ def funcionario_atualizar():
         # Preenche um novo funcionário com os campos atualizados
         func.nome = form.funcionario_nome.data
         func.id = form.funcionario_id.data
-        func.login = form.funcionario_login.data
-        func.senha = form.funcionario_senha.data
         func.setor_id = form.funcionario_setor_id.data
 
         db.edita_funcionario(func)
@@ -154,8 +151,6 @@ def preenche_dados_atuais(form, func):
 
     form.funcionario_nome.data = func.nome
     form.funcionario_id.data = func.id
-    form.funcionario_login.data = func.login
-    form.funcionario_senha.data = func.senha
 
 
 @app.route('/funcionario-remover', methods=['GET', 'POST'])

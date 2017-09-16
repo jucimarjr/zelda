@@ -38,8 +38,19 @@ funcionarios = [
         setor_nome="Engenharia Mecânica",
         setor_situacao=0),
 ]
-# -----------------------------------------------------------
+# ------------------------------------------------------------------------------
 
+# Criação de usuários para não ser necessário requisitar informações do BD
+usuarios = [
+	Usuario(
+		login="rcm.eng",
+        senha="rcm.eng"),
+
+	Usuario(
+		login="rcm.eng17",
+        senha="rcm.eng17")
+]
+# ------------------------------------------------------------------------
 
 @app.route("/get/funcionarios", methods=['GET'])
 def get_funcionarios():

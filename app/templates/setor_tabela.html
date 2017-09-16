@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!--Links CDN (um serviço de armazenamento de plugins JS online que todo plugin conhecido usa) são online (não precisa baixar os arquivos do bootstrap local)-->
+
+<!-- CSS compactado da última versão do bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Meu CSS (na mesma pasta deste html)-->
+<link rel="stylesheet" href="../static/setor_tabela_style.css">
+
+</head>
+
+<body>
+
+    <div class="container" id="setor-menu">
+        <div class="row">
+            <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
+
+                <!-- Classe section personalizada -->
+                <div class="section">
+
+
+                        <div class="row">
+                                <div class="col-xs-12 col-sm-4">
+                                    <button class="round-button">Cadastrar Setor</button>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <button class="round-button">Editar Setor</button>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <button class="round-button">Excluir Setor</button>
+                                </div>
+                            </div>
+
+                    <!-- Classe table-responsive adiciona um scroll horizontal responsivo para dispositivos pequenos (bootstrap) -->
+                    <div class="table-responsive">
+
+                        <!-- Classe table e derivados estilizam a tabela com o padrão bootstrap -->
+                        <table class="table table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th id="titulo-setor">Código</th>
+                                    <th id="titulo-setor">Nome do Setor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- Dados estáticos, insira dados do back-end aqui -->
+                                <tr>
+                                    <td> 1</td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+            
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts JS do boostrap (são necessários somente para modals, popups, animações e afins)
+    Por convenção, coloca-se os JS antes do fim do body, pois ele altera os elementos da página dinamicamente,
+    então pra prevenir qualquer tipo de não-carregamento dos elementos do html, coloca-se depois deles -->
+
+    <!-- Bootstrap requer o JQuery (um framework JS) pra usar seus recursos javascript (JQuery sempre vem antes dos scripts dependentes)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Javascript comprimido da última versão do bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

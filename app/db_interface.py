@@ -36,6 +36,16 @@ class Zelda:
         data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
         self.execute_query("update funcionario set funcionario_logado = 1 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
 
+    def verifica_admin(self, login):
+        data = self.execute_query("select funcionario_admin from funcionario where funcionario_login = '{}'".format(login))
+        if (data[0]['funcionario_admin'] == 1):
+            return False
+        return True
+
+    def set_admin_true(self, login):
+        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
+        self.execute_query("update funcionario set funcionario_admin = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):

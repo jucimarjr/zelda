@@ -1,7 +1,7 @@
 from flask import Flask, request
-from app.db_interface import Zelda
-from app.funcionario import Funcionario
-from app.setor import Setor
+from db_interface import Zelda
+from funcionario import Funcionario
+from setor import Setor
 
 ERROR_REQUEST_MESSAGE = "Error: only GET methods are available"
 
@@ -28,19 +28,15 @@ app = Flask(__name__)
 funcionarios = [
     Funcionario(
         nome="Rodrigo Moraes",
-        login="rcm.eng",
         situacao=0,
         setor_nome="Engenharia de Computacação",
-        setor_situacao=0,
-        senha="rcm.eng2013"),
+        setor_situacao=0),
 
     Funcionario(
         nome="Ricardo Moraes",
-        login="rcm.eng17",
         situacao=0,
         setor_nome="Engenharia Mecânica",
-        setor_situacao=0,
-        senha="rcm.eng2017"),
+        setor_situacao=0),
 ]
 # -----------------------------------------------------------
 
@@ -52,18 +48,6 @@ def get_funcionarios():
         return funcionarios.__str__()
     else:
         return ERROR_REQUEST_MESSAGE
-
-@app.route("/get/usuarios/setor?=<setor_nome>", methods=['GET'])
-def get_usuarios(self, setor = setor_nome):
-
-    if request.method == 'GET':
-       usuarios = db.get_usuarios(self.setor)
-       return usuarios.__str__()
-
-    else:
-        return ERROR_REQUEST_MESSAGE
-        
-
 
 if __name__ == '__main__':
     app.run(host=IP,

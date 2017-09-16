@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
-from .funcionario import Funcionario
-from .setor import Setor
+from funcionario import Funcionario
+from setor import Setor
 
 class Zelda:
 

@@ -247,6 +247,13 @@ def remover_setor():
 
     return render_template('remover_setor.html', form=form, setor=setor)
 
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+
 def flash_errors(form):
     for field, errors in form.errors.items():
         for error in errors:

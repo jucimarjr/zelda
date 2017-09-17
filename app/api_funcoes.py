@@ -63,17 +63,17 @@ def get_funcionarios():
         return ERROR_REQUEST_MESSAGE
 
 @app.route("/get/funcionarios/setor?=<setor_nome>", methods=['GET'])
-def get_usuarios(self, setor = setor_nome):
+def get_funcionarios(self, setor = setor_nome):
     if request.method == 'GET':
        funcionarios = db.get_funcionarios(self.setor_nome)
        return funcionarios.__str__()
     else:
         return ERROR_REQUEST_MESSAGE
 
-@app.route("/get/usuarios/setor?=<setor_nome>", methods=['GET'])
-def get_usuarios(self, setor = setor_nome):
+@app.route("/get/usuarios/<setor>", methods=['GET'])
+def get_usuarios(setor):
     if request.method == 'GET':
-       usuarios = db.get_usuarios(self.setor_nome)
+       usuarios = db.get_usuarios(setor)
        return usuarios.__str__()
     else:
         return ERROR_REQUEST_MESSAGE

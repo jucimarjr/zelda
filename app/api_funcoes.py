@@ -62,6 +62,14 @@ def get_funcionarios():
     else:
         return ERROR_REQUEST_MESSAGE
 
+@app.route("/get/funcionarios/setor?=<setor_nome>", methods=['GET'])
+def get_usuarios(self, setor = setor_nome):
+    if request.method == 'GET':
+       funcionarios = db.get_funcionarios(self.setor_nome)
+       return funcionarios.__str__()
+    else:
+        return ERROR_REQUEST_MESSAGE
+
 @app.route("/get/usuarios/setor?=<setor_nome>", methods=['GET'])
 def get_usuarios(self, setor = setor_nome):
     if request.method == 'GET':

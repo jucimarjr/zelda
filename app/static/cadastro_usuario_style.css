@@ -1,0 +1,36 @@
+body{
+  background-color: #22c595;
+  font-family: Yu Gothic;
+}
+
+.round-button{
+  /*Retira as bordas padrão do botão html*/
+      outline: none;
+      border: none;
+
+      border-radius: 5px;
+      background-color: #18a178;
+      color: white;
+      width: 25%;
+      height: 40px;
+
+      font-family: Yu Gothic;
+      font-size: 13px;
+
+      margin-top: 5%;
+  	margin-right: 30px;
+
+  	float: right;
+  	transform: translateY(100%)
+}
+#text-color{
+  color: white;
+}
+
+.form-style{
+    margin-top: 8%;
+}
+
+div.form-group{
+  margin-top: 2%;
+}

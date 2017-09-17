@@ -1,149 +1,145 @@
+#insert setores
 
-/* Alimenta tabela SETOR */
-/* (<Setor>) */
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Reitoria',0);
 
-INSERT INTO setor VALUES
- ('Reitoria');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Gabinete do Reitor',0);
 
-INSERT INTO setor VALUES
- ('Gabinete do Reitor');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Gabinete do Vice-Reitor',0);
 
-INSERT INTO setor VALUES
- ('Gabinete do Vice-Reitor');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pr√≥-Reitoria de Planejamento',0);
 
-INSERT INTO setor VALUES
- ('PrÛ-Reitoria de Planejamento');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pr√≥-Reitoria de Administra√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('PrÛ-Reitoria de AdministraÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pr√≥-Reitoria de Ensino de Gradua√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('PrÛ-Reitoria de Ensino de GraduaÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pr√≥-Reitoria de Pesquisa e P√≥s-Gradua√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('PrÛ-Reitoria de Pesquisa e PÛs-GraduaÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pr√≥-Reitoria de Extens√£o e Assuntos Comunit√°rios',0);
 
-INSERT INTO setor VALUES
- ('PrÛ-Reitoria de Extens„o e Assuntos Comunit·rios');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pr√≥-Reitoria de Interioriza√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('PrÛ-Reitoria de InteriorizaÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Diretoria - Escola Superior de Tecnologia',0);
 
-INSERT INTO setor VALUES
- ('Diretoria - Escola Superior de Tecnologia');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Conselho Acad√™mico',0);
 
-INSERT INTO setor VALUES
- ('Conselho AcadÍmico');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Secretaria Acad√™mica',0);
 
-INSERT INTO setor VALUES
- ('Secretaria AcadÍmica');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Pronto Atendimento ao Estudante',0);
 
-INSERT INTO setor VALUES
- ('Pronto Atendimento ao Estudante');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Gabinete da Diretoria',0);
 
-INSERT INTO setor VALUES
- ('Gabinete da Diretoria');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o de Qualidade do Ensino',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o de Qualidade do Ensino');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o de Est√°gio Supervisionado',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o de Est·gio Supervisionado');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o P√≥s-Gradua√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o PÛs-GraduaÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Ger√™ncia de N√∫cleo de Pr√°ticas Jur√≠dicas',0);
 
-INSERT INTO setor VALUES
- ('GerÍncia de N˙cleo de Pr·ticas JurÌdicas');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Assistente de Gabinete',0);
 
-INSERT INTO setor VALUES
- ('Assistente de Gabinete');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Assessoria T√©cnica N√≠vel III',0);
 
-INSERT INTO setor VALUES
- ('Assessoria TÈcnica NÌvel III');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Assessoria T√©cnica N√≠vel IV',0);
 
-INSERT INTO setor VALUES
- ('Assessoria TÈcnica NÌvel IV');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('CTIC - Coordenadoria de Tecnologia da Informa√ß√£o e Comunica√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CTIC - Coordenadoria de Tecnologia da InformaÁ„o e ComunicaÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Administra√ß√£o do Pr√©dio',0);
 
-INSERT INTO setor VALUES
- ('AdministraÁ„o do PrÈdio');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('N√∫cleo de Tecnologia Assistiva',0);
 
-INSERT INTO setor VALUES
- ('N˙cleo de Tecnologia Assistiva');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Ciclo B√°sico',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Ciclo B·sico');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Licenciatura em Inform√°tica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Licenciatura em Inform·tica');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Tecnologia em Manuten√ß√£o Mec√¢nica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Tecnologia em ManutenÁ„o Mec‚nica');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Tecnologia em Processamento de Dados',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Tecnologia em Processamento de Dados');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia Civil',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia Civil');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia de Computa√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia de ComputaÁ„o');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia El√©trica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia ElÈtrica');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia Mec√¢nica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia Mec‚nica');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia Mecatr√¥nica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia MecatrÙnica');
+INSERT INTO setor(setor_nome, setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia de Produ√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia de ProduÁ„o');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Bacharelado em Meteorologia',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Bacharelado em Meteorologia');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia Qu√≠mica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia QuÌmica');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Tecnologia em Automa√ß√£o Industrial',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Tecnologia em AutomaÁ„o Industrial');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Tecnologia em √Ånalise e Desenvolvimento de Sistemas',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Tecnologia em ¡nalise e Desenvolvimento de Sistemas');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia de Controle e Automa√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia de Controle e AutomaÁ„o');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Tecnologia em Agrimensura',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Tecnologia em Agrimensura');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia Naval',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia Naval');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Licenciatura em F√≠sica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Licenciatura em FÌsica');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Licenciatura em Computa√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Licenciatura em ComputaÁ„o');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia de Materiais',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia de Materiais');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Engenharia Eletr√¥nica',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Engenharia EletrÙnica');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Bracharelado em Sistema de Informa√ß√£o',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Bracharelado em Sistema de InformaÁ„o');
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Tecnologia em Jogos Digitais',0);
 
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Tecnologia em Jogos Digitais');
-
-INSERT INTO setor VALUES
- ('CoordenaÁ„o Bacharelado em QuÌmica');
-
-COMMIT;
+INSERT INTO setor(setor_nome,setor_situacao) VALUES
+ ('Coordena√ß√£o Bacharelado em Qu√≠mica',0);

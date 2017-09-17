@@ -49,7 +49,7 @@ class Zelda:
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):
-        self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
+        self.execute_query("insert into setor (setor_nome, setor_pai) values ('{}', '{}')".format(setor.nome, setor.pai), True)
 
     def get_setores(self):
         data = self.execute_query("select * from setor")
@@ -58,7 +58,8 @@ class Zelda:
           setor = Setor(
             id=d["setor_id"],
             nome=d["setor_nome"],
-            situacao=d["setor_situacao"])
+            situacao=d["setor_situacao"],
+			pai=d["setor_pai"])
           setores.append(setor)
         return setores
 

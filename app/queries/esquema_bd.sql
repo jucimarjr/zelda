@@ -28,7 +28,10 @@ DROP TABLE IF EXISTS setor;
 CREATE TABLE setor (
   setor_id int(11) NOT NULL,
   setor_nome varchar(50) NOT NULL,
-  setor_situacao int(11) NOT NULL DEFAULT '0'
+  setor_pai int(11),
+  setor_situacao int(11) NOT NULL DEFAULT '0',
+
+  FOREIGN KEY (setor_pai) REFERENCES zelda.setor(setor_id)
 );
 
 -- --------------------------------------------------------
@@ -41,9 +44,9 @@ DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario (
   usuario_id int(11) AUTO_INCREMENT NOT NULL,
   usuario_login varchar(100) NOT NULL,
-  usuario_senha varchar(50) NOT NULL,
-  usuario_logado int(11) NOT NULL,
-  usuario_admin int(11) NOT NULL,
+  usuario_senha varchar(50),
+  usuario_logado int(11) NOT NULL DEFAULT '1',
+  usuario_admin int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (usuario_id)
 );
 

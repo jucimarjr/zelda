@@ -15,8 +15,8 @@ from app import app
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'jesus'
-app.config['MYSQL_DB'] = 'mzelda'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 db = Zelda(app)

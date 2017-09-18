@@ -1,0 +1,68 @@
+*{
+	font-family: 'Didact Gothic', sans-serif;
+	font-weight: lighter;
+	color: white;
+}
+
+/*{
+	outline: 1px solid red !important;
+}*/
+
+h1{
+	font-size: 25px;
+}
+
+label{
+	font-weight: 300;
+}
+
+.row{
+	display: flex;
+}
+
+.grid{
+	padding-top: 9%;
+	margin-left: 5%;
+	max-width: 90%;
+	width: 100%;
+}
+
+.col-xs-12{
+	font-size: 15px;
+	margin: 5px;
+}
+
+.col-xs-8{
+	text-align: right;
+}
+
+.spacecol{
+	width: 99%;
+}
+
+.spacevert{
+	margin: 22%;
+}
+
+.btn{
+	margin: 5px;
+	margin-left: 35px;
+	padding-left: 45px;
+	padding-right: 45px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	font-size: 16px;
+	border-radius: 7;
+}
+
+.form-control{
+	border-radius: 0;
+}
+
+body{
+	background: #22C598;
+}
+
+button{
+	background-color: #1AA079;
+}

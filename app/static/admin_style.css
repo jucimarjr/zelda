@@ -49,3 +49,10 @@ button:disabled,
 button[disabled] {
     background-color: lightgray;
 }
+
+.logout-button{
+    margin: 30px;
+    
+    
+
+}

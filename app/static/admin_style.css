@@ -30,7 +30,9 @@ html, body {
     font-family: Segoe UI;
     font-weight: normal;
     color: white;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+	margin:10px;
+	
 }
 
 #admin-menu table{
@@ -42,7 +44,7 @@ html, body {
 }
 
 #admin-menu .section {
-    margin-top: 35px;
+    margin-top: 25px;
 }
 
 button:disabled,
@@ -51,8 +53,11 @@ button[disabled] {
 }
 
 .logout-button{
-    margin: 30px;
-    
-    
+    transform: translatex();
+	margin-left:0%;
+	width:10%;
+	padding:0%;
+  
 
 }
+

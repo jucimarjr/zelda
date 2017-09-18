@@ -21,35 +21,10 @@ class Zelda:
         data = self.execute_query("select count(*) from funcionario where funcionario_login = '{}' and funcionario_senha = '{}'".format(login, senha))
         return int(data[0]['count(*)']) > 0
 
-    #função que verifica se o usuário está logado. Utilizado no login único.
-    def verifica_logado(self, login):
-        data = self.execute_query("select funcionario_logado from funcionario where funcionario_login = '{}'".format(login))
-        if (data[0]['funcionario_logado'] == 1):
-            return False
-        return True
-
-    def set_logado_true(self, login):
-        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
-        self.execute_query("update funcionario set funcionario_logado = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
-
-    def set_logado_false(self, login):
-        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
-        self.execute_query("update funcionario set funcionario_logado = 1 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
-
-    def verifica_admin(self, login):
-        data = self.execute_query("select funcionario_admin from funcionario where funcionario_login = '{}'".format(login))
-        if (data[0]['funcionario_admin'] == 1):
-            return False
-        return True
-
-    def set_admin_true(self, login):
-        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
-        self.execute_query("update funcionario set funcionario_admin = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
-
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):
-        self.execute_query("insert into setor (setor_nome, setor_pai) values ('{}', '{}')".format(setor.nome, setor.pai), True)
+        self.execute_query("insert into setor (setor_nome, setor_situacao, setor_pai) values ('{}', '{}', '{}')".format(setor.nome, setor.situacao, setor.pai), True)
 
     def get_setores(self):
         data = self.execute_query("select * from setor")
@@ -83,15 +58,16 @@ class Zelda:
     # CRUD - FUNCIONARIO
 
     def cadastra_funcionario(self, funcionario):
-        self.execute_query("insert into funcionario (funcionario_nome, setor_id) values ('{}', '{}')".format(funcionario.nome,funcionario.setor_id), True)
-
+        self.execute_query("insert into funcionario (funcionario_nome, funcionario_login, funcionario_senha, setor_id) values ('{}', '{}', '{}', '{}')".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id), True)
+	
     def get_funcionarios(self):
-        data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario.setor_id = setor.setor_id''')
+        data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_login, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario.setor_id = setor.setor_id''')
         funcionarios = []
         for d in data:
             funcionario = Funcionario(
                           id=d["funcionario_id"],
                           nome=d["funcionario_nome"],
+                          login=d["funcionario_login"],
                           situacao=d["funcionario_situacao"],
                           setor_id=d["setor_id"],
                           setor_nome=d["setor_nome"],
@@ -100,13 +76,13 @@ class Zelda:
         return funcionarios
 
     def edita_funcionario(self, funcionario):
-        self.execute_query("update funcionario set funcionario_nome = '{}', setor_id = '{}' where funcionario_id = '{}'".format(funcionario.nome, funcionario.setor_id, funcionario.id), True)
+        self.execute_query("update funcionario set funcionario_nome = '{}', funcionario_login = '{}', funcionario_senha = '{}', setor_id = '{}' where funcionario_id = '{}'".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id, funcionario.id), True)
 
     def deleta_funcionario(self, funcionario_id):
         self.execute_query("update funcionario set funcionario_situacao = 1 where funcionario_id = '{}'".format(funcionario_id), True)
 
     def get_funcionario(self, id):
-        data = self.execute_query('''select funcionario_id, funcionario_nome,funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario_id = {} and funcionario.setor_id = setor.setor_id'''.format(id))
+        data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_login, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario_id = {} and funcionario.setor_id = setor.setor_id'''.format(id))
         if len(data) < 1:
         	return None
         funcionarios = []
@@ -114,6 +90,7 @@ class Zelda:
         	funcionario = Funcionario(
                               id=d["funcionario_id"],
                               nome=d["funcionario_nome"],
+                              login=d["funcionario_login"],
                               situacao=d["funcionario_situacao"],
                               setor_id=d["setor_id"],
                               setor_nome=d["setor_nome"],
@@ -130,10 +107,7 @@ class Zelda:
             setor = Setor(
                     id=d["setor_id"],
                     nome=d["setor_nome"],
-                    situacao=d["setor_situacao"])
+                    situacao=d["setor_situacao"],
+					pai=d["setor_pai"])
             setores.append(setor)
         return setores[0]
-
-    def cadastra_usuario(self, usuario):
-        print("insert into usuario (usuario_login, usuario_senha) values ('{}', '{}')".format(usuario.login,usuario.senha));
-        self.execute_query("insert into usuario (usuario_login, usuario_senha) values ('{}', '{}')".format(usuario.login,usuario.senha), True)

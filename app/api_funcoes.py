@@ -54,6 +54,14 @@ usuarios = [
 ]
 # ------------------------------------------------------------------------
 
+@app.rout("/get/usuarios",methods = ['GET'])
+def id():
+    # funcionarios = db.get_usuarios()
+    if request.method =='GET':
+        return usuarios.___str___()
+    else:
+        return ERROR_REQUEST_MESSAGE
+    
 @app.route("/get/funcionarios", methods=['GET'])
 def get_funcionarios():
     if request.method == 'GET':

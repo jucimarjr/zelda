@@ -133,3 +133,7 @@ class Zelda:
                     situacao=d["setor_situacao"])
             setores.append(setor)
         return setores[0]
+
+    def cadastra_usuario(self, usuario):
+        print("insert into usuario (usuario_login, usuario_senha) values ('{}', '{}')".format(usuario.login,usuario.senha));
+        self.execute_query("insert into usuario (usuario_login, usuario_senha) values ('{}', '{}')".format(usuario.login,usuario.senha), True)

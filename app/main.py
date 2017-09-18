@@ -7,6 +7,7 @@ from .classes import Criptografador
 from flask_mysqldb import MySQL
 from .db_interface import Zelda
 from .funcionario import Funcionario
+from .usuario import Usuario
 from .setor import Setor
 
 from app import app
@@ -97,6 +98,19 @@ def funcionario_criar():
         flash_errors(form)
         return render_template('funcionario_criar.html',form=form, setores=setores)
 
+
+@app.route('/usuario-criar', methods=['GET','POST'])
+def usuario_criar():
+
+    form = CadastraUsuarioForm()
+
+    if form.usuario_login.data != "" and form.usuario_senha.data != "":
+        usuario = Usuario(login = form.usuario_login.data, senha = Criptografador.gerarHash(form.usuario_senha.data, '') )
+        db.cadastra_usuario(usuario)
+    else:
+        pass
+
+    return render_template('cadastro_usuario.html', form = form)
 
 @app.route('/funcionario-atualizar', methods=['GET','POST'])
 def funcionario_atualizar():

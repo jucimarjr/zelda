@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-	<meta charset="UTF-8">
-	<title>Menu Setor</title>
-	<!--Links CDN (um serviço de armazenamento de plugins JS online que todo plugin conhecido usa) são online (não precisa baixar os arquivos do bootstrap local)-->
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='setor_tabela_style.css')}}">
+{% endblock %}
 
-	<!-- CSS compactado da última versão do bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Meu CSS (na mesma pasta deste html)-->
-	<link rel="stylesheet" href="../static/setor_tabela_style.css">
-
-</head>
-
-<body>
-
+{% block content %}
     <div class="container" id="setor-menu">
         <div class="row">
             <div>
@@ -26,7 +15,7 @@
 
                         <div class="row">
                                 <div class="col-xs-12 col-sm-4">
-                                    <button class="round-button">CADASTRAR SETOR</button>
+                                    <a href="{{url_for('setor/novo')}}"><button class="round-button">CADASTRAR SETOR</button></a>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <button class="round-button">EDITAR SETOR</button>
@@ -80,25 +69,11 @@
                         </table>
                     </div>
 
-            
+
                 </div>
 
-                
+
             </div>
         </div>
     </div>
-
-
-    <!-- Scripts JS do boostrap (são necessários somente para modals, popups, animações e afins)
-    Por convenção, coloca-se os JS antes do fim do body, pois ele altera os elementos da página dinamicamente,
-    então pra prevenir qualquer tipo de não-carregamento dos elementos do html, coloca-se depois deles -->
-
-    <!-- Bootstrap requer o JQuery (um framework JS) pra usar seus recursos javascript (JQuery sempre vem antes dos scripts dependentes)-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Javascript comprimido da última versão do bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+{% endblock %}

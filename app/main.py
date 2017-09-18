@@ -73,12 +73,7 @@ def admin():
     return render_template('index_admin.html',funcionarios = funcionarios,setores = setores)
 
 
-@app.route('/home')
-def home():
-    return render_template('home.html')
-
-
-@app.route('/funcionario-criar', methods=['GET','POST'])
+@app.route('/funcionario/novo', methods=['GET','POST'])
 def funcionario_criar():
     form = CadastraFuncionarioForm()
 
@@ -93,13 +88,13 @@ def funcionario_criar():
         funcionario = Funcionario(nome = form.funcionario_nome.data, setor_id = form.funcionario_setor_id.data)
 
         db.cadastra_funcionario(funcionario)
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario'))
     else:
         flash_errors(form)
         return render_template('funcionario_criar.html',form=form, setores=setores)
 
 
-@app.route('/usuario-criar', methods=['GET','POST'])
+@app.route('/usuario/novo', methods=['GET','POST'])
 def usuario_criar():
 
     form = CadastraUsuarioForm()
@@ -112,8 +107,8 @@ def usuario_criar():
 
     return render_template('cadastro_usuario.html', form = form)
 
-@app.route('/funcionario-atualizar', methods=['GET','POST'])
-def funcionario_atualizar():
+@app.route('/funcionario/<func_id>', methods=['GET','POST'])
+def funcionario_atualizar(func_id):
     form = AtualizaFuncionarioForm()
 
     func = Funcionario()
@@ -134,13 +129,10 @@ def funcionario_atualizar():
 
         db.edita_funcionario(func)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario'))
 
     # A página pode ser acessada diretamente pela URL ao passar somente o id do item a ser editado
     else:
-
-        # Verifica se o id foi passado na URL
-        func_id = request.args["id"]
 
         # Recupera o funcionário no banco
         func = db.get_funcionario(func_id)
@@ -151,7 +143,7 @@ def funcionario_atualizar():
 
         else:
             # Se o id é inválido, redireciona para o menu
-            return redirect(url_for('admin'))
+            return redirect(url_for('funcionario'))
 
         flash_errors(form)
 
@@ -167,23 +159,21 @@ def preenche_dados_atuais(form, func):
     form.funcionario_id.data = func.id
 
 
-@app.route('/funcionario-remover', methods=['GET', 'POST'])
-def remover_funcionario():
+@app.route('/funcionario/remover/<func_id>', methods=['GET', 'POST'])
+def remover_funcionario(func_id):
     form = RemoveFuncionarioForm()
 
     funcionario = Funcionario()
 
     if form.validate_on_submit():
         db.deleta_funcionario(form.funcionario_id.data)
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario'))
     else:
-
-        func_id = request.args['id']
 
         funcionario = db.get_funcionario(func_id)
 
         if funcionario is None:
-            return redirect(url_for('admin'))
+            return redirect(url_for('funcionario'))
         else:
             form.funcionario_id.data = funcionario.id
 
@@ -192,7 +182,7 @@ def remover_funcionario():
     return render_template('remover_funcionario.html', form=form, func=funcionario)
 
 
-@app.route('/setor-criar', methods=['GET','POST'])
+@app.route('/setor/novo', methods=['GET','POST'])
 def setor_criar():
     form = CadastraSetorForm()
 
@@ -201,20 +191,19 @@ def setor_criar():
 
         db.cadastra_setor(setor)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('setor'))
     else:
         flash_errors(form)
 
     return render_template('setor_criar.html', form=form)
 
-@app.route('/setor-atualizar', methods=['GET','POST'])
-def setor_atualizar():
+@app.route('/setor/<setor_id>', methods=['GET','POST'])
+def setor_atualizar(setor_id):
     form = AtualizaSetorForm()
 
     setor = Setor()
 
     if request.method == 'GET':
-        setor_id = request.args["id"]
 
         setor = db.get_setor(setor_id)
 
@@ -222,7 +211,7 @@ def setor_atualizar():
             form.setor_nome.data = setor.nome
             form.setor_id.data = setor.id
         else:
-            return redirect(url_for('admin'))
+            return redirect(url_for('setor'))
 
     elif form.validate_on_submit():
         setor.nome = form.setor_nome.data
@@ -230,14 +219,14 @@ def setor_atualizar():
 
         db.edita_setor(setor)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('setor'))
     else:
         flash_errors(form)
 
     return render_template('setor_atualizar.html', form=form)
 
 
-@app.route('/setor-remover', methods=['GET', 'POST'])
+@app.route('/setor/remover/<setor_id>', methods=['GET', 'POST'])
 def remover_setor():
     form = RemoveSetorForm()
 
@@ -245,15 +234,13 @@ def remover_setor():
 
     if form.validate_on_submit():
         db.deleta_setor(form.setor_id.data)
-        return redirect(url_for('admin'))
+        return redirect(url_for('setor'))
     else:
-
-        setor_id = request.args['id']
 
         setor = db.get_setor(setor_id)
 
         if setor is None:
-            return redirect(url_for('admin'))
+            return redirect(url_for('setor'))
         else:
             form.setor_id.data = setor.id
 

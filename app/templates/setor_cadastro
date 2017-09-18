@@ -13,7 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 	<div class="grid">
-		<h1> CADASTRO DE SETOR </h1>	
+		<h1> CADASTRO DE SETOR </h1>
 		<form>
 			<div class="row">
 				<div class="col-xs-12">
@@ -25,13 +25,13 @@
 			<div class="row">
 				<div class="spacecol" > </div>
 				<div class="col-xs-8">
-					<button type="submit" class="btn"> CANCELAR </button>
+					<a href="{{url_for('setor')}}"><button type="submit" class="btn"> CANCELAR </button></a>
 					<button type="submit" class="btn"> CADASTRAR </button>
 				</div>
 			</div>
 		</form>
 	</div>
 <body>
-	
+
 </body>
 </html>

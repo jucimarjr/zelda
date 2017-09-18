@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='admin_style.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container" id="admin-menu">
+    <div class="row">
+        <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
+             
+                
+        
+            <!-- Classe section personalizada -->
+            <div class="section">
+                <div class="  col-sm-2 col-sm-push-10">
+                        <button type="button" class="logout-button">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                </div>
+				
+				 <div class="col-xs-12  col-sm-12 col-sm-push-0">
+							<label class="admin-menu-label" >Funcionários Cadastrados</label>
+				 <div>
+                <!-- Classe table-responsive adiciona um scroll horizontal responsivo para dispositivos pequenos (bootstrap) -->
+			<div class="table-responsive">
+
+                    <!-- Classe table e derivados estilizam a tabela com o padrão bootstrap -->
+                    <table class="table table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome do Funcionário</th>
+                                <th>ID do Setor</th>
+                                <th>Nome do Setor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- Dados estáticos, insira dados do back-end aqui -->
+                            {% for funcionario in funcionarios %}
+                            <tr>
+                                <td>{{funcionario.id}}</td>
+                                <td>{{funcionario.nome}}</td>
+                                <td>{{funcionario.setor_id}}</td>
+                                <td>{{funcionario.setor_nome}}</td>
+                                <td>{{funcionario.situacao}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="funcionario-criar"><button class="round-button">Cadastrar Funcionário</button></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <form method="get" action="funcionario-remover">
+                            <button type="submit" data-toggle="modal" data-target="remover-funcionario-modal" disabled class="round-button" name="id">Remover Funcionário</button>
+                        </form>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <form method="get" action="funcionario-atualizar">
+                            <button type="submit" disabled class="round-button" name="id">Editar Funcionário</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <label class="admin-menu-label" >Setores Cadastrados</label>
+
+                <!-- Classe table-responsive adiciona um scroll horizontal responsivo para dispositivos pequenos (bootstrap) -->
+                <div class="table-responsive">
+
+                    <!-- Classe table e derivados estilizam a tabela com o padrão bootstrap -->
+                    <table class="table table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome do Setor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- Dados estáticos, insira dados do back-end aqui -->
+                            {% for setor in setores %}
+                            <tr>
+                                <td>{{setor.id}}</td>
+                                <td>{{setor.nome}}</td>
+                                <td>{{setor.situacao}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="setor-criar"><button class="round-button">Cadastrar Setor</button></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <form method="get" action="setor-remover">
+                            <button type="submit" disabled class="round-button" name="id">Remover Setor</button>
+                        </form>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <form method="get" action="setor-atualizar">
+                            <button type="submit" disabled class="round-button" name="id">Editar Setor</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    <!-- Uso do JQuery para selecionar linhas da tabela e acessar seus valores -->
+    <script>
+
+        // Espera o documento ser carregado completamente
+        $(document).ready(function(){
+
+            // Quando clicar em uma linha de alguma tabela
+            $("tr").click(function(){
+
+                // Deseleciona qualquer linha selecionada da tabela atual
+                $(this).parent().children().removeClass("danger");
+                $(this).addClass("danger"); // Seleciona a linha clicada
+
+                // Quando uma linha for clicada, procura os botões da tabela correspondente e altera suas propriedades
+                buttons = $(this).closest("table").parent().next().find("button").slice(-2);
+                buttons.prop("disabled", false);
+                buttons.prop('value', $(this).children().first().text())
+            });
+        });
+        <a href="{{ url_for('logout') }}">Logout</a>
+
+    </script>
+{% endblock %}

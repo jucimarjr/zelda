@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title> Cadastro de Usuário </title>
-  <!--Links CDN (um serviço de armazenamento de plugins JS online que todo plugin conhecido usa) são online (não precisa baixar os arquivos do bootstrap local)-->
+{% extends "base.html" %}
 
-	<!-- CSS compactado da última versão do bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="../static/cadastro_usuario_style.css">
-</head>
-<body>
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='cadastro_usuario_style.css')}}">
+{% endblock %}
+
+{% block content %}
   <div class="container">
     <form class="form" action="" method="post">
       <div class="form-row">
@@ -27,5 +22,5 @@
       <button class="round-button" type="button">CANCELAR</button>
     </form>
   </div>
-</body>
-</html>
+
+ {% endblock %}

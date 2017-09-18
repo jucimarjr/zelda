@@ -26,13 +26,13 @@ db = Zelda(app)
 
 # Index
 @app.route('/')
-@app.route('/index')
+@app.route('/index/')
 def index():
     form = LoginForm()
     return render_template("login.html",form=form)
 
 # User login
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login/', methods=['GET','POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -63,7 +63,7 @@ def login():
     return render_template('login.html', form=form)
 
 
-@app.route('/admin')
+@app.route('/admin/')
 def admin():
     form = CadastraFuncionarioForm()
 
@@ -73,7 +73,7 @@ def admin():
     return render_template('index_admin.html',funcionarios = funcionarios,setores = setores)
 
 
-@app.route('/funcionario/novo', methods=['GET','POST'])
+@app.route('/funcionario/novo/', methods=['GET','POST'])
 def funcionario_criar():
     form = CadastraFuncionarioForm()
 
@@ -94,7 +94,7 @@ def funcionario_criar():
         return render_template('funcionario_criar.html',form=form, setores=setores)
 
 
-@app.route('/usuario/novo', methods=['GET','POST'])
+@app.route('/usuario/novo/', methods=['GET','POST'])
 def usuario_criar():
 
     form = CadastraUsuarioForm()
@@ -107,7 +107,7 @@ def usuario_criar():
 
     return render_template('cadastro_usuario.html', form = form)
 
-@app.route('/funcionario/<func_id>', methods=['GET','POST'])
+@app.route('/funcionario/<func_id>/', methods=['GET','POST'])
 def funcionario_atualizar(func_id):
     form = AtualizaFuncionarioForm()
 
@@ -159,7 +159,7 @@ def preenche_dados_atuais(form, func):
     form.funcionario_id.data = func.id
 
 
-@app.route('/funcionario/remover/<func_id>', methods=['GET', 'POST'])
+@app.route('/funcionario/remover/<func_id>/', methods=['GET', 'POST'])
 def remover_funcionario(func_id):
     form = RemoveFuncionarioForm()
 
@@ -182,7 +182,7 @@ def remover_funcionario(func_id):
     return render_template('remover_funcionario.html', form=form, func=funcionario)
 
 
-@app.route('/setor/novo', methods=['GET','POST'])
+@app.route('/setor/novo/', methods=['GET','POST'])
 def setor_criar():
     form = CadastraSetorForm()
 
@@ -197,7 +197,7 @@ def setor_criar():
 
     return render_template('setor_criar.html', form=form)
 
-@app.route('/setor/<setor_id>', methods=['GET','POST'])
+@app.route('/setor/<setor_id>/', methods=['GET','POST'])
 def setor_atualizar(setor_id):
     form = AtualizaSetorForm()
 
@@ -226,7 +226,7 @@ def setor_atualizar(setor_id):
     return render_template('setor_atualizar.html', form=form)
 
 
-@app.route('/setor/remover/<setor_id>', methods=['GET', 'POST'])
+@app.route('/setor/remover/<setor_id>/', methods=['GET', 'POST'])
 def remover_setor():
     form = RemoveSetorForm()
 
@@ -249,7 +249,7 @@ def remover_setor():
     return render_template('remover_setor.html', form=form, setor=setor)
 
 
-@app.route('/logout')
+@app.route('/logout/')
 def logout():
     session.pop('username', None)
     return redirect(url_for('index'))

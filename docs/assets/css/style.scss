@@ -1,4 +1,7 @@
 ---
 ---
 
-@import "jekyll-theme-minimal";
+@import "{{site.theme}}";
+.tabula {
+  margin-left: 15%;
+}

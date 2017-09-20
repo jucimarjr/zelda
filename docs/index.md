@@ -1,88 +1,82 @@
 ---
 layout: default
 ---
-# [](#header-1)Documentação Zelda
 
-O Zelda é parte de um sistema de protocolo de documentos. Está sendo implementada pelos alunos da turma 1 de modelagem e projeto de sistemas, coordenados pelo professor Dr. Jucimar Júnior.
+Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-Nessa GitPage, será listada a documentação do sistema, como foi requisitado.
+[Link to another page](another-page).
 
-## [](#header-2)Requisitos Não Funcionais
+There should be whitespace between paragraphs.
 
-> Inserir aqui breve descrição do que são os requisitos não funcionais, conforme fornecido pela equipe responsável.
-Essa tabela pode ter mais de 3 colunas e mais de 6 linhas. Vai depender do que a equipe fornecer.
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| Thatielen Oliveira | Organização das tarefas |    SIM    |
-| Thatielen Oliveira | Elaboração de planilhas |    SIM    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
+# [](#header-1)Header 1
 
-* * *
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-## [](#header-2)Requisitos Funcionais (Usuário)
+## [](#header-2)Header 2
 
-> Inserir aqui breve descrição, conforme fornecido pela equipe responsável.
-Essa tabela pode ter mais de 3 colunas e mais de 6 linhas. Vai depender do que a equipe fornecer.
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
 
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| Thatielen Oliveira | Organização das tarefas |    SIM    |
-| Thatielen Oliveira | Elaboração de planilhas |    SIM    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
+### [](#header-3)Header 3
 
-* * *
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
 
-## [](#header-2)Requisitos Funcionais (Sistema)
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
 
-> Inserir aqui breve descrição, conforme fornecido pela equipe responsável.
-Essa tabela pode ter mais de 3 colunas e mais de 6 linhas. Vai depender do que a equipe fornecer.
+#### [](#header-4)Header 4
 
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| Thatielen Oliveira | Organização das tarefas |    SIM    |
-| Thatielen Oliveira | Elaboração de planilhas |    SIM    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
 
-* * *
+##### [](#header-5)Header 5
 
-## [](#header-2)Diagrama de Casos de Uso
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
 
-> Inserir aqui breve descrição, conforme fornecido pela equipe responsável.
-Essa tabela pode ter mais de 3 colunas e mais de 6 linhas. Vai depender do que a equipe fornecer.
+###### [](#header-6)Header 6
 
-* Nome do Diagrama
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
 
-![](endereçamento pro arquivo)
-
-* Nome do Diagrama
-
-![](endereçamento pro arquivo)
-
-* Nome do Diagrama
-
-![](endereçamento pro arquivo)
-
-* Nome do Diagrama
-
-![](endereçamento pro arquivo)
-
-* Nome do Diagrama
-
-![](endereçamento pro arquivo)
-
-* Nome do Diagrama
-
-![](endereçamento pro arquivo)
+### There's a horizontal rule below this.
 
 * * *
 
-## [](#header-2)Regras de Negócio
+### Here is an unordered list:
 
->Documento que informa o que cada objeto no sistema pode ou não fazer, e quais regras eles seguem.
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And a nested list:
 
 - level 1 item
   - level 2 item
@@ -98,60 +92,32 @@ Essa tabela pode ter mais de 3 colunas e mais de 6 linhas. Vai depender do que a
   - level 2 item
 - level 1 item
 
-* * *
+### Small image
 
-## [](#header-2)Análise de Projeto
+![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
 
-> Inserir aqui breve descrição, conforme fornecido pela equipe responsável.
-Essa tabela pode ter mais de 3 colunas e mais de 6 linhas. Vai depender do que a equipe fornecer.
+### Large image
 
-Se for uma tabela pequena, utilizar:
+![](https://guides.github.com/activities/hello-world/branching.png)
 
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| Thatielen Oliveira | Organização das tarefas |    SIM    |
-| Thatielen Oliveira | Elaboração de planilhas |    SIM    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
 
-Se for uma tabela muito grande, redirecionar para uma página contendo a tabela, utilizando:
-[Tabela](www.google.com)
+### Definition lists can be used with HTML syntax.
 
-* * *
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
 
-## [](#header-2)Implementação
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+```
 
-> Recolhimento e apresentação das telas do sistema.
-
-* Nome da Tela
-
-![](endereçamento pro arquivo)
-
-* Nome da Tela
-
-![](endereçamento pro arquivo)
-
-* Nome da Tela
-
-![](endereçamento pro arquivo)
-
-* Nome da Tela
-
-![](endereçamento pro arquivo)
-
-* * *
-
-## [](#header-2)Planejamento e Gerência
-
-#### [](#header-4)Equipe X
-
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| Thatielen Oliveira | Organização das tarefas |    SIM    |
-| Thatielen Oliveira | Elaboração de planilhas |    SIM    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
-| Thatielen Oliveira | Checagem das tarefas    |    NÃO    |
-
-* * *
-
-![](http://www.cdn.ueg.br/source/mobilidade_nacional_211/noticias/31283/uea.png)
+```
+The final element.
+```

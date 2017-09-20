@@ -1,5 +1,5 @@
-title: Zelda Page
-description: Documentação do sistema Zelda.
-show_downloads: false
-google_analytics: true
+title: Minimal theme
+description: Minimal is a theme for GitHub Pages.
+show_downloads: true
+google_analytics:
 theme: jekyll-theme-minimal

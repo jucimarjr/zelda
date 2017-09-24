@@ -1,0 +1,63 @@
+body {
+    background-color: #22c595;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+h4 {
+    color: grey;
+    font-family: "Segoe UI";
+    margin: 10px 20px 10px 20px ;
+    padding: 5px;
+
+}
+
+.container {
+  text-align: center;
+}
+
+#my-buttons {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.round-button {
+    border: none;
+    border-radius: 5px;
+    background-color: #18a178;
+    color: white;
+    width: 250px;
+    height: 40px;
+    margin-top: 25px;
+    transform: translateY(150%);
+    cursor: pointer;
+    transition-duration: 0.4s;
+    overflow: auto;
+}
+.round-button:hover {
+  background-color: #40a178;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button3:hover {
+  background-color: #f54747;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.section-table {
+  margin: 50px auto;
+  max-width: 80%;
+}
+
+#central-content{
+    padding-top: 250px;
+    background-color: white;
+    padding: 1px;
+    top: 50px;
+    min-height: 300px;
+    max-height: 80%;
+    overflow: auto;
+}

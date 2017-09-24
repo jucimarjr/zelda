@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<body>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul>
@@ -56,7 +57,7 @@
                      </div>
                   </div>
                <button class="round-button" type="submit">ATUALIZAR</button>
-               <a href="{{url_for('funcionario')}}"><button type="button" class="round-button">CANCELAR</button></a>
+               <a href="{{url_for('admin')}}"><button type="button" class="round-button">CANCELAR</button></a>
          </form>
          </div>
       </div>

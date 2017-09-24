@@ -24,7 +24,7 @@ class Zelda:
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):
-        self.execute_query("insert into setor (setor_nome, setor_situacao, setor_pai) values ('{}', '{}', '{}')".format(setor.nome, setor.situacao, setor.pai), True)
+        self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
 
     def get_setores(self):
         data = self.execute_query("select * from setor")
@@ -33,8 +33,7 @@ class Zelda:
           setor = Setor(
             id=d["setor_id"],
             nome=d["setor_nome"],
-            situacao=d["setor_situacao"],
-			pai=d["setor_pai"])
+            situacao=d["setor_situacao"])
           setores.append(setor)
         return setores
 
@@ -59,7 +58,7 @@ class Zelda:
 
     def cadastra_funcionario(self, funcionario):
         self.execute_query("insert into funcionario (funcionario_nome, funcionario_login, funcionario_senha, setor_id) values ('{}', '{}', '{}', '{}')".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id), True)
-	
+
     def get_funcionarios(self):
         data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_login, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario.setor_id = setor.setor_id''')
         funcionarios = []
@@ -107,7 +106,6 @@ class Zelda:
             setor = Setor(
                     id=d["setor_id"],
                     nome=d["setor_nome"],
-                    situacao=d["setor_situacao"],
-					pai=d["setor_pai"])
+                    situacao=d["setor_situacao"])
             setores.append(setor)
         return setores[0]

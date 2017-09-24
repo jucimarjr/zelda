@@ -1,7 +1,7 @@
 from flask_mysqldb import MySQL
 from .funcionario import Funcionario
 from .setor import Setor
-from .usuario import Usuario
+#from .usuario import Usuario
 
 class Zelda:
 
@@ -22,6 +22,34 @@ class Zelda:
         data = self.execute_query("select count(*) from funcionario where funcionario_login = '{}' and funcionario_senha = '{}'".format(login, senha))
         return int(data[0]['count(*)']) > 0
 
+    #função que verifica se o usuário está logado. Utilizado no login único.
+    def verifica_logado(self, login):
+        data = self.execute_query("select funcionario_logado from funcionario where funcionario_login = '{}'".format(login))
+        if (data[0]['funcionario_logado'] == 1):
+            return False
+        return True
+
+    def set_logado_true(self, login):
+        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
+        self.execute_query("update funcionario set funcionario_logado = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+
+    def set_logado_false(self, login):
+        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
+        self.execute_query("update funcionario set funcionario_logado = 1 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+
+    def verifica_admin(self, login):
+        data = self.execute_query("select funcionario_admin from funcionario where funcionario_login = '{}'".format(login))
+        if (data[0]['funcionario_admin'] == 1):
+            return False
+        return True
+
+    def set_admin_true(self, login):
+        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
+        self.execute_query("update funcionario set funcionario_admin = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+
+    def get_funcionario_senha(self, login):
+        data = self.execute_query("select funcionario_senha from funcionario where funcionario_login = '{}'".format(login))
+        return data
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):
@@ -112,7 +140,7 @@ class Zelda:
         return setores[0]
 
     # CRUD - USUARIO
-    
+
     def get_usuarios(self):
         data = self.execute_query('''select * from usuario''')
         usuarios = []
@@ -127,17 +155,17 @@ class Zelda:
         return usuarios
 
 
-	def get_usuario(self, id):
-		    data = self.execute_query('''select * from usuario where usuario_id = {}'''.format(id))
-		    if len(data) < 1:
-		    	return None
-		    usuarios = []
-		    for d in data:
-		    	usuario = Usuario(
-		                      id=d["usuario_id"],
-		                      login=d["usuario_login"],
-		                      senha=d["usuario_senha"],
-		                      logado=d["usuario_logado"],
-		                      admin=d["usuario_admin"])
-		       	usuarios.append(usuario)
-		    return usuarios[0]
+    def get_usuario(self, id):
+        data = self.execute_query('''select * from usuario where usuario_id = {}'''.format(id))
+        if len(data) < 1:
+            return None
+        usuarios = []
+        for d in data:
+            usuario = Usuario(
+                id=d["usuario_id"],
+                login=d["usuario_login"],
+                senha=d["usuario_senha"],
+                logado=d["usuario_logado"],
+                admin=d["usuario_admin"])
+            usuarios.append(usuario)
+        return usuarios[0]

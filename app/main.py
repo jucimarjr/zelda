@@ -35,7 +35,7 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-
+        session['user_login'] = form.login.data
         senha = form.senha.data
         senhaHash = Criptografador.gerarHash(senha, '')
 
@@ -43,10 +43,15 @@ def login():
         if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
             return redirect(url_for('admin'))
 
-        ans = db.verifica_login(login=form.login.data,senha = senhaHash)
-
+        ans = db.verifica_login(login = form.login.data, senha = senhaHash)
         if ans:
-            return redirect(url_for('home'))
+            if (not db.verifica_logado(login = form.login.data)):
+                db.set_logado_true(login = form.login.data)
+                if (db.verifica_admin(login = form.login.data)):
+                    return redirect(url_for('admin'))
+                return redirect(url_for('home'))
+            flash("Usuario já logado!")
+
         else:
             flash("Nome de usuário ou senha incorretos")
     else:
@@ -54,6 +59,12 @@ def login():
 
     return render_template('login.html', form=form)
 
+@app.route('/logout/')
+def logout():
+    session.pop('username', None)
+    user_login = session.get('user_login', None)
+    db.set_logado_false(user_login)
+    return redirect(url_for('index'))
 
 @app.route('/admin')
 def admin():

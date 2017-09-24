@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='lista_funcionario_style.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mx-auto" id="my-buttons">
+              <div class="col-md-4">
+                <a href="{{url_for('funcionario/novo')}}"><button type="submit" class="round-button button1">ADICIONAR FUNCIONÁRIO</button></a>
+              </div>
+              <div class="col-md-4">
+                <form method="get" action="###">
+                  <a href="#"><button type="submit" class="round-button button2">EDITAR FUNCIONÁRIO</button></a>
+                </form>
+              </div>
+              <div class="col-md-4">
+                <form method="post" action="###">
+                  <a href="#"><button type="submit" class="round-button button3">REMOVER FUNCIONÁRIO</button></a>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-table">
+      <div class="col-md-12" id="central-content">
+          <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome do Funcionário</th
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- Dados estáticos, insira dados do back-end aqui -->
+                        <!-- {% for funcionario in funcionarios %} -->
+                        <tr>
+                            <td>{{funcionario.id}}</td>
+                            <td>{{funcionario.nome}}</td>
+                        </tr>
+                        <!-- {% endfor %} -->
+                    </tbody>
+          </table>
+      </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // Espera o documento ser carregado completamente
+        $(document).ready(function(){
+            // Quando clicar em uma linha de alguma tabela
+            $("tr").click(function(){
+                // Deseleciona qualquer linha selecionada da tabela atual
+                $(this).parent().children().removeClass("danger");
+                $(this).addClass("danger"); // Seleciona a linha clicada
+                // Quando uma linha for clicada, procura os botões da tabela correspondente e altera suas propriedades
+                buttons = $(this).closest("table").parent().next().find("button").slice(-2);
+                buttons.prop("disabled", false);
+                buttons.prop('value', $(this).children().first().text())
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Tela de Cadastro de Setores </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/tela_setor_style.css">
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	<div class="grid">
+		<h1> CADASTRO DE SETOR </h1>
+		<form>
+			<div class="row">
+				<div class="col-xs-12">
+					<label for="inputText" class="setorName"> Nome do Setor </label>
+					<input type="text" class="form-control" id="inputText">
+				</div>
+			</div>
+			<div class="spacevert"> </div>
+			<div class="row">
+				<div class="spacecol" > </div>
+				<div class="col-xs-8">
+					<a href="{{url_for('setor')}}"><button type="submit" class="btn"> CANCELAR </button></a>
+					<button type="submit" class="btn"> CADASTRAR </button>
+				</div>
+			</div>
+		</form>
+	</div>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='admin_style.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="fundo-branco">
+    		<div class="col-md-1">
+    			<img src="mene.jpg">
+    		</div>
+    			<h4>NOME: Hue BR da Silva Zueiro</h4>
+                <h4>FUNÇÃO: Administrador</h4>
+            </div>
+            <div class="col-md-12" id="center">
+                <a href="{{url_for('funcionario')}}"><button class="round-button">FUNCIONÁRIO</button></a>
+                <a href="{{url_for('setor')}}"><button class="round-button">SETOR</button></a>
+                <a href="{{url_for('usuario')}}"><button class="round-button">USUÁRIO</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

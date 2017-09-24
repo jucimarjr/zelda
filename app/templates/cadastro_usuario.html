@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='cadastro_usuario_style.css')}}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form class="form" action="" method="post">
+      <div class="form-row">
+        <h2 class="form-group col-md-8" id="text-color">CADASTRO DE USUÁRIO</h2>
+        <div class="form-group col-md-8 input-group">
+          <label for="nomeUsuario" class="col-form-label" id="text-color">Nome do Usuário</label>
+          {{form.usuario_login(class_='form-control')}}
+        </div>
+        <div class="form-group col-md-4">
+          <label for="senhaUsuario" class="col-form-label" id="text-color">Senha do Usuário</label>
+          {{form.usuario_senha(class_='form-control')}}
+        </div>
+      </div>
+      <button class="round-button" type="submit">CADASTRAR</button>
+      <a href="{{url_for('usuario')}}"><button class="round-button" type="button">CANCELAR</button></a>
+    </form>
+  </div>
+
+ {% endblock %}

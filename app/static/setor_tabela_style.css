@@ -1,0 +1,53 @@
+body {
+    background-color: #22c595;
+}
+
+html, body {
+    /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
+    width: 100%;
+    height: 100%;
+}
+
+#setor-menu button {
+    /*Retira as bordas padrão do botão html*/
+    outline: none;
+    border: none;
+
+    border-radius: 5px;
+    background-color: #18a178;
+    color: white;
+    width: 60%;
+    height: 40px;
+
+    font-family: Yu Gothic;
+    font-size: 13px;
+	
+	margin-left: 16%;
+    margin-bottom: 6%;
+}
+
+.setor-menu-label {
+    font-size: 30px;
+    font-family: Segoe UI;
+    font-weight: normal;
+    color: white;
+    padding-bottom: 15px;
+}
+
+
+#titulo-setor {
+    color: #95989A;
+}
+
+
+#setor-menu table{
+    background-color: white;
+    max-height: 200px;
+
+    /* Caso a tabela atinja o máximo de sua altura, exibe um scroll */
+    overflow: auto;
+}
+
+#setor-menu .section {
+    margin-top: 10%;
+}

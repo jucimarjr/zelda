@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='setor_tabela_style.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="setor-menu">
+        <div class="row">
+            <div>
+
+                <!-- Classe section personalizada -->
+                <div class="section">
+
+
+                        <div class="row">
+                                <div class="col-xs-12 col-sm-4">
+                                    <a href="{{url_for('setor/novo')}}"><button class="round-button">CADASTRAR SETOR</button></a>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <button class="round-button">EDITAR SETOR</button>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <button class="round-button">EXCLUIR SETOR</button>
+                                </div>
+                        </div>
+
+                    <!-- Classe table-responsive adiciona um scroll horizontal responsivo para dispositivos pequenos (bootstrap) -->
+                    <div class="table-responsive">
+
+                        <!-- Classe table e derivados estilizam a tabela com o padrão bootstrap -->
+                        <table class="table table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+									<th id="titulo-setor">Nº</th>
+                                    <th id="titulo-setor">Código</th>
+                                    <th id="titulo-setor">Nome do Setor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- Dados estáticos, insira dados do back-end aqui -->
+                                <tr>
+                                    <td>1</td>
+                                    <td> </td>
+									<td> </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td> </td>
+									<td> </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td> </td>
+									<td> </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td> </td>
+									<td> </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td> </td>
+									<td> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

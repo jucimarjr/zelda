@@ -1,6 +1,7 @@
 from flask_mysqldb import MySQL
 from .funcionario import Funcionario
 from .setor import Setor
+from .usuario import Usuario
 
 class Zelda:
 
@@ -109,3 +110,34 @@ class Zelda:
                     situacao=d["setor_situacao"])
             setores.append(setor)
         return setores[0]
+
+    # CRUD - USUARIO
+    
+    def get_usuarios(self):
+        data = self.execute_query('''select * from usuario''')
+        usuarios = []
+        for d in data:
+            usuario = Usuario(
+                          id=d["usuario_id"],
+                          login=d["usuario_login"],
+                          senha=d["usuario_senha"],
+                          logado=d["usuario_logado"],
+                          admin=d["usuario_admin"])
+            usuarios.append(usuario)
+        return usuarios
+
+
+	def get_usuario(self, id):
+		    data = self.execute_query('''select * from usuario where usuario_id = {}'''.format(id))
+		    if len(data) < 1:
+		    	return None
+		    usuarios = []
+		    for d in data:
+		    	usuario = Usuario(
+		                      id=d["usuario_id"],
+		                      login=d["usuario_login"],
+		                      senha=d["usuario_senha"],
+		                      logado=d["usuario_logado"],
+		                      admin=d["usuario_admin"])
+		       	usuarios.append(usuario)
+		    return usuarios[0]

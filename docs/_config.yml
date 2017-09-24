@@ -1,0 +1,25 @@
+title: "Zelda Page"
+description: "
+<p>
+  Documentação do Projeto Zelda
+</p>
+  1. <a href=\"#1-objetivo\">Objetivo</a> <br>
+  2. <a href=\"#2-requisitos\">Requisitos</a>
+  <div class=\"tabula\">
+    2.1 <a href=\"#21-não-funcionais\">Requisitos Não Funcionais</a> <br>
+    2.2 <a href=\"#22-funcionais\">Requisitos Funcionais</a> <br>
+    2.3 <a href=\"#23-regras-de-negócio\">Regras de Negócio</a> <br>
+    2.4 <a href=\"#24-diagrama-de-caso-de-uso\">Diagrama de Casos de Uso</a>
+  </div>
+  3. <a href=\"#3-análise-de-projeto\">Análise de Projetos</a> <br>
+  <div class=\"tabula\">
+    3.1 <a href=\"#31-tabela-de-setor\">Tabela de Setores</a> <br>
+    3.2 <a href=\"#32-tabela-de-usuário\">Tabela de Usuários</a> <br>
+    3.3 <a href=\"#33-tabela-de-funcionário\">Tabela de Funcionários</a>
+  </div>
+  4. <a href=\"#4-implementação\">Implementação</a> <br>
+  5. <a href=\"#5-planejamento-e-gerência\">Planejamento e Gerência</a> <br>
+"
+show_downloads: false
+google_analytics: true
+theme: "jekyll-theme-minimal"

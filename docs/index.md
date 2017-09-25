@@ -33,10 +33,10 @@ São os requisitos funcionais com os quais o usuário interage diretamente, de t
 |     Codigo         | Nome                    | Descrição     |
 |:-------------------|:------------------------|:--------------|
 | RF001              | Login unico             |O sistema deve permitir ao usuario que  entre no sistema por meio do seu login unico e senha       |
-|RF002               | Cadastrar funcionarios  |O sistema deve permitir ao usuario cadastrar novos funcionarios   |
-|RF003               | Cadastrar setor	       |O sistema deve permitir ao usuario cadastrar novos setores  |
-|RF004               | Relacionar funcionario a setor                   |O sistema deve permitir ao usuario relacionar um funcionario a um setor    |
-|RF005               | Cadastro de usuarios    |O sistema deve permitir ao usuario que se cadastre no sistema por meio de um login e senha |
+| RF002               | Cadastrar funcionarios  |O sistema deve permitir ao usuario cadastrar novos funcionarios   |
+| RF003               | Cadastrar setor	       |O sistema deve permitir ao usuario cadastrar novos setores  |
+| RF004               | Relacionar funcionario a setor                   |O sistema deve permitir ao usuario relacionar um funcionario a um setor    |
+| RF005               | Cadastro de usuarios    |O sistema deve permitir ao usuario que se cadastre no sistema por meio de um login e senha |
 
 * * *
 
@@ -45,7 +45,7 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 |     Codigo         | Nome                    | Descrição     |
 |:-------------------|:------------------------|:--------------|
-|RF006		     | Tela Admin	       |O sistema deve direcionar o adiministrdor para a tela de Administrador  |
+| RF006		     | Tela Admin	       |O sistema deve direcionar o adiministrdor para a tela de Administrador  |
 
 * * *
 
@@ -105,63 +105,46 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 ## [3.](#header-2) Análise de Projeto
 
-O projeto segue esquematizado de na forma de Entidade e Relacionamento, onde as principais entidades (setor,funcionário,usuário) são postas em tabelas no modelo físico do BD. Onde cada tabela tem seus atributos específicos em cada coluna deixando assim populado todas as informções do sistema referente as entidades envolvidas do sistema.
+O projeto segue esquematizado na forma de Entidade e Relacionamento, onde as principais entidades (setor, funcionário, usuário) são postas em tabelas no modelo físico do Banco de Dados. Onde cada tabela tem seus atributos específicos em cada coluna deixando assim populado todas as informções do sistema referente as entidades envolvidas do sistema.
 
 ## [3.1.](#header-3) Tabela de Setor
-
 A tabela  do setor, tem os seguintes atributos: setor_id, setor_nome, setor_situação, setor_pai.
-Na coluna setor_id, ficam armazenados os dados referentes a identificação de cada setor, onde cada setor é identificado de forma única, ou seja, o setor_id é uma chave primária.
 
-Na coluna setor_nome, ficam armazenados os dados referentes ao nome de cada setor, pois cada setor tem que ter um nome.
+|     coluna     | descrição                                 | tipo de dado |
+|:---------------|------------------------------------------ |--------------|
+| setor_id  | No atributo setor_id, ficam armazenados os dados referentes a identificação de cada setor, onde cada setor é identificado de forma única, ou seja, o setor_id é uma chave primária.  | int |
+| setor_nome  |  No atributo setor_nome, ficam armazenados os dados referentes ao nome de cada setor, pois cada setor tem que ter um nome. | varchar  |
+| setor_situacao  |  No atributo setor_situação, ficam armazenados os dados referentes a situação de cada setor, ele é responsável por indicar o se o setor está ativo ou não. | int |
+| setor_pai |  No atributo setor_pai, ficam armazenados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.  | int |
 
-Na coluna setor_situação, ficam armazenados os dados referentes a situação de cada setor, ele é responsável por indicar o se o setor está ativo ou não.
-
-Na coluna setor_pai, ficam armazenados os dados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.
-
+<<<<<<< HEAD
 |     Coluna     | Descrição                                                           | Tipo de Dado |
 |:---------------|-------------------------------------------------------------------- |---------- |
 |    setor_id    |  Ficam armazenados os dados referentes a identificação de cada setor<space><space>|           |
+=======
+>>>>>>> e11c6163ba6e2cc16fd5d324b102777671b74221
 
 ## [3.2.](#header-3) Tabela de Usuário
-A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin
+A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin.
 
-Na coluna usuario_id, ficam armazenados os dados referentes a identificação de cada usuário,onde esse dado é uma chave primária e irá guardar uma identificação de cada usuário cadastrado no banco de dados.
-
-Na coluna usuario_login, ficam armazenados os dados referentes ao login que o usuário cadastrou
-
-Na coluna usuario_senha, ficam armazenados a senha que o usuário cadastrou
-
-Na coluna usuario_logado, irá definir se o usuário está logado, definindo como 1 caso esteja logado ou 0 caso contrário
-
-Na coluna usuario_admin, irá guardar se o usuário é administrador ou não.
-
-|     usuario_id     | usuario_login           | usuario_senha  | usuario_admin |
-|:---------------- |-------------------------- |----------------|---------------|
-|         2              | Andréa              | andrea@123     |     1         |                   
-|         3              | Antônio             | antonio@123    |     1         |
-|         4              | Cássio              | cassio@123     |     1         |
-|         5              | Charles             | charles@123    |     1         |
-|         6              | Clairon             | clairon@123    |     1         |
-|         7              | Cláudio             | claudio@123    |     1         |
+|   coluna    | descrição           | tipo de dado |
+|:------------|---------------------|--------------|
+| usuario_id  | No atributo usuario_id, ficam armazenados os dados referentes a identificação de cada usuário, onde esse dado é uma chave primária e irá guardar uma identificação de cada usuário cadastrado no banco de dados.  | int |
+| usuario_login | No atributo usuario_login, ficam armazenados os dados referentes ao login que o usuário cadastrou | varchar |
+| usuario_senha | No atributo usuario_senha, fica armazenado a senha que o usuário cadastrou  | varchar |
+| usuario_logado| No atributo usuario_logado, irá definir se o usuário está logado, definindo como 1 caso esteja logado ou 0 caso contrário | int |
+| usuario_admin | No atributo usuario_admin, irá guardar se o usuário é administrador ou não. | int |
 
 
 ## [3.3.](#header-3) Tabela de Funcionário
-A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao
+A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao.
 
-Na coluna funcionario_id, ficam armazenados os dados referentes a identificação de cada funcionário sendo esse valor criado como uma chave primária, que determina um valor único no banco de dados.
+| coluna  | descrição | tipo de dado  |
+|:---------------|------------|--------------------- |
+| funcionario_id  | No atributo funcionario_id, ficam armazenados os dados referentes a identificação de cada funcionário sendo esse valor criado como uma chave primária, que determina um valor único no banco de dados.                  |         int            |
+| funcionario_nome  | No  atributo funcionário_nome, ficam armazenados os nomes de cada usuário cadastrado no sistema.          |         varchar            |
+| funcionario_situacao |  No atributo funcionario_situacao, ficam armazenados a situaçãso de cada funcionário sendo o valor 1 o valor inicial que determina funcionário ativo e caso haja uma alteração na situação do funcionário ele recebe o valor 0 para inativo. |         varchar            |
 
-Na coluna funcionário_nome, ficam armazenados os nomes de cada usuário cadastrado no sistema
-
-Na coluna funcionario_situacao, ficam armazenados a situaçãso de cada funcionário sendo o valor 1 o valor inicial que determina funcionário ativo e caso haja uma alteração na situação do funcionário ele recebe o valor 0 para inativo.
-
-|     funcionario_id     | funcionario_nome                | funcionario_situacao |
-|:---------------------- |-------------------------------- |--------------------- |
-|         2              | Andréa Fragata                  |         1            |
-|         3              | Antônio Estanislau              |         1            |
-|         4              | Cássio Bernardes                |         1            |
-|         5              | Charles Luiz                    |         1            |
-|         6              | Clairon Lima                    |         1            |
-|         7              | Cláudio Gonçalves               |         1            |
 
 * * *
 

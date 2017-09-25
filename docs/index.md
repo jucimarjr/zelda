@@ -118,14 +118,9 @@ Na coluna setor_situação, ficam armazenados os dados referentes a situação d
 
 Na coluna setor_pai, ficam armazenados os dados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.
 
-|     setor_id     | setor_nome                                 | setor_pai | setor_situacao    |
-|:---------------- |------------------------------------------- |---------- |-----------------  |
-|     UEA00001     | Reitoria                                   |           |        1          |
-|     UEA00002     | Gabinete do Reitor                         | UEA00001  |        1          |
-|     UEA00003     | Gabinete do Vice-Reitor                    | UEA00001  |        1          |
-|     UEA00004     | Pró-Reitoria de Planejamento               | UEA00001  |        1          |
-|     UEA00005     | Pró-Reitoria de Administração              | UEA00001  |        1          |
-|     UEA00006     | Pró-Reitoria de Ensino de Graduação        | UEA00001  |        1          |
+|     Coluna     | Descrição                                                           | Tipo de Dado |
+|:---------------|-------------------------------------------------------------------- |---------- |
+|    setor_id    |  Ficam armazenados os dados referentes a identificação de cada setor<space><space>|           |
 
 ## [3.2.](#header-3) Tabela de Usuário
 A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin

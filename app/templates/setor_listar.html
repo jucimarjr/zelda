@@ -34,6 +34,7 @@
           <table class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Código</th>
                             <th>Nome do Setor</th
                         </tr>
@@ -43,7 +44,8 @@
 
                         <!-- Dados estáticos, insira dados do back-end aqui -->
                          {%for setor in setores %}
-                        <tr>
+                        <tr data-setor-id="{{setor.id}}">
+                            <td><input type="checkbox"></td>
                             <td>{{setor.id}}</td>
                             <td>{{setor.nome}}</td>
                         </tr>
@@ -60,6 +62,16 @@
     <script>
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
+           
+            // Ajusta a largura da coluna de checkboxes
+            $("thead > tr > th").first().css("width","25px");
+
+            // Impede o clique do input de espalhar o clique para seus pais (a linha da tabela)
+            $("td > input").parent().click(function(e){
+                e.stopPropagation();
+            });
+            
+            
             // Quando clicar em uma linha de alguma tabela
             $("tr").click(function(){
                 // Deseleciona qualquer linha selecionada da tabela atual

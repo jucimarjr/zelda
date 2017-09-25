@@ -14,7 +14,7 @@
                     <a href="{{url_for('funcionario_criar')}}"><button class="round-button button1">ADICIONAR FUNCIONÁRIO</button></a>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                  <a><button type="submit" class="round-button button2">EDITAR FUNCIONÁRIO</button></a>
+                  <a><button id="editar-button" type="submit" class="round-button button2">EDITAR FUNCIONÁRIO</button></a>
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <form id="remover-form" action="{{url_for('funcionario_remover')}}" method="post">
@@ -66,6 +66,13 @@
 
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
+
+            $("#editar-button").click(function(){
+                var id = $("tr > td > input:checked").parent().parent().first().data("funcionarioId");
+
+                if(id != undefined)
+                    window.location.href = "funcionario/" + id;
+            });
 
             // Ajusta a largura da coluna de checkboxes
             $("thead > tr > th").first().css("width","25px");

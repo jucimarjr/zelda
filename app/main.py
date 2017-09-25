@@ -8,6 +8,7 @@ from flask_mysqldb import MySQL
 from .db_interface import Zelda
 from .funcionario import Funcionario
 from .setor import Setor
+from .lotacao import Lotacao
 
 from app import app
 
@@ -120,12 +121,13 @@ def funcionario_atualizar(func_id):
     form = AtualizaFuncionarioForm()
 
     func = Funcionario()
+    lotacao = Lotacao()
 
     # Recupera todos os setores do banco
     setores = db.get_setores()
 
     # Adiciona dinamicamente as opções do SelectField que vai ser renderizado pelo wtforms
-    form.funcionario_setor_id.choices = [(s.id, s.nome) for s in setores]
+    form.setor_id.choices = [(s.id, s.nome) for s in setores]
 
     # Se a página foi carregada com dados post (do formulário da própria página), valida os campos
     if form.validate_on_submit():
@@ -133,26 +135,35 @@ def funcionario_atualizar(func_id):
         # Preenche um novo funcionário com os campos atualizados
         func.nome = form.funcionario_nome.data
         func.id = form.funcionario_id.data
-        func.login = form.funcionario_login.data
-        func.senha = form.funcionario_senha.data
-        func.setor_id = form.funcionario_setor_id.data
 
         db.edita_funcionario(func)
+
+        lotacao = db.get_lotacao_ativa(func.id)
+
+        # Verifica se o setor selecionado permanece inalterado
+        if lotacao is None or lotacao.setor_id != form.setor_id.data:
+
+            lotacao = Lotacao()
+
+            # Se não, cadastra uma nova lotação
+            lotacao.setor_id = form.setor_id.data
+            lotacao.funcionario_id = func.id
+
+            db.cadastra_lotacao(lotacao)
 
         return redirect(url_for('funcionario_listar'))
 
     # A página pode ser acessada diretamente pela URL ao passar somente o id do item a ser editado
     else:
-
-        # Verifica se o id foi passado na URL
-        func_id = request.args["id"]
-
         # Recupera o funcionário no banco
         func = db.get_funcionario(func_id)
 
         # Se o id encontrou algum funcionário no banco
         if func is not None:
-            preenche_dados_atuais(form, func)
+
+            # Recupera a lotação ativa do funcionário no banco
+            lotacao = db.get_lotacao_ativa(func_id)
+            preenche_dados_atuais(form, func, lotacao)
 
         else:
             # Se o id é inválido, redireciona para o menu
@@ -163,15 +174,18 @@ def funcionario_atualizar(func_id):
     return render_template('funcionario_atualizar.html', form=form)
 
 
-def preenche_dados_atuais(form, func):
+def preenche_dados_atuais(form, func, lotacao):
     # Preenche o formulário com os dados atuais do funcionário
-    form.funcionario_setor_id.default = int(func.setor_id)
+
+    if lotacao is not None:
+        form.setor_id.default = int(lotacao.setor_id)
+        form.lotacao_id.data = lotacao.id
+
     form.process()
 
     form.funcionario_nome.data = func.nome
     form.funcionario_id.data = func.id
-    form.funcionario_login.data = func.login
-    form.funcionario_senha.data = func.senha
+
 
 
 @app.route('/funcionario/desativar', methods=['GET','POST'])

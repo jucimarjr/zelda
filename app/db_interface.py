@@ -136,12 +136,26 @@ class Zelda:
     # CRUD - FUNCIONARIO
 
     def cadastra_funcionario(self, funcionario):
-        self.execute_query("insert into funcionario (funcionario_nome,funcionario_situacao) values ('{}', '{}')".format(funcionario.nome, funcionario.situacao), True)
-
-    def cadastra_funcionario_lotacao(self, funcionario):
         l_id = self.execute_query("insert into funcionario (funcionario_nome, funcionario_situacao) values ('{}', '{}'); select LAST_INSERT_ID();".format(funcionario.nome, funcionario.situacao), True)
-        self.execute_query("insert into lotacao (funcionario_id, setor_id) values('{}', '{}')".format(funcionario.funcionario_id, l_id), True)
+        return l_id
 
+    def cadastra_lotacao(self, lotacao):
+        self.execute_query("insert into lotacao (funcionario_id, setor_id) values('{}', '{}')".format(lotacao.funcionario_id, lotacao.setor_id), True)
+
+    def get_lotacao_ativa(self, funcionario_id):
+        data = self.execute_query("select * from lotacao where lotacao.funcionario_id = '{}' order by lotacao.lotacao_id desc limit 1".format(funcionario_id))
+
+        if len(data) < 1:
+            return None
+
+        for d in data:
+            lotacao = Lotacao(
+                    id = d["lotacao_id"],
+                    funcionario_id= d["funcionario_id"],
+                    setor_id = d["setor_id"])
+
+        return lotacao
+    
     def get_funcionarios(self):
         data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_situacao from funcionario''')
         funcionarios = []

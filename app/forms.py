@@ -32,8 +32,9 @@ class AtualizaSetorForm(Form):
 #Atualiza Funcionario
 class AtualizaFuncionarioForm(Form):
     funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
-    funcionario_situacao = StringField('Situacao Funcionário', validators=[DataRequired('Situacao do Funcionário é obrigatório')])
-  
+    lotacao_id = HiddenField('ID Lotação', validators=[])
+    setor_id = SelectField ('Setor', coerce=int)
+    funcionario_id = HiddenField('ID Funcionário', validators=[DataRequired('O ID do Funcionário não pode ser indefinido')])
 
 
 # Remover Funcionário

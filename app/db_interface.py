@@ -136,10 +136,10 @@ class Zelda:
     # CRUD - FUNCIONARIO
 
     def cadastra_funcionario(self, funcionario):
-        self.execute_query("insert into funcionario (funcionario_nome, funcionario_login, funcionario_senha, setor_id) values ('{}', '{}', '{}', '{}')".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id), True)
+        self.execute_query("insert into funcionario (funcionario_nome,funcionario_situacao) values ('{}', '{}')".format(funcionario.nome, funcionario.situacao), True)
 
     def cadastra_funcionario_lotacao(self, funcionario):
-        l_id = self.execute_query("insert into funcionario (funcionario_nome, funcionario_login, funcionario_senha, setor_id) values ('{}', '{}', '{}', '{}'); select LAST_INSERT_ID();".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id), True)
+        l_id = self.execute_query("insert into funcionario (funcionario_nome, funcionario_situacao) values ('{}', '{}'); select LAST_INSERT_ID();".format(funcionario.nome, funcionario.situacao), True)
         self.execute_query("insert into lotacao (funcionario_id, setor_id) values('{}', '{}')".format(funcionario.funcionario_id, l_id), True)
 
     def get_funcionarios(self):
@@ -154,7 +154,7 @@ class Zelda:
         return funcionarios
 
     def edita_funcionario(self, funcionario):
-        self.execute_query("update funcionario set funcionario_nome = '{}', funcionario_login = '{}', funcionario_senha = '{}', setor_id = '{}' where funcionario_id = '{}'".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id, funcionario.id), True)
+        self.execute_query("update funcionario set funcionario_nome = '{}', funcionario_situacao = '{}' where funcionario_id = '{}'".format(funcionario.nome, funcionario.situacao, funcionario.id), True)
 
     def deleta_funcionario(self, funcionario_id):
         self.execute_query("update funcionario set funcionario_situacao = 1 where funcionario_id = '{}'".format(funcionario_id), True)

@@ -69,11 +69,7 @@ def logout():
 @app.route('/admin')
 def admin():
     form = CadastraFuncionarioForm()
-
-    funcionarios = db.get_funcionarios()
-    setores = db.get_setores()
-
-    return render_template('TelaAdmin.html',funcionarios = funcionarios,setores = setores)
+    return render_template('TelaAdmin.html')
 
 
 @app.route('/home')

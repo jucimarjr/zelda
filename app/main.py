@@ -15,8 +15,8 @@ from app import app
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'jesus'
-app.config['MYSQL_DB'] = 'mzelda'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 db = Zelda(app)
@@ -73,7 +73,7 @@ def admin():
     funcionarios = db.get_funcionarios()
     setores = db.get_setores()
 
-    return render_template('index_admin.html',funcionarios = funcionarios,setores = setores)
+    return render_template('TelaAdmin.html',funcionarios = funcionarios,setores = setores)
 
 
 @app.route('/home')
@@ -81,7 +81,14 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/funcionario-criar', methods=['GET','POST'])
+@app.route('/funcionario')
+def funcionario_listar():
+    funcionarios = db.get_funcionarios();
+
+    return render_template('funcionario_listar.html', funcionarios= funcionarios);
+
+
+@app.route('/funcionario/novo', methods=['GET','POST'])
 def funcionario_criar():
     form = CadastraFuncionarioForm()
 
@@ -97,14 +104,14 @@ def funcionario_criar():
         Criptografador.gerarHash(form.funcionario_senha.data, ''), setor_id = form.funcionario_setor_id.data)
 
         db.cadastra_funcionario(funcionario)
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario_listar'))
     else:
         flash_errors(form)
         return render_template('funcionario_criar.html',form=form, setores=setores)
 
 
-@app.route('/funcionario-atualizar', methods=['GET','POST'])
-def funcionario_atualizar():
+@app.route('/funcionario/<func_id>', methods=['GET','POST'])
+def funcionario_atualizar(func_id):
     form = AtualizaFuncionarioForm()
 
     func = Funcionario()
@@ -127,7 +134,7 @@ def funcionario_atualizar():
 
         db.edita_funcionario(func)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario_listar'))
 
     # A página pode ser acessada diretamente pela URL ao passar somente o id do item a ser editado
     else:
@@ -144,7 +151,7 @@ def funcionario_atualizar():
 
         else:
             # Se o id é inválido, redireciona para o menu
-            return redirect(url_for('admin'))
+            return redirect(url_for('funcionario_listar'))
 
         flash_errors(form)
 
@@ -162,32 +169,19 @@ def preenche_dados_atuais(form, func):
     form.funcionario_senha.data = func.senha
 
 
-@app.route('/funcionario-remover', methods=['GET', 'POST'])
-def remover_funcionario():
+@app.route('/funcionario/desativar', methods=['GET','POST'])
+def funcionario_remover():
     form = RemoveFuncionarioForm()
 
-    funcionario = Funcionario()
+    funcionarios = []
+    ids_funcionarios = request.form.getlist('ids[]')
 
-    if form.validate_on_submit():
-        db.deleta_funcionario(form.funcionario_id.data)
-        return redirect(url_for('admin'))
-    else:
-
-        func_id = request.args['id']
-
-        funcionario = db.get_funcionario(func_id)
-
-        if funcionario is None:
-            return redirect(url_for('admin'))
-        else:
-            form.funcionario_id.data = funcionario.id
-
-        flash_errors(form)
+    flash(ids_funcionarios)
 
     return render_template('remover_funcionario.html', form=form, func=funcionario)
 
 
-@app.route('/setor-criar', methods=['GET','POST'])
+@app.route('/setor/novo', methods=['GET','POST'])
 def setor_criar():
     form = CadastraSetorForm()
 
@@ -202,8 +196,8 @@ def setor_criar():
 
     return render_template('setor_criar.html', form=form)
 
-@app.route('/setor-atualizar', methods=['GET','POST'])
-def setor_atualizar():
+@app.route('/setor/<setor_id>', methods=['GET','POST'])
+def setor_atualizar(setor_id):
     form = AtualizaSetorForm()
 
     setor = Setor()
@@ -232,7 +226,7 @@ def setor_atualizar():
     return render_template('setor_atualizar.html', form=form)
 
 
-@app.route('/setor-remover', methods=['GET', 'POST'])
+@app.route('/setor/desativar', methods=['GET', 'POST'])
 def remover_setor():
     form = RemoveSetorForm()
 

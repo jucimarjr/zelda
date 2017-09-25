@@ -19,36 +19,36 @@ class Zelda:
           return data
 
     def verifica_login(self, login, senha):
-        data = self.execute_query("select count(*) from funcionario where funcionario_login = '{}' and funcionario_senha = '{}'".format(login, senha))
+        data = self.execute_query("select count(*) from usuario where usuario_login = '{}' and funcionario_senha = '{}'".format(login, senha))
         return int(data[0]['count(*)']) > 0
 
     #função que verifica se o usuário está logado. Utilizado no login único.
     def verifica_logado(self, login):
-        data = self.execute_query("select funcionario_logado from funcionario where funcionario_login = '{}'".format(login))
-        if (data[0]['funcionario_logado'] == 1):
+        data = self.execute_query("select usuario_logado from usuario where usuario_login = '{}'".format(login))
+        if (data[0]['usuario_logado'] == 1):
             return False
         return True
 
     def set_logado_true(self, login):
-        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
-        self.execute_query("update funcionario set funcionario_logado = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}'".format(login))
+        self.execute_query("update usuario set usuario_logado = 0 where usuario_id = '{}'".format(data[0]['usuario_id']), True)
 
     def set_logado_false(self, login):
-        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
-        self.execute_query("update funcionario set funcionario_logado = 1 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}'".format(login))
+        self.execute_query("update usuario set usuario_logado = 1 where usuario_id = '{}'".format(data[0]['usuario_id']), True)
 
     def verifica_admin(self, login):
-        data = self.execute_query("select funcionario_admin from funcionario where funcionario_login = '{}'".format(login))
-        if (data[0]['funcionario_admin'] == 1):
+        data = self.execute_query("select usuario_admin from funcionario where usuario_login = '{}'".format(login))
+        if (data[0]['usuario_admin'] == 1):
             return False
         return True
 
     def set_admin_true(self, login):
-        data = self.execute_query("select funcionario_id from funcionario where funcionario_login = '{}'".format(login))
-        self.execute_query("update funcionario set funcionario_admin = 0 where funcionario_id = '{}'".format(data[0]['funcionario_id']), True)
+        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}'".format(login))
+        self.execute_query("update usuario set usuario_admin = 0 where usuario_id = '{}'".format(data[0]['usuario_id']), True)
 
     def get_funcionario_senha(self, login):
-        data = self.execute_query("select funcionario_senha from funcionario where funcionario_login = '{}'".format(login))
+        data = self.execute_query("select usuario_senha from usuario where usuario_login = '{}'".format(login))
         return data
 
 	# CRUD - USUARIO

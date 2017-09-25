@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de funcionários</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/funcionario_listar.css"/>
-</head>
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='funcionario_listar_style.css')}}"/>
+{% endblock %}
 
-<body>
+{% block content %}
     <div class="container">
         <div class="row mx-auto" id="my-buttons">
               <div class="col-md-4">
@@ -53,10 +48,9 @@
       </div>
     </div>
 
-    <!-- Scripts section -->
+{% endblock %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+{% block scripts %}
     <script>
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
@@ -72,8 +66,4 @@
             });
         });
     </script>
-
-    <!-- End sction -->
-
-</body>
-</html>
+{% endblock %}

@@ -84,8 +84,8 @@ def funcionario_listar():
 
 @app.route('/usuario')
 def usuario_listar():
-    funcionarios = db.get_funcionarios();
-    return render_template('Usuario_listar.html', funcionarios= funcionarios);
+    usuarios = db.get_usuarios();
+    return render_template('Usuario_listar.html', usuarios=usuarios);
 
 @app.route('/setor')
 def setor_listar():

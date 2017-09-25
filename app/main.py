@@ -87,6 +87,11 @@ def usuario_listar():
     funcionarios = db.get_funcionarios();
     return render_template('Usuario_listar.html', funcionarios= funcionarios);
 
+@app.route('/setor')
+def setor_listar():
+    setores = db.get_setores()
+    return render_template('setor_listar.html',setores = setores);
+
 
 @app.route('/funcionario/novo', methods=['GET','POST'])
 def funcionario_criar():

@@ -14,9 +14,8 @@ class LoginForm(Form):
 #Cadastra Funcionario
 class CadastraFuncionarioForm(Form):
     funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
-    funcionario_login = StringField('Login Funcionário', validators=[DataRequired('Login do Funcionário é obrigatório')])
-    funcionario_senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
-    funcionario_setor_id = SelectField ('Setor', coerce=int)
+    funcionario_situacao = StringField('situacao Funcionário', validators=[DataRequired('Situacao Funcionário é obrigatório')])
+
 
 #Cadastra Setor
 class CadastraSetorForm(Form):
@@ -33,10 +32,8 @@ class AtualizaSetorForm(Form):
 #Atualiza Funcionario
 class AtualizaFuncionarioForm(Form):
     funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
-    funcionario_login = StringField('Login Funcionário', validators=[DataRequired('Login do Funcionário é obrigatório')])
-    funcionario_senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
-    funcionario_setor_id = SelectField ('Setor', coerce=int)
-    funcionario_id = HiddenField('ID Funcionário', validators=[DataRequired('O ID do Funcionário não pode ser indefinido')])
+    funcionario_situacao = StringField('Situacao Funcionário', validators=[DataRequired('Situacao do Funcionário é obrigatório')])
+  
 
 
 # Remover Funcionário

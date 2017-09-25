@@ -112,8 +112,7 @@ class Zelda:
           setor = Setor(
             id=d["setor_id"],
             nome=d["setor_nome"],
-            situacao=d["setor_situacao"],
-			pai=d["setor_pai"])
+            situacao=d["setor_situacao"])
           setores.append(setor)
         return setores
 

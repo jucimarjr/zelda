@@ -1,7 +1,7 @@
 from flask_mysqldb import MySQL
 from .funcionario import Funcionario
 from .setor import Setor
-#from .usuario import Usuario
+from .usuario import Usuario
 
 class Zelda:
 

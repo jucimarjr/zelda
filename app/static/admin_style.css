@@ -45,6 +45,12 @@ html, body {
     margin-top: 35px;
 }
 
+#logout-button{
+    position: absolute;
+    bottom: 15px;
+	left:450px;
+}
+
 button:disabled,
 button[disabled] {
     background-color: lightgray;

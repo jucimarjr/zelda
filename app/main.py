@@ -15,8 +15,8 @@ from app import app
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'jesus'
-app.config['MYSQL_DB'] = 'mzelda'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 db = Zelda(app)
@@ -35,7 +35,7 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-
+        session['user_login'] = form.login.data
         senha = form.senha.data
         senhaHash = Criptografador.gerarHash(senha, '')
 
@@ -43,10 +43,15 @@ def login():
         if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
             return redirect(url_for('admin'))
 
-        ans = db.verifica_login(login=form.login.data,senha = senhaHash)
-
+        ans = db.verifica_login(login = form.login.data, senha = senhaHash)
         if ans:
-            return redirect(url_for('home'))
+            if (not db.verifica_logado(login = form.login.data)):
+                db.set_logado_true(login = form.login.data)
+                if (db.verifica_admin(login = form.login.data)):
+                    return redirect(url_for('admin'))
+                return redirect(url_for('home'))
+            flash("Usuario já logado!")
+
         else:
             flash("Nome de usuário ou senha incorretos")
     else:
@@ -54,15 +59,17 @@ def login():
 
     return render_template('login.html', form=form)
 
+@app.route('/logout/')
+def logout():
+    session.pop('username', None)
+    user_login = session.get('user_login', None)
+    db.set_logado_false(user_login)
+    return redirect(url_for('index'))
 
 @app.route('/admin')
 def admin():
     form = CadastraFuncionarioForm()
-
-    funcionarios = db.get_funcionarios()
-    setores = db.get_setores()
-
-    return render_template('index_admin.html',funcionarios = funcionarios,setores = setores)
+    return render_template('TelaAdmin.html')
 
 
 @app.route('/home')
@@ -70,7 +77,23 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/funcionario-criar', methods=['GET','POST'])
+@app.route('/funcionario')
+def funcionario_listar():
+    funcionarios = db.get_funcionarios();
+    return render_template('funcionario_listar.html', funcionarios= funcionarios);
+
+@app.route('/usuario')
+def usuario_listar():
+    usuarios = db.get_usuarios();
+    return render_template('Usuario_listar.html', usuarios=usuarios);
+
+@app.route('/setor')
+def setor_listar():
+    setores = db.get_setores()
+    return render_template('setor_listar.html',setores = setores);
+
+
+@app.route('/funcionario/novo', methods=['GET','POST'])
 def funcionario_criar():
     form = CadastraFuncionarioForm()
 
@@ -86,14 +109,14 @@ def funcionario_criar():
         Criptografador.gerarHash(form.funcionario_senha.data, ''), setor_id = form.funcionario_setor_id.data)
 
         db.cadastra_funcionario(funcionario)
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario_listar'))
     else:
         flash_errors(form)
         return render_template('funcionario_criar.html',form=form, setores=setores)
 
 
-@app.route('/funcionario-atualizar', methods=['GET','POST'])
-def funcionario_atualizar():
+@app.route('/funcionario/<func_id>', methods=['GET','POST'])
+def funcionario_atualizar(func_id):
     form = AtualizaFuncionarioForm()
 
     func = Funcionario()
@@ -116,7 +139,7 @@ def funcionario_atualizar():
 
         db.edita_funcionario(func)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('funcionario_listar'))
 
     # A página pode ser acessada diretamente pela URL ao passar somente o id do item a ser editado
     else:
@@ -133,7 +156,7 @@ def funcionario_atualizar():
 
         else:
             # Se o id é inválido, redireciona para o menu
-            return redirect(url_for('admin'))
+            return redirect(url_for('funcionario_listar'))
 
         flash_errors(form)
 
@@ -151,32 +174,55 @@ def preenche_dados_atuais(form, func):
     form.funcionario_senha.data = func.senha
 
 
-@app.route('/funcionario-remover', methods=['GET', 'POST'])
-def remover_funcionario():
+@app.route('/funcionario/desativar', methods=['GET','POST'])
+def funcionario_remover():
     form = RemoveFuncionarioForm()
 
-    funcionario = Funcionario()
-
+    # Se a página foi acessada por post pelo form do WTForms da própria página
     if form.validate_on_submit():
-        db.deleta_funcionario(form.funcionario_id.data)
-        return redirect(url_for('admin'))
-    else:
 
-        func_id = request.args['id']
+        # Percorre a lista de ids do FieldList
+        for list_item in form.data.funcionarios_ids:
 
-        funcionario = db.get_funcionario(func_id)
+            # Formato do FieldList fica assim:
+            '''
+            {
+                funcionarios_ids-0: [id_0],
+                funcionarios_ids-1: [id_1],
+                ...
+            }
+            '''
+            # então o list_item pego no for é puramente o array
+            '''
+            [id_i]
+            '''
+            # do qual pegamos o primeiro e único elemento
 
-        if funcionario is None:
-            return redirect(url_for('admin'))
-        else:
-            form.funcionario_id.data = funcionario.id
+            db.deleta_funcionario(list_item[0])
 
-        flash_errors(form)
+    # Se o form é inválido e a página foi acessada por POST
+    elif request.method != 'GET':
 
-    return render_template('remover_funcionario.html', form=form, func=funcionario)
+        funcionarios = []
+        ids_funcionarios = request.form.getlist('ids[]')
+
+        # Se há um parâmetro post chamado ids[], então a página foi acessa da página de listagem
+        if ids_funcionarios is not None and len(ids_funcionarios) > 0:
+
+            # Lista os dados de cada funcionário na lista de ids[]
+            for func_id in ids_funcionarios:
+                funcionario = db.get_funcionario(func_id)
+
+                if funcionario is not None:
+                    funcionarios.append(funcionario)
+
+            return render_template('remover_funcionario.html', form=form, funcionarios=funcionarios)
+
+    # Se o método foi GET ou o form deu erro de submissão, redireciona pra página de listagem
+    return redirect(url_for('funcionario_listar'))
 
 
-@app.route('/setor-criar', methods=['GET','POST'])
+@app.route('/setor/novo', methods=['GET','POST'])
 def setor_criar():
     form = CadastraSetorForm()
 
@@ -191,8 +237,8 @@ def setor_criar():
 
     return render_template('setor_criar.html', form=form)
 
-@app.route('/setor-atualizar', methods=['GET','POST'])
-def setor_atualizar():
+@app.route('/setor/<setor_id>', methods=['GET','POST'])
+def setor_atualizar(setor_id):
     form = AtualizaSetorForm()
 
     setor = Setor()
@@ -221,7 +267,7 @@ def setor_atualizar():
     return render_template('setor_atualizar.html', form=form)
 
 
-@app.route('/setor-remover', methods=['GET', 'POST'])
+@app.route('/setor/desativar', methods=['GET', 'POST'])
 def remover_setor():
     form = RemoveSetorForm()
 

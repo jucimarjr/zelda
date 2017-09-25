@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de setores</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/setor_listar.css"/>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mx-auto" id="my-buttons">
+              <div class="col-md-4">
+                <a href="{{url_for('setor_criar')}}"><button class="round-button button1">ADICIONAR SETOR</button></a>
+              </div>
+              <div class="col-md-4">
+                <form method="get" action="###">
+                  <a href="#"><button type="submit" class="round-button button2">EDITAR SETOR</button></a>
+                </form>
+              </div>
+              <div class="col-md-4">
+                <form method="post" action="###">
+                  <a href="#"><button type="submit" class="round-button button3">REMOVER SETOR</button></a>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-table">
+      <div class="col-md-12" id="central-content">
+          <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Código</th>
+                            <th>Nome do Setor</th
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- Dados estáticos, insira dados do back-end aqui -->
+                         {%for setor in setores %}
+                        <tr data-setor-id="{{setor.id}}">
+                            <td><input type="checkbox"></td>
+                            <td>{{setor.id}}</td>
+                            <td>{{setor.nome}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+          </table>
+      </div>
+    </div>
+
+    <!-- Scripts section -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        // Espera o documento ser carregado completamente
+        $(document).ready(function(){
+           
+            // Ajusta a largura da coluna de checkboxes
+            $("thead > tr > th").first().css("width","25px");
+
+            // Impede o clique do input de espalhar o clique para seus pais (a linha da tabela)
+            $("td > input").parent().click(function(e){
+                e.stopPropagation();
+            });
+            
+            
+            // Quando clicar em uma linha de alguma tabela
+            $("tr").click(function(){
+                // Deseleciona qualquer linha selecionada da tabela atual
+                $(this).parent().children().removeClass("danger");
+                $(this).addClass("danger"); // Seleciona a linha clicada
+                // Quando uma linha for clicada, procura os botões da tabela correspondente e altera suas propriedades
+                buttons = $(this).closest("table").parent().next().find("button").slice(-2);
+                buttons.prop("disabled", false);
+                buttons.prop('value', $(this).children().first().text())
+            });
+        });
+    </script>
+
+    <!-- End sction -->
+
+</body>
+</html>

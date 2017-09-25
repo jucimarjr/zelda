@@ -7,10 +7,10 @@ Desenvolver um Sistema de protocolo de documentos, denominado Zelda, o qual é u
 >Para acessar o código do projeto, [clique aqui](https://github.com/jucimarjr/zelda)
 
 # [2.](#header-1) Requisitos
-Em outras palavras, descrevem a funcionalidade ou serviço que se espera que o sistema forneça. Dependendo do tipo de software do requisito a ser descrito é possíveis criar subgrupos de requisitos funcionais, normalmente subdivididos como requisitos funcinais de usuário e do sistema (SOMERVILLE, 2001).
+  Os requisitos de um sistema são descrições dos serviços fornecidos pelo sistema e as suas restrições operacionais. Esses requisitos refletem as necessidades dos clientes de um sistema que ajuda a resolver algum problema, por exemplo, controlar um dispositivo, enviar um pedido ou encontrar informações (SOMMERVILLE,2011).
 
 ## [2.1.](#header-2) Não Funcionais
- Requisitos não funcionais são os requisitos sob os quais o sistemas devem operar, podendo conter restrições sobre o software em si ou mesmo sobre o seu processo de desenvolvimento
+  São restrições aos serviços ou funções oferecidos pelo sistema. Incluem restrições de timing, restrições no processo de desenvolvimento e restrições im postas pelas normas (SOMMERVILLE,2011).
 
  |     Codigo         | Nome                    | Descrição     |
  |:-------------------|:------------------------|:--------------|
@@ -49,7 +49,7 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 * * *
 
-## [2.3. ](#header-2)Regras de Negócio
+## [2.3. ](#header-2) Regras de Negócio
 
 > Devido ao alto detalhamento das informações das regras de negócio, esta encontra-se nesta documentação somente em sua forma resumida. Para acessar o conteúdo completo, [clique aqui](https://docs.google.com/a/uea.edu.br/document/d/1L7sYBf0ZaKGEKfPf_h7y5uq32a7BxG4NOdgCQpNOZrY/edit?usp=sharing).
 
@@ -71,7 +71,7 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 * * *
 
-## [2.4. ](#header-2)Diagrama de Casos de Uso
+## [2.4. ](#header-2) Diagrama de Casos de Uso
 
 > Devido ao alto detalhamento das informações dos casos de uso, esta encontra-se nesta documentação somente em sua forma resumida. Para o conteúdo completo, [clique aqui](https://docs.google.com/a/uea.edu.br/document/d/1YnygnlwL0KUH9y1mdlf3ZreXEkavQIohUOKKkdrtPz4/edit?usp=sharing)
 

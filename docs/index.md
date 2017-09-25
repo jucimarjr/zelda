@@ -33,10 +33,10 @@ São os requisitos funcionais com os quais o usuário interage diretamente, de t
 |     Codigo         | Nome                    | Descrição     |
 |:-------------------|:------------------------|:--------------|
 | RF001              | Login unico             |O sistema deve permitir ao usuario que  entre no sistema por meio do seu login unico e senha       |
-|RF002               | Cadastrar funcionarios  |O sistema deve permitir ao usuario cadastrar novos funcionarios   |
-|RF003               | Cadastrar setor	       |O sistema deve permitir ao usuario cadastrar novos setores  |
-|RF004               | Relacionar funcionario a setor                   |O sistema deve permitir ao usuario relacionar um funcionario a um setor    |
-|RF005               | Cadastro de usuarios    |O sistema deve permitir ao usuario que se cadastre no sistema por meio de um login e senha |
+| RF002               | Cadastrar funcionarios  |O sistema deve permitir ao usuario cadastrar novos funcionarios   |
+| RF003               | Cadastrar setor	       |O sistema deve permitir ao usuario cadastrar novos setores  |
+| RF004               | Relacionar funcionario a setor                   |O sistema deve permitir ao usuario relacionar um funcionario a um setor    |
+| RF005               | Cadastro de usuarios    |O sistema deve permitir ao usuario que se cadastre no sistema por meio de um login e senha |
 
 * * *
 
@@ -45,7 +45,7 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 |     Codigo         | Nome                    | Descrição     |
 |:-------------------|:------------------------|:--------------|
-|RF006		     | Tela Admin	       |O sistema deve direcionar o adiministrdor para a tela de Administrador  |
+| RF006		     | Tela Admin	       |O sistema deve direcionar o adiministrdor para a tela de Administrador  |
 
 * * *
 

@@ -47,7 +47,7 @@ class Zelda:
         data = self.execute_query("select usuario_id from usuario where usuario_login = '{}'".format(login))
         self.execute_query("update usuario set usuario_admin = 0 where usuario_id = '{}'".format(data[0]['usuario_id']), True)
 
-    def get_funcionario_senha(self, login):
+    def get_usuario_senha(self, login):
         data = self.execute_query("select usuario_senha from usuario where usuario_login = '{}'".format(login))
         return data
 

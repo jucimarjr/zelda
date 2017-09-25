@@ -80,8 +80,12 @@ def home():
 @app.route('/funcionario')
 def funcionario_listar():
     funcionarios = db.get_funcionarios();
-
     return render_template('funcionario_listar.html', funcionarios= funcionarios);
+
+@app.route('/usuario')
+def usuario_listar():
+    funcionarios = db.get_funcionarios();
+    return render_template('Usuario_listar.html', funcionarios= funcionarios);
 
 
 @app.route('/funcionario/novo', methods=['GET','POST'])

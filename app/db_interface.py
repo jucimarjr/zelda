@@ -50,10 +50,61 @@ class Zelda:
     def get_funcionario_senha(self, login):
         data = self.execute_query("select funcionario_senha from funcionario where funcionario_login = '{}'".format(login))
         return data
-    # CRUD - SETOR
+		
+	# CRUD - USUARIO
+	
+	def cadastra_usuario(self, usuario):
+		self.execute_query("insert into usuario (usuario_login, usuario_senha, usuario_logado, usuario_admin) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.senha, usuario.logado, usuario.admin), True)
+	
+	def get_usuarios(self):
+		data = self.execute_query("select * from usuario") 
+		usuarios = []
+		for u in data:
+			usuario = Usuario(
+				id=u["usuario_id"],
+				login=u["usuario_login"],
+				senha=u["usuario_senha"],
+				logado=u["usuario_logado"],
+				admin=u["usuario_admin"])
+			usuarios.append(usuario)
+		return usuarios
+	
+	def get_usuarios_logados(self):
+		data = self.execute_query("select * from usuario where usuario_logado = 1") 
+		usuarios = []
+		for u in data:
+			usuario = Usuario(
+				id=u["usuario_id"],
+				login=u["usuario_login"],
+				senha=u["usuario_senha"],
+				logado=u["usuario_logado"],
+				admin=u["usuario_admin"])
+			usuarios.append(usuario)
+		return usuarios
+	
+	def get_usuarios_admin(self):
+		data = self.execute_query("select * from usuario where usuario_admin = 1") 
+		usuarios = []
+		for u in data:
+			usuario = Usuario(
+				id=u["usuario_id"],
+				login=u["usuario_login"],
+				senha=u["usuario_senha"],
+				logado=u["usuario_logado"],
+				admin=u["usuario_admin"])
+			usuarios.append(usuario)
+		return usuarios
+	
+	def edita_usuario(self, usuario):
+        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.id), True)
+	
+	def deleta_usuario(self, usuario_id):
+        self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)	
+		
+     # CRUD - SETOR
 
     def cadastra_setor(self, setor):
-        self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
+        self.execute_query("insert into setor (setor_nome, setor_situacao, setor_pai) values ('{}', '{}', '{}')".format(setor.nome, setor.situacao, setor.pai), True)
 
     def get_setores(self):
         data = self.execute_query("select * from setor")
@@ -62,7 +113,8 @@ class Zelda:
           setor = Setor(
             id=d["setor_id"],
             nome=d["setor_nome"],
-            situacao=d["setor_situacao"])
+            situacao=d["setor_situacao"],
+			pai=d["setor_pai"])
           setores.append(setor)
         return setores
 
@@ -87,7 +139,11 @@ class Zelda:
 
     def cadastra_funcionario(self, funcionario):
         self.execute_query("insert into funcionario (funcionario_nome, funcionario_login, funcionario_senha, setor_id) values ('{}', '{}', '{}', '{}')".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id), True)
-
+	
+	def cadastra_funcionario_lotacao(self, funcionario):
+        l_id = self.execute_query("insert into funcionario (funcionario_nome, funcionario_login, funcionario_senha, setor_id) values ('{}', '{}', '{}', '{}'); select LAST_INSERT_ID();".format(funcionario.nome, funcionario.login, funcionario.senha, funcionario.setor_id), True)
+		self.execute_query("insert into lotacao (funcionario_id, setor_id) values('{}', '{}')".format(funcionario.funcionario_id, l_id), True)
+	
     def get_funcionarios(self):
         data = self.execute_query('''select funcionario_id, funcionario_nome, funcionario_login, funcionario_situacao, setor.setor_id, setor_nome, setor_situacao from funcionario, setor where funcionario.setor_id = setor.setor_id''')
         funcionarios = []

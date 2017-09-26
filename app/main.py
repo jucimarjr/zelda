@@ -9,6 +9,7 @@ from .db_interface import Zelda
 from .funcionario import Funcionario
 from .setor import Setor
 from .lotacao import Lotacao
+from .usuario import Usuario
 
 from app import app
 

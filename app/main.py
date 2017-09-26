@@ -93,6 +93,20 @@ def setor_listar():
     setores = db.get_setores()
     return render_template('setor_listar.html',setores = setores);
 
+@app.route('/usuario/novo', methods=['GET','POST'])
+def usuario_criar():
+    form = CadastraUsuarioForm()
+    
+    if form.validate_on_submit():
+        usuario = Usuario(login = form.usuario_login.data,senha =
+        Criptografador.gerarHash(form.usuario_senha.data, ''))
+
+        db.cadastra_usuario(usuario)
+        return redirect(url_for('usuario_listar'))
+    else:
+        flash_errors(form)
+        return render_template('usuario_criar.html',form=form)
+
 
 @app.route('/funcionario/novo', methods=['GET','POST'])
 def funcionario_criar():

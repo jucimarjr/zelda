@@ -103,7 +103,7 @@ class Zelda:
      # CRUD - SETOR
 
     def cadastra_setor(self, setor):
-        self.execute_query("insert into setor (setor_nome, setor_situacao) values ('{}', '{}')".format(setor.nome, setor.situacao), True)
+        self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
 
     def get_setores(self):
         data = self.execute_query("select * from setor")

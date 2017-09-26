@@ -14,7 +14,7 @@ class LoginForm(Form):
 #Cadastra Funcionario
 class CadastraFuncionarioForm(Form):
     funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
-    funcionario_situacao = StringField('situacao Funcionário', validators=[DataRequired('Situacao Funcionário é obrigatório')])
+    
 
 
 #Cadastra Setor

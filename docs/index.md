@@ -117,13 +117,6 @@ A tabela  do setor, tem os seguintes atributos: setor_id, setor_nome, setor_situ
 | setor_situacao  |  No atributo setor_situação, ficam armazenados os dados referentes a situação de cada setor, ele é responsável por indicar o se o setor está ativo ou não. | int |
 | setor_pai |  No atributo setor_pai, ficam armazenados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.  | int |
 
-<<<<<<< HEAD
-|     Coluna     | Descrição                                                           | Tipo de Dado |
-|:---------------|-------------------------------------------------------------------- |---------- |
-|    setor_id    |  Ficam armazenados os dados referentes a identificação de cada setor<space><space>|           |
-=======
->>>>>>> e11c6163ba6e2cc16fd5d324b102777671b74221
-
 ## [3.2.](#header-3) Tabela de Usuário
 A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin.
 

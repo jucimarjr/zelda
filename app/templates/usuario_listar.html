@@ -17,8 +17,8 @@
                   <button id="editar-button" type="submit" class="round-button button2">EDITAR USUÁRIO</button>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <form id="remover-form" action="###" method="post">
-                        <button type="submit" class="round-button button3">REMOVER USUÁRIO</button>
+                    <form id="remover-form" action="{{url_for('usuario_remover')}}" method="post">
+                        <button type="submit" name = "origem" value="listar" class="round-button button3">REMOVER USUÁRIO</button>
                     </form>
                 </div>
                 </div>

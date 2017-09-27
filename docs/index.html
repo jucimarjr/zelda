@@ -5,6 +5,9 @@
 
 </head>
 <body>
+    <div class="container">
+    <div class="row">
+    <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
     <section>
 
         <h1 id="1-objetivo"><a href="#header-1">1.</a> Objetivo</h1>
@@ -20,7 +23,7 @@
     <h2 id="21-não-funcionais"><a href="#header-2">2.1.</a> Não Funcionais</h2>
     <p>São restrições aos serviços ou funções oferecidos pelo sistema. Incluem restrições de timing, restrições no processo de desenvolvimento e restrições im postas pelas normas (SOMMERVILLE,2011).</p>
 
-    <table>
+    <table class="table">
     <thead>
         <tr>
         <th style="text-align: left">Codigo</th>
@@ -79,7 +82,7 @@
     <h2 id="221-usuário"><a href="#header-4">2.2.1.</a> Usuário</h2>
     <p>São os requisitos funcionais com os quais o usuário interage diretamente, de tal forma que sua participação ativa é necessária para que alguma ação seja efetuada pelo sistema.</p>
 
-    <table>
+    <table class="table">
     <thead>
         <tr>
         <th style="text-align: left">Codigo</th>
@@ -171,11 +174,11 @@
 
     <h2 id="24--diagrama-de-casos-de-uso"><a href="#header-2">2.4. </a> Diagrama de Casos de Uso</h2>
 
-    <blockquote>
-    <p>Devido ao alto detalhamento das informações dos casos de uso, esta encontra-se nesta documentação somente em sua forma resumida. Para o conteúdo completo, <a href="https://docs.google.com/a/uea.edu.br/document/d/1YnygnlwL0KUH9y1mdlf3ZreXEkavQIohUOKKkdrtPz4/edit?usp=sharing">clique aqui</a></p>
-    </blockquote>
-
-    <p><img src="images/Zelda_UCD.jpg" alt=""></p>
+    <!-- Essa div deve existir ao redor do canvas para o scrollbar -->
+	<div id="container">
+		<!-- A largura e altura inicial do grid do canvas deve ser igual � da imagem de fundo para melhor resolu��o ao alterar o tamanho da tela-->
+		<canvas id="ucd-canvas" width="1698" height="1158" onmousemove="getCursorPosition(event)" onclick="getCursorPosition(event)"></canvas>
+	</div>
 
     <h3 id="241--atores-do-sistema"><a href="#header-2">2.4.1 </a> Atores do Sistema</h3>
 
@@ -217,7 +220,7 @@
     <h2 id="31-tabela-de-setor"><a href="#header-3">3.1.</a> Tabela de Setor</h2>
     <p>A tabela  do setor, tem os seguintes atributos: setor_id, setor_nome, setor_situação, setor_pai.</p>
 
-    <table>
+    <table class="table">
     <thead>
         <tr>
         <th style="text-align: left">coluna</th>
@@ -252,7 +255,7 @@
     <h2 id="32-tabela-de-usuário"><a href="#header-3">3.2.</a> Tabela de Usuário</h2>
     <p>A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin.</p>
 
-    <table>
+    <table class="table">
     <thead>
         <tr>
         <th style="text-align: left">coluna</th>
@@ -292,7 +295,7 @@
     <h2 id="33-tabela-de-funcionário"><a href="#header-3">3.3.</a> Tabela de Funcionário</h2>
     <p>A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao.</p>
 
-    <table>
+    <table class="table">
     <thead>
         <tr>
         <th style="text-align: left">coluna</th>
@@ -360,11 +363,15 @@
 
     <p><img src="http://www.cdn.ueg.br/source/mobilidade_nacional_211/noticias/31283/uea.png" alt=""></p>
     </section>
-
+    </div>
+    </div>
+    </div>
     <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+	<script src="assets/js/ucd-canvas-script"></script>
 </body>
 </html>

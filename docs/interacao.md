@@ -9,7 +9,7 @@ layout: default
 |:--------------|:--------------|:--------------|
 | Ana Beatriz  | Dividir e  Gerenciar atividades da equipe 1 |     SIM     |
 |  Ana Jesse  | Compor a equipe do suporte a padrões de projeto |        SIM     |
-|  André Ricardo  | Implementar Login único (Logout)   |      FAZENDO     |
+|  André Ricardo  | Implementar Login único (Logout)   |      SIM     |
 |  Amanda Letícia  |  Desenvolver a funcionalidade 'Desativar usuário'  |  SIM    |
 |  Ariel Rocha |  Desenvolver a funcionalidade 'Visualizar dados de usuário'  |   NÃO
     |
@@ -21,7 +21,7 @@ layout: default
 | Beatriz Stephany | Organização das atividades e especificações de casos de uso |    SIM   |
 | Bonifácio Oliveira | Implementação da funcionalidade editar usuário |    SIM    |
 | Bruno Freire | Implementação da funcionalidade listar usuário |    SIM    |
-| Caio de Oliveira | Implementação da funcionalidade editar setor    |    ???   |
+| Caio de Oliveira | Implementação da funcionalidade editar setor    |    NÂO   |
 | Calebe Rebello | Suporte na parte de front-end do projeto   |    SIM    |
 
 ## [1.3](#header-3) Equipe 3

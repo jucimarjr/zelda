@@ -116,7 +116,7 @@ class Zelda:
                 id=d["setor_id"],
                 nome=d["setor_nome"],
                 situacao=d["setor_situacao"])
-        setores.append(setor)
+            setores.append(setor)
         return setores
 
     def get_setores_ativos(self):

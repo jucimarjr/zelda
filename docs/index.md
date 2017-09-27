@@ -160,7 +160,7 @@ Segue abaixo a iteração entre as telas do sistema.
 ## [5. ](#header-2)Planejamento e Gerência
 
 ### [5.1. ](#header-3)Interação
-- Interação 0.01 (Aqui deve ter um link para uma pagina html para mostrar as tabelas de cada equipe)
+- [Interação 0.01](interacao.md)
 
 
 * * *

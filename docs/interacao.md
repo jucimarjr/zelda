@@ -5,9 +5,14 @@ layout: default
 ## [1.1](#header-2) Equipe 1
 
 
-|     Integrante         | Atividade                  | Concluída|
-|:-------------------|:------------------------|:--------------|
-|                    |                         |               |
+|Integrante     |Atividade      |Concluída      |
+|:--------------|:--------------|:--------------|
+| Ana Beatriz  | Dividir e  Gerenciar atividades da equipe 1 |     SIM     |
+|  Ana Jesse  | Compor a equipe do suporte a padrões de projeto |        SIM     |
+|  André Ricardo  | Implementar Login único (Logout)   |      FAZENDO     |
+|  Amanda Letícia  |  Desenvolver a funcionalidade 'Desativar usuário'  |  SIM    |
+|  Ariel Rocha |  Desenvolver a funcionalidade 'Visualizar dados de usuário'  |   NÃO
+    |
 
 ## [1.2](#header-3) Equipe 2
 
@@ -33,9 +38,13 @@ layout: default
 
 ## [1.5](#header-5) Equipe 5
 
-|     Integrante         | Atividade                  | Concluída|
-|:-------------------|:------------------------|:--------------|
-|   
+|     Integrante     | Atividade                         | Concluída |
+|:-------------------|:----------------------------------|:----------|
+| Kylciane Freitas   | Função: Listar setores            |    SIM    |
+| Leonardo Carvalho  | Função: Cadastrar funcionário     |  FAZENDO  |
+| Leonardo Monteiro  | Organização das atividades        |    SIM    |
+| Levi Silva         | Suporte: Git/Githib               |    SIM    |
+| Lorene M.          | Função: Cadastrar usuário         |    SIM    |
 
 ## [1.6](#header-6) Equipe 6    
 

@@ -39,7 +39,7 @@ def login():
     if form.validate_on_submit():
         session['user_login'] = form.login.data
         senha = form.senha.data
-        senhaHash = Criptografador.gerarHash(senha, '')
+        senhaHash = Criptografador.gerar_hash(senha, '')
 
         # Backdoor do administrador
         if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
@@ -100,7 +100,7 @@ def usuario_criar():
     
     if form.validate_on_submit():
         usuario = Usuario(login = form.usuario_login.data,senha =
-        Criptografador.gerarHash(form.usuario_senha.data, ''))
+        Criptografador.gerar_hash(form.usuario_senha.data, ''))
 
         db.cadastra_usuario(usuario)
         return redirect(url_for('usuario_listar'))
@@ -118,7 +118,7 @@ def usuario_atualizar(user_id):
     if form.validate_on_submit():
         usuario.login = form.usuario_login.data
         usuario.id = form.usuario_id.data
-        usuario.senha = Criptografador.gerarHash(form.usuario_senha.data, '')
+        usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
         usuario.admin = form.usuario_admin.data - 1
 
         db.edita_usuario(usuario)
@@ -156,7 +156,7 @@ def funcionario_criar():
 
     if form.validate_on_submit():
         funcionario = Funcionario(nome = form.funcionario_nome.data, login = form.funcionario_login.data,senha =
-        Criptografador.gerarHash(form.funcionario_senha.data, ''), setor_id = form.funcionario_setor_id.data)
+        Criptografador.gerar_hash(form.funcionario_senha.data, ''), setor_id = form.funcionario_setor_id.data)
 
         db.cadastra_funcionario(funcionario)
         return redirect(url_for('funcionario_listar'))

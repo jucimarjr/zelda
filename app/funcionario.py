@@ -6,13 +6,12 @@ class Funcionario:
         self.id = id
         self.nome = nome
         self.situacao = situacao
-        
 
     def __str__(self):
         string = "{"
         string += "funcionario_id:" + str(self.id) + ","
         string += "funcionario_nome:" + self.nome + ","
-        string += "funcionario_situacao:" + str(self.situacao) 
+        string += "funcionario_situacao:" + str(self.situacao)
         string += "}"
 
         return string

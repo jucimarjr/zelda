@@ -139,9 +139,7 @@ class Zelda:
     # CRUD - FUNCIONARIO
 
     def cadastra_funcionario(self, funcionario):
-        '''l_id = self.execute_query("insert into \funcionario (funcionario_nome, funcionario_situacao) values ('{}', '{}'); select  LAST_INSERT_ID();".format(funcionario.nome, funcionario.situacao), True)
-        return l_id'''
-        self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
+        self.execute_query("insert into funcionario (funcionario_nome) values ('{}')".format(funcionario.nome), True)
 
     def cadastra_lotacao(self, lotacao):
         self.execute_query("insert into lotacao (funcionario_id, setor_id)  values('{}', '{}')" .format(lotacao.funcionario_id, lotacao.setor_id), True)

@@ -158,9 +158,14 @@ def funcionario_criar():
     form.funcionario_setor_id.default = 1 # O setor de id 1 no banco é o Nenhum
 
     if form.validate_on_submit():
-        funcionario = Funcionario(nome=form.funcionario_nome.data, login=form.funcionario_login.data, senha=Criptografador.gerar_hash(form.funcionario_senha.data, ''), setor_id=form.funcionario_setor_id.data)
+        funcionario = Funcionario(nome=form.funcionario_nome.data)
 
         db.cadastra_funcionario(funcionario)
+        funcionarios = db.get_funcionarios()
+
+        lotacao = Lotacao(funcionario_id = len(funcionarios), setor_id = form.funcionario_setor_id.data)
+
+        db.cadastra_lotacao(lotacao)
         return redirect(url_for('funcionario_listar'))
     else:
         flash_errors(form)

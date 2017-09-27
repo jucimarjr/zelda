@@ -71,7 +71,8 @@ layout: default
 | Mikael Fonseca | Suporte geral e front-end |    SIM    |
 | Paulo Sergio | Suporte a padrões de projeto |    SIM    |
 | Reginaldo Silva | Editar funcionário      |    SIM    |
-| Rodrigo Moraes | Líder do suporte geral e do Git/GitHub   |    SIM    || Thatielen Oliveira | Gerenciar as atividades da equipe    |    SIM    |
+| Rodrigo Moraes | Líder do suporte geral e do Git/GitHub   |    SIM    |
+| Thatielen Oliveira | Gerenciar as atividades da equipe    |    SIM    |
 
 ## [1.8](#header-8) Equipe 8
 
@@ -82,5 +83,18 @@ layout: default
 | Nadine Brito | Compor a equipe do suporte a padrões de projeto |      SIM     |
 | Nicolas Fernandes | Desenvolver a funcionalidade 'Editar usuário' |       SIM     |
 | Thiago Santos Borges | Liderar equipe do suporte a padrões de projeto |       SIM     |
+
+## [1.9](#header-9) Coordenadores
+
+|Integrante     |Equipe         |Concluída      |
+|:--------------|:--------------|:--------------|
+| Ana Beatriz   | 1             | SIM           |
+| Beatriz Stephany| 2           | SIM           |
+| Jailson Pereira | 3           | SIM           |
+| Kid Mendes      | 4           | SIM           |
+| Leonardo Monteiro|  5         | SIM           |
+| Luiz Gadelha     |  6         | SIM           |
+| Thatielen Oliveira| 7         | SIM           |
+| Thiago Santos     | 8         | SIM           |
 
 * * *

@@ -41,6 +41,17 @@
                         </div>
                      </div>
                   </div>
+                  <div class="col-xs-12 col-md-12">
+                     <label><h4>Tipo do Usuário</h4></label>
+                     {% for item in form.usuario_admin %}
+                         <div class="checkbox">
+                             <label>
+                                 {{item}}
+                                 {{item.label}}
+                             </label>
+                         </div>
+                     {% endfor %}
+                  </div>
                   <div class="row section">
                     <div class="col-xs-12 col-md-4"></div>
                     <div class="col-xs-12 col-md-4">

@@ -80,7 +80,7 @@ layout: default
 | Vyctor L. N. | Compor a equipe do suporte a banco de dados |     SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Vyctor-Ln)|
 | William Azevedo | Desenvolver a funcionalidade 'Vizualizar dados de usuário' |        SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=williamsilva-uea)|
 | Nadine Brito | Compor a equipe do suporte a padrões de projeto |      SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=nadinebrito)|
-| Nicolas Fernandes | Desenvolver a funcionalidade 'Editar usuário' |       SIM     |[GitHub]()|
+| Nicolas Fernandes | Desenvolver a funcionalidade 'Editar usuário' |       SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=nicolasgti)|
 | *Thiago Santos Borges | Liderar equipe do suporte a padrões de projeto |       SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=thiagos98)|
 
 ## [1.9](#header-9) Coordenadores

@@ -14,7 +14,7 @@
                     <a href="/usuario/novo"><button class="round-button button1">ADICIONAR USUÁRIO</button></a>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                  <a><button type="submit" class="round-button button2">EDITAR USUÁRIO</button></a>
+                  <button id="editar-button" type="submit" class="round-button button2">EDITAR USUÁRIO</button>
                 </div>
                 <div class="col-xs-12 col-md-4">
                     <form id="remover-form" action="###" method="post">
@@ -35,6 +35,7 @@
                             <th>ID</th>
                             <th>Login do Usuario</th>
                             <th>Senha</th>
+                            <th>Tipo</th>
                         </tr>
                     </thead>
 
@@ -46,7 +47,7 @@
 							 <td>{{usuario.id}}</td>
                             <td>{{usuario.login}}</td>
                             <td>{{usuario.senha}}</td>
-                            
+                            <td>{{usuario.admin}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -59,14 +60,18 @@
 {% endblock %}
 
 {% block scripts %}
-    <!-- Importa o plugin do Jquery para redirecionar -->
-    <script src="{{url_for('static', filename='jquery.redirect.js')}}"></script>
-
     <!-- JS personalizado da página -->
     <script>
 
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
+
+            $("#editar-button").click(function(){
+                var id = $("tr > td > input:checked").parent().parent().first().data("usuarioId");
+
+                if(id != undefined)
+                    window.location.href = "usuario/" + id;
+            });
 
             // Ajusta a largura da coluna de checkboxes
             $("thead > tr > th").first().css("width","25px");
@@ -78,11 +83,11 @@
 
             // Quando clicar em uma linha de alguma tabela
             $("tbody > tr").click(function(){
-                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do funcionário)
-                var id_funcionario = $(this).data("funcionarioId");
+                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do usuário)
+                var id_usuario = $(this).data("usuarioId");
 
                 // Redireciona para a tela adequada
-                window.location.href="funcionario/" + id_funcionario;
+                window.location.href="usuario/" + id_usuario;
             });
 
             // Antes do form do botão de remover ser submetido
@@ -93,7 +98,7 @@
                 $("td > input:checked").parent().parent().each(function(){
 
                     // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
-                    form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("funcionarioId")));
+                    form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("usuarioId")));
                 });
 
             });

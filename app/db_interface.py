@@ -96,7 +96,7 @@ class Zelda:
         return usuarios
 
     def edita_usuario(self, usuario):
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.id), True)
+        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_admin = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.admin, usuario.id), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
@@ -139,7 +139,7 @@ class Zelda:
     def cadastra_funcionario(self, funcionario):
         '''l_id = self.execute_query("insert into funcionario (funcionario_nome, funcionario_situacao) values ('{}', '{}'); select LAST_INSERT_ID();".format(funcionario.nome, funcionario.situacao), True)
         return l_id'''
-         self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
+        self.execute_query("insert into setor (setor_nome) values (\"{}\")".format(setor.nome), True)
 
     def cadastra_lotacao(self, lotacao):
         self.execute_query("insert into lotacao (funcionario_id, setor_id) values('{}', '{}')".format(lotacao.funcionario_id, lotacao.setor_id), True)

@@ -81,18 +81,18 @@ def home():
 
 @app.route('/funcionario')
 def funcionario_listar():
-    funcionarios = db.get_funcionarios();
-    return render_template('funcionario_listar.html', funcionarios= funcionarios);
+    funcionarios = db.get_funcionarios()
+    return render_template('funcionario_listar.html', funcionarios= funcionarios)
 
 @app.route('/usuario')
 def usuario_listar():
     usuarios = db.get_usuarios();
-    return render_template('Usuario_listar.html', usuarios=usuarios);
+    return render_template('usuario_listar.html', usuarios=usuarios)
 
 @app.route('/setor')
 def setor_listar():
     setores = db.get_setores()
-    return render_template('setor_listar.html',setores = setores);
+    return render_template('setor_listar.html',setores = setores)
 
 @app.route('/usuario/novo', methods=['GET','POST'])
 def usuario_criar():
@@ -107,6 +107,40 @@ def usuario_criar():
     else:
         flash_errors(form)
         return render_template('usuario_criar.html',form=form)
+
+
+@app.route('/usuario/<user_id>', methods=['GET','POST'])
+def usuario_atualizar(user_id):
+    form = AtualizaUsuarioForm()
+
+    usuario = Usuario()
+
+    if form.validate_on_submit():
+        usuario.login = form.usuario_login.data
+        usuario.id = form.usuario_id.data
+        usuario.senha = Criptografador.gerarHash(form.usuario_senha.data, '')
+        usuario.admin = form.usuario_admin.data - 1
+
+        db.edita_usuario(usuario)
+
+        return redirect(url_for('usuario_listar'))
+    else:
+
+        usuario = db.get_usuario(user_id)
+
+        if usuario is not None:
+            form.usuario_admin.default = int(usuario.admin + 1)
+            form.process()
+
+            form.usuario_login.data = usuario.login
+            form.usuario_id.data = user_id
+
+        else:
+            return redirect(url_for('usuario_listar'))
+
+        flash_errors(form)
+
+    return render_template('usuario_atualizar.html', form=form)
 
 
 @app.route('/funcionario/novo', methods=['GET','POST'])
@@ -273,7 +307,6 @@ def setor_atualizar(setor_id):
     setor = Setor()
 
     if request.method == 'GET':
-        setor_id = request.args["id"]
 
         setor = db.get_setor(setor_id)
 

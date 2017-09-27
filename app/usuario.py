@@ -4,14 +4,12 @@ class Usuario:
                  login="none",
                  senha="none",
                  logado=1,
-                 admin=1,
-                 lotacao_id=0):
+                 admin=1):
                    self.id = id
                    self.login = login
                    self.senha = senha
                    self.logado = logado
                    self.admin = admin
-                   self.lotacao_id = lotacao_id
         
 
     def __str__(self):
@@ -21,7 +19,6 @@ class Usuario:
         string += "senha:" + self.senha + ","
         string += "logado:" + str(self.logado) + ","
         string += "admin:" + str(self.admin) + ","
-        string += "lotacao_id:" + str(self.lotacao_id) + ","
         string += "}"
 
         return string

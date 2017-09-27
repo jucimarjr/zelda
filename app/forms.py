@@ -64,3 +64,9 @@ class RemoveFuncionarioForm(Form):
 # Remover Setor
 class RemoveSetorForm(Form):
     setor_id = HiddenField('ID Setor', validators=[DataRequired('O ID do Setor não pode ser indefinido')])
+    
+#Remover Usuário
+class RemoveUsuarioForm(Form):
+    # Implementa um campo em forma de lista, cujos elementos serão inputs do tipo HiddenField
+    usuarios_ids = FieldList(HiddenField('IDs dos Usuários', validators=[DataRequired('Os IDs da lista não podem ser indefinidos')]), validators=[DataRequired('A lista de IDs não pode ser indefinida')])
+

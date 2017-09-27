@@ -24,16 +24,16 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 db = Zelda(app)
 
 
-
 # Index
 @app.route('/')
 @app.route('/index')
 def index():
     form = LoginForm()
-    return render_template("login.html",form=form)
+    return render_template("login.html", form=form)
+
 
 # User login
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -45,11 +45,11 @@ def login():
         if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
             return redirect(url_for('admin'))
 
-        ans = db.verifica_login(login = form.login.data, senha = senhaHash)
+        ans = db.verifica_login(login=form.login.data, senha=senhaHash)
         if ans:
-            if (not db.verifica_logado(login = form.login.data)):
-                db.set_logado_true(login = form.login.data)
-                if (db.verifica_admin(login = form.login.data)):
+            if (not db.verifica_logado(login=form.login.data)):
+                db.set_logado_true(login=form.login.data)
+                if (db.verifica_admin(login=form.login.data)):
                     return redirect(url_for('admin'))
                 return redirect(url_for('home'))
             flash("Usuario já logado!")
@@ -61,12 +61,14 @@ def login():
 
     return render_template('login.html', form=form)
 
+
 @app.route('/logout/')
 def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
     db.set_logado_false(user_login)
     return redirect(url_for('index'))
+
 
 @app.route('/admin')
 def admin():
@@ -82,34 +84,35 @@ def home():
 @app.route('/funcionario')
 def funcionario_listar():
     funcionarios = db.get_funcionarios()
-    return render_template('funcionario_listar.html', funcionarios= funcionarios)
+    return render_template('funcionario_listar.html', funcionarios=funcionarios)
+
 
 @app.route('/usuario')
 def usuario_listar():
-    usuarios = db.get_usuarios();
+    usuarios = db.get_usuarios()
     return render_template('usuario_listar.html', usuarios=usuarios)
+
 
 @app.route('/setor')
 def setor_listar():
     setores = db.get_setores()
-    return render_template('setor_listar.html',setores = setores)
+    return render_template('setor_listar.html', setores=setores)
 
-@app.route('/usuario/novo', methods=['GET','POST'])
+
+@app.route('/usuario/novo', methods=['GET', 'POST'])
 def usuario_criar():
     form = CadastraUsuarioForm()
-    
     if form.validate_on_submit():
-        usuario = Usuario(login = form.usuario_login.data,senha =
-        Criptografador.gerar_hash(form.usuario_senha.data, ''))
+        usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''))
 
         db.cadastra_usuario(usuario)
         return redirect(url_for('usuario_listar'))
     else:
         flash_errors(form)
-        return render_template('usuario_criar.html',form=form)
+        return render_template('usuario_criar.html', form=form)
 
 
-@app.route('/usuario/<user_id>', methods=['GET','POST'])
+@app.route('/usuario/<user_id>', methods=['GET', 'POST'])
 def usuario_atualizar(user_id):
     form = AtualizaUsuarioForm()
 
@@ -143,7 +146,7 @@ def usuario_atualizar(user_id):
     return render_template('usuario_atualizar.html', form=form)
 
 
-@app.route('/funcionario/novo', methods=['GET','POST'])
+@app.route('/funcionario/novo', methods=['GET', 'POST'])
 def funcionario_criar():
     form = CadastraFuncionarioForm()
 
@@ -155,17 +158,16 @@ def funcionario_criar():
     form.funcionario_setor_id.default = 1 # O setor de id 1 no banco é o Nenhum
 
     if form.validate_on_submit():
-        funcionario = Funcionario(nome = form.funcionario_nome.data, login = form.funcionario_login.data,senha =
-        Criptografador.gerar_hash(form.funcionario_senha.data, ''), setor_id = form.funcionario_setor_id.data)
+        funcionario = Funcionario(nome=form.funcionario_nome.data, login=form.funcionario_login.data, senha=Criptografador.gerar_hash(form.funcionario_senha.data, ''), setor_id=form.funcionario_setor_id.data)
 
         db.cadastra_funcionario(funcionario)
         return redirect(url_for('funcionario_listar'))
     else:
         flash_errors(form)
-        return render_template('funcionario_criar.html',form=form, setores=setores)
+        return render_template('funcionario_criar.html', form=form, setores=setores)
 
 
-@app.route('/funcionario/<func_id>', methods=['GET','POST'])
+@app.route('/funcionario/<func_id>', methods=['GET', 'POST'])
 def funcionario_atualizar(func_id):
     form = AtualizaFuncionarioForm()
 
@@ -236,8 +238,7 @@ def preenche_dados_atuais(form, func, lotacao):
     form.funcionario_id.data = func.id
 
 
-
-@app.route('/funcionario/desativar', methods=['GET','POST'])
+@app.route('/funcionario/desativar', methods=['GET', 'POST'])
 def funcionario_remover():
     form = RemoveFuncionarioForm()
 
@@ -278,14 +279,14 @@ def funcionario_remover():
 
                 if funcionario is not None:
                     funcionarios.append(funcionario)
-
             return render_template('remover_funcionario.html', form=form, funcionarios=funcionarios)
 
-    # Se o método foi GET ou o form deu erro de submissão, redireciona pra página de listagem
+    """Se o método foi GET ou o form deu erro de submissão, redireciona pra 
+    página de listagem"""
     return redirect(url_for('funcionario_listar'))
 
 
-@app.route('/setor/novo', methods=['GET','POST'])
+@app.route('/setor/novo', methods=['GET', 'POST'])
 def setor_criar():
     form = CadastraSetorForm()
 
@@ -300,7 +301,8 @@ def setor_criar():
 
     return render_template('setor_criar.html', form=form)
 
-@app.route('/setor/<setor_id>', methods=['GET','POST'])
+
+@app.route('/setor/<setor_id>', methods=['GET', 'POST'])
 def setor_atualizar(setor_id):
     form = AtualizaSetorForm()
 
@@ -353,10 +355,10 @@ def remover_setor():
 
     return render_template('remover_setor.html', form=form, setor=setor)
 
+
 def flash_errors(form):
     for field, errors in form.errors.items():
         for error in errors:
             flash(u"Error in the %s field - %s" % (
                 getattr(form, field).label.text,
-                error
-            ))
+                error))        

@@ -43,10 +43,6 @@ São os requisitos funcionais com os quais o usuário interage diretamente, de t
 ## [2.2.2.](#header-4) Sistema
 São os requisitos funcionais com os quais o usuário não interage diretamente, de modo que sua participação ativa não é necessária para que o sistema efetue alguma ação.
 
-|     Codigo         | Nome                    | Descrição     |
-|:-------------------|:------------------------|:--------------|
-| RF006		     | Tela Admin	       |O sistema deve direcionar o adiministrdor para a tela de Administrador  |
-
 * * *
 
 ## [2.3. ](#header-2) Regras de Negócio
@@ -163,76 +159,9 @@ Segue abaixo a iteração entre as telas do sistema.
 
 ## [5. ](#header-2)Planejamento e Gerência
 
-### [5.1. ](#header-3)Equipe 1
+### [5.1. ](#header-3)Iteração
+- Iteração 0.01 (Aqui deve ter um link para uma pagina html para mostrar as tabelas de cada equipe)
 
-| Integrante             | Atividade                  | Concluída |
-|:-----------------|:---------------------------|:----------|
-| Amanda           | Implementar a autenticação | NÃO       |
-| Ana Jessye       | Implementar o logout       | NÃO       |
-| André Ricardo    | Implementar login único, autenticação de admin| SIM |
-| André Ricardo    | Implementar gerenciamento das atividades e GitPages | SIM |
-| Ariel Rocha      | Implementar a autenticação | NÃO       |
-| Ariel Rocha      | Regras de negócio          | SIM       |
-| Beatriz Stephany | Implementar o logout       | NÃO       |
-| Beatriz Stephany | Implementar o login        | SIM       |
-| Bonifácio Leite  | Implementar a autenticação | NÃO       |
-| Bonifácio Leite  | Implementar a autenticação de admin|SIM|
-| Bruno Freire     | Implementar o logout       | NÃO       |
-| Bruno Freire     | Regras de negócio          | SIM       |
-| Caio Oliveira    | Implementar a autenticação | NÃO       |
-| Caio Oliveira    | Regras de Negócio          | SIM       |
-
-### [5.2. ](#header-3)Equipe 2
-
-|     Integrante     | Atividade                | Concluída |
-|:-------------------|:------------------------ |:----------|
-| Calebe             | Criar Tabela Usuários    |    SIM    |
-| Eduardo            | Criar Tabela Setores     |    SIM    |
-| Elisabeth          | Criar Tabela Funcionários|    SIM    |
-| Elissandra         | Criar Tabela Funcionários|    SIM    |
-| Filip              | Criar Tabelas Setores    |    SIM    |
-| Felipe             | Criar Tabela Usuários    |    SIM    |
-
-### [5.3. ](#header-3)Equipe 3
-
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| João Oliveira | Organização das tarefas e Tela Cadastro Setor |    SIM    |
-| Jéssica Tavares e Jefferson Avilar | Tela Cadastro Usuário |    SIM    |
-| Kid Mendes e Kylciane Freitas |  Tela Tabela de Setores  |    SIM    |
-| Leonardo Monteiro e Jansen |  Tela Tabela de Usuários    |    SIM    |
-
-### [5.4. ](#header-3)Equipe 4
-
-|     Integrante     | Atividade                         | Concluída |
-|:-------------------|:----------------------------------|:----------|
-| Lucas Frota        | Organização das atividades        |    SIM    |
-| Luana Andrade      | Organização das atividades        |    SIM    |
-| Luiz Gadelha       | DER pé de galinha do usuario      |    SIM    |
-| Levi Silva         | DER pé de galinha do usuario      |    SIM    |
-| Lorene M.          | Implementar tela de criar usuario |    SIM    |
-
-### [5.5. ](#header-3)Equipe 5
-
-|     Integrante     | Atividade                         | Concluída |
-|:-------------------|:----------------------------------|:----------|
-|Marcos​ ​ Matos  |Pesquisa​ ​ de​ ​ usuário​ ​ pelo​ ​ ID | SIM |
-|Mateus​ ​ Mota  |Listagem​ ​ de​ ​ todos​ ​ os​ ​ funcionários​ ​ de​ ​ um​ ​ setor |SIM|
-|Matheus​ ​ Obando  |Listagem​ ​ de​ ​ todos​ ​ os​ ​ usuários​ ​ de​ ​ um​ ​ setor |SIM|
-|Mikael​ ​ Fonseca  |Refatoração​ ​ da​ ​ Classe​ ​ API​ ​ para​ ​ retorno​ ​ em​ ​ JSON |SIM|
-|Nadine​ ​ Brito  |Inclusão​ ​ de​ ​ funções​ ​ na​ ​ Classe​ ​ API |SIM|
-|Nicolas​ ​ Fernandes  |Pesquisa​ ​ de​ ​ funcionário​ ​ pelo​ ​ ID |SIM|
-|Paulo​ ​ Freitas  |Listagem​ ​ de​ ​ todos​ ​ os​ ​ usuários​ ​ cadastrados |SIM|
-|Rodrigo​ ​ Moraes  |Listagem​ ​ de​ ​ todos​ ​ os​ ​ funcionários​ ​ cadastrados |SIM|
-
-### [5.6. ](#header-3)Equipe 6
-
-|     Integrante     | Atividade               | Concluída |
-|:-------------------|:------------------------|:----------|
-| ThatielenOliveira | Organização das tarefas e descrição dos diagramas de casos de uso |    SIM   |
-| Thiago Santos | Descrição dos diagramas de casos de uso |    SIM    |
-| Vyctor Negreiros | Descrição dos diagramas de casos de uso    |    SIM    |
-| William Azevedo | Descrição dos diagramas de casos de uso    |    SIM    |
 
 * * *
 

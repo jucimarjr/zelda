@@ -8,7 +8,7 @@ layout: default
 - Enquanto o usuário estiver logado, poderá fazer logout.
 - O usuário poderá visualizar seus dados;
 
-##[1.2](#header-3) Administrador
+## [1.2](#header-3) Administrador
 - O administrador poderá fazer login;
 - Enquanto o administrador estiver logado, poderá fazer logout.
 - O administrador poderá visualizar seus dados;
@@ -119,12 +119,13 @@ layout: default
 * * *
 
 # [5.](#header-17) DIAGRAMAS DE ATIVIDADES – CASOS DE USO DO ADMINISTRADOR - FUNCIONÁRIOS
-##[5.1](#header-18) Listar Funcionários
+## [5.1](#header-18) Listar Funcionários
 - O administrador vai para a tela de menu de funcionários.
 - O sistema requisita todos os funcionários do banco.
 - O sistema mostra a lista de funcionários recuperados na tela.
 - O administrador visualiza a lista de funcionários recuperados e finaliza o processo.
-##[5.2](#header-19) Cadastrar Funcionário
+
+## [5.2](#header-19) Cadastrar Funcionário
 - O administrador irá para a tela de cadastro de setores.
 - O administrador preencherá os campos do novo setor.
 - Se o administrador clicou em cancelar, o sistema redirecionará para a tela de menu de setores e interrompe o processo.
@@ -136,7 +137,8 @@ layout: default
 - Se a lotação do setor for definida, o sistema cadastrara uma nova lotação do funcionário no setor e logo em seguida, salvara as alterações do funcionário no banco.
 - Se a lotação não for definida, o sistema salvara as alterações do funcionário no banco.
 - O sistema redirecionara para a tela de menu de setores e finaliza o processo.
-##[5.3](#header-20) Editar Funcionário
+
+## [5.3](#header-20) Editar Funcionário
 - O administrador irá para tela de edição de funcionários.
 - Se o administrador não acessar a tela pela URL, ele irá para a tela de menu de funcionários e logo em seguida selecionara os itens da lista.
 - Se o administrador clicar em um item da lista, o sistema definira o ID do funcionário a ser editar como o ID do item clicado na lista e logo em seguida, redirecionara para a tela de edição de funcionário enviando o ID como parâmetro.
@@ -155,6 +157,7 @@ layout: default
 - Se a lotação do funcionário foi alterada, o sistema cadastra uma nova lotação do funcionário no novo setor e salva suas alterações do usuário no banco.
 - Se a lotação do funcionário foi alterada, o sistema salva suas alterações do usuário no banco.
 - O sistema salva suas alterações do usuário no banco e finaliza o processo.
+
 ##[5.4](#header-21) Desativar Funcionário
 - O administrador vai acessar a tela de desativação de funcionários.
 - Se o administrador não for acessar pela URL, ele vai para a tela de menu de funcionários, seleciona os itens da lista e clica em desativar.

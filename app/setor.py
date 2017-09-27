@@ -7,7 +7,7 @@ class Setor:
         self.id = id
         self.nome = nome
         self.situacao = situacao
-        self.setor_pai="none"
+        self.setor_pai = "none"
 
     def __str__(self):
         string = "{"

@@ -171,3 +171,50 @@ layout: default
 - Se o administrador clicou em confirmar, o sistema desativa os funcionários no banco.
 - O sistema desativa os funcionários no banco.
 - O sistema redireciona para a tela de menu de funcionários e finaliza o processo.
+
+* * *
+
+# [6.](#header-22) DIAGRAMAS DE ATIVIDADES – CASOS DE USO DO ADMINISTRADOR - SETORES
+## [6.1](#header-23) Listar Setores
+- O administrador vai para a tela de menu de setores.
+- O sistema requisita todos os setores do banco.
+- O sistema mostra a lista de setores recuperados na tela.
+- O administrador ver a lista de setores recuperados e finaliza o processo.
+## [6.2](#header-24) Cadastrar Setor
+- O administrador vai para a tela de cadastro de setores preencher os campos do novo setor.
+- Se o administrador clicou em cancelar, o sistema redireciona para a tela de menu de setores, interrompendo o processo.
+- Se o administrador clicou em confirmar, o sistema valida os campos inseridos pelo setor.
+- O sistema valida os campos inseridos pelo setor.
+- Se os campos forem inválidos, o administrador terá de preencher os campos do novo setor.
+- Se os campos forem válidos, o sistema cadastra o novo setor no banco.
+- O sistema cadastra o novo setor no banco.
+- O sistema redireciona para a tela de menu de setor e finaliza o processo.
+## [6.3](#header-25) Editar Setor
+- O administrador irá para tela de edição de setores.
+ Se o administrador não acessar a tela pela URL, ele irá para a tela de menu de setores e logo em seguida selecionara os itens da lista.
+- Se o administrador clicar em um item da lista, o sistema definira o ID do setor a ser editar como o ID do item clicado na lista e logo em seguida, redirecionara para a tela de edição de setor enviando o ID como parâmetro.
+- Se o administrador clicar no botão editar, o sistema definira o ID do setor a ser editado como ID do primeiro item selecionado na lista e logo em seguida, redirecionara para a tela de edição de setor enviando o ID como parâmetro.
+- Se o administrador for acessar a tela pela URL ou retornar de uma página posterior, o sistema verificará se o ID recebido como parâmetro corresponde a um setor válido.
+- O sistema verificará se o ID recebido como parâmetro corresponde a um setor válido.
+- Se o ID não for válido, o sistema redireciona para a tela de menu de setor, interrompendo o processo.
+- Se o ID for válido, o sistema recupera os dados do setor de ID equivalente ao valor recebido como parâmetro e logo em seguida, ele vai popular os campos de edição de dados da tela com os dados atuais do setor. Depois, o administrador altera os valores dos campos do setor conforme desejado.
+- O administrador altera os valores dos campos do setor conforme desejado.
+- Se o administrador clicou em cancelar as alterações, o sistema redireciona para a tela de menu de setor, interrompendo o processo.
+- Se o administrador clicou em confirmar as alterações, o sistema valida os valores dos campos do formulário.
+- O sistema valida os valores dos campos do formulário.
+- Se os valores dos campos forem inválidos, o sistema recupera os dados do setor de ID equivalente ao valor recebido como parâmetro.
+- Se os valores dos campos forem válidos, o sistema verifica se a lotação do setor foi alterada.
+- O sistema salva suas alterações do setor no banco e finaliza o processo.
+## [6.4](#header-26) Desativar Setor
+- O administrador vai acessar a tela de desativação de setor.
+- Se o administrador não for acessar pela URL, ele vai para a tela de menu de setores, seleciona os itens da lista e clica em desativar.
+- O sistema define a lista de IDs dos setores a serem desativados como os IDs dos itens selecionados.
+- O sistema redireciona para a tela de desativação de setores enviando a lista de IDs como parâmetro.
+- O sistema recupera os dados dos setores que correspondem com os IDs recebidos como parâmetro no banco.
+- O sistema mostra um resumo dos dados dos setores a serem desativados na tela.
+- Se o administrador for acessar pela URL e não reenviar dados pelo formulário, o sistema redireciona para a tela de menu de setores, interrompendo o processo.
+- O sistema mostra um resumo dos dados dos setores a serem desativados na tela.
+- Se o administrador clicou em cancelar, o sistema redireciona para a tela de menu de setores, interrompendo o processo.
+- Se o administrador clicou em confirmar, o sistema desativa os setores no banco.
+- O sistema desativa os setores no banco.
+- O sistema redireciona para a tela de menu de setores e finaliza o processo.

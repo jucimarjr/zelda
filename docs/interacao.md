@@ -10,7 +10,7 @@ layout: default
 | *Ana Beatriz  | Dividir e  Gerenciar atividades da equipe 1 |     SIM     |[GitHub]()|
 |  Ana Jesse  | Compor a equipe do suporte a padrões de projeto |        SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=AnaJessye)|
 |  André Ricardo  | Implementar Login único (Logout)   |      SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=AndBol)|
-|  Amanda Letícia  |  Desenvolver a funcionalidade 'Desativar usuário'  |  SIM    |[GitHub]()|
+|  Amanda Letícia  |  Desenvolver a funcionalidade 'Desativar usuário'  |  SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=aamandachaves)|
 |  Ariel Rocha |  Desenvolver a funcionalidade 'Visualizar dados de usuário'  |   NÃO    |[GitHub]()|
 
 ## [1.2](#header-3) Equipe 2

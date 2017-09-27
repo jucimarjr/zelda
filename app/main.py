@@ -103,7 +103,7 @@ def setor_listar():
 def usuario_criar():
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
-        usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''))
+        usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), admin=form.usuario_admin.data-1)
 
         db.cadastra_usuario(usuario)
         return redirect(url_for('usuario_listar'))

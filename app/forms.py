@@ -19,7 +19,8 @@ class CadastraFuncionarioForm(Form):
 class CadastraUsuarioForm(Form):
     usuario_login = StringField('Login Usuario', validators=[DataRequired('Login do Usuario é obrigatório')])
     usuario_senha = PasswordField('Senha', validators=[DataRequired('Senha do Usuario é obrigatório')])
-
+    usuario_admin = RadioField('Tipo do Usuário', validators=[DataRequired('Tipo do Usuário é obrigatório')], choices=[ (1, 'Administrador'),(2, 'Usuário Comum')], coerce=int)
+    
 #Cadastra Setor
 class CadastraSetorForm(Form):
     setor_nome = StringField('Nome Setor', validators=[DataRequired('Nome do Setor é obrigatório')])

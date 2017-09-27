@@ -159,8 +159,13 @@ Segue abaixo a iteração entre as telas do sistema.
 
 ## [5. ](#header-2)Planejamento e Gerência
 
+<<<<<<< HEAD
 ### [5.1. ](#header-3)Interação
 - [Interação 0.0.4](interacao.md)
+=======
+### [5.1. ](#header-3)Iteração
+- [Iteração 4](interacao.md)
+>>>>>>> 4df93e858020f6f168f70b1b7ee95a20c637dcd7
 
 
 * * *

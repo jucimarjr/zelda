@@ -3,8 +3,8 @@ import hashlib
 
 
 class Criptografador():
-    def gerar_hash(getsenha, salt):
+    def gerar_hash(get_senha, salt):
         m = hashlib.md5()
-        senhaSalt = getsenha
-        m.update(senhaSalt.encode('utf-8'))
-        return m.hexdigest() 
+        senha_salt = get_senha
+        m.update(senha_salt.encode('utf-8'))
+        return m.hexdigest()

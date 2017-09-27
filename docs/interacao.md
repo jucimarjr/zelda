@@ -58,18 +58,18 @@ layout: default
 
 |     Integrante         | Atividade                  | Concluída|Commits          |
 |:-------------------|:------------------------|:--------------|:----------------|
-| Luana Andrade | Desenvolver 'Editar Funcionários' | SIM |[GitHub]|
+| Luana Andrade | Desenvolver 'Editar Funcionários' | SIM |[GitHub](https://github.com/jucimarjr/zelda/commits?author=luanaandrade)|
 | Lucas Frota | Desenvolver 'Desativar Funcionários' | SIM |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Lucasfrota)|
 | Luiz Gadelha | Suporte Front-End e Coordenação da Equipe | SIM |[GitHub]|
-| Matheus Mota | Desenvolver 'Desativar Setores' | SIM |[GitHub]|
-| Matheus Obando | Desenvolver 'Listar Funcionários' | SIM |[GitHub]|
+| Matheus Mota | Desenvolver 'Desativar Setores' | SIM |[GitHub](https://github.com/jucimarjr/zelda/commits?author=MMateuSouza)|
+| Matheus Obando | Desenvolver 'Listar Funcionários' | SIM |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Matheus-OS)|
 
 ## [1.7](#header-7) Equipe 7
 
 |     Integrante     | Atividade               | Concluída |Commits          |
 |:-------------------|:------------------------|:----------|:----------------|
 | Mikael Fonseca | Suporte geral e front-end |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=MikeFP)|
-| Paulo Sergio | Suporte a padrões de projeto |    SIM    |[GitHub]|
+| Paulo Sergio | Suporte a padrões de projeto |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=PSFreitas)|
 | Reginaldo Silva | Editar funcionário      |    SIM    |[GitHub]|
 | Rodrigo Moraes | Líder do suporte geral e do Git/GitHub   |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=RodrigoCMoraes)|
 | Thatielen Oliveira | Gerenciar as atividades da equipe    |    SIM    |[GitHub]|
@@ -81,7 +81,7 @@ layout: default
 | Vyctor L. N. | Compor a equipe do suporte a banco de dados |     SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Vyctor-Ln)|
 | William Azevedo | Desenvolver a funcionalidade 'Vizualizar dados de usuário' |        SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=williamsilva-uea)|
 | Nadine Brito | Compor a equipe do suporte a padrões de projeto |      SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=nadinebrito)|
-| Nicolas Fernandes | Desenvolver a funcionalidade 'Editar usuário' |       SIM     |[GitHub]|
+| Nicolas Fernandes | Desenvolver a funcionalidade 'Editar usuário' |       SIM     |[GitHub]()|
 | Thiago Santos Borges | Liderar equipe do suporte a padrões de projeto |       SIM     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=thiagos98)|
 
 ## [1.9](#header-9) Coordenadores

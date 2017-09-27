@@ -21,13 +21,19 @@
         <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
             <h2>Confirmar Remoção de Setor</h2>
             <p>
-                Deseja realmente desativar o setor {{setor.nome}} (ID = {{setor.id}})?
+                Deseja realmente desativar os seguintes setores?
+                <ul class="list-group">
+                    {% for setor in setores %}
+                    <li>{{setor.id}} - {{setor.nome}}</li>
+                    {% endfor %}
+                </ul>
             </p>
             <form class="form" action="" method="post">
-                {{form.hidden_tag()}}
-                {{form.setor_id}}
-                <button type="submit" class="round-button">SIM</button>
-                <a href="{{url_for('admin')}}"><button type="submit" class="round-button">NÃO</button></a>
+                {% for setor in setores %}
+                    <input type="hidden" value="{{setor.id}}" name="ids[]">
+                {% endfor %}
+                <button type="submit" name="origem" value="propria" class="round-button">SIM</button>
+                <a href="{{url_for('setor_listar')}}"><button type="submit" class="round-button">NÃO</button></a>
             </form>
         </div>
     </div>

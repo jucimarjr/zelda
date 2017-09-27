@@ -17,7 +17,7 @@ from app import app
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = 'mps2017'
 app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
@@ -325,27 +325,36 @@ def setor_atualizar(setor_id):
 
 @app.route('/setor/desativar', methods=['GET', 'POST'])
 def remover_setor():
-    form = RemoveSetorForm()
+   # Se a página foi acessada por post pelo form do WTForms da própria página
+    if request.method == 'POST':
 
-    setor = Setor()
+        ids = request.form.getlist("ids[]")
 
-    if form.validate_on_submit():
-        db.deleta_setor(form.setor_id.data)
-        return redirect(url_for('admin'))
-    else:
+        if request.form['origem'] == 'propria':
 
-        setor_id = request.args['id']
+            for item in ids:
+                # do qual pegamos o primeiro e único elemento
+                db.deleta_setor(item)
 
-        setor = db.get_setor(setor_id)
-
-        if setor is None:
-            return redirect(url_for('admin'))
+        # Se o form é inválido e a página foi acessada por POST
         else:
-            form.setor_id.data = setor.id
+            setores = []
 
-        flash_errors(form)
+            if ids is not None and len(ids) > 0:
 
-    return render_template('remover_setor.html', form=form, setor=setor)
+                # Lista os dados de cada setor na lista de ids[]
+                for set_id in ids:
+                    setor = db.get_setor(set_id)
+
+                    if setor is not None:
+                        setores.append(setor)
+
+                return render_template('remover_setor.html', form=request.form, setores=setores)
+
+    """Se o método foi GET ou o form deu erro de submissão, redireciona pra 
+    página de listagem"""
+    return redirect(url_for('setor_listar'))
+
 
 
 def flash_errors(form):

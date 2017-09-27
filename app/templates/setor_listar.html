@@ -16,13 +16,11 @@
                 <a href="{{url_for('setor_criar')}}"><button class="round-button button1">ADICIONAR SETOR</button></a>
               </div>
               <div class="col-md-4">
-                <form method="get" action="###">
-                  <a href="#"><button type="submit" class="round-button button2">EDITAR SETOR</button></a>
-                </form>
+                <button type="submit" id="editar-button" class="round-button button2">EDITAR SETOR</button>
               </div>
               <div class="col-md-4">
-                <form method="post" action="###">
-                  <a href="###"><button type="submit" class="round-button button3">REMOVER SETOR</button></a>
+                <form method="post" id="remover-form" action="{{url_for('remover_setor')}}">
+                  <button type="submit" name="origem" value="listar" class="round-button button3">REMOVER SETOR</button>
                 </form>
               </div>
             </div>
@@ -36,7 +34,8 @@
                         <tr>
                             <th></th>
                             <th>Código</th>
-                            <th>Nome do Setor</th
+                            <th>Nome do Setor</th>
+                            <th>Situação</th>
                         </tr>
                     </thead>
 
@@ -48,6 +47,7 @@
                             <td><input type="checkbox"></td>
                             <td>{{setor.id}}</td>
                             <td>{{setor.nome}}</td>
+                            <td>{{setor.situacao}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -62,7 +62,14 @@
     <script>
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
-           
+
+            $("#editar-button").click(function(){
+                var id = $("tr > td > input:checked").parent().parent().first().data("setorId");
+
+                if(id != undefined)
+                    window.location.href = "setor/" + id;
+            });
+
             // Ajusta a largura da coluna de checkboxes
             $("thead > tr > th").first().css("width","25px");
 
@@ -70,17 +77,27 @@
             $("td > input").parent().click(function(e){
                 e.stopPropagation();
             });
-            
-            
+
             // Quando clicar em uma linha de alguma tabela
-            $("tr").click(function(){
-                // Deseleciona qualquer linha selecionada da tabela atual
-                $(this).parent().children().removeClass("danger");
-                $(this).addClass("danger"); // Seleciona a linha clicada
-                // Quando uma linha for clicada, procura os botões da tabela correspondente e altera suas propriedades
-                buttons = $(this).closest("table").parent().next().find("button").slice(-2);
-                buttons.prop("disabled", false);
-                buttons.prop('value', $(this).children().first().text())
+            $("tbody > tr").click(function(){
+                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do funcionário)
+                var id_funcionario = $(this).data("funcionarioId");
+
+                // Redireciona para a tela adequada
+                window.location.href="setor/" + id_funcionario;
+            });
+
+            // Antes do form do botão de remover ser submetido
+            $("#remover-form").on("submit", function(){
+                var form = $(this);
+
+                // Seleciona todos os tr que têm um filho input checkbox selecionado
+                $("td > input:checked").parent().parent().each(function(){
+
+                    // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
+                    form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("setorId")));
+                });
+
             });
         });
     </script>

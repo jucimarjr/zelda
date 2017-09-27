@@ -47,7 +47,7 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 ## [2.3. ](#header-2) Regras de Negócio
 
-> Devido ao alto detalhamento das informações das regras de negócio, esta encontra-se nesta documentação somente em sua forma resumida. Para acessar o conteúdo completo, [clique aqui](https://docs.google.com/a/uea.edu.br/document/d/1L7sYBf0ZaKGEKfPf_h7y5uq32a7BxG4NOdgCQpNOZrY/edit?usp=sharing).
+> Devido ao alto detalhamento das informações das regras de negócio, esta encontra-se nesta documentação somente em sua forma resumida. Para acessar o conteúdo completo, [clique aqui](negocio.md).
 
 - Usuário
   - O usuário poderá fazer login;

@@ -10,7 +10,6 @@ class Usuario:
                    self.senha = senha
                    self.logado = logado
                    self.admin = admin
-        
 
     def __str__(self):
         string = "{"
@@ -28,5 +27,5 @@ class Usuario:
 
 
 if __name__ == '__main__':
-	usuario = Usuario()
-	print(usuario)
+    usuario = Usuario()
+    print(usuario)

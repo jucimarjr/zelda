@@ -26,13 +26,13 @@ layout: default
 
 ## [1.3](#header-3) Equipe 3
 
-|Integrante     |Atividade      |Concluída      |
-|:--------------|:--------------|:--------------|
-| Eduardo Freire| Compor a equipe do suporte ao Front End |     SIM     |
-| Elissandra | Desenvolver a funcionalidade 'Desativar setor' |        Teve dificuldade na instalação do Flask     |
-| Felipe Henrique| Compor a equipe do suporte ao Front End |      SIM     |
-| Fílip Anselmo | Desenvolver a funcionalidade 'Cadastar setor' |       SIM     |
-| Jailson Pereira | Liderar equipe do suporte do Banco de Dados |       SIM     |
+|Integrante     |Atividade      |Concluída      |Commits          |
+|:--------------|:--------------|:--------------|:----------------|
+| Eduardo Freire| Compor a equipe do suporte ao Front End |     SIM     |                 |
+| Elissandra | Desenvolver a funcionalidade 'Desativar setor' |        Teve dificuldade na instalação do Flask     |  |
+| Felipe Henrique| Compor a equipe do suporte ao Front End |      SIM     |     |
+| Fílip Anselmo | Desenvolver a funcionalidade 'Cadastar setor' |       SIM     |     |
+| Jailson Pereira | Liderar equipe do suporte do Banco de Dados |       SIM     |[GitHub](                        https://github.com/jucimarjr/zelda/commits?author=jailsonpj)     |
 
 ## [1.4](#header-4) Equipe 4
 

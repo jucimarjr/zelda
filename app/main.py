@@ -245,50 +245,37 @@ def preenche_dados_atuais(form, func, lotacao):
 
 @app.route('/funcionario/desativar', methods=['GET', 'POST'])
 def funcionario_remover():
-    form = RemoveFuncionarioForm()
 
-    # Se a página foi acessada por post pelo form do WTForms da própria página
-    if form.validate_on_submit():
+	# Se a página foi acessada por post pelo form do WTForms da própria página
+	if request.method == 'POST':
 
-        # Percorre a lista de ids do FieldList
-        for list_item in form.data.funcionarios_ids:
+		ids = request.form.getlist("ids[]")
 
-            # Formato do FieldList fica assim:
-            '''
-            {
-                funcionarios_ids-0: [id_0],
-                funcionarios_ids-1: [id_1],
-                ...
-            }
-            '''
-            # então o list_item pego no for é puramente o array
-            '''
-            [id_i]
-            '''
-            # do qual pegamos o primeiro e único elemento
+		if request.form['origem'] == 'propria':
 
-            db.deleta_funcionario(list_item[0])
+			# Percorre a lista de ids do FieldList
+			for item in ids:
+				# do qual pegamos o primeiro e único elemento
+				db.deleta_funcionario(item)
 
-    # Se o form é inválido e a página foi acessada por POST
-    elif request.method != 'GET':
+		# Se o form é inválido e a página foi acessada por POST
+		else:
+			funcionarios = []
 
-        funcionarios = []
-        ids_funcionarios = request.form.getlist('ids[]')
+			if ids is not None and len(ids) > 0:
 
-        # Se há um parâmetro post chamado ids[], então a página foi acessa da página de listagem
-        if ids_funcionarios is not None and len(ids_funcionarios) > 0:
+				# Lista os dados de cada funcionário na lista de ids[]
+				for func_id in ids:
+					funcionario = db.get_funcionario(func_id)
 
-            # Lista os dados de cada funcionário na lista de ids[]
-            for func_id in ids_funcionarios:
-                funcionario = db.get_funcionario(func_id)
+					if funcionario is not None:
+						funcionarios.append(funcionario)
 
-                if funcionario is not None:
-                    funcionarios.append(funcionario)
-            return render_template('remover_funcionario.html', form=form, funcionarios=funcionarios)
+				return render_template('remover_funcionario.html', form=request.form, funcionarios=funcionarios)
 
-    """Se o método foi GET ou o form deu erro de submissão, redireciona pra 
-    página de listagem"""
-    return redirect(url_for('funcionario_listar'))
+	"""Se o método foi GET ou o form deu erro de submissão, redireciona pra 
+	página de listagem"""
+	return redirect(url_for('funcionario_listar'))
 
 
 @app.route('/setor/novo', methods=['GET', 'POST'])

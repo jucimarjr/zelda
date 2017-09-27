@@ -29,9 +29,10 @@
                 </ul>
             </p>
             <form class="form" action="" method="post">
-                {{form.hidden_tag()}}
-                {{form.funcionarios_ids}}
-                <button type="submit" class="round-button">SIM</button>
+                {% for funcionario in funcionarios %}
+                    <input type="hidden" value="{{funcionario.id}}" name="ids[]">
+                {% endfor %}
+                <button type="submit" value="propria" name="origem" class="round-button">SIM</button>
                 <a href="{{url_for('funcionario_listar')}}"><button type="submit" class="round-button">NÃO</button></a>
             </form>
         </div>

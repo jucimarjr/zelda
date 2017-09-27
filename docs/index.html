@@ -1,0 +1,355 @@
+<section>
+
+      <h1 id="1-objetivo"><a href="#header-1">1.</a> Objetivo</h1>
+
+<p>Desenvolver um Sistema de autenticação, denominado Zelda, o qual é um protótipo para o Sistema SAMUS. Com a finalidade de levantar os principais pontos relacionados ao desenvolvimento do projeto real, no que tange tecnologias e documentações relacionadas. Para que a experiência de desenvolvimento seja a mais branda possível, de forma a não ocorrer atrasos inesperados por ausência de conhecimento de determinada tecnologia, ou até mesmo, necessidade de conhecimento de funcionamento de processos.</p>
+<blockquote>
+  <p>Para acessar o código do projeto, <a href="https://github.com/jucimarjr/zelda">clique aqui</a></p>
+</blockquote>
+
+<h1 id="2-requisitos"><a href="#header-1">2.</a> Requisitos</h1>
+<p>Os requisitos de um sistema são descrições dos serviços fornecidos pelo sistema e as suas restrições operacionais. Esses requisitos refletem as necessidades dos clientes de um sistema que ajuda a resolver algum problema, por exemplo, controlar um dispositivo, enviar um pedido ou encontrar informações (SOMMERVILLE,2011).</p>
+
+<h2 id="21-não-funcionais"><a href="#header-2">2.1.</a> Não Funcionais</h2>
+<p>São restrições aos serviços ou funções oferecidos pelo sistema. Incluem restrições de timing, restrições no processo de desenvolvimento e restrições im postas pelas normas (SOMMERVILLE,2011).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Codigo</th>
+      <th style="text-align: left">Nome</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">RNF001</td>
+      <td style="text-align: left">Uso do Flask/Bootstrap</td>
+      <td style="text-align: left">Para o desenvolvimento deste projeto deve ser utilizado entre outras feramentas Flask e Bootstrap</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF002</td>
+      <td style="text-align: left">Uso do GitHub</td>
+      <td style="text-align: left">Todo o codigo fonte deve ser versionado por meio do GitHub</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF003</td>
+      <td style="text-align: left">Codigo fonte padronizado</td>
+      <td style="text-align: left">Todo o codigo fonte deve seguir o padrão previamente estabeecido</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF004</td>
+      <td style="text-align: left">Uso do Trello</td>
+      <td style="text-align: left">Todas as tarefas do projeto devem ser organizadas por meio do Trello</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF005</td>
+      <td style="text-align: left">Segurança</td>
+      <td style="text-align: left">O sistema deve garantir que seus dados não sejam acessados por pessoas sem as devidas permissões</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF006</td>
+      <td style="text-align: left">URLs amigáveis</td>
+      <td style="text-align: left">O sistema deve possuir URLs de de fácil leitura e intuitivas</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF007</td>
+      <td style="text-align: left">Usuario Adiministrador</td>
+      <td style="text-align: left">Apenas o usuario administrador pode acessar os funcionarios e os seus setores</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RNF008</td>
+      <td style="text-align: left">Telas separadas para funcionario e lotação</td>
+      <td style="text-align: left"><space><space></space></space></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<h2 id="22-funcionais"><a href="#header-3">2.2</a> Funcionais</h2>
+<p>Os requisitos funcionais são declarações que o sistema deve fornecer, de como o sistema deve reagir a entradas específicas e de como o sistema deve se comportar em determinadas situações (SOMMERVILLE,2011).</p>
+
+<h2 id="221-usuário"><a href="#header-4">2.2.1.</a> Usuário</h2>
+<p>São os requisitos funcionais com os quais o usuário interage diretamente, de tal forma que sua participação ativa é necessária para que alguma ação seja efetuada pelo sistema.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Codigo</th>
+      <th style="text-align: left">Nome</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">RF001</td>
+      <td style="text-align: left">Login unico</td>
+      <td style="text-align: left">O sistema deve permitir ao usuario que  entre no sistema por meio do seu login unico e senha</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RF002</td>
+      <td style="text-align: left">Cadastrar funcionarios</td>
+      <td style="text-align: left">O sistema deve permitir ao usuario cadastrar novos funcionarios</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RF003</td>
+      <td style="text-align: left">Cadastrar setor</td>
+      <td style="text-align: left">O sistema deve permitir ao usuario cadastrar novos setores</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RF004</td>
+      <td style="text-align: left">Relacionar funcionario a setor</td>
+      <td style="text-align: left">O sistema deve permitir ao usuario relacionar um funcionario a um setor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RF005</td>
+      <td style="text-align: left">Cadastro de usuarios</td>
+      <td style="text-align: left">O sistema deve permitir ao usuario que se cadastre no sistema por meio de um login e senha</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="222-sistema"><a href="#header-4">2.2.2.</a> Sistema</h2>
+<p>São os requisitos funcionais com os quais o usuário não interage diretamente, de modo que sua participação ativa não é necessária para que o sistema efetue alguma ação.</p>
+
+<hr>
+
+<h2 id="23--regras-de-negócio"><a href="#header-2">2.3. </a> Regras de Negócio</h2>
+
+<blockquote>
+  <p>Devido ao alto detalhamento das informações das regras de negócio, esta encontra-se nesta documentação somente em sua forma resumida. Para acessar o conteúdo completo, <a href="/zelda/negocio.html">clique aqui</a>.</p>
+</blockquote>
+
+<ul>
+  <li>Usuário
+    <ul>
+      <li>O usuário poderá fazer login;
+        <ul>
+          <li>Enquanto o usuário estiver logado, poderá fazer logout;</li>
+        </ul>
+      </li>
+      <li>O usuário poderá visualizar seus dados;</li>
+    </ul>
+  </li>
+  <li>Administrador
+    <ul>
+      <li>O administrador poderá fazer login;
+        <ul>
+          <li>Enquanto o administrador estiver logado, poderá fazer logout.</li>
+        </ul>
+      </li>
+      <li>O administrador poderá visualizar seus dados;</li>
+      <li>O administrador poderá listar usuários;
+        <ul>
+          <li>Nesta lista, o administrador poderá cadastrar, editar e desativar um ou mais usuários.</li>
+        </ul>
+      </li>
+      <li>O administrador poderá listar funcionários;
+        <ul>
+          <li>Nesta lista, o administrador poderá cadastrar, editar e desativar um ou mais funcionários.</li>
+        </ul>
+      </li>
+      <li>O administrador poderá listar setores;
+        <ul>
+          <li>Nesta lista, o administrador poderá cadastrar, editar e desativar um ou mais setores.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h2 id="24--diagrama-de-casos-de-uso"><a href="#header-2">2.4. </a> Diagrama de Casos de Uso</h2>
+
+<blockquote>
+  <p>Devido ao alto detalhamento das informações dos casos de uso, esta encontra-se nesta documentação somente em sua forma resumida. Para o conteúdo completo, <a href="https://docs.google.com/a/uea.edu.br/document/d/1YnygnlwL0KUH9y1mdlf3ZreXEkavQIohUOKKkdrtPz4/edit?usp=sharing">clique aqui</a></p>
+</blockquote>
+
+<p><img src="images/Zelda_UCD.jpg" alt=""></p>
+
+<h3 id="241--atores-do-sistema"><a href="#header-2">2.4.1 </a> Atores do Sistema</h3>
+
+<ul>
+  <li>
+    <p><strong>Administrador</strong>:  Usuário do sistema que possui acesso às funcionalidades de CRUD do sistema, incluindo o CRUD para as tabelas de Usuário, Funcionário e Setores.</p>
+  </li>
+  <li>
+    <p><strong>Usuário comum</strong>: Usuário do sistema que, por enquanto, só pode visualizar seus dados de usuário após ser autenticado pelo sistema.</p>
+  </li>
+</ul>
+
+<h3 id="242--casos-de-uso"><a href="#header-2">2.4.2 </a> Casos de Uso</h3>
+
+<ul>
+  <li>Cadastrar Setor</li>
+  <li>Cadastrar Funcionário</li>
+  <li>Cadastrar Usuário</li>
+  <li>Editar Usuário</li>
+  <li>Editar Setor</li>
+  <li>Editar Funcionário</li>
+  <li>Listar Funcionários</li>
+  <li>Listar Setores</li>
+  <li>Listar Usuários</li>
+  <li>Desativar Usuário</li>
+  <li>Desativar Setor</li>
+  <li>Desativar Funcionário</li>
+  <li>Login</li>
+  <li>Logout</li>
+  <li>Visualizar Dados de Usuário</li>
+</ul>
+
+<hr>
+
+<h2 id="3-análise-de-projeto"><a href="#header-2">3.</a> Análise de Projeto</h2>
+
+<p>O projeto segue esquematizado na forma de Entidade e Relacionamento, onde as principais entidades (setor, funcionário, usuário) são postas em tabelas no modelo físico do Banco de Dados. Onde cada tabela tem seus atributos específicos em cada coluna deixando assim populado todas as informções do sistema referente as entidades envolvidas do sistema.</p>
+
+<h2 id="31-tabela-de-setor"><a href="#header-3">3.1.</a> Tabela de Setor</h2>
+<p>A tabela  do setor, tem os seguintes atributos: setor_id, setor_nome, setor_situação, setor_pai.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">coluna</th>
+      <th>descrição</th>
+      <th>tipo de dado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">setor_id</td>
+      <td>No atributo setor_id, ficam armazenados os dados referentes a identificação de cada setor, onde cada setor é identificado de forma única, ou seja, o setor_id é uma chave primária.</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">setor_nome</td>
+      <td>No atributo setor_nome, ficam armazenados os dados referentes ao nome de cada setor, pois cada setor tem que ter um nome.</td>
+      <td>varchar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">setor_situacao</td>
+      <td>No atributo setor_situação, ficam armazenados os dados referentes a situação de cada setor, ele é responsável por indicar o se o setor está ativo ou não.</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">setor_pai</td>
+      <td>No atributo setor_pai, ficam armazenados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="32-tabela-de-usuário"><a href="#header-3">3.2.</a> Tabela de Usuário</h2>
+<p>A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">coluna</th>
+      <th>descrição</th>
+      <th>tipo de dado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">usuario_id</td>
+      <td>No atributo usuario_id, ficam armazenados os dados referentes a identificação de cada usuário, onde esse dado é uma chave primária e irá guardar uma identificação de cada usuário cadastrado no banco de dados.</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usuario_login</td>
+      <td>No atributo usuario_login, ficam armazenados os dados referentes ao login que o usuário cadastrou</td>
+      <td>varchar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usuario_senha</td>
+      <td>No atributo usuario_senha, fica armazenado a senha que o usuário cadastrou</td>
+      <td>varchar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usuario_logado</td>
+      <td>No atributo usuario_logado, irá definir se o usuário está logado, definindo como 1 caso esteja logado ou 0 caso contrário</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usuario_admin</td>
+      <td>No atributo usuario_admin, irá guardar se o usuário é administrador ou não.</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="33-tabela-de-funcionário"><a href="#header-3">3.3.</a> Tabela de Funcionário</h2>
+<p>A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">coluna</th>
+      <th>descrição</th>
+      <th>tipo de dado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">funcionario_id</td>
+      <td>No atributo funcionario_id, ficam armazenados os dados referentes a identificação de cada funcionário sendo esse valor criado como uma chave primária, que determina um valor único no banco de dados.</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">funcionario_nome</td>
+      <td>No  atributo funcionário_nome, ficam armazenados os nomes de cada usuário cadastrado no sistema.</td>
+      <td>varchar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">funcionario_situacao</td>
+      <td>No atributo funcionario_situacao, ficam armazenados a situaçãso de cada funcionário sendo o valor 1 o valor inicial que determina funcionário ativo e caso haja uma alteração na situação do funcionário ele recebe o valor 0 para inativo.</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="4-implementação"><a href="#header-2">4. </a>Implementação</h2>
+
+<p>Na sua versão atual, o sistema contém 6(seis) telas, que compõem o módulo Zelda. Onde estas são:</p>
+
+<ul>
+  <li><a href="https://docs.google.com/a/uea.edu.br/document/d/1L7sYBf0ZaKGEKfPf_h7y5uq32a7BxG4NOdgCQpNOZrY/edit?usp=sharing">Login</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eyUE5feHprT1htUm8/view?usp=sharing">Administrador</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eyQ2pfVXFoMWhra2M/view?usp=sharing">Usuário</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eybXJaMU1zR1NiREk/view?usp=sharing">Cadastro de funcionários</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eyQUd2djdIaE1ZVU0/view?usp=sharing">Cadastro de setor</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eyMGVoTkd6UGdZZms/view?usp=sharing">Cadastro de usuário</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eya2J0enU5d09iaUk/view?usp=sharing">Listagem de funcionários</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eya2J0enU5d09iaUk/view?usp=sharing">Listagem de setores</a></li>
+  <li><a href="https://drive.google.com/a/uea.edu.br/file/d/0B09Ckx-J88eydTRDV0V2WkhZaHM/view?usp=sharing">Listagem de usuários</a></li>
+</ul>
+
+<p>Segue abaixo a iteração entre as telas do sistema.</p>
+
+<p><img src="images/Diagrama.png?raw=true" alt=""></p>
+
+<hr>
+
+<h2 id="5-planejamento-e-gerência"><a href="#header-2">5. </a>Planejamento e Gerência</h2>
+
+<p>«««&lt; HEAD</p>
+<h3 id="51-interação"><a href="#header-3">5.1. </a>Interação</h3>
+<ul>
+  <li>
+    <h1 id="interação-004"><a href="/zelda/interacao.html">Interação 0.0.4</a></h1>
+    <h3 id="51-iteração"><a href="#header-3">5.1. </a>Iteração</h3>
+  </li>
+  <li><a href="/zelda/interacao.html">Iteração 4</a>
+  </li>
+</ul>
+
+<hr>
+
+<p><img src="http://www.cdn.ueg.br/source/mobilidade_nacional_211/noticias/31283/uea.png" alt=""></p>
+</section>

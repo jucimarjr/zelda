@@ -2,7 +2,17 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <style>
+        #container-canvas-ucd {
+            width: 100%;
+            overflow: auto;
+            max-height: 450px;
+        }
+        #container-canvas-ucd canvas {
+            width: 100%;
+            min-width: 1000px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -175,7 +185,7 @@
     <h2 id="24--diagrama-de-casos-de-uso"><a href="#header-2">2.4. </a> Diagrama de Casos de Uso</h2>
 
     <!-- Essa div deve existir ao redor do canvas para o scrollbar -->
-	<div id="container">
+	<div id="container-canvas-ucd">
 		<!-- A largura e altura inicial do grid do canvas deve ser igual � da imagem de fundo para melhor resolu��o ao alterar o tamanho da tela-->
 		<canvas id="ucd-canvas" width="1698" height="1158" onmousemove="getCursorPosition(event)" onclick="getCursorPosition(event)"></canvas>
 	</div>
@@ -372,6 +382,6 @@
   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
-	<script src="assets/js/ucd-canvas-script"></script>
+	<script src="assets/js/ucd-canvas-script.js"></script>
 </body>
 </html>

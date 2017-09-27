@@ -29,11 +29,7 @@
 
                 <p id="desc-label"></p>
 
-                <label>Ator:</label><p id="ator-label"></p>
-
-                <label>Priroidade:</label><p id="prioridade-label"></p>
-
-                <label>Requisitos Não-Funcionais associados:</label><p id="rnf-label"></p>
+                <p><label>Ator: </label><span style="margin-left: 10px;" id="ator-label"></span></p>
 
                 <label>Pré-Condições</label>
                 <ul id="pre-ul"></ul>
@@ -59,8 +55,6 @@
         $('#nome-id-label').append($('<small></small>').text(uc.id));
         $('#desc-label').text(uc.descricao);
         $('#ator-label').text(uc.ator);
-        $('#prioridade-label').text(uc.prioridade);
-        $('#rnf-label').text(uc.rnfs);
 
         for(var i in uc.precondicoes) $('#pre-ul').append($('<li></li>').text(uc.precondicoes[i]));
 

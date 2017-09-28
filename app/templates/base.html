@@ -20,12 +20,13 @@
     <!-- Visitem: http://getbootstrap.com/docs/3.3/components/ para conhecer os componentes do Bootstrap-->
   </head>
   <body>
+    <div class="container">
+        {% block header %}{% endblock %}
 
-    <!--Início do código principal aqui -->
-
-    {% block content %}{% endblock %}
-
-    <!--Final do código principal aqui-->
+        <!--Início do código principal aqui -->
+        {% block content %}{% endblock %}
+        <!--Final do código principal aqui-->
+    </div>
 
     <!-- jQuery (necessário para os plugins JavaScript do Bootstrap) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

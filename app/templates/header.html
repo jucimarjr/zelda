@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block styles %}{% endblock %}
+
+{% block header %}
+<div class="row">
+    <div row="col-xs-2">
+        <a href="{{url_for('logout')}}">
+            <button id="logout-button" class="right">Sair</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block scripts %}{% endblock %}

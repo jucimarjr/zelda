@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+﻿{% extends "header.html" %}
 
 {% block styles %}
     <!-- CSS personalizado da página -->
@@ -94,12 +94,16 @@
             $("#remover-form").on("submit", function(){
                 var form = $(this);
 
+                var i = 0;
                 // Seleciona todos os tr que têm um filho input checkbox selecionado
                 $("td > input:checked").parent().parent().each(function(){
 
                     // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
                     form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("usuarioId")));
+                    i++;
                 });
+
+                if(i == 0) e.preventDefault();
 
             });
         });

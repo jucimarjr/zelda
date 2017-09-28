@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "header.html" %}
 
 {% block styles %}
     <link href="{{url_for('static', filename='funcionario_crud_style.css')}}" rel="stylesheet">
@@ -19,21 +19,21 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
-            <h2>Confirmar Remoção de Setor</h2>
+            <h2>Confirmar Remoção de Funcionário</h2>
             <p>
-                Deseja realmente desativar os seguintes setores?
+                Deseja realmente desativar os seguintes funcionários?
                 <ul class="list-group">
-                    {% for setor in setores %}
-                    <li>{{setor.id}} - {{setor.nome}}</li>
+                    {% for funcionario in funcionarios %}
+                    <li>{{funcionario.id}} - {{funcionario.nome}}</li>
                     {% endfor %}
                 </ul>
             </p>
             <form class="form" action="" method="post">
-                {% for setor in setores %}
-                    <input type="hidden" value="{{setor.id}}" name="ids[]">
+                {% for funcionario in funcionarios %}
+                    <input type="hidden" value="{{funcionario.id}}" name="ids[]">
                 {% endfor %}
-                <button type="submit" name="origem" value="propria" class="round-button">SIM</button>
-                <a href="{{url_for('setor_listar')}}"><button type="submit" class="round-button">NÃO</button></a>
+                <button type="submit" value="propria" name="origem" class="round-button">SIM</button>
+                <a href="{{url_for('funcionario_listar')}}"><button type="button" class="round-button">NÃO</button></a>
             </form>
         </div>
     </div>

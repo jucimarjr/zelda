@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "header.html" %}
 
 {% block styles %}
     <!-- CSS personalizado da página -->
@@ -17,7 +17,7 @@
                   <a><button id="editar-button" type="submit" class="round-button button2">EDITAR FUNCIONÁRIO</button></a>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <form id="remover-form" action="{{url_for('funcionario_remover')}}" method="post">
+                    <form id="remover-form" action="{{url_for('funcionario_desativar')}}" method="post">
                         <button type="submit" name="origem" value="home" class="round-button button3">REMOVER FUNCIONÁRIO</button>
                     </form>
                 </div>
@@ -89,15 +89,19 @@
             });
 
             // Antes do form do botão de remover ser submetido
-            $("#remover-form").on("submit", function(){
+            $("#remover-form").on("submit", function(e){
                 var form = $(this);
 
+                var i = 0;
                 // Seleciona todos os tr que têm um filho input checkbox selecionado
                 $("td > input:checked").parent().parent().each(function(){
 
                     // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
                     form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("funcionarioId")));
+                    i++;
                 });
+
+                if(i==0) e.preventDefault();
 
             });
         });

@@ -1,0 +1,48 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='funcionario_crud_style.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }} </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="container" id="login-page-container">
+      <div class="row">
+         <div class="col-xs-10 col-xs-push-1">
+
+            <h2>Atualizar Dados de Funcionário</h2>
+         <form class="form" action="" method="post">
+                {{form.hidden_tag()}}
+                {{form.funcionario_id}}
+                {{form.lotacao_id}}
+                  <div class="form-group">
+                     <label><h4>Nome do Funcionário</h4></label>
+                     {{form.funcionario_nome(class_='form-control')}}
+                  </div>
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label><h4>Setor do Funcionário</h4></label>
+                           {{form.setor_id(class_='form-control')}}
+
+                        </div>
+                     </div>
+                  </div>
+               <button class="round-button" type="submit">ATUALIZAR</button>
+               <a href="{{url_for('funcionario_listar')}}"><button type="button" class="round-button">CANCELAR</button></a>
+         </form>
+         </div>
+      </div>
+    </div>
+
+{% endblock %}

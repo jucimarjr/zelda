@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "header.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de setores</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/setor_listar.css"/>
-</head>
+{% block styles %}
+    <link href="{{url_for('static', filename='setor_listar.css')}}" rel="stylesheet">
+{% endblock %}
 
-<body>
+{% block content %}
     <div class="container">
         <div class="row mx-auto" id="my-buttons">
               <div class="col-md-4">
@@ -19,7 +14,7 @@
                 <button type="submit" id="editar-button" class="round-button button2">EDITAR SETOR</button>
               </div>
               <div class="col-md-4">
-                <form method="post" id="remover-form" action="{{url_for('remover_setor')}}">
+                <form method="post" id="remover-form" action="{{url_for('setor_desativar')}}">
                   <button type="submit" name="origem" value="listar" class="round-button button3">REMOVER SETOR</button>
                 </form>
               </div>
@@ -55,10 +50,9 @@
       </div>
     </div>
 
-    <!-- Scripts section -->
+{% endblock %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+{% block scripts %}
     <script>
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
@@ -88,21 +82,23 @@
             });
 
             // Antes do form do botão de remover ser submetido
-            $("#remover-form").on("submit", function(){
+            $("#remover-form").on("submit", function(e){
                 var form = $(this);
 
+                var i = 0;
                 // Seleciona todos os tr que têm um filho input checkbox selecionado
                 $("td > input:checked").parent().parent().each(function(){
 
                     // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
                     form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("setorId")));
+                    i++;
                 });
+
+                if(i==0) e.preventDefault();
 
             });
         });
     </script>
 
     <!-- End sction -->
-
-</body>
-</html>
+{% endblock %}

@@ -17,8 +17,8 @@ from app import app
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'jesus'
-app.config['MYSQL_DB'] = 'agoravai'
+app.config['MYSQL_PASSWORD'] = 'mps2017'
+app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 db = Zelda(app)
@@ -43,14 +43,14 @@ def login():
 
         # Backdoor do administrador
         if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
-            return redirect(url_for('admin'))
+            return redirect(url_for('admin_home'))
 
         ans = db.verifica_login(login=form.login.data, senha=senhaHash)
         if ans:
             if (not db.verifica_logado(login=form.login.data)):
                 db.set_logado_true(login=form.login.data)
                 if (db.verifica_admin(login=form.login.data)):
-                    return redirect(url_for('admin'))
+                    return redirect(url_for('admin_home'))
                 return redirect(url_for('home'))
             flash("Usuario já logado!")
 
@@ -66,14 +66,14 @@ def login():
 def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
-    #db.set_logado_false(user_login)
+    db.set_logado_false(user_login)
     return redirect(url_for('index'))
 
 
 @app.route('/admin')
 def admin():
     form = CadastraFuncionarioForm()
-    return render_template('TelaAdmin.html')
+    return render_template('admin_home.html')
 
 
 @app.route('/home')
@@ -113,7 +113,7 @@ def usuario_criar():
 
 
 @app.route('/usuario/<user_id>', methods=['GET', 'POST'])
-def usuario_atualizar(user_id):
+def usuario_editar(user_id):
     form = AtualizaUsuarioForm()
 
     usuario = Usuario()
@@ -143,7 +143,7 @@ def usuario_atualizar(user_id):
 
         flash_errors(form)
 
-    return render_template('usuario_atualizar.html', form=form)
+    return render_template('usuario_editar.html', form=form)
 
 
 @app.route('/funcionario/novo', methods=['GET', 'POST'])
@@ -173,7 +173,7 @@ def funcionario_criar():
 
 
 @app.route('/funcionario/<func_id>', methods=['GET', 'POST'])
-def funcionario_atualizar(func_id):
+def funcionario_editar(func_id):
     form = AtualizaFuncionarioForm()
 
     func = Funcionario()
@@ -227,7 +227,7 @@ def funcionario_atualizar(func_id):
 
         flash_errors(form)
 
-    return render_template('funcionario_atualizar.html', form=form)
+    return render_template('funcionario_editar.html', form=form)
 
 
 def preenche_dados_atuais(form, func, lotacao):
@@ -244,7 +244,7 @@ def preenche_dados_atuais(form, func, lotacao):
 
 
 @app.route('/funcionario/desativar', methods=['GET', 'POST'])
-def funcionario_remover():
+def funcionario_desativar():
 
 	# Se a página foi acessada por post pelo form do WTForms da própria página
 	if request.method == 'POST':
@@ -271,7 +271,7 @@ def funcionario_remover():
 					if funcionario is not None:
 						funcionarios.append(funcionario)
 
-				return render_template('remover_funcionario.html', form=request.form, funcionarios=funcionarios)
+				return render_template('funcionario_desativar.html', form=request.form, funcionarios=funcionarios)
 
 	"""Se o método foi GET ou o form deu erro de submissão, redireciona pra 
 	página de listagem"""
@@ -295,7 +295,7 @@ def setor_criar():
 
 
 @app.route('/setor/<setor_id>', methods=['GET', 'POST'])
-def setor_atualizar(setor_id):
+def setor_editar(setor_id):
     form = AtualizaSetorForm()
 
     setor = Setor()
@@ -308,7 +308,7 @@ def setor_atualizar(setor_id):
             form.setor_nome.data = setor.nome
             form.setor_id.data = setor.id
         else:
-            return redirect(url_for('admin'))
+            return redirect(url_for('setor_listar'))
 
     elif form.validate_on_submit():
         setor.nome = form.setor_nome.data
@@ -316,15 +316,15 @@ def setor_atualizar(setor_id):
 
         db.edita_setor(setor)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('setor_listar'))
     else:
         flash_errors(form)
 
-    return render_template('setor_atualizar.html', form=form)
+    return render_template('setor_editar.html', form=form)
 
 
 @app.route('/setor/desativar', methods=['GET', 'POST'])
-def remover_setor():
+def setor_desativar():
    # Se a página foi acessada por post pelo form do WTForms da própria página
     if request.method == 'POST':
 
@@ -349,13 +349,13 @@ def remover_setor():
                     if setor is not None:
                         setores.append(setor)
 
-                return render_template('remover_setor.html', form=request.form, setores=setores)
+                return render_template('setor_desativar.html', form=request.form, setores=setores)
 
     """Se o método foi GET ou o form deu erro de submissão, redireciona pra 
     página de listagem"""
     return redirect(url_for('setor_listar'))
 
-@app.route('/usuario/desativar', methods=['GET','POST'])
+@app.route('/usuario/remover', methods=['GET','POST'])
 def usuario_remover():
     form = RemoveUsuarioForm()
     if request.method == 'POST':
@@ -382,7 +382,7 @@ def usuario_remover():
                     if usuario is not None:
                         usuarios.append(usuario)
 
-                return render_template('remover_usuario.html', form=request.form, usuarios=usuarios)
+                return render_template('usuario_remover.html', form=request.form, usuarios=usuarios)
 
     """Se o método foi GET ou o form deu erro de submissão, redireciona pra página de listagem"""
     return redirect(url_for('usuario_listar'))

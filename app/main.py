@@ -287,7 +287,7 @@ def setor_criar():
 
         db.cadastra_setor(setor)
 
-        return redirect(url_for('admin'))
+        return redirect(url_for('setor_listar'))
     else:
         flash_errors(form)
 

@@ -66,7 +66,7 @@ def login():
 def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
-    db.set_logado_false(user_login)
+    #db.set_logado_false(user_login)
     return redirect(url_for('index'))
 
 

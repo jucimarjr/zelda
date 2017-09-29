@@ -71,7 +71,7 @@ def logout():
 
 
 @app.route('/admin')
-def admin():
+def admin_home():
     form = CadastraFuncionarioForm()
     return render_template('admin_home.html')
 

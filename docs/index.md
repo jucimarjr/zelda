@@ -125,7 +125,7 @@ A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuar
 | usuario_admin | No atributo usuario_admin, irá guardar se o usuário é administrador ou não. | int |
 
 
-## [3.3.](#header-3) Tabela de Funcionário
+## [3.3.](funcionario.md) Tabela de Funcionário
 A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao.
 
 | coluna  | descrição | tipo de dado  |

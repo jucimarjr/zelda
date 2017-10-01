@@ -3,6 +3,7 @@ layout: default
 ---
 
 ## Tabela de Usuário
+A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin.
 
 |   coluna    | descrição           | tipo de dado |
 |:------------|---------------------|--------------|

@@ -22,14 +22,14 @@ var casos = {
         poscondicoes: ["Os dados do Administrador devem ser exibidos."], 
         fluxo: "ad-visualizar-dados-usuario.jpg"
     },
-    "uc003": { /*Luiz*/
+    "uc003": { /**/
         id: "UC003", nome: "Listar Funcionários", descricao: "Permite ao administrador visualizar os funcionários cadastrados.",
         ator: "Administrador.", prioridade: "Precisa ser feito antes dos casos de uso de remover e editar funcionário", rnfs: "nenhum",
         precondicoes: ["O ator precisa estar autenticado como administrador."], 
         poscondicoes: ["Poderá cadastrar novos, editar ou remover funcionários."], 
         fluxo: "ad-listar-funcionarios.jpg"
     },
-    "uc004": { /*Luiz*/
+    "uc004": { /**/
         id: "UC004", nome: "Cadastrar Funcionários", descricao: "Permite ao administrador cadastrar novos funcionários.", 
         ator: "Administrador.", prioridade: "nenhuma.", rnfs: "nenhum.",
         precondicoes: ["O ator precisa estar autenticado como administrador.", "O ator precisa estar na página de listagem de funcionários."], 
@@ -115,14 +115,14 @@ var casos = {
         ator: "Usuário Comum", prioridade: "Primeira página desenvolvida.", rnfs: "",
         precondicoes: ["Deve haver ao menos um usuário cadastrado no banco de dados;", "O ator deve estar na página Inicial de Login."],
         poscondicoes: ["O ator pode visualizar suas informações"], 
-        fluxo: "assets/img/ad-login.jpg"
+        fluxo: "ad-login.jpg"
     },
     "uc016": {
         id: "UC016", nome: "Logout do Usuário", descricao: "Encerra a sessão do usuário no sistema",
         ator: "Usuário Comum", prioridade: "Desenvolvido como uma função da tela pós-login do usuário.", rnfs: "",
         precondicoes: [ /* "Ator deve estar com sessão ativa no sistema" */ "O ator deve estar com o login ativo no sistema Zelda."],
         poscondicoes: [ /* "Ator não está mais com sessão ativa no sistema"*/ "Após apertar o botão de logout o ator é direcionado para a página inicial de Login."],
-        fluxo: "assets/img/ad-logout.jpg"
+        fluxo: "ad-logout.jpg"
     },
     "uc017": {
         id: "UC017", nome: "Visualizar dados do Usuário", descricao: "Tela carregada pós-login do usuário comum.", 

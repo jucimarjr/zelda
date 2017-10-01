@@ -20,7 +20,7 @@
 		var casos = {
 
 			/* Cada item da "lista" tem um id �nico para evitar casos de uso repetidos por erro humano */
-			uc000: {
+			uc000: { /*Logout admin*/
 
 				/* A posi��o do centro da elipse do caso de uso (calculado baseado na imagem inteira - que j� naturalmente tem 14px de borda) */
 				x: 485,
@@ -96,7 +96,7 @@
 
 					if(event.type == "click") {
 						/* Se o evento que disparou a fun��o foi o clique, redireciona para o link do caso de uso */
-						window.location.href = "caso_de_uso.html?id=" + id_caso;
+						window.location.href = "caso-de-uso.html?id=" + id_caso;
 					}
 					else if(event.type == "mousemove"){
 						/* Se o mouse est� em cima do caso de uso, exibe um ponteiro indicativo do mouse */

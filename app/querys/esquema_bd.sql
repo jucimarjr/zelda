@@ -30,7 +30,7 @@ CREATE TABLE setor (
   setor_nome varchar(50) NOT NULL,
   setor_pai int(11),
   setor_situacao int(11) NOT NULL DEFAULT '0',
-
+  PRIMARY KEY(setor_id),
   FOREIGN KEY (setor_pai) REFERENCES zelda.setor(setor_id)
 );
 

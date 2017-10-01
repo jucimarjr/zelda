@@ -3,7 +3,7 @@ layout: default
 ---
 
 ## Tabela de Funcionário
-
+A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao.
 
 | coluna  | descrição | tipo de dado  |
 |:---------------|------------|--------------------- |

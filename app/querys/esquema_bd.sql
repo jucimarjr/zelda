@@ -26,7 +26,7 @@ CREATE TABLE funcionario (
 
 DROP TABLE IF EXISTS setor;
 CREATE TABLE setor (
-  setor_id int(11) NOT NULL,
+  setor_id int(11) NOT NULL AUTO_INCREMENT,
   setor_nome varchar(50) NOT NULL,
   setor_pai int(11),
   setor_situacao int(11) NOT NULL DEFAULT '0',

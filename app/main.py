@@ -66,7 +66,7 @@ def login():
 def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
-    #db.set_logado_false(user_login)
+    # db.set_logado_false(user_login)
     return redirect(url_for('index'))
 
 
@@ -84,7 +84,9 @@ def home():
 @app.route('/funcionario')
 def funcionario_listar():
     funcionarios = db.get_funcionarios()
-    return render_template('funcionario_listar.html', funcionarios=funcionarios)
+    return render_template(
+    'funcionario_listar.html',
+     funcionarios=funcionarios)
 
 
 @app.route('/usuario')
@@ -103,7 +105,12 @@ def setor_listar():
 def usuario_criar():
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
-        usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), admin=form.usuario_admin.data-1)
+        usuario = Usuario(
+    login=form.usuario_login.data,
+    senha=Criptografador.gerar_hash(
+        form.usuario_senha.data,
+        ''),
+         admin=form.usuario_admin.data - 1)
 
         db.cadastra_usuario(usuario)
         return redirect(url_for('usuario_listar'))
@@ -153,9 +160,10 @@ def funcionario_criar():
     # Recupera todos os setores do banco
     setores = db.get_setores_ativos()
 
-    # Adiciona dinamicamente as opções do SelectField que vai ser renderizado pelo wtforms
+    # Adiciona dinamicamente as opções do SelectField que vai ser renderizado
+    # pelo wtforms
     form.funcionario_setor_id.choices = [(s.id, s.nome) for s in setores]
-    form.funcionario_setor_id.default = 1 # O setor de id 1 no banco é o Nenhum
+    form.funcionario_setor_id.default = 1  # O setor de id 1 no banco é o Nenhum
 
     if form.validate_on_submit():
         funcionario = Funcionario(nome=form.funcionario_nome.data)
@@ -163,13 +171,18 @@ def funcionario_criar():
         db.cadastra_funcionario(funcionario)
         funcionarios = db.get_funcionarios()
 
-        lotacao = Lotacao(funcionario_id = len(funcionarios), setor_id = form.funcionario_setor_id.data)
+        lotacao = Lotacao(
+    funcionario_id=len(funcionarios),
+     setor_id=form.funcionario_setor_id.data)
 
         db.cadastra_lotacao(lotacao)
         return redirect(url_for('funcionario_listar'))
     else:
         flash_errors(form)
-        return render_template('funcionario_criar.html', form=form, setores=setores)
+        return render_template(
+    'funcionario_criar.html',
+    form=form,
+     setores=setores)
 
 
 @app.route('/funcionario/<func_id>', methods=['GET', 'POST'])
@@ -182,10 +195,12 @@ def funcionario_editar(func_id):
     # Recupera todos os setores do banco
     setores = db.get_setores()
 
-    # Adiciona dinamicamente as opções do SelectField que vai ser renderizado pelo wtforms
+    # Adiciona dinamicamente as opções do SelectField que vai ser renderizado
+    # pelo wtforms
     form.setor_id.choices = [(s.id, s.nome) for s in setores]
 
-    # Se a página foi carregada com dados post (do formulário da própria página), valida os campos
+    # Se a página foi carregada com dados post (do formulário da própria
+    # página), valida os campos
     if form.validate_on_submit():
 
         # Preenche um novo funcionário com os campos atualizados
@@ -209,7 +224,8 @@ def funcionario_editar(func_id):
 
         return redirect(url_for('funcionario_listar'))
 
-    # A página pode ser acessada diretamente pela URL ao passar somente o id do item a ser editado
+    # A página pode ser acessada diretamente pela URL ao passar somente o id
+    # do item a ser editado
     else:
         # Recupera o funcionário no banco
         func = db.get_funcionario(func_id)
@@ -251,27 +267,20 @@ def funcionario_desativar():
 
         ids = request.form.getlist("ids[]")
         if request.form['origem'] == 'propria':
-
-            # Percorre a lista de ids do FieldList
-			for item in ids:
-				# do qual pegamos o primeiro e único elemento
-				db.deleta_funcionario(item)
-
-		# Se o form é inválido e a página foi acessada por POST
-		else:
-			funcionarios = []
-
-			if ids is not None and len(ids) > 0:
-
-				# Lista os dados de cada funcionário na lista de ids[]
-				for func_id in ids:
-					funcionario = db.get_funcionario(func_id)
-
-					if funcionario is not None:
-						funcionarios.append(funcionario)
-
-				return render_template('funcionario_desativar.html', form=request.form, funcionarios=funcionarios)
-
+		# Percorre a lista de ids do FieldList
+            for item in ids:
+			# do qual pegamos o primeiro e único elemento
+                db.deleta_funcionario(item)
+        # Se o form é inválido e a página foi acessada por POST
+        else:
+            funcionarios = []
+            if ids is not None and len(ids) > 0:
+                # Lista os dados de cada funcionário na lista de ids[]
+                for func_id in ids:
+                    funcionario = db.get_funcionario(func_id)
+                    if funcionario is not None:
+                        funcionarios.append(funcionario)
+                return render_template('funcionario_desativar.html', form=request.form, funcionarios=funcionarios)
     """Se o método foi GET ou o form deu erro de submissão, redireciona pra
    página de listagem"""
     return redirect(url_for('funcionario_listar'))

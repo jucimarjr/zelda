@@ -103,11 +103,13 @@ São os requisitos funcionais com os quais o usuário não interage diretamente,
 
 O projeto segue esquematizado na forma de Entidade e Relacionamento, onde as principais entidades (setor, funcionário, usuário) são postas em tabelas no modelo físico do Banco de Dados. Onde cada tabela tem seus atributos específicos em cada coluna deixando assim populado todas as informções do sistema referente as entidades envolvidas do sistema.
 
-## [3.1](#header-2) [Tabela de Setor](setor.md)
+## [3.1](#header-2) Tabelas
 
-## [3.2](#header-2) [Tabela de Usuário](usuario.md)
+### [3.1.1](#header-2) [Tabela de Setor](setor.md)
 
-## [3.3](#header-2) [Tabela de Funcionário](funcionario.md)
+### [3.1.2](#header-2) [Tabela de Usuário](usuario.md)
+
+### [3.1.3](#header-2) [Tabela de Funcionário](funcionario.md)
 
 * * *
 

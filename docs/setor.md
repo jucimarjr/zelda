@@ -3,7 +3,7 @@ layout: default
 ---
 
 ## Tabela de Setor
-
+A tabela  do setor, tem os seguintes atributos: setor_id, setor_nome, setor_situação, setor_pai.
 
 |     coluna     | descrição                                 | tipo de dado |
 |:---------------|------------------------------------------ |--------------|

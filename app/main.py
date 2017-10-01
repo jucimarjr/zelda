@@ -246,14 +246,13 @@ def preenche_dados_atuais(form, func, lotacao):
 @app.route('/funcionario/desativar', methods=['GET', 'POST'])
 def funcionario_desativar():
 
-	# Se a página foi acessada por post pelo form do WTForms da própria página
-	if request.method == 'POST':
+    # Se a página foi acessada por post pelo form do WTForms da própria página
+    if request.method == 'POST':
 
-		ids = request.form.getlist("ids[]")
+        ids = request.form.getlist("ids[]")
+        if request.form['origem'] == 'propria':
 
-		if request.form['origem'] == 'propria':
-
-			# Percorre a lista de ids do FieldList
+            # Percorre a lista de ids do FieldList
 			for item in ids:
 				# do qual pegamos o primeiro e único elemento
 				db.deleta_funcionario(item)
@@ -273,9 +272,9 @@ def funcionario_desativar():
 
 				return render_template('funcionario_desativar.html', form=request.form, funcionarios=funcionarios)
 
-	"""Se o método foi GET ou o form deu erro de submissão, redireciona pra 
-	página de listagem"""
-	return redirect(url_for('funcionario_listar'))
+    """Se o método foi GET ou o form deu erro de submissão, redireciona pra
+   página de listagem"""
+    return redirect(url_for('funcionario_listar'))
 
 
 @app.route('/setor/novo', methods=['GET', 'POST'])
@@ -325,7 +324,7 @@ def setor_editar(setor_id):
 
 @app.route('/setor/desativar', methods=['GET', 'POST'])
 def setor_desativar():
-   # Se a página foi acessada por post pelo form do WTForms da própria página
+    # Se a página foi acessada por post pelo form do WTForms da própria página
     if request.method == 'POST':
 
         ids = request.form.getlist("ids[]")
@@ -351,11 +350,12 @@ def setor_desativar():
 
                 return render_template('setor_desativar.html', form=request.form, setores=setores)
 
-    """Se o método foi GET ou o form deu erro de submissão, redireciona pra 
+    """Se o método foi GET ou o form deu erro de submissão, redireciona pra
     página de listagem"""
     return redirect(url_for('setor_listar'))
 
-@app.route('/usuario/remover', methods=['GET','POST'])
+
+@app.route('/usuario/remover', methods=['GET', 'POST'])
 def usuario_remover():
     form = RemoveUsuarioForm()
     if request.method == 'POST':
@@ -364,18 +364,18 @@ def usuario_remover():
 
         if request.form['origem'] == 'propria':
 
-			# Percorre a lista de ids do FieldList
+            # Percorre a lista de ids do FieldList
             for item in ids:
                 # do qual pegamos o primeiro e único elemento
                 db.deleta_usuario(item)
 
-		# Se o form é inválido e a página foi acessada por POST
+        # Se o form é inválido e a página foi acessada por POST
         else:
             usuarios = []
 
             if ids is not None and len(ids) > 0:
 
-				# Lista os dados de cada funcionário na lista de ids[]
+                # Lista os dados de cada funcionário na lista de ids[]
                 for user_id in ids:
                     usuario = db.get_usuario(user_id)
 
@@ -393,4 +393,4 @@ def flash_errors(form):
         for error in errors:
             flash(u"Error in the %s field - %s" % (
                 getattr(form, field).label.text,
-                error))        
+                error))

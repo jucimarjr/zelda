@@ -66,6 +66,7 @@ def login():
 def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
+    session['user_login'] = ''
     # db.set_logado_false(user_login)
     return redirect(url_for('index'))
 
@@ -73,6 +74,8 @@ def logout():
 @app.route('/admin')
 def admin_home():
     form = CadastraFuncionarioForm()
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
     return render_template('admin_home.html')
 
 

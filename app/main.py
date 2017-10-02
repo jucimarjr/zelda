@@ -32,7 +32,7 @@ def index():
         return redirect(url_for('login'))
 
     usuario = db.get_usuario_pelo_login(session['user_login'])
-    return render_template('usuario_home.html', usuario=usuario)
+    return render_template('usuario_home.html', usuario = usuario)
 
 
 # User login
@@ -76,14 +76,14 @@ def admin_home():
         return redirect(url_for('index'))
 
     usuario = db.get_usuario_pelo_login(session['user_login'])
-    return render_template('admin_home.html', usuario=usuario)
+    return render_template('admin_home.html', usuario = usuario)
 
 
 @app.route('/funcionario')
 def funcionario_listar():
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
-
+    
     funcionarios = db.get_funcionarios()
     return render_template(
         'funcionario_listar.html',

@@ -17,7 +17,7 @@
     {% endwith %}
     <div class="container" id="login-page-container">
       <div class="row">
-         <div class="col-xs-10 col-xs-push-1">
+
 
             <h2 id="cad-func">ATUALIZAR DADOS DE USUÁRIO</h2>
          <form class="form" action="" method="post">
@@ -25,7 +25,7 @@
                 {{form.usuario_id}}
 
                   <div class="row">
-                     <div class="col-xs-6 col-md-4">
+
                         <div class="form-group">
                            <div class="input-group">
                               <label><h4 id="labels">Login do Usuário</h4></label>
@@ -33,7 +33,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-xs-6 col-md-4">
+
                         <div class="form-group">
                            <div class="input-group">
                               <label><h4 id="labels">Senha do usuário</h4></label>
@@ -42,7 +42,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-xs-6 col-md-4">
+
                         <label><h4 id="labels">Tipo do Usuário</h4></label>
                         {% for item in form.usuario_admin %}
                             <div class="checkbox">
@@ -55,14 +55,10 @@
                      </div>
                   </div>
 
-                  <div class="row section">
-
-                    <div class="col-md-10 col-md-10 col-md-push-6">
-
-
+                  <div class="row mx auto" id="my-buttons">
+                    <div class="col-md-8 col-md-10 col-md-push-6">
                <button class="round-button" type="submit">ATUALIZAR</button>
-
-                   <div class="col-xs-12 col-md-4">
+                   <div class="col-xs-10 col-md-4">
                <a href="{{url_for('usuario_listar')}}"><button type="button" class="round-button">CANCELAR</button></a>
 </div>
 </div>

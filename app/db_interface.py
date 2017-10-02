@@ -154,7 +154,7 @@ class Zelda:
         return usuarios
 
     def get_usuario(self, id):
-        data = self.execute_query('''select * from usuario where usuario_id = {}'''.format(id))
+        data = self.execute_query("select * from usuario where usuario_id = '{}'".format(id))
         if len(data) < 1:
             return None
         usuarios = []
@@ -169,7 +169,7 @@ class Zelda:
         return usuarios[0]
 
     def get_usuario_pelo_login(self, login):
-        data = self.execute_query('''select * from usuario where usuario_login = {}'''.format(login))
+        data = self.execute_query("select * from usuario where usuario_login = '{}'".format(login))
         if len(data) < 1:
             return None
         usuarios = []

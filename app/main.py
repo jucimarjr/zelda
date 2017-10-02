@@ -28,8 +28,11 @@ db = Zelda(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    form = LoginForm()
-    return render_template("login.html", form=form)
+    if(session['user_login'] == ""):
+        return redirect(url_for('login'))
+
+    usuario = db.get_usuario_pelo_login(session['user_login'])
+    return render_template('usuario_home.html', usuario = usuario)
 
 
 # User login
@@ -41,17 +44,13 @@ def login():
         senha = form.senha.data
         senhaHash = Criptografador.gerar_hash(senha, '')
 
-        # Backdoor do administrador
-        if form.login.data == "jailson_admin" and senhaHash == "110d46fcd978c24f306cd7fa23464d73":
-            return redirect(url_for('admin_home'))
-
         ans = db.verifica_login(login=form.login.data, senha=senhaHash)
         if ans:
             if (not db.verifica_logado(login=form.login.data)):
                 db.set_logado_true(login=form.login.data)
                 if (db.verifica_admin(login=form.login.data)):
                     return redirect(url_for('admin_home'))
-                return redirect(url_for('home'))
+                return redirect(url_for('index'))
             flash("Usuario já logado!")
 
         else:
@@ -73,17 +72,11 @@ def logout():
 
 @app.route('/admin')
 def admin_home():
-    form = CadastraFuncionarioForm()
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
-    return render_template('admin_home.html')
 
-
-@app.route('/home')
-def home():
-    if(session['user_login'] == ""):
-        return redirect(url_for('index'))
-    return render_template('home.html')
+    usuario = db.get_usuario_pelo_login(session['user_login'])
+    return render_template('admin_home.html', usuario = usuario)
 
 
 @app.route('/funcionario')

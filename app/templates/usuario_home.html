@@ -1,0 +1,20 @@
+﻿{% extends "header.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='admin_home_style.css')}}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="fundo-branco">
+    			<div class="col-md-1">
+    				<img src="mene.jpg">
+    			</div>
+				<h4>ID: {{usuario.id}}</h4>
+                <h4>Login: {{usuario.login}}</h4>
+		
+    		 </div>
+        </div>
+    </div>
+{% endblock %}

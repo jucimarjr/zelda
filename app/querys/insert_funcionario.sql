@@ -49,30 +49,30 @@ INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
 
 INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
  ('Gilberto Garcia del Pino', 0);
+ 
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('Hélio Braz', 0);
 
-INSERT INTO funcionario VALUES
- ('Hélio Braz', 'helio', 'helio123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('Ingrid Gadelha', 0);
 
-INSERT INTO funcionario VALUES
- ('Ingrid Gadelha', 'ingrid', 'ingrid123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('Jamile Dehaini', 0);
 
-INSERT INTO funcionario VALUES
- ('Jamile Dehaini', 'jamile', 'jamile123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('João da Mata Libório Filho', 0);
 
-INSERT INTO funcionario VALUES
- ('João da Mata Libório Filho', 'joao', 'joao123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('Jorge Brito', 0);
 
-INSERT INTO funcionario VALUES
- ('Jorge Brito', 'jorge.b', 'jorge.b123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('Jorge Procópio Costa Novo', 0);
 
-INSERT INTO funcionario VALUES
- ('Jorge Procópio Costa Novo', 'jorge.p', 'jorge.p123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('José Augusto Veiga', 0);
 
-INSERT INTO funcionario VALUES
- ('José Augusto Veiga', 'jose.a', 'jose.a123');
-
-INSERT INTO funcionario VALUES
- ('José Luiz', 'jose.l', 'jose.l123');
+INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
+ ('José Luiz', 0);
 
 INSERT INTO funcionario(funcionario_nome,funcionario_situacao) VALUES
  ('Jozias Parente de Oliveira', 0);

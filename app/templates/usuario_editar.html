@@ -23,7 +23,7 @@
          <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
                 {{form.usuario_id}}
-                  
+
                   <div class="row">
                      <div class="col-xs-6 col-md-4">
                         <div class="form-group">
@@ -54,10 +54,20 @@
                         {% endfor %}
                      </div>
                   </div>
-                 
-                  </div>
+
+                  <div class="row section">
+
+                    <div class="col-md-10 col-md-10 col-md-push-6">
+
+
                <button class="round-button" type="submit">ATUALIZAR</button>
+
+                   <div class="col-xs-12 col-md-4">
                <a href="{{url_for('usuario_listar')}}"><button type="button" class="round-button">CANCELAR</button></a>
+</div>
+</div>
+</div>
+</div>
          </form>
          </div>
       </div>

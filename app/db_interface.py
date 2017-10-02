@@ -29,7 +29,7 @@ class Zelda:
     # função que verifica se o usuário está logado. Utilizado no login único.
     def verifica_logado(self, login):
         data = self.execute_query("select usuario_logado from  usuario where usuario_login = '{}'".format(login))
-        if (data[0]['usuario_logado'] == 1):
+        if (data[0]['usuario_logado'] == 0):
             return False
         return True
 

@@ -1,8 +1,7 @@
 from flask_mysqldb import MySQL
 
-from zelda.app.funcionario import cadastra_funcionario, cadastra_lotacao, get_lotacao_ativa, get_funcionarios, \
+from .funcionario import Funcionario, cadastra_funcionario, cadastra_lotacao, get_lotacao_ativa, get_funcionarios, \
     edita_funcionario, deleta_funcionario, get_funcionario, get_setor
-from .funcionario import Funcionario
 from .lotacao import Lotacao
 from .setor import Setor
 from .usuario import Usuario

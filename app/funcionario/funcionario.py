@@ -1,4 +1,4 @@
-from zelda.app.funcionario import get_funcionarios, get_lotacao_ativa, cadastra_funcionario, cadastra_lotacao, \
+from app.funcionario import get_funcionarios, get_lotacao_ativa, cadastra_funcionario, cadastra_lotacao, \
     get_setor, get_funcionario, deleta_funcionario, edita_funcionario, serializa
 
 

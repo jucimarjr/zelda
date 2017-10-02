@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
         #container-canvas-ucd {
@@ -138,9 +141,20 @@
 
     <h2 id="23--regras-de-negócio"><a href="#header-2">2.3. </a> Regras de Negócio</h2>
 
-    <blockquote>
-    <p>Devido ao alto detalhamento das informações das regras de negócio, esta encontra-se nesta documentação somente em sua forma resumida. Para acessar o conteúdo completo, <a href="/zelda/negocio.html">clique aqui</a>.</p>
-    </blockquote>
+    
+    <p>Regra de Negócio (RN) é toda norma ou tudo aquilo que a lei ou o uso comum
+        determina a respeito de qualquer transação que envolve uma determinada organização.
+        Portanto, regra de negócio é uma diretriz destinada a regulamentar o comportamento do
+        negócio.
+        Sob a perspectiva de SI, regra de negócio é: "uma declaração que define ou restringe
+        algum aspecto do negócio". Neste contexto regras de negócio são usualmente
+        definidas como restrições ou metadados sobre operações de negócio, e também são
+        conhecidas como regras do domínio da aplicação, ou regras de minimundo. As RN expressam
+        declarações que são
+        "elementos-chave na definição das intenções e necessidades do negócio, ou
+        reflexões de como a organização trabalha ou como pretende trabalhar no
+        futuro" (SOMMERVILLE, 2011). Para mais informações <a href="/zelda/negocio.html">clique aqui</a>.</p>
+    
 
     <ul>
     <li>Usuário
@@ -202,38 +216,140 @@
     </ul>
 
     <h3 id="242--casos-de-uso"><a href="#header-2">2.4.2 </a> Casos de Uso</h3>
+    <p> Segundo Ivar Jacobson, podemos dizer que
+        um caso de uso é um "documento narrativo
+        que descreve a sequência de eventos de um
+        ator que usa um sistema para completar um
+        processo"</p>
 
     <ul>
-    <li><a href="caso-de-uso.html?id=uc004">Cadastrar Funcionário</a></li>
-    <li><a href="caso-de-uso.html?id=uc008">Cadastrar Setor</a></li>
-    <li><a href="caso-de-uso.html?id=uc012">Cadastrar Usuário</a></li>
-    <li><a href="caso-de-uso.html?id=uc005">Editar Funcionário</a></li>
-    <li><a href="caso-de-uso.html?id=uc009">Editar Setor</a></li>
-    <li><a href="caso-de-uso.html?id=uc013">Editar Usuário</a></li>
-    <li><a href="caso-de-uso.html?id=uc003">Listar Funcionários</a></li>
-    <li><a href="caso-de-uso.html?id=uc007">Listar Setores</a></li>
-    <li><a href="caso-de-uso.html?id=uc011">Listar Usuários</a></li>
-    <li><a href="caso-de-uso.html?id=uc006">Desativar Funcionários</a></li>
-    <li><a href="caso-de-uso.html?id=uc010">Desativar Setores</a></li>
-    <li><a href="caso-de-uso.html?id=uc014">Remover Usuários</a></li>
-    <li><a href="caso-de-uso.html?id=uc015">Login</a></li>
-    <li><a href="caso-de-uso.html?id=uc016">Logout</a></li>
-    <li><a href="caso-de-uso.html?id=uc017">Visualizar Dados de Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc008" target="_blank">Cadastrar Setor</a></li>
+    <li><a href="caso_de_uso.html?id=uc004" target="_blank">Cadastrar Funcionário</a></li>
+    <li><a href="caso_de_uso.html?id=uc012" target="_blank">Cadastrar Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc013" target="_blank">Editar Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc009" target="_blank">Editar Setor</a></li>
+    <li><a href="caso_de_uso.html?id=uc005" target="_blank">Editar Funcionário</a></li>
+    <li><a href="caso_de_uso.html?id=uc003" target="_blank">Listar Funcionários</a></li>
+    <li><a href="caso_de_uso.html?id=uc007" target="_blank">Listar Setores</a></li>
+    <li><a href="caso_de_uso.html?id=uc011" target="_blank">Listar Usuários</a></li>
+    <li><a href="caso_de_uso.html?id=uc014" target="_blank">Desativar Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc010" target="_blank">Desativar Setor</a></li>
+    <li><a href="caso_de_uso.html?id=uc006" target="_blank">Desativar Funcionário</a></li>
+    <li><a href="caso_de_uso.html?id=uc001" target="_blank">Login</a></li>
+    <li><a href="caso_de_uso.html?id=uc000" target="_blank">Logout</a></li>
+    <li><a href="caso_de_uso.html?id=uc017" target="_blank">Visualizar Dados de Usuário</a></li>
     </ul>
 
     <hr>
 
     <h2 id="3-análise-de-projeto"><a href="#header-2">3.</a> Análise de Projeto</h2>
 
-    <p>O projeto segue esquematizado na forma de Entidade e Relacionamento, onde as principais entidades (setor, funcionário, usuário) são postas em tabelas no modelo físico do Banco de Dados. Onde cada tabela tem seus atributos específicos em cada coluna deixando assim populado todas as informções do sistema referente as entidades envolvidas do sistema.</p>
+    <p> O projeto segue esquematizado na forma de Entidade e Relacionamento, onde as principais entidades (setor, funcionário, usuário) são postas em tabelas no modelo físico do Banco de Dados. Onde cada tabela tem seus atributos específicos em cada coluna deixando assim populado todas as informções do sistema referente as entidades envolvidas do sistema.</p>
 
-    <h2><a href="#header-2">3.1</a>Tabelas</h2>
+    <h2 id="31-tabela-de-setor"><a href="#header-3">3.1.</a> Tabela de Setor</h2>
+    <p>A tabela  do setor, tem os seguintes atributos: setor_id, setor_nome, setor_situação, setor_pai.</p>
 
-    <h3 id="31-tabela-de-setor"><a href="#header-2">3.1.1</a> <a href="setor.html">Tabela de Setor</a></h3>
+    <table class="table">
+    <thead>
+        <tr>
+        <th style="text-align: left">coluna</th>
+        <th>descrição</th>
+        <th>tipo de dado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td style="text-align: left">setor_id</td>
+        <td>No atributo setor_id, ficam armazenados os dados referentes a identificação de cada setor, onde cada setor é identificado de forma única, ou seja, o setor_id é uma chave primária.</td>
+        <td>int</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">setor_nome</td>
+        <td>No atributo setor_nome, ficam armazenados os dados referentes ao nome de cada setor, pois cada setor tem que ter um nome.</td>
+        <td>varchar</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">setor_situacao</td>
+        <td>No atributo setor_situação, ficam armazenados os dados referentes a situação de cada setor, ele é responsável por indicar o se o setor está ativo ou não.</td>
+        <td>int</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">setor_pai</td>
+        <td>No atributo setor_pai, ficam armazenados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.</td>
+        <td>int</td>
+        </tr>
+    </tbody>
+    </table>
 
-    <h3 id="32-tabela-de-usuário"><a href="#header-2">3.1.2.</a> <a href="usuario.png">Tabela de Usuário</a></h3>
+    <h2 id="32-tabela-de-usuário"><a href="#header-3">3.2.</a> Tabela de Usuário</h2>
+    <p>A tabela usuário, tem os seguintes atributos : usuario_id, usuario_login, usuario_senha, usuario_logado e usuario_admin.</p>
 
-    <h3 id="33-tabela-de-funcionário"><a href="#header-2">3.1.3.</a> <a href="funcionario.md">Tabela de Funcionário</a></h3>
+    <table class="table">
+    <thead>
+        <tr>
+        <th style="text-align: left">coluna</th>
+        <th>descrição</th>
+        <th>tipo de dado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td style="text-align: left">usuario_id</td>
+        <td>No atributo usuario_id, ficam armazenados os dados referentes a identificação de cada usuário, onde esse dado é uma chave primária e irá guardar uma identificação de cada usuário cadastrado no banco de dados.</td>
+        <td>int</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">usuario_login</td>
+        <td>No atributo usuario_login, ficam armazenados os dados referentes ao login que o usuário cadastrou</td>
+        <td>varchar</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">usuario_senha</td>
+        <td>No atributo usuario_senha, fica armazenado a senha que o usuário cadastrou</td>
+        <td>varchar</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">usuario_logado</td>
+        <td>No atributo usuario_logado, irá definir se o usuário está logado, definindo como 1 caso esteja logado ou 0 caso contrário</td>
+        <td>int</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">usuario_admin</td>
+        <td>No atributo usuario_admin, irá guardar se o usuário é administrador ou não.</td>
+        <td>int</td>
+        </tr>
+    </tbody>
+    </table>
+
+    <h2 id="33-tabela-de-funcionário"><a href="#header-3">3.3.</a> Tabela de Funcionário</h2>
+    <p>A tabela funcionário, tem os seguintes atributos : funcionario_id,funcionario_nome, funcionario_situacao.</p>
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th style="text-align: left">coluna</th>
+        <th>descrição</th>
+        <th>tipo de dado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td style="text-align: left">funcionario_id</td>
+        <td>No atributo funcionario_id, ficam armazenados os dados referentes a identificação de cada funcionário sendo esse valor criado como uma chave primária, que determina um valor único no banco de dados.</td>
+        <td>int</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">funcionario_nome</td>
+        <td>No  atributo funcionário_nome, ficam armazenados os nomes de cada usuário cadastrado no sistema.</td>
+        <td>varchar</td>
+        </tr>
+        <tr>
+        <td style="text-align: left">funcionario_situacao</td>
+        <td>No atributo funcionario_situacao, ficam armazenados a situaçãso de cada funcionário sendo o valor 1 o valor inicial que determina funcionário ativo e caso haja uma alteração na situação do funcionário ele recebe o valor 0 para inativo.</td>
+        <td>int</td>
+        </tr>
+    </tbody>
+    </table>
 
     <hr>
 
@@ -259,27 +375,16 @@
 
     <hr>
 
+    <h2 id="5-planejamento-e-gerência"><a href="#header-2">5. </a>Planejamento e Gerência</h2>
 
-	 <h2><a href="#header-2">5.0</a> Diagramas de Classes</h2>
-
-    
-
-    <h3 id="52-tabela-de-usuário"><a href="#header-2">5.2</a> <a href="diagrama de classes\classe_n.png">Classes de Negocio</a></h3>
-    <h3 id="52-tabela-de-usuário"><a href="#header-2">5.2</a> <a href="diagrama de classes\Classes_da_Camada_de_Fronteira.png">Classes da Camada de Fronteira</a></h3>
-    <h3 id="52-tabela-de-usuário"><a href="#header-2">5.2</a> <a href="diagrama de classes\Classes_da_Camada_de_Entidade.png">Classes da Camada de Entidade</a></h3>
-    <h3 id="52-tabela-de-usuário"><a href="#header-2">5.2</a> <a href="diagrama de classes\Classe_da_Camada_de_Conexão_com_o_Banco_de_Dados.png">Classes da Camada de Conexão com Banco de Dados</a></h3>
-    <h3 id="52-tabela-de-usuário"><a href="#header-2">5.2</a> <a href="diagrama de classes\ER_Zelda.png">ER</a></h3>
-
-   
-
-	 <hr>
-
-    <h2 id="6-planejamento-e-gerência"><a href="#header-2">6. </a>Planejamento e Gerência</h2>
-
-    <h3 id="61-interações"><a href="#header-3">6.1. </a>Iterações</h3>
+    <p>«««&lt; HEAD</p>
+    <h3 id="51-interação"><a href="#header-3">5.1. </a>Interação</h3>
     <ul>
     <li>
-        <a href="interacao.html">Iteração 0.0.4</a>
+        <h1 id="interação-004"><a href="/zelda/interacao.html">Interação 0.0.4</a></h1>
+        <h3 id="51-iteração"><a href="#header-3">5.1. </a>Iteração</h3>
+    </li>
+    <li><a href="/zelda/interacao.html">Iteração 4</a>
     </li>
     </ul>
 

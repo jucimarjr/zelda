@@ -127,7 +127,7 @@ layout: default
 |:------------------|:---------------------------------------------|:---------|:----------------|
 |  Elissandra Souza | Visualizar dados de usuários                 |   SIM    |[GitHub]()|
 |  Elizabeth        | Arquitetura                                  |   SIM    |[GitHub]()|
-|  Filip Anselmo    | Listar lotação ativa no 'Listar funcionários'|   NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=anselmofilip)|
+|  Filip Anselmo    | Listar lotação ativa no 'Listar funcionários'|   SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=anselmofilip)|
 |  *Jailson Pereira | Gerência                                     |   SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jailsonpj)|
 |  Jefferson Lima   | Github                                       |   SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=branfford)|
 
@@ -136,8 +136,8 @@ layout: default
 |     Integrante      | Atividade                | Concluída |Commits          |
 |:--------------------|:-------------------------|:----------|:-------------|
 |  *Jéssica Lopes     | Gerência                 |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jessiccatavares)|
-|  João Vítor         | Documentação/Gitpages    |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jvmdoeng16)|
-|  Kylciane Freitas   | Documentação/Gitpages    |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=annefreitas)|
+|  João Vítor         | Documentação/Gitpages    |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jvmdoeng16)|
+|  Kylciane Freitas   | Documentação/Gitpages    |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=annefreitas)|
 |  Leonardo Carvalho  | Padronização             |    SIM    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=leonardocvlh)|
 |  Leonardo Monteiro  | Autenticação e Segurança |    SIM    |[GitHub]()|
 
@@ -185,8 +185,8 @@ layout: default
 |:-------------------|:--------------|:--------------|
 | Rodrigo Moraes     | 0             | NÃO           |
 | Beatriz Stephany   | 1             | SIM           |
-| Jailson Pereira    | 2             | NÃO           |
-| Jéssica Lopes      | 3             | NÃO           |
+| Jailson Pereira    | 2             | SIM           |
+| Jéssica Lopes      | 3             | SIM           |
 | Lorene da Silva    | 4             | SIM           |
 | Nicolas da Silva   | 5             | SIM           |
 | Thatielen Oliveira | 6             | SIM           |

@@ -88,8 +88,8 @@ def home():
 def funcionario_listar():
     funcionarios = db.get_funcionarios()
     return render_template(
-    'funcionario_listar.html',
-     funcionarios=funcionarios)
+        'funcionario_listar.html',
+        funcionarios=funcionarios)
 
 
 @app.route('/usuario')
@@ -108,12 +108,7 @@ def setor_listar():
 def usuario_criar():
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
-        usuario = Usuario(
-    login=form.usuario_login.data,
-    senha=Criptografador.gerar_hash(
-        form.usuario_senha.data,
-        ''),
-         admin=form.usuario_admin.data - 1)
+        usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), admin=form.usuario_admin.data - 1)
 
         db.cadastra_usuario(usuario)
         return redirect(url_for('usuario_listar'))
@@ -174,18 +169,13 @@ def funcionario_criar():
         db.cadastra_funcionario(funcionario)
         funcionarios = db.get_funcionarios()
 
-        lotacao = Lotacao(
-    funcionario_id=len(funcionarios),
-     setor_id=form.funcionario_setor_id.data)
+        lotacao = Lotacao(funcionario_id=len(funcionarios), setor_id=form.funcionario_setor_id.data)
 
         db.cadastra_lotacao(lotacao)
         return redirect(url_for('funcionario_listar'))
     else:
         flash_errors(form)
-        return render_template(
-    'funcionario_criar.html',
-    form=form,
-     setores=setores)
+        return render_template('funcionario_criar.html', form=form, setores=setores)
 
 
 @app.route('/funcionario/<func_id>', methods=['GET', 'POST'])
@@ -270,9 +260,9 @@ def funcionario_desativar():
 
         ids = request.form.getlist("ids[]")
         if request.form['origem'] == 'propria':
-		# Percorre a lista de ids do FieldList
+            # Percorre a lista de ids do FieldList
             for item in ids:
-			# do qual pegamos o primeiro e único elemento
+                # do qual pegamos o primeiro e único elemento
                 db.deleta_funcionario(item)
         # Se o form é inválido e a página foi acessada por POST
         else:

@@ -39,6 +39,7 @@ parser.add_argument('usuario_id')
 parser.add_argument('usuario_login')
 parser.add_argument('usuario_senha')
 
+
 # Requisições para um funcionário
 class Funcionario(Resource):
 
@@ -59,6 +60,7 @@ class Funcionario(Resource):
 
 api.add_resource(Funcionario, '/funcionario/<int:func_id>')
 
+
 # Requisição para todos os funcionários
 class Funcionarios(Resource):
 
@@ -68,13 +70,14 @@ class Funcionarios(Resource):
 
 api.add_resource(Funcionarios, '/funcionario')
 
+
 # Requisição para um setor
 class Setor(Resource):
 
     # Lista um setor por id
     def get(self, setor_id):
         return jsonify(db.get_setor(setor_id).serializa())
-    
+
     # Edita setor por id
     def put(self, setor_id):
         args = parser.parse_args()
@@ -89,6 +92,7 @@ class Setor(Resource):
 
 api.add_resource(Setor, '/setor/<int:setor_id>')
 
+
 # Requisição para todos os setores
 class Setores(Resource):
 
@@ -97,6 +101,7 @@ class Setores(Resource):
         return jsonify([setor.serializa() for setor in db.get_setores()])
 
 api.add_resource(Setores, '/setor')
+
 
 # Requisição para um usuário
 class Usuario(Resource):
@@ -117,6 +122,7 @@ class Usuario(Resource):
         return jsonify(usuario.serializa())
 
 api.add_resource(Usuario, '/usuario/<int:user_id>')
+
 
 # Requisição para todos os usuários
 class Usuarios(Resource):

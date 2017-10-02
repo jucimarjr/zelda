@@ -82,27 +82,27 @@ class Zelda:
         return get_setor(self, id)
 
     # CRUD - USUARIO
-    
-	def serializa(self):
-		return serializa(self)
 
-	def cadastra_usuario(self, usuario):
-		return cadastra_usuario(self, usuario)
+    def serializa(self):
+        return serializa(self)
 
-	def get_usuarios(self):
-		return get_usuarios(self)
+    def cadastra_usuario(self, usuario):
+        return cadastra_usuario(self, usuario)
 
-	def get_usuarios_logados(self):
-		return get_usuarios_logados(self)
+    def get_usuarios(self):
+        return get_usuarios(self)
 
-	def get_usuarios_admin(self):
-		get_usuarios_admin(self)
-	
-	def edita_usuario(self, usuario):
-		edita_usuario(self, usuario)
-	
-	def deleta_usuario(self, usuario_id):
-		deleta_usuario(self, usuario_id)
+    def get_usuarios_logados(self):
+        return get_usuarios_logados(self)
+
+    def get_usuarios_admin(self):
+        get_usuarios_admin(self)
+
+    def edita_usuario(self, usuario):
+        edita_usuario(self, usuario)
+
+    def deleta_usuario(self, usuario_id):
+        deleta_usuario(self, usuario_id)
 
     # CRUD - SETOR
 
@@ -231,7 +231,7 @@ class Zelda:
                 admin=d["usuario_admin"])
             usuarios.append(usuario)
         return usuarios[0]
-    
+
     def get_usuario_pelo_login(self, login):
         data = self.execute_query('''select * from usuario where usuario_login = {}'''.format(login))
         if len(data) < 1:

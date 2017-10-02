@@ -1,7 +1,7 @@
 --
 -- Database: zelda
 --
-CREATE DATABASE IF NOT EXISTS zelda;
+CREATE SCHEMA zelda;
 USE zelda;
 
 -- --------------------------------------------------------
@@ -9,7 +9,6 @@ USE zelda;
 --
 -- Estrutura da tabela funcionario
 --
-
 DROP TABLE IF EXISTS funcionario;
 CREATE TABLE funcionario (
   funcionario_id int(11) AUTO_INCREMENT NOT NULL,
@@ -26,15 +25,17 @@ CREATE TABLE funcionario (
 
 DROP TABLE IF EXISTS setor;
 CREATE TABLE setor (
-  setor_id int(11) NOT NULL AUTO_INCREMENT,
+  setor_id int(11) AUTO_INCREMENT NOT NULL,
   setor_nome varchar(100) NOT NULL,
   setor_pai int(11),
   setor_situacao int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY(setor_id),
+   
+  PRIMARY KEY (setor_id),
   FOREIGN KEY (setor_pai) REFERENCES zelda.setor(setor_id)
 );
 
--- --------------------------------------------------------
+-- ------------------------------------------------
+--------
 
 --
 -- Estrutura da tabela usuario

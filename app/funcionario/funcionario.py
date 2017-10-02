@@ -17,7 +17,7 @@ class Funcionario:
     # CRUD - FUNCIONARIO
 
     def cadastra_funcionario(self, funcionario):
-        return cadastra_funcionario(funcionario)
+        return cadastra_funcionario(self, funcionario)
 
     def cadastra_lotacao(self, lotacao):
         return cadastra_lotacao(self, lotacao)

@@ -1,5 +1,5 @@
 def get_setor(self, id):
-    from zelda.app.setor import Setor
+    from app.setor import Setor
     data = self.execute_query("select * from setor where setor_id = {}".format(id))
     if len(data) < 1:
         return None

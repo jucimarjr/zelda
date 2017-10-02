@@ -96,7 +96,7 @@
 
 					if(event.type == "click") {
 						/* Se o evento que disparou a fun��o foi o clique, redireciona para o link do caso de uso */
-						window.location.href = "caso-de-uso.html?id=" + id_caso;
+						window.location.href = "caso_de_uso.html?id=" + id_caso;
 					}
 					else if(event.type == "mousemove"){
 						/* Se o mouse est� em cima do caso de uso, exibe um ponteiro indicativo do mouse */

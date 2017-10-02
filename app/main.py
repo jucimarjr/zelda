@@ -81,11 +81,16 @@ def admin_home():
 
 @app.route('/home')
 def home():
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
     return render_template('home.html')
 
 
 @app.route('/funcionario')
 def funcionario_listar():
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+    
     funcionarios = db.get_funcionarios()
     return render_template(
         'funcionario_listar.html',
@@ -94,18 +99,27 @@ def funcionario_listar():
 
 @app.route('/usuario')
 def usuario_listar():
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+
     usuarios = db.get_usuarios()
     return render_template('usuario_listar.html', usuarios=usuarios)
 
 
 @app.route('/setor')
 def setor_listar():
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+
     setores = db.get_setores()
     return render_template('setor_listar.html', setores=setores)
 
 
 @app.route('/usuario/novo', methods=['GET', 'POST'])
 def usuario_criar():
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+
     form = CadastraUsuarioForm()
     if form.validate_on_submit():
         usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), admin=form.usuario_admin.data - 1)
@@ -119,6 +133,9 @@ def usuario_criar():
 
 @app.route('/usuario/<user_id>', methods=['GET', 'POST'])
 def usuario_editar(user_id):
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+
     form = AtualizaUsuarioForm()
 
     usuario = Usuario()
@@ -153,6 +170,9 @@ def usuario_editar(user_id):
 
 @app.route('/funcionario/novo', methods=['GET', 'POST'])
 def funcionario_criar():
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+
     form = CadastraFuncionarioForm()
 
     # Recupera todos os setores do banco
@@ -180,6 +200,9 @@ def funcionario_criar():
 
 @app.route('/funcionario/<func_id>', methods=['GET', 'POST'])
 def funcionario_editar(func_id):
+    if(session['user_login'] == ""):
+        return redirect(url_for('index'))
+
     form = AtualizaFuncionarioForm()
 
     func = Funcionario()

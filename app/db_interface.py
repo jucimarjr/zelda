@@ -258,3 +258,18 @@ class Zelda:
                 admin=d["usuario_admin"])
             usuarios.append(usuario)
         return usuarios[0]
+    
+    def get_usuario_pelo_login(self, login):
+        data = self.execute_query('''select * from usuario where usuario_login = {}'''.format(login))
+        if len(data) < 1:
+            return None
+        usuarios = []
+        for d in data:
+            usuario = Usuario(
+                id=d["usuario_id"],
+                login=d["usuario_login"],
+                senha=d["usuario_senha"],
+                logado=d["usuario_logado"],
+                admin=d["usuario_admin"])
+            usuarios.append(usuario)
+        return usuarios[0]

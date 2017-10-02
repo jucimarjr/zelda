@@ -5,25 +5,30 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row mx-auto" id="my-buttons">
-              <div class="col-md-4">
-                <a href="{{url_for('setor_criar')}}"><button class="round-button button1">ADICIONAR SETOR</button></a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-xs-push-1 col-xs-10 col-xs-push-1">
+            <div class="row">
+            <div class="col-xs-12 col-md-4">
+              <a href="{{url_for('setor_criar')}}"><button class="round-button button1">ADICIONAR SETOR</button></a>
               </div>
-              <div class="col-md-4">
+              <div class="col-xs-12 col-md-4">
                 <button type="submit" id="editar-button" class="round-button button2">EDITAR SETOR</button>
               </div>
-              <div class="col-md-4">
+              <div class="col-xs-12 col-md-4">
                 <form method="post" id="remover-form" action="{{url_for('setor_desativar')}}">
                   <button type="submit" name="origem" value="listar" class="round-button button3">REMOVER SETOR</button>
                 </form>
               </div>
-            </div>
+</div>
         </div>
-    </div>
+      </div>
 
-    <div class="section-table">
-      <div class="col-md-12" id="central-content">
+        </div>>
+
+
+    <div class="row section">
+      <div class="col-xs-10 col-xs-push-1 col-md-10 col-md-push-1" id="central-content">
           <table class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
@@ -49,6 +54,7 @@
           </table>
       </div>
     </div>
+  </div>
 
 {% endblock %}
 

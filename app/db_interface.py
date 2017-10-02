@@ -4,7 +4,7 @@ from .funcionario import Funcionario, cadastra_funcionario, cadastra_lotacao, ge
     edita_funcionario, deleta_funcionario, get_funcionario, get_setor
 from .lotacao import Lotacao
 from .setor import Setor
-from .usuario import Usuario
+from .usuario import cadastra_usuario, get_usuarios, get_usuarios_logados, get_usuarios_admin, edita_usuario, deleta_usuario, serializa, Usuario
 
 
 class Zelda:
@@ -82,54 +82,27 @@ class Zelda:
         return get_setor(self, id)
 
     # CRUD - USUARIO
-    def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_senha, usuario_logado, usuario_admin) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.senha, usuario.logado, usuario.admin), True)
+    
+	def serializa(self):
+		return serializa(self)
 
-    def get_usuarios(self):
-        data = self.execute_query("select * from usuario")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
-            usuarios.append(usuario)
-        return usuarios
+	def cadastra_usuario(self, usuario):
+		return cadastra_usuario(self, usuario)
 
-    def get_usuarios_logados(self):
-        data = self.execute_query("select * from usuario\
-            where usuario_logado = 1")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
-            usuarios.append(usuario)
-        return usuarios
+	def get_usuarios(self):
+		return get_usuarios(self)
 
-    def get_usuarios_admin(self):
-        data = self.execute_query("select * from usuario where usuario_admin = 1")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
-            usuarios.append(usuario)
-        return usuarios
+	def get_usuarios_logados(self):
+		return get_usuarios_logados(self)
 
-    def edita_usuario(self, usuario):
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_admin = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.admin, usuario.id), True)
-
-    def deleta_usuario(self, usuario_id):
-        self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
+	def get_usuarios_admin(self):
+		get_usuarios_admin(self)
+	
+	def edita_usuario(self, usuario):
+		edita_usuario(self, usuario)
+	
+	def deleta_usuario(self, usuario_id):
+		deleta_usuario(self, usuario_id)
 
     # CRUD - SETOR
 

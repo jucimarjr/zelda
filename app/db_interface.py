@@ -1,8 +1,11 @@
 from flask_mysqldb import MySQL
+
+from zelda.app.funcionario import cadastra_funcionario, cadastra_lotacao, get_lotacao_ativa, get_funcionarios, \
+    edita_funcionario, deleta_funcionario, get_funcionario, get_setor
 from .funcionario import Funcionario
+from .lotacao import Lotacao
 from .setor import Setor
 from .usuario import Usuario
-from .lotacao import Lotacao
 
 
 class Zelda:
@@ -52,6 +55,32 @@ class Zelda:
     def get_usuario_senha(self, login):
         data = self.execute_query("select usuario_senha from usuario where usuario_login = '{}'".format(login))
         return data
+
+    # CRUD - FUNCIONARIO
+
+    def cadastra_funcionario(self, funcionario):
+        return cadastra_funcionario(self, funcionario)
+
+    def cadastra_lotacao(self, lotacao):
+        return cadastra_lotacao(self, lotacao)
+
+    def get_lotacao_ativa(self, funcionario_id):
+        return get_lotacao_ativa(self, funcionario_id)
+
+    def get_funcionarios(self):
+        return get_funcionarios(self)
+
+    def edita_funcionario(self, funcionario):
+        return edita_funcionario(self, funcionario)
+
+    def deleta_funcionario(self, funcionario_id):
+        return deleta_funcionario(self, funcionario_id)
+
+    def get_funcionario(self, id):
+        return get_funcionario(self, id)
+
+    def get_setor(self, id):
+        return get_setor(self, id)
 
     # CRUD - USUARIO
     def cadastra_usuario(self, usuario):

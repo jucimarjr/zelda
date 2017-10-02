@@ -42,7 +42,7 @@ class Zelda:
         self.execute_query("update usuario set usuario_logado = 1 where usuario_id = '{}'".format(data[0]['usuario_id']), True)
 
     def verifica_admin(self, login):
-        data = self.execute_query("select usuario_admin from funcionario where usuario_login = '{}'".format(login))
+        data = self.execute_query("select usuario_admin from usuario where usuario_login = '{}'".format(login))
         if (data[0]['usuario_admin'] == 1):
             return False
         return True

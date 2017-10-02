@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# [1.](#header-1) Equipes
+# [1.](#header-1) Equipes - Interação 4
 ## [1.1](#header-2) Equipe 1
 
 
@@ -95,5 +95,101 @@ layout: default
 | Luiz Gadelha     |  6         | SIM           |
 | Thatielen Oliveira| 7         | SIM           |
 | Thiago Santos     | 8         | SIM           |
+
+
+# [1.](#header-1) Equipes - Interação 5
+## [1.1](#header-2) Equipe 0
+
+
+|Integrante          |Atividade  		|Concluída      |Commits       |
+|:-------------------|:-------------------------|:--------------|:-------------|
+|  Amanda Letícia    | Deploy   		|     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=aamandachaves)|
+|  Bruno de Oliveira | Deploy   		|     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=caniiggia)|
+|  Caio de Oliveira  | Deploy    		|     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=caiooliveira54)|
+|  Eduardo Freire    | Deploy    		|     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=dudemaiaf)|
+|  Filipe Henrique   | Deploy    		|     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Shouryu12)|
+|  Kid Mendes        | Deploy    		|     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=kidkmon)|
+|  Rodrigo Moraes    | Gerência/Deploy/Tester   |     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=RodrigoCMoraes)|
+
+## [1.2](#header-3) Equipe 1
+
+|     Integrante     | Atividade                     | Concluída |Commits       |
+|:-------------------|:------------------------------|:----------|:-------------|
+|  Ana Beatriz       | Design                        |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=AbFrota)|
+|  Ana Jessye 	     | Padronização                  |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=AnaJessye)|
+|  Beatriz Stephany  | Gerência                      |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=StephanyColares)|
+|  Bonifácio Leite   | Visualizar dados de usuários  |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=BonifacioOliveira)|
+|  Calebe Rebello    | Design                        |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=caleberebello)|
+
+## [1.3](#header-3) Equipe 2
+
+|Integrante        |Atividade                                     |Concluída |Commits          |
+|:-----------------|:---------------------------------------------|:---------|:----------------|
+|  Elissandra Souza| Visualizar dados de usuários                 |   NÃO    |[GitHub]()|
+|  Elizabeth       | Arquitetura                                  |   NÃO    |[GitHub]()|
+|  Filip Anselmo   | Listar lotação ativa no 'Listar funcionários'|   NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=anselmofilip)|
+|  Jailson Pereira | Gerência                                     |   NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jailsonpj)|
+|  Jefferson Lima  | Github                                       |    NÃO   |[GitHub](https://github.com/jucimarjr/zelda/commits?author=branfford)|
+
+## [1.4](#header-4) Equipe 3
+
+|     Integrante     | Atividade                | Concluída |Commits          |
+|:-------------------|:-------------------------|:----------|:-------------|
+|  Jéssica Lopes     | Gerência                 |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jessiccatavares)|
+|  João Vítor        | Documentação/Gitpages    |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=jvmdoeng16)|
+|  Kylciane Freitas  | Documentação/Gitpages    |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=annefreitas)|
+|  Leonardo Carvalho | Padronização             |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=leonardocvlh)|
+|  Leonardo Monteiro | Autenticação e Segurança |    NÃO    |[GitHub]()|
+
+## [1.5](#header-5) Equipe 4
+
+|     Integrante     | Atividade                | Concluída |Commits          |
+|:-------------------|:-------------------------|:----------|:----------------|
+|  Levi da Silva     | Arquitetura              |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=levidasilvalima)|
+|  Lorene da Silva   | Gerência                 |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=LoreneMarques)|
+|  Lucas Vinícius    | Autenticação e Segurança |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Lucasfrota)|
+|  Luiz Gadelha      | Documentação/Gitpages    |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=luizgadel)|
+|  Mateus Mota       | Documentação/Gitpages    |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=MMateuSouza)|
+
+## [1.6](#header-6) Equipe 5    
+
+|     Integrante     | Atividade    | Concluída	|Commits          |
+|:-------------------|:-------------|:-----------|:----------------|
+|  Matheus Obando    | Arquitetura  |    NÃO     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=Matheus-OS)|
+|  Mikael Fonseca    | API          |    NÃO     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=MikeFP)|
+|  Nadine Brito      | Padronização |    NÃO     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=nadinebrito)|
+|  Nicolas Fernandes | Gerência     |    NÃO     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=nicolasgti)|
+|  Paulo Sérgio      | Design       |    NÃO     |[GitHub](https://github.com/jucimarjr/zelda/commits?author=PSFreitas)|
+
+## [1.7](#header-7) Equipe 6
+
+|     Integrante      | Atividade    | Concluída |Commits          |
+|:--------------------|:-------------|:----------|:----------------|
+|  Reginaldo da Silva | Padronização |    NÃO    |[GitHub]()|
+|  Thatielen Oliveira | Gerência     |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=thatielenoliveira)|
+|  Thiago Santos      | Github       |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=thiagos98)|
+|  Vyctor Negreiros   | Arquitetura  |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=VyctorLN)|
+|  William Azevedo    | Arquitetura  |    NÃO    |[GitHub](https://github.com/jucimarjr/zelda/commits?author=williamsilva-uea)|
+
+## [1.8](#header-8) Equipe 7
+
+|Integrante      |Atividade                 |Concluída      |Commits          |
+|:---------------|:-------------------------|:--------------|:----------------|
+|  André Ricardo | Autenticação e Segurança |     NÃO       |[GitHub](https://github.com/jucimarjr/zelda/commits?author=AndBol)|
+|  Jansen Junior | Github                   |     NÃO       |[GitHub]()|
+
+
+## [1.9](#header-9) Coordenadores
+
+|Integrante          |Equipe         |Concluída      |
+|:-------------------|:--------------|:--------------|
+| Rodrigo Moraes     | 0             | NÃO           |
+| Beatriz Stephany   | 1             | NÃO           |
+| Jailson Pereira    | 2             | NÃO           |
+| Jéssica Lopes      | 3             | NÃO           |
+| Lorene da Silva    | 4             | NÃO           |
+| Nicolas da Silva   | 5             | NÃO           |
+| Thatielen Oliveira | 6             | NÃO           |
+| André Ricardo      | 7             | NÃO           |
 
 * * *

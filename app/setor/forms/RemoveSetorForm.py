@@ -5,12 +5,7 @@ from wtforms import StringField, TextAreaField, PasswordField, BooleanField, Sel
 from passlib.hash import sha256_crypt
 from functools import wraps
 from wtforms.validators import DataRequired
-from .funcionario.forms import *
-from .setor.forms import *
-from .usuario.forms import *
 
-# Cadastra Login
-class LoginForm(Form):
-    login = StringField('Nome de Usuário', validators=[DataRequired('Nome de Usuário é obrigatório')])
-    senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
-
+# Remover Setor
+class RemoveSetorForm(Form):
+    setor_id = HiddenField('ID Setor', validators=[DataRequired('O ID do Setor não pode ser indefinido')])

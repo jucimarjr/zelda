@@ -6,20 +6,40 @@ from .forms import *
 from .classes import Criptografador
 from flask_mysqldb import MySQL
 from .db_interface import Zelda
-from .funcionario import Funcionario
-from .setor import Setor
-from .lotacao import Lotacao
-from .usuario import Usuario
+
+from .lotacao.models.lotacao import Lotacao
+
+#Imports Usuario
+from .usuario.controllers.usuario_interface import Zelda_Usuario
+from .usuario.models.usuario import Usuario
+from .usuario.forms.AtualizaUsuarioForm import AtualizaUsuarioForm
+from .usuario.forms.CadastraUsuarioForm import CadastraUsuarioForm
+from .usuario.forms.RemoveUsuarioForm import RemoveUsuarioForm
+
+#Imports Setor
+from .setor.controllers.setor_interface import Zelda_Setor
+from .setor.models.setor import Setor
+from .setor.forms.AtualizaSetorForm import AtualizaSetorForm
+from .setor.forms.CadastraSetorForm import CadastraSetorForm
+from .setor.forms.RemoveSetorForm import RemoveSetorForm
+
+#Imports Funcionario
+from .funcionario.controllers.funcionario_interface import Zelda_Funcionario
+from .funcionario.models.funcionario import Funcionario
+from .funcionario.forms.CadastraFuncionarioForm import CadastraFuncionarioForm
+from .funcionario.forms.AtualizaFuncionarioForm import AtualizaFuncionarioForm
+from .funcionario.forms.RemoveFuncionarioForm import RemoveFuncionarioForm
 
 from app import app
-
 
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mps2017'
+app.config['MYSQL_PASSWORD'] = '1234'
 app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+
 # init MYSQL
 db = Zelda(app)
 
@@ -32,7 +52,7 @@ def index():
         return redirect(url_for('login'))
 
     usuario = db.get_usuario_pelo_login(session['user_login'])
-    return render_template('usuario_home.html', usuario=usuario)
+    return render_template('usuario_home.html', usuario = usuario)
 
 
 # User login
@@ -66,7 +86,7 @@ def logout():
     session.pop('username', None)
     user_login = session.get('user_login', None)
     session['user_login'] = ''
-    # db.set_logado_false(user_login)
+    db.set_logado_false(user_login)
     return redirect(url_for('index'))
 
 
@@ -76,14 +96,14 @@ def admin_home():
         return redirect(url_for('index'))
 
     usuario = db.get_usuario_pelo_login(session['user_login'])
-    return render_template('admin_home.html', usuario=usuario)
+    return render_template('admin_home.html', usuario = usuario)
 
 
 @app.route('/funcionario')
 def funcionario_listar():
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
-
+    
     funcionarios = db.get_funcionarios()
     return render_template(
         'funcionario_listar.html',

@@ -5,11 +5,11 @@ class Usuario:
                  senha="none",
                  logado=1,
                  admin=1):
-                   self.id = id
-                   self.login = login
-                   self.senha = senha
-                   self.logado = logado
-                   self.admin = admin
+                    self.id = id
+                    self.login = login
+                    self.senha = senha
+                    self.logado = logado
+                    self.admin = admin
 
     def serializa(self):
         return {

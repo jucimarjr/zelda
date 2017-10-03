@@ -5,30 +5,7 @@ from functools import wraps
 from .forms import *
 from .classes import Criptografador
 from flask_mysqldb import MySQL
-from .db_interface import Zelda
-
-from .lotacao.models.lotacao import Lotacao
-
-#Imports Usuario
-from .usuario.controllers.usuario_interface import Zelda_Usuario
-from .usuario.models.usuario import Usuario
-from .usuario.forms.AtualizaUsuarioForm import AtualizaUsuarioForm
-from .usuario.forms.CadastraUsuarioForm import CadastraUsuarioForm
-from .usuario.forms.RemoveUsuarioForm import RemoveUsuarioForm
-
-#Imports Setor
-from .setor.controllers.setor_interface import Zelda_Setor
-from .setor.models.setor import Setor
-from .setor.forms.AtualizaSetorForm import AtualizaSetorForm
-from .setor.forms.CadastraSetorForm import CadastraSetorForm
-from .setor.forms.RemoveSetorForm import RemoveSetorForm
-
-#Imports Funcionario
-from .funcionario.controllers.funcionario_interface import Zelda_Funcionario
-from .funcionario.models.funcionario import Funcionario
-from .funcionario.forms.CadastraFuncionarioForm import CadastraFuncionarioForm
-from .funcionario.forms.AtualizaFuncionarioForm import AtualizaFuncionarioForm
-from .funcionario.forms.RemoveFuncionarioForm import RemoveFuncionarioForm
+#from .db_interface import Zelda
 
 from app import app
 
@@ -98,7 +75,7 @@ def admin_home():
     usuario = db.get_usuario_pelo_login(session['user_login'])
     return render_template('admin_home.html', usuario = usuario)
 
-
+'''
 @app.route('/funcionario')
 def funcionario_listar():
     if(session['user_login'] == ""):
@@ -432,3 +409,4 @@ def flash_errors(form):
             flash(u"Error in the %s field - %s" % (
                 getattr(form, field).label.text,
                 error))
+'''

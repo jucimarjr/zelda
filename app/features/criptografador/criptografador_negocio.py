@@ -1,5 +1,4 @@
 import hashlib
-# Classe que faz a criptografia da senha
 
 class Criptografador():
     def gerar_hash(get_senha, salt):

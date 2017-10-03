@@ -1,13 +1,12 @@
 from flask_mysqldb import MySQL
-from .lotacao.models.lotacao import Lotacao
-from .setor.models.setor import Setor
-from .setor.controllers.setor_interface import Zelda_Setor
-from .funcionario.controllers.funcionario_interface import Zelda_Funcionario
-from .funcionario.models.funcionario import Funcionario
-from .usuario.models.usuario import Usuario
-from .usuario.controllers.usuario_interface import  Zelda_Usuario
+from .funcionario.funcionario_interface import FuncionarioInterface
+from funcionario.funcionario_modelo import Funcionario
+from .usuario.usuario_interface import UsuarioInterface
+from .usuario.usuario_modelo import Usuario
+from .setor.setor_interface import SetorInterface
+from .setor.setor_modelo import Setor
 
-class Zelda(Zelda_Setor, Zelda_Funcionario, Zelda_Usuario):
+class Zelda(SetorInterface, FuncionarioInterface, UsuarioInterface):
 
     def __init__(self, app):
         self.mysql = MySQL(app)

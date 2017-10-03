@@ -19,24 +19,24 @@
     <div class="container" id="login-page-container">
 		<div class="row">
 			<!--<div class="col-xs-10 col-xs-push-1">-->
-			<h4>CADASTRO DE FUNCIONÁRIO</h4>
-				
+			<h4 id="cad-func">CADASTRO DE FUNCIONÁRIO</h4>
+
 			<form  action="" class="form" method="POST">
                 {{form.hidden_tag()}}
 				<div class="form-group">
-					<label><h4>Nome do Funcionário</h4></label>
+					<label><h4 id="labels">Nome do Funcionário</h4></label>
 					{{form.funcionario_nome(class_='form-control')}}
 				</div>
-			
+
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
-							<label><h4>Setor do Funcionário</h4></label>
+							<label><h4 id="labels">Setor do Funcionário</h4></label>
 							{{form.funcionario_setor_id(class_='form-control')}}
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="row mx-auto" id="my-buttons">
 					<div class="col-md-9 form-group">
 						<a href="{{url_for('funcionario_listar')}}"><button type="button" class="round-button button1 pull-right">CANCELAR</button></a>

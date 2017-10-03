@@ -8,15 +8,11 @@ html, body {
 }
 
 h2 {
-    color: white;
-    font-family: "Segoe UI";
     margin: 10px 20px 10px 20px;
     padding: 5px;
 }
 
 h4 {
-    color: white;
-    font-family: "Segoe UI";
     margin: 10px 20px 10px 20px ;
     padding: 5px;
 }
@@ -25,7 +21,9 @@ h4 {
     border: none;
     border-radius: 5px;
     background-color: #18a178;
-    color: white;
+    font-family: Segoe UI;
+    font-size: 20px;
+    color: #FFFFFF;
 
     width: 100%;
     height: 40px;
@@ -42,4 +40,16 @@ h4 {
 
 .section {
     margin-top: 35px;
+}
+
+#cad-usuario {
+    font-family: Century Gothic;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+#labels {
+    font-family: Century Gothic;
+    font-size: 20px;
+    color: #FFFFFF;
 }

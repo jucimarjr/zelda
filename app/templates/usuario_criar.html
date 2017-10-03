@@ -20,14 +20,14 @@
     <div class="container" id="login-page-container">
       <div class="row section">
          <div class="col-xs-10 col-xs-push-1">
-            <h2>Cadastro de Usuário</h2>
+            <h2 id="cad-usuario">Cadastro de Usuário</h2>
          <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
                   <div class="row">
                      <div class="col-xs-12 col-md-12">
                         <div class="form-group">
                            <div class="input-group">
-                              <label><h4>Login do Usuário</h4></label>
+                              <label><h4 id="labels">Login do Usuário</h4></label>
                                 {{form.usuario_login(class_='form-control')}}
                            </div>
                         </div>
@@ -35,14 +35,14 @@
                      <div class="col-xs-12 col-md-12">
                         <div class="form-group">
                            <div class="input-group">
-                              <label><h4>Senha do Usuário</h4></label>
+                              <label><h4 id="labels">Senha do Usuário</h4></label>
                                 {{form.usuario_senha(class_='form-control')}}
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="col-xs-12 col-md-12">
-                     <label><h4>Tipo do Usuário</h4></label>
+                     <label><h4 id="labels">Tipo do Usuário</h4></label>
                      {% for item in form.usuario_admin %}
                          <div class="checkbox">
                              <label>

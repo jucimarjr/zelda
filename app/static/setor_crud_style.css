@@ -27,15 +27,16 @@ html, body {
     border: none;
     border-radius: 30px;
     background-color: #18a178;
-    color: white;
+    font-family: Segoe UI;
+    font-size: 20px;
+    color: #FFFFFF;
     width: 100%;
     height: 35px;
 }
 
 #cad-setor {
-
-    font-weight: bolder;
-    font-size: 30px;
+    font-family: Century Gothic;
+    font-size: 25px;
     color: white;
 }
 
@@ -45,14 +46,14 @@ button {
 
 #nome-setor {
     transform: translateX(-9%);
-    font-weight: bolder;
-    font-size: 15px;
-    color: white;
+    font-family: Century Gothic;
+    font-size: 20px;
+    color: #FFFFFF;
     margin:2%;
 }
 
 #login-page-container .input-group-addon {
     background-color: #18a178;
     border: none;
-    color: white;  
+    color: white;
 }

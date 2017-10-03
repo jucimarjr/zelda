@@ -8,11 +8,9 @@ html, body {
 }
 
 h4 {
-    color: grey;
-    font-family: "Segoe UI";
     margin: 25px;
     padding: 5px;
-	margin-left: 250px;
+	  margin-left: 250px;
 }
 
 #fundo-branco {
@@ -31,12 +29,19 @@ h4 {
     border: none;
     border-radius: 8px;
     background-color: #18a178;
-    color: white;
+    font-family: Segoe UI;
+    font-size: 20px;
+    color: #FFFFFF;
     width: 25%;
     height: 40px;
     margin-top: 25px;
     margin-right: 40px;
     transform: translateY(300%)
+}
+
+#dados {
+    font-family: Century Gothic;
+    font-size: 20px;
 }
 
 img {

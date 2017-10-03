@@ -20,12 +20,6 @@ html, body {
   color: #FFFFFF;
 }
 
-#labels {
-  font-family: Century Gothic;
-  font-size: 20px;
-  color: #FFFFFF;
-}
-
 .round-button {
     border: none;
     border-radius: 5px;

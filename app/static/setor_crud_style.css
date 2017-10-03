@@ -37,7 +37,7 @@ html, body {
 #cad-setor {
     font-family: Century Gothic;
     font-size: 25px;
-    color: white;
+    color: #FFFFFF;
 }
 
 button {
@@ -46,6 +46,7 @@ button {
 
 #nome-setor {
     transform: translateX(-9%);
+    font-weight: normal;
     font-family: Century Gothic;
     font-size: 20px;
     color: #FFFFFF;

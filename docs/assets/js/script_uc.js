@@ -10,7 +10,7 @@ var casos = {
         id: "UC001", nome: "Login do Administrador", descricao: "O sistema deve permitir ao ator entrar no sistema.",
         ator: "Administrador.", prioridade: "Primeira tela a ser desenvolvida.", rnfs: "RNF007",
         precondicoes: ["O ator não estar com sessão ativa no sistema;", "O ator estar cadastrado no sistema;", "O ator estar na página de Login"],
-        poscondicoes: ["O ator deve estar com sessão ativa no sistema;", "O ator deve poder visualizar suas informações;"
+        poscondicoes: ["O ator deve estar com sessão ativa no sistema;", "O ator deve poder visualizar suas informações;",
             "O sistema deve oferecer uma tela para acessar funcionalidades de gerência."],
         fluxo: /*"assets/img/ad-login.jpg"*/ "administrador-login-fluxo-principal.png"
     },

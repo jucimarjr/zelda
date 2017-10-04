@@ -1,32 +1,31 @@
 var casos = {
     "uc000": {
-        id: "UC000", nome: "Logout do administrador", descricao: "O sistema deve encerrar a sessão do administrador", 
+        id: "UC000", nome: "Logout do Administrador", descricao: "O sistema deve encerrar a sessão do ator", 
         ator: "Administrador.", prioridade: "Desenvolvido como uma função da tela pós-login do administrador.", rnfs: "RNF007.",
-        precondicoes: ["O ator precisa estar autenticado como administrador."], 
-        poscondicoes: ["O sistema deve encerrar a sessão do administrador"], 
+        precondicoes: ["O ator estar logado no sistema."], 
+        poscondicoes: ["O sistema deve encerrar a sessão do ator."], 
         fluxo: "administrador-logout-fluxo-principal.png"
     },
     "uc001": {
-        id: "UC001", nome: "Login do administrador", descricao: "O sistema deve permitir ao usuario que entre no sistema por meio do seu login unico e senha determinado",
+        id: "UC001", nome: "Login do Administrador", descricao: "O sistema deve permitir ao ator entrar no sistema por meio do seu login unico e senha determinado",
         ator: "Administrador.", prioridade: "Primeira tela a ser desenvolvida.", rnfs: "RNF007",
-        precondicoes: [ /*"Ator não está com sessão ativa no sistema", "Ator deve estar cadastrado no sistema", "Ator deve estar na página de Login"*/
-            "O ator precisa saber e entrar com os dados de login (usuário e senha)."],
-        poscondicoes: [/* "Ator estará com sessão ativa no sistema", "Ator poderá visualizar suas informações"*/
+        precondicoes: ["O ator não estar com sessão ativa no sistema;", "O ator estar cadastrado no sistema;", "O ator estar na página de Login"],
+        poscondicoes: ["O ator deve estar com sessão ativa no sistema;", "O ator deve poder visualizar suas informações;"
             "O sistema deve oferecer uma tela para acessar funcionalidades de gerência."],
         fluxo: /*"assets/img/ad-login.jpg"*/ "administrador-login-fluxo-principal.png"
     },
     "uc002": {
-        id: "UC002", nome: "Visualizar dados do Admin", descricao: "", 
-        ator: "", prioridade: "", rnfs: "",
-        precondicoes: ["O ator precisa estar autenticado como administrador."], 
-        poscondicoes: ["Os dados do Administrador devem ser exibidos."], 
+        id: "UC002", nome: "Visualizar dados do Administrador", descricao: "O sistema deve permitir ao ator visualizar os seus dados e acessar as opções funcionário, setor e usuário.", 
+        ator: "Administrador.", prioridade: "", rnfs: "",
+        precondicoes: ["O ator estar logado no sistema."], 
+        poscondicoes: ["O ator deve poder visualizar seus dados, acessar as opções funcionário, setor e usuário ."], 
         fluxo: "ad-visualizar-dados-usuario.jpg"
     },
     "uc003": { /**/
-        id: "UC003", nome: "Listar Funcionários", descricao: "Permite ao administrador visualizar os funcionários cadastrados.",
+        id: "UC003", nome: "Listar Funcionários", descricao: "O sistema deve permitir ao ator visualizar os funcionários cadastrados.",
         ator: "Administrador.", prioridade: "Precisa ser feito antes dos casos de uso de remover e editar funcionário", rnfs: "nenhum",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."], 
-        poscondicoes: ["O ator deve poder cadastrar, editar ou desativar um funcionário."], 
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela de visualizar dados do ator."], 
+        poscondicoes: ["O ator deve poder visualizar a lista de funcionários, acessar as opções cadastrar, editar ou desativar um funcionário."], 
         fluxo: "ad-listar-funcionarios.jpg"
     },
     "uc004": { /**/
@@ -39,7 +38,7 @@ var casos = {
     "uc005": { /**/
         id: "UC005",
         nome: "Editar Funcionário",
-        descricao: "O caso de uso inicia-se quando o administrador desejar mudar algum dado de um determinado funcionário",
+        descricao: "O ator deve poder editar dados de um funcionário",
         ator: "Administrador.", prioridade: "", rnfs: "",
         precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."],
         poscondicoes: ["Os dados do funcionário devem estar editados no sistema."],
@@ -55,10 +54,10 @@ var casos = {
     "uc007": {
         id: "UC007",
         nome: "Listar Setores",
-        descricao: "Caso de uso que representa a listagem de todos os setores já cadastrados na base de dados do sistema.",
-        ator: "AT001", prioridade: "", rnfs: "",
-        precondicoes: ["Ator está logado no sistema como administrador."],
-        poscondicoes: ["Poderá editar os setores, desativar setores e cadastrar novos setores."],
+        descricao: "O sistema deve permitir ao ator visualizar a tela listar setores e acessar as opções cadastar, editar e desativar um setor.",
+        ator: "Administrador", prioridade: "", rnfs: "",
+        precondicoes: ["O ator estar logado no sistema;","O ator estar na tela de visualizar dados do ator."],
+        poscondicoes: ["O ator deve poder visualizar a lista de setores, cadastrar, editar e desativar um setor."],
         fluxo: "assets/img/ad-listar-setores.jpg"
     },
     "uc008": {
@@ -69,7 +68,7 @@ var casos = {
         fluxo: "ad-cadastrar-setor.jpg"
     },
     "uc009": {
-        id: "UC009", nome: "Editar Setor", descricao: "Caso de uso que representa a funcionalidade de editar os campos de um setor já existente na base de dados do sistema.",
+        id: "UC009", nome: "Editar Setor", descricao: "O ator deve poder editar dados de um setor.",
         ator: "Administrador.", prioridade: "", rnfs: "",
         precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."],
         poscondicoes: ["Os dados do setor devem estar editados no sistema."],
@@ -83,10 +82,10 @@ var casos = {
         fluxo: "ad-desativar-setores.jpg"
     },
     "uc011": {
-        id: "UC011", nome: "Listar Usuários", descricao: "O administrador pode visualizar a lista dos usuários com seus campos de id, login, senha e tipo. Também, pode selecionar as funcionalidades de adicionar, editar e remover usuário.", 
+        id: "UC011", nome: "Listar Usuários", descricao: "O sistema deve permitir ao ator visualizar a tela listar usuários e acessar as opções cadastar, editar e remover um usuário.", 
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["Estar logado como administrador."], 
-        poscondicoes: ["Os usuários do sistema foram visualizados."], 
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela de visualizar dados do ator."], 
+        poscondicoes:["O ator deve poder visualizar a lista de usuários, acessar as opções cadastrar, editar e remover usuário."], 
         fluxo: "ad-listar-usuarios.jpg"
     },
     "uc012": {
@@ -97,7 +96,7 @@ var casos = {
         fluxo: "ad-cadastrar-usuario.jpg"
     },
     "uc013": {
-        id: "UC013", nome: "Editar Usuário", descricao: "O administrador pode editar dados do usuário como login, senha e tipo do usuário (administrador ou usuário comum).", 
+        id: "UC013", nome: "Editar Usuário", descricao: "O ator deve poder editar dados de um usuário.", 
         ator: "Administrador.", prioridade: "", rnfs: "",
         precondicoes: ["Estar logado como administrador, possuir os dados do usuário a serem alterados (login, senha, tipo)."], 
         poscondicoes: ["Não podem haver usuários com o mesmo login;", "Os dados do usuário foram alterados."], 

@@ -64,22 +64,22 @@ var casos = {
     "uc008": {
         id: "UC008", nome: "Cadastrar Setor", descricao: "Permite ao administrador cadastrar um novo setor no sistema.", 
         ator: "", prioridade: "", rnfs: "",
-        precondicoes: ["O ator precisa estar autenticado como administrador;", "O ator precisa estar na página de listagem de Setores."], 
-        poscondicoes: ["Não podem haver dois setores com o mesmo nome;", "Não podem haver setores com campos inválidos."], 
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."], 
+        poscondicoes: ["O setor deve estar cadastrado no sistema."], 
         fluxo: "ad-cadastrar-setor.jpg"
     },
     "uc009": {
         id: "UC009", nome: "Editar Setor", descricao: "Caso de uso que representa a funcionalidade de editar os campos de um setor já existente na base de dados do sistema.",
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator está logado no sistema como administrador;", "O ator conhece o id do setor ou está na tela de listagem de setores."],
-        poscondicoes: ["Não podem haver setores com o mesmo nome;", "Os dados editados serão atualizados na base de dados do sistema e na lista de setores."],
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."],
+        poscondicoes: ["Os dados do setor devem ter sido editados."],
         fluxo: "ad-editar-setor.jpg"
     },
     "uc010": {
         id: "UC010", nome: "Desativar Setor", descricao: "Consiste em que o administrador tem o a autorização em desativar algum setor do sistema.", 
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator precisa estar autenticado como administrador;", "O ator precisa estar na página de listagem de Setores."], 
-        poscondicoes: ["Não podem haver funcionários nos setores desativados;", "A situação de cada Setor deve ser alterada no banco do sistema."], 
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."], 
+        poscondicoes: ["O setor deve estar desativado no sistema."], 
         fluxo: "ad-desativar-setores.jpg"
     },
     "uc011": {

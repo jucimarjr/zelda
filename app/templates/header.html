@@ -8,6 +8,11 @@
         <a href="{{url_for('logout')}}">
             <button id="logout-button" class="right">Sair</button>
         </a>
+        {% if request.path != "/admin"%}
+        <a href="{{url_for('admin_home')}}">
+            <button id="home-button" class="left">Volta</button>
+        </a> 
+        {% endif %}   
     </div>
 </div>
 

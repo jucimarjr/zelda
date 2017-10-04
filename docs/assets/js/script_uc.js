@@ -25,15 +25,15 @@ var casos = {
     "uc003": { /**/
         id: "UC003", nome: "Listar Funcionários", descricao: "Permite ao administrador visualizar os funcionários cadastrados.",
         ator: "Administrador.", prioridade: "Precisa ser feito antes dos casos de uso de remover e editar funcionário", rnfs: "nenhum",
-        precondicoes: ["O ator estar logado no sistema."], 
-        poscondicoes: ["Os funcionários podem ser cadastrados, editados ou removidos."], 
+        precondicoes: ["O ator precisa estar autenticado como administrador."], 
+        poscondicoes: ["Poderá cadastrar novos, editar ou remover funcionários."], 
         fluxo: "ad-listar-funcionarios.jpg"
     },
     "uc004": { /**/
         id: "UC004", nome: "Cadastrar Funcionários", descricao: "Permite ao administrador cadastrar novos funcionários.", 
         ator: "Administrador.", prioridade: "nenhuma.", rnfs: "nenhum.",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."], 
-        poscondicoes: ["O funcionário deve estar cadastrado no sistema."], 
+        precondicoes: ["O ator precisa estar autenticado como administrador.", "O ator precisa estar na página de listagem de funcionários."], 
+        poscondicoes: ["Não podem haver dois funcionários com o mesmo nome;", "Não podem haver funcionários com campos inválidos."], 
         fluxo: "ad-cadastrar-funcionario.jpg"
     },
     "uc005": { /**/
@@ -41,15 +41,15 @@ var casos = {
         nome: "Editar Funcionário",
         descricao: "O caso de uso inicia-se quando o administrador desejar mudar algum dado de um determinado funcionário",
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."],
-        poscondicoes: ["Os dados dos funcionários devem ter sido editados."],
+        precondicoes: ["O ator estar com sessão ativa no sistema;", "O ator precisa estar na página de listagem de funcionários ou conhece o id do funcionário a ser editado."],
+        poscondicoes: ["Os dados alterados dos funcionários editados serão atualizados no banco do sistema e na lista de funcionários."],
         fluxo: "ad-editar-funcionario.jpg"
     },
     "uc006": { /**/
         id: "UC006", nome: "Desativar Funcionários", descricao: "O caso de uso inicia-se quando o administrador desejar remover um determinado funcionário do sistema",
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."],
-        poscondicoes: ["O funcionário deve estar desativado no sistema."],
+        precondicoes: ["O ator estar com sessão ativa no sistema;", "O ator precisa estar na página de listagem de funcionários."],
+        poscondicoes: ["A situação de cada funcionário desativado será alterada no banco do sistema."],
         fluxo: "ad-desativar-funcionarios.jpg"
     },
     "uc007": {
@@ -64,22 +64,22 @@ var casos = {
     "uc008": {
         id: "UC008", nome: "Cadastrar Setor", descricao: "Permite ao administrador cadastrar um novo setor no sistema.", 
         ator: "", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."], 
-        poscondicoes: ["O setor deve estar cadastrado no sistema."], 
+        precondicoes: ["O ator precisa estar autenticado como administrador;", "O ator precisa estar na página de listagem de Setores."], 
+        poscondicoes: ["Não podem haver dois setores com o mesmo nome;", "Não podem haver setores com campos inválidos."], 
         fluxo: "ad-cadastrar-setor.jpg"
     },
     "uc009": {
         id: "UC009", nome: "Editar Setor", descricao: "Caso de uso que representa a funcionalidade de editar os campos de um setor já existente na base de dados do sistema.",
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."],
-        poscondicoes: ["Os dados do setor devem ter sido editados."],
+        precondicoes: ["O ator está logado no sistema como administrador;", "O ator conhece o id do setor ou está na tela de listagem de setores."],
+        poscondicoes: ["Não podem haver setores com o mesmo nome;", "Os dados editados serão atualizados na base de dados do sistema e na lista de setores."],
         fluxo: "ad-editar-setor.jpg"
     },
     "uc010": {
         id: "UC010", nome: "Desativar Setor", descricao: "Consiste em que o administrador tem o a autorização em desativar algum setor do sistema.", 
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."], 
-        poscondicoes: ["O setor deve estar desativado no sistema."], 
+        precondicoes: ["O ator precisa estar autenticado como administrador;", "O ator precisa estar na página de listagem de Setores."], 
+        poscondicoes: ["Não podem haver funcionários nos setores desativados;", "A situação de cada Setor deve ser alterada no banco do sistema."], 
         fluxo: "ad-desativar-setores.jpg"
     },
     "uc011": {
@@ -92,8 +92,8 @@ var casos = {
     "uc012": {
         id: "UC012", nome: "Cadastrar Usuário", descricao: "O administrador pode inserir dados do usuário como login, senha e se ele é administrador ou não para fazer o cadastro do usuário.", 
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar usuários."], 
-        poscondicoes: ["O usuário deve estar cadastrado no sistema."], 
+        precondicoes: ["Estar logado como administrador;", "Possuir os dados do usuário (login e senha)."], 
+        poscondicoes: ["Não podem haver usuários com o mesmo login;", "O usuário deve estar cadastrado no sistema."], 
         fluxo: "ad-cadastrar-usuario.jpg"
     },
     "uc013": {

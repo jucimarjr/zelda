@@ -2,6 +2,7 @@ from flask_mysqldb import MySQL
 from .funcionario.funcionario_interface import FuncionarioInterface
 from .usuario.usuario_interface import UsuarioInterface
 from .setor.setor_interface import SetorInterface
+from .usuario.usuario_modelo import Usuario
 
 class Zelda(SetorInterface, FuncionarioInterface, UsuarioInterface):
 
@@ -50,3 +51,18 @@ class Zelda(SetorInterface, FuncionarioInterface, UsuarioInterface):
     def get_usuario_senha(self, login):
         data = self.execute_query("select usuario_senha from usuario where usuario_login = '{}'".format(login))
         return data
+
+    def get_usuario_pelo_login(self, login):
+        data = self.execute_query("select * from usuario where usuario_login = '{}'".format(login))
+        if len(data) < 1:
+            return None
+        usuarios = []
+        for d in data:
+            usuario = Usuario(
+                id=d["usuario_id"],
+                login=d["usuario_login"],
+                senha=d["usuario_senha"],
+                logado=d["usuario_logado"],
+                admin=d["usuario_admin"])
+            usuarios.append(usuario)
+        return usuarios[0]

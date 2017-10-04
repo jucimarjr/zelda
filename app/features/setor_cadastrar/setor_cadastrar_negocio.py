@@ -8,7 +8,9 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
 
-class SetorCadastrarNegocio:    
+from ...setor.setor_modelo import Setor 
+
+class SetorCadastrarNegocio:
     def exibir(db):
         form = CadastrarSetorForm()
 

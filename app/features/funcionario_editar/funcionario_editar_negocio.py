@@ -1,10 +1,10 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from funcionario_editar_form import EditarFuncionarioForm
-from ...funcionario2.funcionario_modelo import Funcionario
-from ...funcionario2.funcionario_interface import FuncionarioInterface
-from ...lotacao2.lotacao_modelo import Lotacao
+from .funcionario_editar_form import EditarFuncionarioForm
+from ...funcionario.funcionario_modelo import Funcionario
+from ...funcionario.funcionario_interface import FuncionarioInterface
+from ...lotacao.lotacao_modelo import Lotacao
 from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from preenche_dados_negocio import PreencheDadosNegocio
+from ..preenche_dados.preenche_dados_negocio import PreencheDadosNegocio
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt

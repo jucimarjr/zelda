@@ -1,7 +1,8 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from funcionario_listar_form import CadastrarFuncionarioForm
-from ...funcionario2.funcionario_modelo import Funcionario
-from ...funcionario2.funcionario_interface import FuncionarioInterface
+from .funcionario_cadastrar_form import CadastrarFuncionarioForm
+from ...funcionario.funcionario_modelo import Funcionario
+from ...funcionario.funcionario_interface import FuncionarioInterface
+from ...lotacao.lotacao_modelo import Lotacao
 from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators

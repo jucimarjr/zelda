@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from ...funcionario2.funcionario_interface import FuncionarioInterface
+from ...funcionario.funcionario_interface import FuncionarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt

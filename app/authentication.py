@@ -2,16 +2,6 @@ from flask  import session
 from .classes import Criptografador
 from .db_interface import Zelda
 
-'''from app import app
-# Config MySQL
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mps2017'
-app.config['MYSQL_DB'] = 'zelda'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-# init MYSQL
-db = Zelda(app)'''
-
 #session['user_login'] = ''
 
 def inicia_sessao(user_login):

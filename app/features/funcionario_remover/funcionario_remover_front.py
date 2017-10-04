@@ -1,4 +1,4 @@
-from funcionario_remover_negocio import FuncionarioRemoverNegocio
+from .funcionario_remover_negocio import FuncionarioRemoverNegocio
 from app import app
 from ...cursor import db
 

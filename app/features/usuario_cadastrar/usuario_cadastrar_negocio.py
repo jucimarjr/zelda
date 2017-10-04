@@ -1,7 +1,9 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from usuario_cadastrar_form import CadastrarUsuarioForm
+from .usuario_cadastrar_form import CadastrarUsuarioForm
 from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from ...usuario2.usuario_interface import UsuarioInterface
+from ...usuario.usuario_interface import UsuarioInterface
+from ...usuario.usuario_modelo import Usuario
+from ..criptografador.criptografador_negocio import Criptografador
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt

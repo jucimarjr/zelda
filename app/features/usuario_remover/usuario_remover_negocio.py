@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from usuario_remover_form import RemoverUsuarioForm
-from ...usuario2.usuario_interface import UsuarioInterface
+from .usuario_remover_form import RemoverUsuarioForm
+from ...usuario.usuario_interface import UsuarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt

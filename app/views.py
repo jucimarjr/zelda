@@ -6,10 +6,13 @@ from .classes import Criptografador
 from flask_mysqldb import MySQL
 from .db_interface import Zelda
 from .authentication import *
+from .features.criptografador.criptografador_negocio import Criptografador
 
 from .cursor import db
-
 from app import app
+
+
+from .features.login.login_form import LoginForm
 
 # Index
 @app.route('/')
@@ -67,18 +70,3 @@ def flash_errors(form):
             flash(u"Error in the %s field - %s" % (
                 getattr(form, field).label.text,
                 error))
-
-
-
-from .features.login.login_form import LoginForm
-from .features.criptografador.criptografador_negocio import Criptografador
-from .features.funcionario_listar.funcionario_listar_front import funcionario_listar
-from .features.funcionario_listar.funcionario_listar_negocio import FuncionarioListarNegocio
-
-from .features.setor_listar.setor_listar_front import setor_listar
-from .features.setor_cadastrar.setor_cadastrar_front import setor_cadastrar
-from .features.setor_editar.setor_editar_front import setor_editar
-from .features.setor_remover.setor_remover_front import setor_desativar
-
-from .features.usuario_listar.usuario_listar_front import usuario_listar
-from .features.usuario_listar.usuario_listar_negocio import UsuarioListarNegocio

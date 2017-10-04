@@ -92,8 +92,8 @@ var casos = {
     "uc012": {
         id: "UC012", nome: "Cadastrar Usuário", descricao: "O administrador pode inserir dados do usuário como login, senha e se ele é administrador ou não para fazer o cadastro do usuário.", 
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["Estar logado como administrador;", "Possuir os dados do usuário (login e senha)."], 
-        poscondicoes: ["Não podem haver usuários com o mesmo login;", "O usuário deve estar cadastrado no sistema."], 
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar usuários."], 
+        poscondicoes: ["O usuário deve estar cadastrado no sistema."], 
         fluxo: "ad-cadastrar-usuario.jpg"
     },
     "uc013": {

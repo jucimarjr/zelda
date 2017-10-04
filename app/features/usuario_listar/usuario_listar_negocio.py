@@ -1,4 +1,4 @@
-from flash_errors_negocio import FlashErrorsNegocio
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
@@ -10,8 +10,6 @@ class UsuarioListarNegocio:
     def exibir():
         if(session['user_login'] == ""):
             return redirect(url_for('index'))
-        
-        funcionarios = db.get_funcionarios()
-        return render_template(
-            'funcionario_listar.html',
-            funcionarios=funcionarios)
+
+        usuarios = db.get_usuarios()
+        return render_template('usuario_listar.html', usuarios=usuarios)

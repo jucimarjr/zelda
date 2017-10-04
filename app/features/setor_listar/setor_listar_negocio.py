@@ -1,4 +1,4 @@
-from ...setor2.setor_interface import SetorInterface
+from ...setor.setor_interface import SetorInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt

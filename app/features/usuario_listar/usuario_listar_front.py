@@ -1,5 +1,6 @@
-from usuario_listar_negocio import UsuarioListarNegocio
+from .usuario_listar_negocio import UsuarioListarNegocio
+from app import app
 
 @app.route('/funcionario')
-def funcionario_listar():
+def usuario_listar():
     return UsuarioListarNegocio.exibir()

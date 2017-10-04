@@ -7,7 +7,12 @@ from flask_mysqldb import MySQL
 from .db_interface import Zelda
 from .features.login.login_form import LoginForm
 from .features.criptografador.criptografador_negocio import Criptografador
-
+from .features.funcionario_listar.funcionario_listar_front import funcionario_listar
+from .features.funcionario_listar.funcionario_listar_negocio import FuncionarioListarNegocio
+from .features.setor_listar.setor_listar_front import setor_listar
+from .features.setor_listar.setor_listar_negocio import SetorListarNegocio
+from .features.usuario_listar.usuario_listar_front import usuario_listar
+from .features.usuario_listar.usuario_listar_negocio import UsuarioListarNegocio
 from app import app
 
 # Config MySQL

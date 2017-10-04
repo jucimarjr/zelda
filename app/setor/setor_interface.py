@@ -1,5 +1,5 @@
 from flask_mysqldb import MySQL
-from setor_modelo import Setor
+from .setor_modelo import Setor
 
 
 class SetorInterface:

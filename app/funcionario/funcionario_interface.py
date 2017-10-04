@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
-from funcionario_modelo import Funcionario
-from ..lotacao2.lotacao_modelo import Lotacao
+from .funcionario_modelo import Funcionario
+from ..lotacao.lotacao_modelo import Lotacao
 
 class FuncionarioInterface:
 

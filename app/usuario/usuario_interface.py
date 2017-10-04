@@ -1,5 +1,5 @@
 from flask_mysqldb import MySQL
-from usuario_modelo import Usuario
+from .usuario_modelo import Usuario
 
 class UsuarioInterface:
 

@@ -13,12 +13,14 @@ from .features.setor_listar.setor_listar_front import setor_listar
 from .features.setor_listar.setor_listar_negocio import SetorListarNegocio
 from .features.usuario_listar.usuario_listar_front import usuario_listar
 from .features.usuario_listar.usuario_listar_negocio import UsuarioListarNegocio
+from .authentication import *
+
 from app import app
 
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '1234'
+app.config['MYSQL_PASSWORD'] = 'modelagemdeprogramas'
 app.config['MYSQL_DB'] = 'zelda'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
@@ -31,33 +33,33 @@ db = Zelda(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    if(session['user_login'] == ""):
-        return redirect(url_for('login'))
+    if(verifica_sessao):
+        return redirect(url_for('index'))
 
-    usuario = db.get_usuario_pelo_login(session['user_login'])
-    return render_template('usuario_home.html', usuario = usuario)
+    usuario = retorna_usuario
+    return render_template('usuario_home.html', usuario=usuario)
+
 
 
 # User login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
-        session['user_login'] = form.login.data
-        senha = form.senha.data
-        senhaHash = Criptografador.gerar_hash(senha, '')
 
-        ans = db.verifica_login(login=form.login.data, senha=senhaHash)
-        if ans:
-            if (not db.verifica_logado(login=form.login.data)):
-                db.set_logado_true(login=form.login.data)
-                if (db.verifica_admin(login=form.login.data)):
+    if form.validate_on_submit():
+        user_login = form.login.data
+        user_senha = form.senha.data
+        inicia_sessao(user_login = user_login)
+        if (autentica(user_senha, db)):
+            if (is_logado(db)):
+                set_logado(True, db)
+                if (is_admin(db)):
                     return redirect(url_for('admin_home'))
                 return redirect(url_for('index'))
             flash("Usuario já logado!")
-
-        else:
-            flash("Nome de usuário ou senha incorretos")
+            encerra_sessao()
+        flash("Nome de usuário ou senha incorretos")
+        encerra_sessao()
     else:
         flash_errors(form)
 
@@ -66,19 +68,16 @@ def login():
 
 @app.route('/logout/')
 def logout():
-    session.pop('username', None)
-    user_login = session.get('user_login', None)
-    session['user_login'] = ''
-    db.set_logado_false(user_login)
+    encerra_sessao()
     return redirect(url_for('index'))
 
 
 @app.route('/admin')
 def admin_home():
-    if(session['user_login'] == ""):
+    if(verifica_sessao):
         return redirect(url_for('index'))
 
-    usuario = db.get_usuario_pelo_login(session['user_login'])
+    usuario = retorna_usuario()
     return render_template('admin_home.html', usuario = usuario)
 
 '''
@@ -86,7 +85,7 @@ def admin_home():
 def funcionario_listar():
     if(session['user_login'] == ""):
         return redirect(url_for('index'))
-    
+
     funcionarios = db.get_funcionarios()
     return render_template(
         'funcionario_listar.html',

@@ -33,7 +33,10 @@ def set_logado(value, db):
         db.set_logado_false
 
 def verifica_sessao():
-    if (session['user_login'] == ''):
+    if 'user_login' in session:
+        if (session['user_login'] == ''):
+            return True
+    else:
         return True
     return False
 

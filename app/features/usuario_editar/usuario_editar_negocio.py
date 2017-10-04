@@ -9,11 +9,12 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from ..criptografador.criptografador_negocio import Criptografador
 from flask_mysqldb import MySQL
+from ...authentication import verifica_sessao
 
 class UsuarioEditarNegocio:
     def exibir(user_id, db):
-        if(session['user_login'] == ""):
-            return redirect(url_for('index'))
+        if(verifica_sessao() == True):
+            return redirect(url_for('login'))
 
         form = EditarUsuarioForm()
 

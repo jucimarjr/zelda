@@ -8,9 +8,13 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
+from ...authentication import verifica_sessao
 
 class SetorEditarNegocio:    
     def exibir(setor_id, db):
+        if verifica_sessao() == True:
+            return redirect(url_for('login'))
+        
         form = EditarSetorForm()
 
         setor = Setor()

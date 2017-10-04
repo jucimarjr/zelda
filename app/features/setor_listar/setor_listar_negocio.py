@@ -5,11 +5,12 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
+from ...authentication import verifica_sessao
 
 class SetorListarNegocio:
     def exibir(db):
-        if(session['user_login'] == ""):
-            return redirect(url_for('index'))
+        if(verifica_sessao() == True):
+            return redirect(url_for('login'))
 
         setores = db.get_setores()
         return render_template('setor_listar.html', setores=setores)

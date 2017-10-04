@@ -6,10 +6,13 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
+from ...authentication import verifica_sessao
 
 class FuncionarioRemoverNegocio:
 
     def exibir(db):
+        if verifica_sessao() == True:
+            return redirect(url_for('login'))
 
         # Se a página foi acessada por post pelo form do WTForms da própria página
         if request.method == 'POST':

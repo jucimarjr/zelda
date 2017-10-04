@@ -9,9 +9,13 @@ from functools import wraps
 from flask_mysqldb import MySQL
 
 from ...setor.setor_modelo import Setor 
+from ...authentication import verifica_sessao
 
 class SetorCadastrarNegocio:
     def exibir(db):
+        if verifica_sessao() == True:
+            return redirect(url_for('login'))
+        
         form = CadastrarSetorForm()
 
         if form.validate_on_submit():

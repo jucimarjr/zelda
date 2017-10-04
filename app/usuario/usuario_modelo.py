@@ -3,8 +3,8 @@ class Usuario:
                  id=0,
                  login="none",
                  senha="none",
-                 logado=1,
-                 admin=1):
+                 logado=0,
+                 admin=0):
                     self.id = id
                     self.login = login
                     self.senha = senha

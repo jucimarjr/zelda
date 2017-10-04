@@ -14,7 +14,7 @@ def encerra_sessao():
 def autentica(user_senha, db):
     senhaHash = Criptografador.gerar_hash(user_senha, '')
 
-    autenticado = db.verifica_login(login=session['user_login'], senha=user_senha)
+    autenticado = db.verifica_login(login=session['user_login'], senha=senhaHash)
     if autenticado:
         return True
     else:

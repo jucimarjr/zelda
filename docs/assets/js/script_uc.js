@@ -73,7 +73,7 @@ var casos = {
         ator: "Administrador.", prioridade: "", rnfs: "",
         precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar setores."],
         poscondicoes: ["Os dados do setor devem estar editados no sistema."],
-        fluxo: "ad-editar-setor.jpg"
+        fluxo: "ad-editar-setor-principal.jpg"
     },
     "uc010": {
         id: "UC010", nome: "Desativar Setor", descricao: "Consiste em que o administrador tem o a autorização em desativar algum setor do sistema.", 

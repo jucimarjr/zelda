@@ -25,15 +25,15 @@ var casos = {
     "uc003": { /**/
         id: "UC003", nome: "Listar Funcionários", descricao: "Permite ao administrador visualizar os funcionários cadastrados.",
         ator: "Administrador.", prioridade: "Precisa ser feito antes dos casos de uso de remover e editar funcionário", rnfs: "nenhum",
-        precondicoes: ["O ator precisa estar autenticado como administrador."], 
-        poscondicoes: ["Poderá cadastrar novos, editar ou remover funcionários."], 
+        precondicoes: ["O ator estar logado no sistema."], 
+        poscondicoes: ["Os funcionários podem ser cadastrados, editados ou removidos."], 
         fluxo: "ad-listar-funcionarios.jpg"
     },
     "uc004": { /**/
         id: "UC004", nome: "Cadastrar Funcionários", descricao: "Permite ao administrador cadastrar novos funcionários.", 
         ator: "Administrador.", prioridade: "nenhuma.", rnfs: "nenhum.",
-        precondicoes: ["O ator precisa estar autenticado como administrador.", "O ator precisa estar na página de listagem de funcionários."], 
-        poscondicoes: ["Não podem haver dois funcionários com o mesmo nome;", "Não podem haver funcionários com campos inválidos."], 
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."], 
+        poscondicoes: ["O funcionário deve estar cadastrado no sistema."], 
         fluxo: "ad-cadastrar-funcionario.jpg"
     },
     "uc005": { /**/
@@ -42,14 +42,14 @@ var casos = {
         descricao: "O caso de uso inicia-se quando o administrador desejar mudar algum dado de um determinado funcionário",
         ator: "Administrador.", prioridade: "", rnfs: "",
         precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."],
-        poscondicoes: ["Os dados dos funcionários estarão editados."],
+        poscondicoes: ["Os dados dos funcionários devem ter sido editados."],
         fluxo: "ad-editar-funcionario.jpg"
     },
     "uc006": { /**/
         id: "UC006", nome: "Desativar Funcionários", descricao: "O caso de uso inicia-se quando o administrador desejar remover um determinado funcionário do sistema",
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar com sessão ativa no sistema;", "O ator precisa estar na página de listagem de funcionários."],
-        poscondicoes: ["A situação de cada funcionário desativado será alterada no banco do sistema."],
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."],
+        poscondicoes: ["O funcionário deve estar desativado no sistema."],
         fluxo: "ad-desativar-funcionarios.jpg"
     },
     "uc007": {

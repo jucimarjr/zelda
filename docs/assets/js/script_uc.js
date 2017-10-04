@@ -41,8 +41,8 @@ var casos = {
         nome: "Editar Funcionário",
         descricao: "O caso de uso inicia-se quando o administrador desejar mudar algum dado de um determinado funcionário",
         ator: "Administrador.", prioridade: "", rnfs: "",
-        precondicoes: ["O ator estar com sessão ativa no sistema;", "O ator precisa estar na página de listagem de funcionários ou conhece o id do funcionário a ser editado."],
-        poscondicoes: ["Os dados alterados dos funcionários editados serão atualizados no banco do sistema e na lista de funcionários."],
+        precondicoes: ["O ator estar logado no sistema;", "O ator estar na tela listar funcionários."],
+        poscondicoes: ["Os dados dos funcionários estarão editados."],
         fluxo: "ad-editar-funcionario.jpg"
     },
     "uc006": { /**/

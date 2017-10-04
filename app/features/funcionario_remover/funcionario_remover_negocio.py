@@ -1,4 +1,5 @@
-from flash_errors_negocio import FlashErrorsNegocio
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from ...funcionario2.funcionario_interface import FuncionarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -8,7 +9,7 @@ from flask_mysqldb import MySQL
 
 class FuncionarioRemoverNegocio:
 
-    def exibir():
+    def exibir(db):
 
         # Se a página foi acessada por post pelo form do WTForms da própria página
         if request.method == 'POST':

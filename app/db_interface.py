@@ -4,7 +4,7 @@ from .usuario.usuario_interface import UsuarioInterface
 from .setor.setor_interface import SetorInterface
 from .usuario.usuario_modelo import Usuario
 
-class Zelda(SetorInterface, FuncionarioInterface, UsuarioInterface):
+class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface):
 
     def __init__(self, app):
         self.mysql = MySQL(app)

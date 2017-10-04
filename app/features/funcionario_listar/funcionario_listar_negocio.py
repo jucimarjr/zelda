@@ -1,3 +1,4 @@
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from ...funcionario.funcionario_interface import FuncionarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -6,7 +7,7 @@ from functools import wraps
 from flask_mysqldb import MySQL
 
 class FuncionarioListarNegocio:
-    def exibir():
+    def exibir(db):
         if(session['user_login'] == ""):
             return redirect(url_for('index'))
         

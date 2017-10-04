@@ -1,6 +1,7 @@
-from setor_remover_form import RemoverSetorForm
-from flash_errors_negocio import FlashErrorsNegocio
-from ...setor2.setor_interface import SetorInterface
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from .setor_remover_form import RemoverSetorForm
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
+from ...setor.setor_interface import SetorInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
@@ -8,7 +9,7 @@ from functools import wraps
 from flask_mysqldb import MySQL
 
 class SetorRemoverNegocio:
-    def exibir():
+    def exibir(db):
         # Se a página foi acessada por post pelo form do WTForms da própria página
         if request.method == 'POST':
 

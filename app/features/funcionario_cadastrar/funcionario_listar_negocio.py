@@ -1,7 +1,8 @@
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from funcionario_listar_form import CadastrarFuncionarioForm
 from ...funcionario2.funcionario_modelo import Funcionario
 from ...funcionario2.funcionario_interface import FuncionarioInterface
-from flash_errors_negocio import FlashErrorsNegocio
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
@@ -10,7 +11,7 @@ from flask_mysqldb import MySQL
 
 class FuncionarioCadastrarNegocio:
 
-    def exibir():
+    def exibir(db):
         if(session['user_login'] == ""):
             return redirect(url_for('index'))
 
@@ -35,5 +36,5 @@ class FuncionarioCadastrarNegocio:
             db.cadastra_lotacao(lotacao)
             return redirect(url_for('funcionario_listar'))
         else:
-            flash_errors(form)
+            FlashErrorsNegocio.flash_errors(form)
             return render_template('funcionario_criar.html', form=form, setores=setores)

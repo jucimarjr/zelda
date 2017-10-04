@@ -1,5 +1,6 @@
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from usuario_editar_form import EditarUsuarioForm
-from flash_errors_negocio import FlashErrorsNegocio
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from ...usuario2.usuario_interface import UsuarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -8,7 +9,7 @@ from functools import wraps
 from flask_mysqldb import MySQL
 
 class UsuarioEditarNegocio:
-    def exibir(user_id):
+    def exibir(user_id, db):
         if(session['user_login'] == ""):
             return redirect(url_for('index'))
 
@@ -39,6 +40,6 @@ class UsuarioEditarNegocio:
             else:
                 return redirect(url_for('usuario_listar'))
 
-            flash_errors(form)
+            FlashErrorsNegocio.flash_errors(form)
 
         return render_template('usuario_editar.html', form=form)

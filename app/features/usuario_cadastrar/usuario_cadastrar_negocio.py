@@ -1,5 +1,6 @@
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from usuario_cadastrar_form import CadastrarUsuarioForm
-from flash_errors_negocio import FlashErrorsNegocio
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from ...usuario2.usuario_interface import UsuarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -9,7 +10,7 @@ from flask_mysqldb import MySQL
 
 class UsuarioCadastrarNegocio:
     
-    def exibir():
+    def exibir(db):
         if(session['user_login'] == ""):
             return redirect(url_for('index'))
 
@@ -20,5 +21,5 @@ class UsuarioCadastrarNegocio:
             db.cadastra_usuario(usuario)
             return redirect(url_for('usuario_listar'))
         else:
-            flash_errors(form)
+            FlashErrorsNegocio.flash_errors(form)
             return render_template('usuario_criar.html', form=form)

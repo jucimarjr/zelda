@@ -1,7 +1,8 @@
-from setor_editar_form import EditarSetorForm
-from ...setor2.setor_modelo import Setor
-from flash_errors_negocio import FlashErrorsNegocio
-from ...setor2.setor_interface import SetorInterface
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from .setor_editar_form import EditarSetorForm
+from ...setor.setor_modelo import Setor
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
+from ...setor.setor_interface import SetorInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
@@ -9,7 +10,7 @@ from functools import wraps
 from flask_mysqldb import MySQL
 
 class SetorEditarNegocio:    
-    def exibir(setor_id):
+    def exibir(setor_id, db):
         form = EditarSetorForm()
 
         setor = Setor()
@@ -32,6 +33,6 @@ class SetorEditarNegocio:
 
             return redirect(url_for('setor_listar'))
         else:
-            flash_errors(form)
+            FlashErrorsNegocio.flash_errors(form)
 
         return render_template('setor_editar.html', form=form)

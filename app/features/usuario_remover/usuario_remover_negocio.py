@@ -1,3 +1,4 @@
+from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from usuario_remover_form import RemoverUsuarioForm
 from ...usuario2.usuario_interface import UsuarioInterface
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
@@ -5,10 +6,11 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
+from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 
 class UsuarioRemoverNegocio:
     
-    def exibir():
+    def exibir(db):
         form = RemoverUsuarioForm()
         if request.method == 'POST':
 

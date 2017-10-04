@@ -5,6 +5,8 @@ from functools import wraps
 from .classes import Criptografador
 from flask_mysqldb import MySQL
 from .db_interface import Zelda
+from .features.login.login_form import LoginForm
+from .features.criptografador.criptografador_negocio import Criptografador
 
 from app import app
 
@@ -401,11 +403,10 @@ def usuario_remover():
     """Se o método foi GET ou o form deu erro de submissão, redireciona pra página de listagem"""
     return redirect(url_for('usuario_listar'))
 
-
+'''
 def flash_errors(form):
     for field, errors in form.errors.items():
         for error in errors:
             flash(u"Error in the %s field - %s" % (
                 getattr(form, field).label.text,
                 error))
-'''

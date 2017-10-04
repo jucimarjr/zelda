@@ -33,7 +33,7 @@ db = Zelda(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    if(!verifica_sessao):
+    if(not verifica_sessao):
         return redirect(url_for('login'))
 
     usuario = retorna_usuario
@@ -74,7 +74,7 @@ def logout():
 
 @app.route('/admin')
 def admin_home():
-    if(!verifica_sessao):
+    if(not verifica_sessao):
         return redirect(url_for('login'))
 
     usuario = retorna_usuario()

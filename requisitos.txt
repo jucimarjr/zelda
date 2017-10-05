@@ -1,0 +1,49 @@
+web
+---------------
+cadastro de usuários (1)
+cadastro de funcionários (2)
+cadastro de setores (4)
+cadastro de lotação (2)
+login/logout ( sign in/out ) (6) 
+upload de fotos para usuários e funcionários (7)
+
+padrão de interface novo - (5)
+
+
+sign up de usuário
+- confirmação por email
+- recuperação de senha por email
+
+api restful
+---------------
+integrar Zelda/Flask com OAuth2
+cadastro de usuários
+cadastro de funcionários
+cadastro de setores
+cadastro de lotação
+login/logout ( sign in/out )
+
+sign up de usuário
+- confirmação por email
+- recuperação de senha por email
+
+
+testes (3)
+---------------
+teste funcional
+teste de regressão
+teste de aceitação do usuário
+
+suporte (0)
+---------------
+banco de dados
+git
+arquitetura
+
+
+documentação (gerentes)
+---------------
+documentação do sistema padrão UML
+descrição da teoria baseada no Pressman/Sommerville
+descrição usando padrão RUP
+

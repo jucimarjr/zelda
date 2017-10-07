@@ -34,18 +34,21 @@ html, body {
     cursor: pointer;
     transition-duration: 0.4s;
     overflow: auto;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #cad-func {
     font-family: Century Gothic;
     font-size: 25px;
     color: #FFFFFF;
+    opacity: 100%;
 }
 
 #labels {
   font-family: Century Gothic;
   font-size: 20px;
   color: #FFFFFF;
+  opacity: 100%;
 }
 
 select {

@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 
-{% block styles %}{% endblock %}
+{% block styles %}
+{% endblock %}
 
 {% block header %}
 <div class="row">
-    <div row="col-xs-2">
+    <div class="col-xs-12" id="fundo-verde">
         <a href="{{url_for('logout')}}">
-            <button id="logout-button" class="right">Sair</button>
+            <button id="logout-button" class="right button z-depth-1-half">Sair</button>
         </a>
-        {% if request.path != "/admin"%}
-        <a href="{{url_for('admin_home')}}">
-            <button id="home-button" class="left">Volta</button>
-        </a> 
-        {% endif %}   
+        <h2 id="uea-logo">UEA<h2>
     </div>
+    {% if request.path != "/admin"%}
+    <a href="{{url_for('admin_home')}}">
+        <button id="home-button" class="left button z-depth-1-half">< Voltar</button>
+    </a>
+    {% endif %}
 </div>
-
 {% endblock %}
 
 {% block content %}{% endblock %}

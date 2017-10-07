@@ -1,0 +1,36 @@
+.button {
+    font-family: Century Gothic;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #18a178;
+    color: #FFFFFF;
+    margin: 15px 15px 15px 15px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#fundo-verde {
+    background-color: #18a178;
+}
+
+#uea-logo {
+    font-weight: bolder;
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    right: 105px;
+}
+
+li {
+    display: inline;
+    font-family: Century Gothic;
+    font-size: 20px;
+    opacity: 100%;
+    color: #FFFFFF;
+}

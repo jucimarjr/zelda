@@ -15,12 +15,14 @@
 
     <link href="{{url_for('static',filename='global.css')}}" rel="stylesheet">
 
-    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{{url_for('static', filename='botoes_header.css')}}">
+    {% block styles %}
+    {% endblock %}
 
     <!-- Visitem: http://getbootstrap.com/docs/3.3/components/ para conhecer os componentes do Bootstrap-->
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
         {% block header %}{% endblock %}
 
         <!--Início do código principal aqui -->

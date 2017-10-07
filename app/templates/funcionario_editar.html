@@ -16,35 +16,39 @@
             </ul>
         {% endif %}
     {% endwith %}
-    <div class="container" id="login-page-container">
+    <div class="container-fluid">
       <div class="row">
-          <h2>Atualizar Dados de Funcionário</h2>
+          <h2 id="cad-func">Editar Funcionário</h2>
          <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
                 {{form.funcionario_id}}
                 {{form.lotacao_id}}
-                  <div class="form-group">
-                     <label><h4>Nome do Funcionário</h4></label>
-                     {{form.funcionario_nome(class_='form-control')}}
-                  </div>
                   <div class="row">
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <label><h4>Setor do Funcionário</h4></label>
-                           {{form.setor_id(class_='form-control')}}
-
-                        </div>
+                     <div class="col-md-6">
+                       <div class="form-group">
+                          <label><h4 id="labels">Nome</h4></label>
+                          {{form.funcionario_nome(class_='form-control')}}
+                       </div>
                      </div>
+                     <div class="col-md-4 col-md-push-1">
+                       <div class="form-group">
+                          <label><h4 id="labels">Setor</h4></label>
+                          {{form.setor_id(class_='form-control')}}
+                       </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label><h4 id="labels">Foto<h4><label>
+                        <button class="round-button" type="submit">SELECIONAR</button>
+                    </div>
                   </div>
                   <div>
                     <div class="row section" id="my-buttons">
                       <div class="col-md-10 col-md-10 col-md-push-6">
-               <button class="round-button" type="submit">ATUALIZAR</button>
+               <button class="round-button z-depth-1-half" type="submit">ATUALIZAR</button>
                     <div class="col-md-4">
-               <a href="{{url_for('funcionario_listar')}}"><button type="button" class="round-button">CANCELAR</button></a>
+               <a href="{{url_for('funcionario_listar')}}"><button type="button" class="round-button z-depth-1-half">CANCELAR</button></a>
 </div>
          </form>
-
          </div>
       </div>
     </div>

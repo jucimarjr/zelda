@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# [1.](#header-1) Objetivo
+# [1.](#header-1) [Objetivo](https://github.com/jucimarjr/zelda/edit/master/docs/index.md)
 
 Desenvolver um Sistema de autenticação, denominado Zelda, o qual é um protótipo para o Sistema SAMUS. Com a finalidade de levantar os principais pontos relacionados ao desenvolvimento do projeto real, no que tange tecnologias e documentações relacionadas. Para que a experiência de desenvolvimento seja a mais branda possível, de forma a não ocorrer atrasos inesperados por ausência de conhecimento de determinada tecnologia, ou até mesmo, necessidade de conhecimento de funcionamento de processos.
 >Para acessar o código do projeto, [clique aqui](https://github.com/jucimarjr/zelda)

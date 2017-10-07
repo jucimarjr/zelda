@@ -35,6 +35,14 @@ html, body {
     height: 40px;
 }
 
+#error-messages {
+
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
 #uea-logo {
     font-weight: bolder;
     font-size: 100px;

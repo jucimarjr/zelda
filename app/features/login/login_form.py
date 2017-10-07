@@ -8,5 +8,5 @@ from wtforms.validators import DataRequired
 
 # Cadastra Login
 class LoginForm(Form):
-    login = StringField('Nome de Usuário', validators=[DataRequired('Nome de Usuário é obrigatório')])
-    senha = PasswordField('Senha', validators=[DataRequired('Senha é obrigatório')])
+    login = StringField('Nome de Usuário', validators=[DataRequired('O nome de usuário é obrigatório')])
+    senha = PasswordField('Senha', validators=[DataRequired('A senha é obrigatória')])

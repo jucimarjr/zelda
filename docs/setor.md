@@ -1,5 +1,5 @@
 ---
-layout: 
+layout: default
 ---
 
 ## Tabela de Setor

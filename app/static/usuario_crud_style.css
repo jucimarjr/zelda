@@ -1,5 +1,6 @@
 body {
     background-color: #22c595;
+    margin: 0;
 }
 
 html, body {
@@ -7,50 +8,146 @@ html, body {
     width: 100%;
 }
 
-h2 {
-    margin: 10px 20px 10px 20px;
-    padding: 5px;
+rodape {
+  font-family: "Segoe UI";
+    position:relative;
+  color:white;
+    background-color:#19926E;
+    padding:0.7em 10px;
+    text-align:left;
+    font-size: 10px;
+}
+
+rodape h1 span {
+  font-size: 10px;
+  font-family: "Segoe UI";
+}
+
+header {
+  font-family: "Segoe UI";
+    position:relative;
+  color:white;
+    background-color:#19926E;
+    padding:0.7em 20px
+}
+
+header img {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 45.8%;
+}
+
+header h1 span {
+  font-size: 10px;
+  font-family: "Segoe UI";
 }
 
 h4 {
+    color: white;
+    font-family: "Segoe UI";
+    padding: 5px;
+    margin: 10px;
+}
+
+p {
+  color: white;
+    font-family: "Segoe UI";
     margin: 10px 20px 10px 20px ;
     padding: 5px;
 }
+p span {
+  margin-left: 60%;
+}
+
+a {
+  color:#F2F2F2;
+    font-size: 0.9rem;
+    font-family: "Segoe UI";
+}
+
+main {
+  margin-left:20px;
+    position: relative;
+    font-family: "Segoe UI";
+}
+
+
+.inputs-login{
+  padding:8px;
+    border:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-radius:10px;
+    width:55%;
+}
+
+.div-left{
+  position: relative;
+    left: 65%;
+}
+
+.inputs-senha{
+  padding:8px;
+    border:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-radius:10px;
+    width:30%;
+    position: relative;
+    left: 65%;
+}
+
+.inputs-picture{
+  padding:7%;
+    border:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-radius:10px;
+    width:0.001%;
+}
 
 .round-button {
-  border: none;
-  border-radius: 5px;
-  background-color: #18a178;
-  font-family: "Segoe UI";
-  font-size: 20px;
-  color: #FFFFFF;
-  width: 225px;
-  height: 50px;
-  margin-top: 80px;
-  transform: translateY(150%);
-  cursor: pointer;
-  transition-duration: 0.4s;
-  overflow: auto;}
+    border: none;
+    border-radius: 5px;
+    background-color: #18a178;
+    color:#F2F2F2;
 
-  button {
-  	margin-bottom:15px;
-  }
+    width: 16%;
+    height: 35px;
+    margin-top: 25px;
+
+    cursor: pointer;
+    transition-duration: 0.4s;
+
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.exit-button{
+  border: none;
+    border-radius: 20px;
+    background-color: #18a178;
+    color:#F2F2F2;
+    position: relative;
+    left: 90%;
+    
+    width: 5%;
+    height: 30px;
+    margin-top: 0px;
+
+    cursor: pointer;
+    transition-duration: 0.4s;
+
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.rodape{
+  color:white;
+    background-color:#19926E;
+    height: 40px;
+}
+
 .round-button:hover {
   background-color: #40a178;
 }
 
 .section {
-    margin-top: 35px;
-}
-
-#cad-usuario {
-    font-family: Century Gothic;
-    font-size: 25px;
-    color: #FFFFFF;
-}
-
-#labels {
-    font-family: Century Gothic;
-    font-size: 20px;
-    color: #FFFFFF;
+    margin-top: 20px;
 }

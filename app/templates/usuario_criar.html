@@ -6,8 +6,17 @@
 {% endblock %}
 
 {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
 
+</head>
 <body>
+<header>
+  <span>UEA</span><button type="submit" class="exit-button">sair</button>  
+</header>
+
+<p><a href="usuario_home"> Voltar </a> > <a href=""> Main </a> > <a href="usuario_listar"> Listar Usuários</a> > <a href=""> Cadastrar Usuários</a></p>
   {% with messages = get_flashed_messages() %}
       {% if messages %}
           <ul>
@@ -17,50 +26,36 @@
           </ul>
       {% endif %}
   {% endwith %}
-    <div class="container" id="login-page-container">
-      <div class="row section">
 
-            <h2 id="cad-usuario">CADASTRO DE USUÁRIO</h2>
-         <form class="form" action="" method="post">
+
+<main>
+            <h4>CADASTRAR USUÁRIO</h4>
+            
+            <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
-                  <div class="row">
-                        <div class="form-group">
-                           <div class="input-group">
-                              <label><h4 id="labels">Login do Usuário</h4></label>
+                              <p>Login do Usuário<span>Senha do Usuário</span></p></form>
+                              <input class="inputs-login" name="last" type="text">
                                 {{form.usuario_login(class_='form-control')}}
-                           </div>
-                        </div>
-                     </div>
-                      <div class="form-group">
-                           <div class="input-group">
-                              <label><h4 id="labels">Senha do Usuário</h4></label>
+                              
+                              <input class="inputs-senha" name="last" type="text">
                                 {{form.usuario_senha(class_='form-control')}}
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                        <p>Foto<p>
+                        <input class="inputs-picture" name="last" type="text">
+                        <br><button class="round-button" type="submit">Selecionar</button>
 
-                     <label><h4 id="labels">Tipo do Usuário</h4></label>
-                     {% for item in form.usuario_admin %}
-                         <div class="checkbox">
-                             <label>
-                                 {{item}}
-                                 {{item.label}}
-                             </label>
-                         </div>
-                     {% endfor %}
-                  </div>
-                  <div class="row mx auto" id="my-buttons">
-          					 <div class="col-md-8 col-md-10 col-md-push-6">
-                      <a href="{{url_for('usuario_listar')}}"><button class="round-button" type="button">CANCELAR</button></a>
+<p> Tipo do Usuário</p>
+<form>
+    <input type="radio" name="tipo" value="comum" checked>Usuário Comum
+    <br>
+    <input type="radio" name="tipo" value="adm" >Administrador
+</form>     
+                      <a href="{{url_for('usuario_listar')}}"><button class="round-button" type="button" style="margin-left:60%" >CANCELAR</button></a>
+                      <button class="round-button" type="submit" style="margin-left:1.5%" >CADASTRAR</button><br><br>
+                      </main>
+                      <rodape>
+  <span>Site desenvolvido por Alunos de MPS 2017/2</span><button type="submit" class="exit-button">sair</button>  
+</rodape>
 
-                       <div class="col-xs-10 col-md-4">
-                      <button class="round-button" type="submit">CADASTRAR</button>
-                    </div>
-                  </div>
-         </form>
-         </div>
-      </div>
-    </div>
-
+</body>
+</html>
 {% endblock %}

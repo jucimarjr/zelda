@@ -1,9 +1,23 @@
 
-body {
+body, #left-column {
     background-color: #22c595;
 }
 
-html, body {
+#left-column{
+    float: left;
+    width: 40%;
+    height: 100%;
+    
+}
+
+#right-column {
+    background-color: white;
+    float: right;
+    width: 60%;
+}
+
+
+html, body, .container{
     /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
     width: 100%;
     height: 100%;
@@ -12,16 +26,16 @@ html, body {
 #login-page-container {
     /*Pra fazer uma div interna centralizar na altura, a div externa deve cobrir toda a altura onde se quer centralizar (nesse caso, toda a altura da tela)*/
     height: 100%;
+    position: right;
 }
 
-#central-content {
+#central-right-content, #central-left-content {
     position: relative;
     /*Uma margem de 50% da altura do elemento pai*/
     top: 50%;
     /*Desloca a posição do elemento 50% de sua altura para cima (dando o efeito de centralização)*/
     transform: translateY(-50%);
 }
-
 .round-button {
     /*Retira as bordas padrão do botão html*/
     outline: none;
@@ -45,7 +59,7 @@ html, body {
 
 #uea-logo {
     font-weight: bolder;
-    font-size: 100px;
+    font-size: 150px;
     text-align: center;
     color: white;
 }

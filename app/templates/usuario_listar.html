@@ -1,77 +1,53 @@
-﻿{% extends "header.html" %}
+{% extends "header.html" %}
 
 {% block styles %}
-    <!-- CSS personalizado da página -->
-    <link rel="stylesheet" href="{{url_for('static', filename='funcionario_listar_style.css')}}">
+    <link href="{{url_for('static', filename='funcionario_listar_style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2">
-                <div class="row">
-                <div class="col-xs-12 col-md-4">
-                    <a href="{{url_for('usuario_cadastrar')}}"><button class="round-button button1">ADICIONAR USUÁRIO</button></a>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                  <button id="editar-button" type="submit" class="round-button button2">EDITAR USUÁRIO</button>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                    <form id="remover-form" action="{{url_for('usuario_remover')}}" method="post">
-                        <button type="submit" name = "origem" value="listar" class="round-button button3">REMOVER USUÁRIO</button>
-                    </form>
-                </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row section">
-          <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2">
-            
-              <table id="table" class="table table-bordered table-hover table-condensed white-bg">
+
+
+    <div class="row section">
+      <div class="col-xs-12  col-md-12 " id="central-content">
+          <table class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>ID</th>
-                            <th>Login do Usuario</th>
-                            <th>Senha</th>
-                            <th>Tipo</th>
+                            <th>Nome do Usuário</th> 
+                            <th>Editar</th>
+                            <th>Remover</th>
                         </tr>
                     </thead>
 
                     <tbody>
 
-                        {% for usuario in usuarios %}
-                        <tr data-usuario-id="{{usuario.id}}">
-                            <td><input type="checkbox"></td>
-							 <td>{{usuario.id}}</td>
+                        <!-- Dados estáticos, insira dados do back-end aqui -->
+                         {%for usuario in usuarios %}
                             <td>{{usuario.login}}</td>
-                            <td>{{usuario.senha}}</td>
-                            <td>{{usuario.admin}}</td>
+                            <td class="col-xs-1  col-md-1 "><a href="{{url_for('usuario_editar', user_id=usuario.id)}}"><button type="submit" id="editar-button" class="round-button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>
+                            <td class="col-xs-1  col-md-1 "><a href="{{url_for('usuario_remover')}}"><button type="submit" name="origem" value="listar" class="round-button button3"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a></td>
+
                         </tr>
                         {% endfor %}
                     </tbody>
-              </table>
-          </div>
-        </div>
-
+                    <!-- Adicianar botão flutuante -->
+                      <a href="{{url_for('usuario_cadastrar')}}" class="float"><i class="fa fa-plus my-float"></i></a>
+          </table>
+      </div> 
     </div>
+  </div>
+
+  
+ 
 
 {% endblock %}
 
 {% block scripts %}
-    <!-- JS personalizado da página -->
     <script>
-
         // Espera o documento ser carregado completamente
         $(document).ready(function(){
 
-            $("#editar-button").click(function(){
-                var id = $("tr > td > input:checked").parent().parent().first().data("usuarioId");
-
-                if(id != undefined)
-                    window.location.href = "usuario/" + id;
-            });
 
             // Ajusta a largura da coluna de checkboxes
             $("thead > tr > th").first().css("width","25px");
@@ -83,29 +59,29 @@
 
             // Quando clicar em uma linha de alguma tabela
             $("tbody > tr").click(function(){
-                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do usuário)
+                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do funcionário)
                 var id_usuario = $(this).data("usuarioId");
 
                 // Redireciona para a tela adequada
-                window.location.href="usuario/" + id_usuario;
+                window.location.href= id_usuario;
             });
 
             // Antes do form do botão de remover ser submetido
-            $("#remover-form").on("submit", function(){
+            $("#remover-form").on("submit", function(e){
                 var form = $(this);
 
                 var i = 0;
                 // Seleciona todos os tr que têm um filho input checkbox selecionado
                 $("td > input:checked").parent().parent().each(function(){
 
-                    // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
-                    form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("usuarioId")));
                     i++;
                 });
 
-                if(i == 0) e.preventDefault();
+                if(i==0) e.preventDefault();
 
             });
         });
     </script>
+
+    <!-- End sction -->
 {% endblock %}

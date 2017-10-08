@@ -6,16 +6,50 @@ body, #left-column {
 #left-column{
     float: left;
     width: 40%;
-    height: 100%;
-    
+    height: 96%;
 }
 
 #right-column {
     background-color: white;
     float: right;
     width: 60%;
+    height: 96%;
 }
 
+.login-box {
+  background-color: #22c595;
+  height: 380px;
+  width: 360px;
+  border: 90px solid #22c595;
+  border-radius: 25px;
+}
+
+.user-password-layout {
+  font-family: Segoe-UI;
+  color: white;
+  font-weight: bolder;
+  font-size: 115%;
+}
+
+.signature {
+  width: 100%;
+  height: 100.1%;
+  background-color: #39825D;
+  font-family: Segoe-UI;
+  color: white;
+  font-weight: bolder;
+  text-align: right;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  text-align: center;
+  margin-left: 520px;
+  border-top: 120px solid transparent;
+  border-left: 60px solid #22c595;
+  border-bottom: 120px solid transparent;
+}
 
 html, body, .container{
     /*Só pra ter certeza que o html e o body estão cobrindo toda a tela*/
@@ -62,6 +96,7 @@ html, body, .container{
     font-size: 150px;
     text-align: center;
     color: white;
+    text-shadow: 3px 6px 15px black;
 }
 
 #login-page-container .input-group-addon {

@@ -7,15 +7,16 @@
 {% block content %}
 <div id="left-column">
     <div id="central-left-content">
-        <h2 id="uea-logo">UEA</h2>
+      <div class="triangle-right">.</div>
     </div>
+    <h2 id="uea-logo">UEA</h2>
 </div>
 <div class id="right-column">
     <div class="container" id="login-page-container">
         <div class="row" id="central-right-content">
             <!-- Define a largura das colunas pra cada largura de tela -->
             <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-4 col-md-push-4">
-            
+
                 <!-- Use esse trecho para exibir mensagens flashadas -->
                 <div id ="error-messages">
                 {% with messages = get_flashed_messages() %}
@@ -28,7 +29,9 @@
                     {% endif %}
                 {% endwith %}
                 </div>
-        
+
+                <section class="login-box">
+                <div class="user-password-layout">Usuário</div>
                 <form action="login" method="post">
                     <!-- Necessário para funcionamento do CSRF -->
                     {{form.hidden_tag()}}
@@ -36,19 +39,21 @@
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         </span>
-                        {{form.login(class_='form-control',placeholder='Nome de Usuário')}} 
+                        {{form.login(class_='form-control',placeholder='')}}
                     </div>
-                        
+                    <div class="user-password-layout">Senha</div>
                     <div class="form-group input-group">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
                         </span>
-                        {{form.senha(class_='form-control',placeholder='Senha')}}                
+                        {{form.senha(class_='form-control',placeholder='')}}
                     </div>
                     <button class="round-button" id="wrapper" type="submit">LOGIN</button>
                 </form>
+                </section>
             </div>
         </div>
     </div>
 </div>
+<div class="signature">Site desenvolvido por alunos de MPS 2017/2</div>
 {% endblock %}

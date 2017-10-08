@@ -22,7 +22,6 @@ html, body {
 }
 
 .round-button {
-    /*Retira as bordas padrão do botão html*/
     border: none;
     border-radius: 5px;
     background-color: #18a178;
@@ -36,12 +35,15 @@ html, body {
     cursor: pointer;
     transition-duration: 0.4s;
     overflow: auto;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    margin-left: 60px;
 }
 
 #cad-setor {
     font-family: Century Gothic;
     font-size: 25px;
     color: #FFFFFF;
+    padding-top: 40px;
 }
 
 button {
@@ -54,7 +56,8 @@ button {
     font-family: Century Gothic;
     font-size: 20px;
     color: #FFFFFF;
-    margin:2%;
+    margin:1%;
+    margin-bottom: 8px;
 }
 
 #login-page-container .input-group-addon {
@@ -62,3 +65,4 @@ button {
     border: none;
     color: white;
 }
+

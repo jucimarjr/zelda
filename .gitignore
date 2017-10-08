@@ -104,4 +104,4 @@ ENV/
 *flask_windows/*
 
 # Configs do BD pessoal
-cursor.py
+*cursor.py

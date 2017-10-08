@@ -1,61 +1,75 @@
 {% extends "header.html" %}
 
 {% block styles %}
-    <!-- CSS personalizado da página -->
     <link rel="stylesheet" href="{{url_for('static', filename='usuario_crud_style.css')}}">
 {% endblock %}
 
 {% block content %}
-<!DOCTYPE html>
-<html>
-<head>
 
-</head>
 <body>
-<header>
-  <span>UEA</span><button type="submit" class="exit-button">sair</button>  
-</header>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }} </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="container-fluid">
+		  <div class="row">
+  			<!--<div class="col-xs-10 col-xs-push-1">-->
+        <div class="col-md-6">
+            <h4 id="cad-usu">CADASTRO DE USUÁRIOS</h4>
+        </div>
 
-<p><a href="usuario_home"> Voltar </a> > <a href=""> Main </a> > <a href="usuario_listar"> Listar Usuários</a> > <a href=""> Cadastrar Usuários</a></p>
-  {% with messages = get_flashed_messages() %}
-      {% if messages %}
-          <ul>
-          {% for message in messages %}
-              <li>{{ message }} </li>
-          {% endfor %}
-          </ul>
-      {% endif %}
-  {% endwith %}
+  			<form  action="" class="form" method="POST">
+                  {{form.hidden_tag()}}
+          <div class="col-md-8">
+            <div class="form-group">
+              <label><h4 id="labels">Nome do Usuário</h4></label>
+              {{form.usuario_login(class_='form-control')}}
+            </div>
+          </div>
+  					<div class="col-md-4">
+  						<div class="form-group">
+  							<label><h4 id="labels">Senha do Usuário</h4></label>
+  							{{form.usuario_senha(class_='form-control')}}
+
+  						</div>
+  					</div>
+				</div>
+        <div class="col-md-4 col-md-3-push  form-group">
+            <h4 id="labels">Foto</h4>
+
+              <br><button class="round-button" type="submit">Selecionar</button>
+</div>
+
+                        <label><h4 id="labels">Tipo do Usuário</h4></label>
+                        {% for item in form.usuario_admin %}
+                            <div class="checkbox">
+                                <label><h4 id="labels">
+                                    {{item}}
+                                    {{item.label}}
+                                </h4></label>
+                            </div>
+                        {% endfor %}
+</div>
 
 
-<main>
-            <h4>CADASTRAR USUÁRIO</h4>
-            
-            <form class="form" action="" method="post">
-                {{form.hidden_tag()}}
-                              <p>Login do Usuário<span>Senha do Usuário</span></p></form>
-                              <input class="inputs-login" name="last" type="text">
-                                {{form.usuario_login(class_='form-control')}}
-                              
-                              <input class="inputs-senha" name="last" type="text">
-                                {{form.usuario_senha(class_='form-control')}}
-                        <p>Foto<p>
-                        <input class="inputs-picture" name="last" type="text">
-                        <br><button class="round-button" type="submit">Selecionar</button>
+				<div class="row mx-auto" id="my-buttons">
+					<div class="col-md-9 form-group">
+						<a href="{{url_for('usuario_listar')}}"><button type="button" class="round-button button1 pull-right">CANCELAR</button></a>
+					</div>
+					<div class="col-md-3 form-group">
+						<button type="submit" class="round-button button1 pull-right">CADASTRAR</button>
 
-<p> Tipo do Usuário</p>
-<form>
-    <input type="radio" name="tipo" value="comum" checked>Usuário Comum
-    <br>
-    <input type="radio" name="tipo" value="adm" >Administrador
-</form>     
-                      <a href="{{url_for('usuario_listar')}}"><button class="round-button" type="button" style="margin-left:60%" >CANCELAR</button></a>
-                      <button class="round-button" type="submit" style="margin-left:1.5%" >CADASTRAR</button><br><br>
-                      </main>
-                      <rodape>
-  <span>Site desenvolvido por Alunos de MPS 2017/2</span><button type="submit" class="exit-button">sair</button>  
-</rodape>
+					</div>
+				</div>
 
-</body>
-</html>
+			</form>
+         	<!-- </div> -->
+      	</div>
+    </div>
+
 {% endblock %}

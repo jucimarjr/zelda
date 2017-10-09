@@ -11,6 +11,9 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
 from ...authentication import verifica_sessao
+from flask_wtf.file import FileField
+from werkzeug import secure_filename
+import os
 
 class FuncionarioEditarNegocio():
 
@@ -39,7 +42,8 @@ class FuncionarioEditarNegocio():
             func.id = form.funcionario_id.data
 
             db.edita_funcionario(func)
-
+            filename = secure_filename(form.file.data.filename)
+            form.file.data.save(r'C:\zelda\app\funcionario\fotos\user_'+ filename)
             lotacao = db.get_lotacao_ativa(func.id)
 
             # Verifica se o setor selecionado permanece inalterado
@@ -73,5 +77,6 @@ class FuncionarioEditarNegocio():
                 return redirect(url_for('funcionario_listar'))
 
             FlashErrorsNegocio.flash_errors(form)
-
+            return render_template('funcionario_editar.html',form=form,setores=setores)
+            return render_template('funcionario_criar.html',form=form,setores=setores)
         return render_template('funcionario_editar.html', form=form)

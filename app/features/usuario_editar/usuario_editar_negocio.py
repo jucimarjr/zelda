@@ -10,6 +10,9 @@ from functools import wraps
 from ..criptografador.criptografador_negocio import Criptografador
 from flask_mysqldb import MySQL
 from ...authentication import verifica_sessao
+from flask_wtf.file import FileField
+from werkzeug import secure_filename
+import os
 
 class UsuarioEditarNegocio:
     def exibir(user_id, db):
@@ -27,7 +30,8 @@ class UsuarioEditarNegocio:
             usuario.admin = form.usuario_admin.data - 1
 
             db.edita_usuario(usuario)
-
+            filename = secure_filename(form.file.data.filename)
+            form.file.data.save(r'C:zelda\app\usuario\fotos\user_'+filename)
             return redirect(url_for('usuario_listar'))
         else:
 
@@ -44,5 +48,5 @@ class UsuarioEditarNegocio:
                 return redirect(url_for('usuario_listar'))
 
             FlashErrorsNegocio.flash_errors(form)
-
+            return render_template('usuario_editar.html',form=form)
         return render_template('usuario_editar.html', form=form)

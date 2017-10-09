@@ -5,6 +5,9 @@ from wtforms import StringField, TextAreaField, PasswordField, BooleanField, Sel
 from passlib.hash import sha256_crypt
 from functools import wraps
 from wtforms.validators import DataRequired
+from flask_wtf.file import FileField
+from werkzeug import secure_filename
+from flask_wtf.file import FileRequired
 
 # Atualiza Funcionario
 class EditarFuncionarioForm(Form):
@@ -12,3 +15,4 @@ class EditarFuncionarioForm(Form):
     lotacao_id = HiddenField('ID Lotação', validators=[])
     setor_id = SelectField('Setor', coerce=int)
     funcionario_id = HiddenField('ID Funcionário', validators=[DataRequired('O ID do Funcionário não pode ser indefinido')])
+    file = FileField("Edite a imagem",validators=[FileRequired()])

@@ -1,0 +1,52 @@
+<!DOCTYPE <html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+    <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
+    
+    <h2 id="21-não-funcionais"><a href="#header-2">3.2.</a> Tabela do Setor</h2>
+    <table class="table">
+    <thead>
+        <tr>
+            <th style="text-align: left">Coluna</th>
+            <th style="text-align: left">Tipo de Dado</th>
+            <th style="text-align: left">Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left">setor_id</td>
+            <td style="text-align: left">int</td>
+            <td style="text-align: left">No atributo setor_id, ficam armazenados os dados referentes a identificação de cada setor, onde cada setor é identificado de forma única, ou seja, o setor_id é uma chave primária.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left">setor_nome</td>
+            <td style="text-align: left">varchar[50]</td>
+            <td style="text-align: left">No atributo setor_nome, ficam armazenados os dados referentes ao nome de cada setor, pois cada setor tem que ter um nome.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left">setor_situação</td>
+            <td style="text-align: left">int</td>
+            <td style="text-align: left">No atributo setor_situação, ficam armazenados os dados referentes a situação de cada setor, ele é responsável por indicar o se o setor está ativo ou não.</td>
+        </tr>
+        <tr>
+            <td style="text-align: left">setor_pai</td>
+            <td style="text-align: left">int</td>
+            <td style="text-align: left">No atributo setor_pai, ficam armazenados o id do setor_pai, ou seja ele recebe um valor inteiro, identificando o setor superior de cada setor que está abaixo da hieráquia.</td>
+        </tr>
+        
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    
+</body>
+</html>

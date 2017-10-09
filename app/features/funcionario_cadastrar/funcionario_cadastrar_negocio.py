@@ -5,7 +5,6 @@ from ...funcionario.funcionario_interface import FuncionarioInterface
 from ...lotacao.lotacao_modelo import Lotacao
 from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
@@ -13,6 +12,12 @@ from ...authentication import verifica_sessao
 from flask_wtf.file import FileField
 from werkzeug import secure_filename
 import os
+from app import app
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 class FuncionarioCadastrarNegocio:
 
@@ -39,8 +44,12 @@ class FuncionarioCadastrarNegocio:
             lotacao = Lotacao(funcionario_id=len(funcionarios), setor_id=form.funcionario_setor_id.data)
 
             db.cadastra_lotacao(lotacao)
+
             filename = secure_filename(form.file.data.filename)
-            form.file.data.save(r'C:\Users\VYCTOR\Desktop\ZELDAO\zelda\app\funcionario\fotos\user_'+filename)
+
+            path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            form.file.data.save(path)
+            
             return redirect(url_for('funcionario_listar'))
         else:
             FlashErrorsNegocio.flash_errors(form)

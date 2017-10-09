@@ -6,8 +6,3 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from wtforms.validators import DataRequired
 
-#Remover Usuário
-class RemoverUsuarioForm(Form):
-    # Implementa um campo em forma de lista, cujos elementos serão inputs do tipo HiddenField
-    usuarios_ids = FieldList(HiddenField('IDs dos Usuários', validators=[DataRequired('Os IDs da lista não podem ser indefinidos')]), validators=[DataRequired('A lista de IDs não pode ser indefinida')])
-

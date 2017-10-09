@@ -1,4 +1,4 @@
-﻿{% extends "header.html" %}
+{% extends "header.html" %}
 
 {% block styles %}
     <link rel="stylesheet" href="{{url_for('static', filename='funcionario_crud_style.css')}}">
@@ -37,10 +37,14 @@
   							{{form.funcionario_setor_id(class_='form-control')}}
   						</div>
   					</div>
-				</div>
+				<!--</div> -->
         <div>
+        <!--
             <h4 id="labels">Foto</h4>
-            <button class="round-button">SELECIONAR</button>
+            <button class="round-button">SELECIONAR</button> -->
+            {{ form.hidden_tag() }}
+            {{ form.file }}
+            <input type="submit">
         </div>
 
 				<div class="row mx-auto" id="my-buttons">

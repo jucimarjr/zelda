@@ -37,10 +37,16 @@
                                     </a>
                             </td>
                             <td>
-                                <button type="submit" name="origem" value="listar" class="round-button button3">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true">
-                                    </span>
-                                </button>
+                                {% if setor.situacao != 1 %}
+                                    <a href="{{url_for('setor_desativar', setor_id=setor.id)}}">                                        
+                                        <button type="submit" name="origem" value="listar" class="round-button button3">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true">
+                                            </span>
+                                        </button>
+                                    </a>
+                                {% else %}
+                                Já desativado
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}
@@ -57,55 +63,4 @@
   
  
 
-{% endblock %}
-
-{% block scripts %}
-    <script>
-        // Espera o documento ser carregado completamente
-        $(document).ready(function(){
-
-            $("#editar-button").click(function(){
-                var id = $("tr > td > input:checked").parent().parent().first().data("setorId");
-
-                if(id != undefined)
-                    window.location.href = "setor/" + id;
-            });
-
-            // Ajusta a largura da coluna de checkboxes
-            $("thead > tr > th").first().css("width","25px");
-
-            // Impede o clique do input de espalhar o clique para seus pais (a linha da tabela)
-            $("td > input").parent().click(function(e){
-                e.stopPropagation();
-            });
-
-            // Quando clicar em uma linha de alguma tabela
-            $("tbody > tr").click(function(){
-                // Recupera o primeiro td dentro do tr clicado e pega seu texto (id do funcionário)
-                var id_funcionario = $(this).data("funcionarioId");
-
-                // Redireciona para a tela adequada
-                window.location.href="setor/" + id_funcionario;
-            });
-
-            // Antes do form do botão de remover ser submetido
-            $("#remover-form").on("submit", function(e){
-                var form = $(this);
-
-                var i = 0;
-                // Seleciona todos os tr que têm um filho input checkbox selecionado
-                $("td > input:checked").parent().parent().each(function(){
-
-                    // Para cada linha, adiciona um input escondido no form como um id em um vetor de ids
-                    form.append($("<input>").attr("type","hidden").attr("name","ids[]").val($(this).data("setorId")));
-                    i++;
-                });
-
-                if(i==0) e.preventDefault();
-
-            });
-        });
-    </script>
-
-    <!-- End sction -->
 {% endblock %}

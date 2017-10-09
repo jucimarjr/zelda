@@ -10,36 +10,20 @@ from flask_mysqldb import MySQL
 from ...authentication import verifica_sessao
 
 class SetorRemoverNegocio:
-    def exibir(db):
+
+    def exibir(setor_id, db):
         if verifica_sessao() == True:
             return redirect(url_for('login'))
 
+        setor = db.get_funcionario(setor_id)
+        if setor is None:
+            return redirect(url_for('setor_listar'))
+
         # Se a página foi acessada por post pelo form do WTForms da própria página
         if request.method == 'POST':
-
-            ids = request.form.getlist("ids[]")
-
-            if request.form['origem'] == 'propria':
-
-                for item in ids:
-                    # do qual pegamos o primeiro e único elemento
-                    db.deleta_setor(item)
-
-            # Se o form é inválido e a página foi acessada por POST
-            else:
-                setores = []
-
-                if ids is not None and len(ids) > 0:
-
-                    # Lista os dados de cada setor na lista de ids[]
-                    for set_id in ids:
-                        setor = db.get_setor(set_id)
-
-                        if setor is not None:
-                            setores.append(setor)
-
-                    return render_template('setor_desativar.html', form=request.form, setores=setores)
-
-        """Se o método foi GET ou o form deu erro de submissão, redireciona pra
-        página de listagem"""
+            db.deleta_setor(setor_id)
+        else:
+            return render_template('setor_desativar.html', setor=setor)
+        
+        """Se o método foi GET ou o form deu erro de submissão, redireciona pra página de listagem"""
         return redirect(url_for('setor_listar'))

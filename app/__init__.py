@@ -1,6 +1,7 @@
 from flask import Flask
+import os
 
-UPLOAD_FOLDER = '/files/profiles/users/'
+UPLOAD_FOLDER = os.path.abspath('') + '/app/files/profiles/funcionarios/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)

@@ -21,6 +21,12 @@ class FuncionarioInterface:
 
     def cadastra_funcionario(self, funcionario):
         self.execute_query("insert into funcionario (funcionario_nome) values ('{}')".format(funcionario.nome), True)
+        data = self.execute_query("select funcionario_id from funcionario order by funcionario_id desc limit 1")
+
+        if len(data) < 1:
+            return None
+
+        return data[0]["funcionario_id"]
 
     def cadastra_lotacao(self, lotacao):
         self.execute_query("insert into lotacao (funcionario_id, setor_id)  values('{}', '{}')" .format(lotacao.funcionario_id, lotacao.setor_id), True)

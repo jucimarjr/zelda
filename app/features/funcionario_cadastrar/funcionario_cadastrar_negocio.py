@@ -12,7 +12,7 @@ from ...authentication import verifica_sessao
 from flask_wtf.file import FileField
 from werkzeug import secure_filename
 import os
-from app import app
+from app import app, ALLOWED_EXTENSIONS
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -38,19 +38,22 @@ class FuncionarioCadastrarNegocio:
         if form.validate_on_submit():
             funcionario = Funcionario(nome=form.funcionario_nome.data)
 
-            db.cadastra_funcionario(funcionario)
-            funcionarios = db.get_funcionarios()
+            id = db.cadastra_funcionario(funcionario)
 
-            lotacao = Lotacao(funcionario_id=len(funcionarios), setor_id=form.funcionario_setor_id.data)
+            lotacao = Lotacao(funcionario_id=id, setor_id=form.funcionario_setor_id.data)
 
             db.cadastra_lotacao(lotacao)
 
             filename = secure_filename(form.file.data.filename)
 
-            path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            form.file.data.save(path)
-            
-            return redirect(url_for('funcionario_listar'))
+            if allowed_file(filename):
+                path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], str(id) + '.' + filename.rsplit('.',1)[1]))
+                form.file.data.save(path)
+                
+                return redirect(url_for('funcionario_listar'))
+            else:
+                flash("Os formatos da foto são restritos a png, jpg e jpeg")
         else:
             FlashErrorsNegocio.flash_errors(form)
-            return render_template('funcionario_criar.html', form=form, setores=setores)
+
+        return render_template('funcionario_criar.html', form=form, setores=setores)

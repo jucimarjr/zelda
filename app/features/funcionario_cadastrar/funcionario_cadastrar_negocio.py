@@ -10,6 +10,9 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_mysqldb import MySQL
 from ...authentication import verifica_sessao
+from flask_wtf.file import FileField
+from werkzeug import secure_filename
+import os
 
 class FuncionarioCadastrarNegocio:
 
@@ -36,6 +39,8 @@ class FuncionarioCadastrarNegocio:
             lotacao = Lotacao(funcionario_id=len(funcionarios), setor_id=form.funcionario_setor_id.data)
 
             db.cadastra_lotacao(lotacao)
+            filename = secure_filename(form.file.data.filename)
+            form.file.data.save(r'C:\Users\VYCTOR\Desktop\ZELDAO\zelda\app\funcionario\fotos\user_'+filename)
             return redirect(url_for('funcionario_listar'))
         else:
             FlashErrorsNegocio.flash_errors(form)

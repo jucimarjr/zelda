@@ -5,35 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if title %}
-    <title>{{ title }} - Zelda</title>
+    <title>{{ title }} | Zelda</title>
     {% else %}
     <title>Zelda</title>
     {% endif %}
 
-    <!-- CSS do Bootstrap -->
-    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS do Bootstrap e MDB -->
+    <link href="../static/mdb-free/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/mdb-free/css/mdb.min.css" rel="stylesheet">
 
     <link href="{{url_for('static',filename='global.css')}}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{url_for('static', filename='botoes_header.css')}}">
+    <!--CSS personalizado dos templates-->
     {% block styles %}
     {% endblock %}
 
     <!-- Visitem: http://getbootstrap.com/docs/3.3/components/ para conhecer os componentes do Bootstrap-->
   </head>
   <body>
-    <div class="container-fluid">
-        {% block header %}{% endblock %}
+    <!--Header-->
+    {% block header %}{% endblock %}
 
-        <!--Início do código principal aqui -->
-        {% block content %}{% endblock %}
-        <!--Final do código principal aqui-->
-    </div>
+    <!--Código principal aqui -->
+    {% block content %}{% endblock %}
 
-    <!-- jQuery (necessário para os plugins JavaScript do Bootstrap) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Inclua todos os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <!--Footer-->
+    {% block footer %}{% endblock %}
+
+    <!-- JS necessário para MDB -->
+    <script src="../static/mdb-free/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/mdb-free/js/popper.min.js"></script>
+    <script src="../static/mdb-free/js/bootstrap.min.js"></script>
+    <script src="../static/mdb-free/js/mdb.min.js"></script>
 
     <!-- Bloco onde scripts personalizados dos templates serão utilizados -->
     {% block scripts %}{% endblock %}

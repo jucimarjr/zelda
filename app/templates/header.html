@@ -1,27 +1,29 @@
 {% extends "base.html" %}
 
 {% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='header.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='footer.css')}}">
 {% endblock %}
 
 {% block header %}
-<div class="row">
-    <div class="col-xs-12" id="fundo-verde">
-        <a href="{{url_for('logout')}}">
-            <button id="logout-button" class="right button z-depth-1-half">Sair</button>
-        </a>
-        <h2 id="uea-logo">UEA<h2>
-    </div>
-    {% if request.path != "/admin"%}
-    <a href="{{url_for('admin_home')}}">
-        <button id="home-button" class="left button z-depth-1-half">< Voltar</button>
-    </a>
-    {% endif %}
-</div>
-<div class="footer">
-    <p>Site desenvolvido pelos alunos de MPS 2017/2</p>
-</div>            
+    <nav id="header" class="navbar navbar-dark">
+        <a class="navbar-brand" id="uea-logo" href="{{url_for('home')}}">UEA</a>
+
+        <!--Botão de Sair-->
+        <form class="form-inline" action="{{url_for('logout')}}" method="post">
+            <button class="btn btn-flat" type="submit">Sair</button>
+        </form>
+    </nav>
 {% endblock %}
 
 {% block content %}{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+        <div class="container">
+            <p class="text-right">Site desenvolvido pelos alunos de MPS 2017/2</p>
+        </div>
+    </div>
+{% endblock %}
 
 {% block scripts %}{% endblock %}

@@ -1,59 +1,57 @@
 {% extends "base.html" %}
 
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
 {% endblock %}
 
 {% block content %}
-<div id="left-column">
-    <div id="central-left-content">
-      <div class="triangle-right">.</div>
-    </div>
-    <h2 id="uea-logo">UEA</h2>
-</div>
-<div class id="right-column">
-    <div class="container" id="login-page-container">
-        <div class="row" id="central-right-content">
-            <!-- Define a largura das colunas pra cada largura de tela -->
-            <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-4 col-md-push-4">
-
-                <!-- Use esse trecho para exibir mensagens flashadas -->
-                <div id ="error-messages">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <ul>
-                        {% for message in messages %}
-                            <li>{{ message }} </li>
-                        {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endwith %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col uea-light">
+            <div class="row  align-items-center h-100">
+                <div class="col">
+                    <h2 id="uea-logo">UEA</h2>
                 </div>
+            </div>
+        </div>
+        <div class="col h-100">
+            <div class="row  align-items-center h-100">
+                <div class="col">
+                    <!-- Use esse trecho para exibir mensagens flashadas -->
+                    <div id ="error-messages">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                            <li>{{ message }} </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    
+                    <div>
+                        <form class="form" action="{{url_for('login')}}" method="post">
+                            <!-- Necessário para funcionamento do CSRF -->
+                            {{form.hidden_tag()}}
 
-                <section class="login-box">
-                <div class="user-password-layout">Usuário</div>
-                <form action="login" method="post">
-                    <!-- Necessário para funcionamento do CSRF -->
-                    {{form.hidden_tag()}}
-                    <div class="form-group input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        </span>
-                        {{form.login(class_='form-control',placeholder='')}}
+                            <div class="form-group">
+                                <label for="email-input">Usuário</label>
+                                {{form.login(class_='form-control', id_='email-input')}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password-input">Senha</label>
+                                {{form.senha(class_='form-control', id_='password-input')}}
+                            </div>
+                            <button class="btn btn-default btn-rounded" id="wrapper" type="submit">LOGIN</button>
+                        </form>
                     </div>
-                    <div class="user-password-layout">Senha</div>
-                    <div class="form-group input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-                        </span>
-                        {{form.senha(class_='form-control',placeholder='')}}
-                    </div>
-                    <button class="round-button" id="wrapper" type="submit">LOGIN</button>
-                </form>
-                </section>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="signature">Site desenvolvido por alunos de MPS 2017/2</div>
 {% endblock %}
+    

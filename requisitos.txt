@@ -9,10 +9,22 @@ upload de fotos para usuários e funcionários (7)
 
 padrão de interface novo - (5)
 
+NOVO  16/OUT
+-----------------
+- cadastro de sistemas (2)
+- cadastro de funcionalidades (3)
+- modificar cadastro de usuários (5)
+- cadastro de perfil e permissões (2)
+- menu (4)
+- upload de fotos (1)
+- css unica pros cadastros (0)
+- html/css responsivo (0)
 
-sign up de usuário
+sign up de usuário (6)
 - confirmação por email
 - recuperação de senha por email
+
+
 
 api restful
 ---------------

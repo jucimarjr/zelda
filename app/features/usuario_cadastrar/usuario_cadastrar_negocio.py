@@ -1,19 +1,13 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import render_template, flash, redirect, url_for
 from .usuario_cadastrar_form import CadastrarUsuarioForm
-from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from ...usuario.usuario_interface import UsuarioInterface
-from ...usuario.usuario_modelo import Usuario
-from ..criptografador.criptografador_negocio import Criptografador
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from passlib.hash import sha256_crypt
-from functools import wraps
-from flask_mysqldb import MySQL
+from ...utils.flash_errors import flash_errors
+from ...tables.usuario.usuario_modelo import Usuario
+from ...utils.criptografador import Criptografador
 from ...authentication import verifica_sessao
 
 class UsuarioCadastrarNegocio:
     
-    def exibir(db):
+    def exibir():
         if(verifica_sessao()== True):
             return redirect(url_for('login'))
 
@@ -24,5 +18,5 @@ class UsuarioCadastrarNegocio:
             db.cadastra_usuario(usuario)
             return redirect(url_for('usuario_listar'))
         else:
-            FlashErrorsNegocio.flash_errors(form)
+            flash_errors(form)
             return render_template('usuario_criar.html', form=form)

@@ -1,18 +1,14 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from .funcionario_cadastrar_form import CadastrarFuncionarioForm
-from ...funcionario.funcionario_modelo import Funcionario
-from ...funcionario.funcionario_interface import FuncionarioInterface
-from ...lotacao.lotacao_modelo import Lotacao
-from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from passlib.hash import sha256_crypt
-from functools import wraps
-from flask_mysqldb import MySQL
+from ...tables.funcionario.funcionario_modelo import Funcionario
+from ...tables.lotacao.lotacao_modelo import Lotacao
+from ...utils.flash_errors import flash_errors
 from ...authentication import verifica_sessao
-from flask_wtf.file import FileField
-from werkzeug import secure_filename
+from ...cursor import db
+
 import os
+from werkzeug import secure_filename
 from app import app, ALLOWED_EXTENSIONS
+from flask import render_template, flash, redirect, url_for
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -21,7 +17,7 @@ def allowed_file(filename):
 
 class FuncionarioCadastrarNegocio:
 
-    def exibir(db):
+    def exibir():
         if(verifica_sessao() == True):
             return redirect(url_for('login'))
 
@@ -54,6 +50,6 @@ class FuncionarioCadastrarNegocio:
             else:
                 flash("Os formatos da foto são restritos a png, jpg e jpeg")
         else:
-            FlashErrorsNegocio.flash_errors(form)
+            flash_errors(form)
 
         return render_template('funcionario_criar.html', form=form, setores=setores)

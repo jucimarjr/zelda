@@ -1,8 +1,8 @@
 from flask_mysqldb import MySQL
-from .funcionario.funcionario_interface import FuncionarioInterface
-from .usuario.usuario_interface import UsuarioInterface
-from .setor.setor_interface import SetorInterface
-from .usuario.usuario_modelo import Usuario
+from .tables.funcionario.funcionario_interface import FuncionarioInterface
+from .tables.usuario.usuario_interface import UsuarioInterface
+from .tables.setor.setor_interface import SetorInterface
+from .tables.usuario.usuario_modelo import Usuario
 
 class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface):
 

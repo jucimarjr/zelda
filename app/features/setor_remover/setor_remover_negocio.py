@@ -1,21 +1,16 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import render_template, flash, redirect, url_for, request
 from .setor_remover_form import RemoverSetorForm
-from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from ...setor.setor_interface import SetorInterface
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from passlib.hash import sha256_crypt
-from functools import wraps
-from flask_mysqldb import MySQL
+from ...utils.flash_errors import flash_errors
 from ...authentication import verifica_sessao
+from ...cursor import db
 
 class SetorRemoverNegocio:
 
-    def exibir(setor_id, db):
+    def exibir(setor_id):
         if verifica_sessao() == True:
             return redirect(url_for('login'))
 
-        setor = db.get_funcionario(setor_id)
+        setor = db.get_setor(setor_id)
         if setor is None:
             return redirect(url_for('setor_listar'))
 

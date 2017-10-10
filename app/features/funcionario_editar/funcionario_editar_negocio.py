@@ -1,23 +1,18 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from .funcionario_editar_form import EditarFuncionarioForm
-from ...funcionario.funcionario_modelo import Funcionario
-from ...funcionario.funcionario_interface import FuncionarioInterface
-from ...lotacao.lotacao_modelo import Lotacao
-from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from ..preenche_dados.preenche_dados_negocio import PreencheDadosNegocio
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from passlib.hash import sha256_crypt
-from functools import wraps
-from flask_mysqldb import MySQL
+from ...tables.funcionario.funcionario_modelo import Funcionario
+from ...tables.lotacao.lotacao_modelo import Lotacao
+from ...utils.flash_errors import flash_errors
 from ...authentication import verifica_sessao
-from flask_wtf.file import FileField
-from werkzeug import secure_filename
+from ...cursor import db
+
 import os
+from werkzeug import secure_filename
+from app import app, ALLOWED_EXTENSIONS
+from flask import render_template, flash, redirect, url_for
 
-class FuncionarioEditarNegocio():
+class FuncionarioEditarNegocio:
 
-    def exibir(func_id, db):
+    def exibir(func_id):
         if(verifica_sessao() == True):
             return redirect(url_for('login'))
 
@@ -70,13 +65,25 @@ class FuncionarioEditarNegocio():
 
                 # Recupera a lotação ativa do funcionário no banco
                 lotacao = db.get_lotacao_ativa(func_id)
-                PreencheDadosNegocio.preenche_dados_atuais(form, func, lotacao)
+                preenche_form_funcionario(form, func, lotacao)
 
             else:
                 # Se o id é inválido, redireciona para o menu
                 return redirect(url_for('funcionario_listar'))
 
-            FlashErrorsNegocio.flash_errors(form)
+            flash_errors(form)
             return render_template('funcionario_editar.html',form=form,setores=setores)
-            return render_template('funcionario_criar.html',form=form,setores=setores)
         return render_template('funcionario_editar.html', form=form)
+
+
+def preenche_form_funcionario(form, func, lotacao):
+    # Preenche o formulário com os dados atuais do funcionário
+
+    if lotacao is not None:
+        form.setor_id.default = int(lotacao.setor_id)
+        form.lotacao_id.data = lotacao.id
+
+    form.process()
+
+    form.funcionario_nome.data = func.nome
+    form.funcionario_id.data = func.id

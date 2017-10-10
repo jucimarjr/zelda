@@ -1,18 +1,12 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import render_template, flash, redirect, url_for
 from .setor_cadastrar_form import CadastrarSetorForm
-from ..flash_errors.flash_errors_negocio import FlashErrorsNegocio
-from ...setor.setor_interface import SetorInterface
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from passlib.hash import sha256_crypt
-from functools import wraps
-from flask_mysqldb import MySQL
-
-from ...setor.setor_modelo import Setor 
+from ...utils.flash_errors import flash_errors
+from ...cursor import db
+from ...tables.setor.setor_modelo import Setor 
 from ...authentication import verifica_sessao
 
 class SetorCadastrarNegocio:
-    def exibir(db):
+    def exibir():
         if verifica_sessao() == True:
             return redirect(url_for('login'))
         
@@ -25,6 +19,6 @@ class SetorCadastrarNegocio:
 
             return redirect(url_for('setor_listar'))
         else:
-            FlashErrorsNegocio.flash_errors(form)
+            flash_errors(form)
 
         return render_template('setor_criar.html', form=form)

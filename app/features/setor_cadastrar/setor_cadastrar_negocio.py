@@ -2,8 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from .setor_cadastrar_form import CadastrarSetorForm
 from ...utils.flash_errors import flash_errors
 from ...cursor import db
-from ...tables.setor.setor_modelo import Setor 
-from ...authentication import verifica_sessao
+from ...tables.setor.setor_modelo import Setor
 
 class SetorCadastrarNegocio:
     def exibir():        

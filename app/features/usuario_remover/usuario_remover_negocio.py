@@ -1,6 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
 from ...utils.flash_errors import flash_errors
-from ...authentication import verifica_sessao
 from ...cursor import db
 
 class UsuarioRemoverNegocio:

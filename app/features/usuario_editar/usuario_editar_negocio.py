@@ -3,7 +3,6 @@ from .usuario_editar_form import EditarUsuarioForm
 from ...utils.flash_errors import flash_errors
 from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
-from ...authentication import verifica_sessao
 from ...cursor import db
 from werkzeug import secure_filename
 import os

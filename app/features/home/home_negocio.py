@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for
 from ...cursor import db
-from ...authentication import verifica_sessao, retorna_usuario
+from ...authentication import retorna_usuario
 
 class HomeNegocio():
     

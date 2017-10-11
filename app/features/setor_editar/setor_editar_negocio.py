@@ -2,7 +2,6 @@ from flask import render_template, flash, redirect, url_for, request
 from .setor_editar_form import EditarSetorForm
 from ...tables.setor.setor_modelo import Setor
 from ...utils.flash_errors import flash_errors
-from ...authentication import verifica_sessao
 from ...cursor import db
 
 class SetorEditarNegocio:    

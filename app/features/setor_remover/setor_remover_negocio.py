@@ -1,7 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from .setor_remover_form import RemoverSetorForm
 from ...utils.flash_errors import flash_errors
-from ...authentication import verifica_sessao
 from ...cursor import db
 
 class SetorRemoverNegocio:

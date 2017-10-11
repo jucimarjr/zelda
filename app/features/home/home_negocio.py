@@ -6,10 +6,4 @@ class HomeNegocio():
     
     def exibir():        
         usuario = retorna_usuario()
-        return render_template('usuario_home.html', usuario=usuario)
-
-class AdminNegocio():
-    
-    def exibir():        
-        usuario = retorna_usuario()
-        return render_template('admin_home.html', usuario=usuario)
+        return render_template('home.html', usuario=usuario)

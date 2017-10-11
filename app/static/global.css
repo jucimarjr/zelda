@@ -23,10 +23,14 @@ html, body {
     height: 40px;
 }
 
-.uea-light {
+body, .uea-light {
     background-color: #22c595; 
 }
 
 .uea-dark {
     background-color: #18a178;
+}
+
+.white-bg {
+    background-color: white;
 }

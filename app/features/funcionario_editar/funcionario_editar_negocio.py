@@ -13,9 +13,6 @@ from flask import render_template, flash, redirect, url_for
 class FuncionarioEditarNegocio:
 
     def exibir(func_id):
-        if(verifica_sessao() == True):
-            return redirect(url_for('login'))
-
         form = EditarFuncionarioForm()
 
         func = Funcionario()

@@ -17,7 +17,7 @@ class LoginNegocio:
                     db.set_logado_true(user_login)
                     if (is_admin()):
                         return redirect(url_for('admin_home'))
-                    return redirect(url_for('index'))
+                    return redirect(url_for('home'))
                 flash("Usuario já logado!")
                 encerra_sessao()
             flash("Nome de usuário ou senha incorretos")

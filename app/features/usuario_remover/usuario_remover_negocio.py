@@ -6,9 +6,6 @@ from ...cursor import db
 class UsuarioRemoverNegocio:
     
     def exibir(user_id):
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-
         usuario = db.get_usuario(user_id)
         if usuario is None:
             return redirect(url_for('usuario_listar'))

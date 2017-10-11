@@ -6,10 +6,7 @@ from ...tables.setor.setor_modelo import Setor
 from ...authentication import verifica_sessao
 
 class SetorCadastrarNegocio:
-    def exibir():
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-        
+    def exibir():        
         form = CadastrarSetorForm()
 
         if form.validate_on_submit():

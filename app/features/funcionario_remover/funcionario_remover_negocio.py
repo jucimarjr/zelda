@@ -6,9 +6,6 @@ from ...cursor import db
 class FuncionarioRemoverNegocio:
 
     def exibir(func_id):
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-
         funcionario = db.get_funcionario(func_id)
         if funcionario is None:
             return redirect(url_for('funcionario_listar'))

@@ -6,10 +6,7 @@ from ...authentication import verifica_sessao
 from ...cursor import db
 
 class SetorEditarNegocio:    
-    def exibir(setor_id):
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-        
+    def exibir(setor_id):        
         form = EditarSetorForm()
 
         setor = Setor()

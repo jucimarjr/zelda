@@ -1,16 +1,13 @@
-from flask  import session
+from flask import session
 from .utils.criptografador import Criptografador
 from .db_interface import Zelda
 from .cursor import db
-
-#session['user_login'] = ''
 
 def inicia_sessao(user_login):
     session['user_login'] = user_login
 
 def encerra_sessao():
-    session.pop('username', None)
-    session['user_login'] = ''
+    session.pop('user_login', None)
 
 def autentica(user_senha):
     senhaHash = Criptografador.gerar_hash(user_senha, '')
@@ -34,10 +31,7 @@ def set_logado(value):
         db.set_logado_false
 
 def verifica_sessao():
-    if 'user_login' in session:
-        if (session['user_login'] == ''):
-            return True
-    else:
+    if 'user_login' not in session:
         return True
     return False
 

@@ -8,9 +8,6 @@ from ...authentication import verifica_sessao
 class UsuarioCadastrarNegocio:
     
     def exibir():
-        if(verifica_sessao()== True):
-            return redirect(url_for('login'))
-
         form = CadastrarUsuarioForm()
         if form.validate_on_submit():
             usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), admin=form.usuario_admin.data - 1)

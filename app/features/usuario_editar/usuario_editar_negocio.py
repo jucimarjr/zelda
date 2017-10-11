@@ -10,9 +10,6 @@ import os
 
 class UsuarioEditarNegocio:
     def exibir(user_id):
-        if(verifica_sessao() == True):
-            return redirect(url_for('login'))
-
         form = EditarUsuarioForm()
 
         usuario = Usuario()

@@ -4,8 +4,5 @@ from ...cursor import db
 
 class SetorListarNegocio:
     def exibir():
-        if(verifica_sessao() == True):
-            return redirect(url_for('login'))
-
         setores = db.get_setores()
         return render_template('setor_listar.html', setores=setores)

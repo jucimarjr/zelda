@@ -6,8 +6,5 @@ from ...cursor import db
 class UsuarioListarNegocio:
 
     def exibir():
-        if(verifica_sessao() == True):
-            return redirect(url_for('login'))
-
         usuarios = db.get_usuarios()
         return render_template('usuario_listar.html', usuarios=usuarios)

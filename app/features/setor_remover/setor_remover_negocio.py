@@ -7,9 +7,6 @@ from ...cursor import db
 class SetorRemoverNegocio:
 
     def exibir(setor_id):
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-
         setor = db.get_setor(setor_id)
         if setor is None:
             return redirect(url_for('setor_listar'))

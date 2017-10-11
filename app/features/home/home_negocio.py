@@ -4,18 +4,12 @@ from ...authentication import verifica_sessao, retorna_usuario
 
 class HomeNegocio():
     
-    def exibir():
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-        
+    def exibir():        
         usuario = retorna_usuario()
         return render_template('usuario_home.html', usuario=usuario)
 
 class AdminNegocio():
     
-    def exibir():
-        if verifica_sessao() == True:
-            return redirect(url_for('login'))
-        
+    def exibir():        
         usuario = retorna_usuario()
         return render_template('admin_home.html', usuario=usuario)

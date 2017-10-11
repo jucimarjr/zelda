@@ -3,9 +3,6 @@ from ...authentication import verifica_sessao
 from ...cursor import db
 
 class FuncionarioListarNegocio:
-    def exibir():
-        if(verifica_sessao() == True):
-            return redirect(url_for('login'))
-        
+    def exibir():        
         funcionarios = db.get_funcionarios()
         return render_template('funcionario_listar.html', funcionarios=funcionarios)

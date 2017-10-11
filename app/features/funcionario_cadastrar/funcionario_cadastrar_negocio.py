@@ -18,9 +18,6 @@ def allowed_file(filename):
 class FuncionarioCadastrarNegocio:
 
     def exibir():
-        if(verifica_sessao() == True):
-            return redirect(url_for('login'))
-
         form = CadastrarFuncionarioForm()
 
         # Recupera todos os setores do banco

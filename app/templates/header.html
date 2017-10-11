@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block header %}
-    <nav id="header" class="navbar navbar-dark">
+    <nav id="header" class="navbar navbar-dark uea-dark">
         <a class="navbar-brand" id="uea-logo" href="{{url_for('home')}}">UEA</a>
 
         <!--Botão de Sair-->
         <form class="form-inline" action="{{url_for('logout')}}" method="post">
-            <button class="btn btn-flat waves-effect" type="submit">Sair</button>
+            <button class="btn btn-sm btn-default">Sair</a>
         </form>
     </nav>
 {% endblock %}
@@ -19,9 +19,9 @@
 {% block content %}{% endblock %}
 
 {% block footer %}
-    <div id="footer">
+    <div id="footer" class="uea-dark">
         <div class="container">
-            <p class="text-right">Site desenvolvido pelos alunos de MPS 2017/2</p>
+            <p class="text-right mt-1">Site desenvolvido pelos alunos de MPS 2017/2</p>
         </div>
     </div>
 {% endblock %}

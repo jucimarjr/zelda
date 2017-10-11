@@ -1,6 +1,7 @@
 #footer {
-    background-color: #18a178;
-    height: 100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 
     font-family: Segoe UI;
     font-size: 15px;

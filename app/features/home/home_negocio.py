@@ -4,6 +4,6 @@ from ...authentication import retorna_usuario
 
 class HomeNegocio():
     
-    def exibir():        
+    def exibir():
         usuario = retorna_usuario()
         return render_template('home.html', usuario=usuario)

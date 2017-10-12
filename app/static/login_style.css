@@ -1,25 +1,90 @@
-﻿.signature {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #39825D;
-    font-family: Segoe-UI;
-    color: white;
-    font-weight: bolder;
-    text-align: right;
-}
-
-#error-messages {
+﻿#main-body {
+    /* Coloque aqui a altura do footer */
+    padding-bottom: 55px !important;
 
     background-color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 15px;
+    height: 100%;
+    overflow: auto;
 }
 
+html {
+    display: block;
+}
+
+/******** Versão Desktop da tela ********/
 #uea-logo {
-  font-weight: bolder;
-  font-size: 150px;
-  text-align: center;
-  color: white;
+    height: 75px;
+}
+
+.container-fluid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    /* Coloque aqui a altura do footer */
+    bottom: 55px;
+}
+
+.container-fluid > .row {
+    height: 100%;
+}
+
+#main-body {
+    /* Ajuste aqui a altura mínima para o conteúdo da versão desktop da tela */
+    min-height: 400px;
+}
+
+#left-content, #right-content, #right-content > .row {
+    height: 100%;
+}
+
+#left-content .row {
+    margin-right: 15px;
+}
+
+#triangulo {
+    position: absolute;
+    right: 0;
+    width: 35px;
+}
+
+/******* Versão Mobile da tela *********/
+
+/* Para telas sm ou menor */
+@media (max-width: 767px) {
+    #uea-logo {
+        height: 35px;
+    }
+
+    #main-body {    
+        /* Ajuste aqui a altura mínima para o conteúdo da versão mobile da tela */
+        min-height: 495px;
+    }
+
+    .container-fluid {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .container-fluid > .row {
+        height: auto;
+    }
+
+    #left-content {
+        height: 50px;
+    }
+
+    #left-content .row {
+        margin-right: -15px;
+    }
+
+    #triangulo {
+        display: none;
+    }
+
+    #right-content {
+        height: auto;
+    }
 }

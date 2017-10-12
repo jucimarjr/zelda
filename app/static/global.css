@@ -104,3 +104,7 @@ body, #main-body .uea-light {
 #main-body .black-fg{
     color: black;
 }
+
+#main-body .white-fg, #main-body .white-fg input {
+    color: white;
+}

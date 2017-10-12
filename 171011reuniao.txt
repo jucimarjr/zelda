@@ -1,0 +1,62 @@
+Banco de dados
+	Tabela: usuario
+	Colunas:
+		usuario_id(varchar100) 
+		funcionario_id(Foreign_key, varchar100)		
+		usuario_login(varchar100)
+		usuario_password(varchar100)
+		usuario_email(varchar100)
+		sessao(int) 			# logado = 1, deslogado = 0
+		perfil_id(Foreign Key, varchar100)
+		usuario_imagem_endereco(varchar300)
+
+	Tabela: funcionario
+	Colunas: 
+		funcionario_id(varchar100)
+		usuario_id(Foreign Key, varchar100)
+		setor_id(Foreign Key, varchar100)
+		lotacao_id(Foreign Key, varchar100)
+		nome(varchar100)
+
+	Tabela: lotacao
+	Colunas:
+		lotacao_id(varchar100)
+		funcionario_id(Foreign_key, varchar100)
+		setor_id(Foreign Key,varchar100)
+		lotacao_status(int)
+
+	Tabela : setor
+	Colunas:
+		setor_id(varchar100)
+		setor_nome(varchar100)
+
+	Tabela: funcionalidade
+	Colunas:
+		funcionalidade_id(varchar100)
+		nome(varchar100)
+		descricao(varchar100)
+		link_path_funcionalidade(varchar300) #O que executa a funcionalidade
+		link_imagem(varchar300)
+		link_path_sistema(varchar300) #Quem executa a funcionalidade
+		sistema_id(Foreign Key, varchar100)
+		funcionalidade_status(int)
+
+	Tabela: sistema
+	Colunas:
+		sistema_id(varchar100)
+		sistema_nome(varchar100)
+		sistema_desc(varchar300)
+		sistema_status(int)
+
+	Tabela: perfil
+	Colunas:
+		permissao_id(Foreign_key, varchar100)
+		perfil_id(varchar100)
+	
+
+	Tabela: permissao
+	Colunas:
+		permissao_id(varchar100)
+		permissao_funcionalidades(varchar300) #Formato dos ids das funcionalidades 						    	      representados por Número  						       Vírgula (1,2,3,4,5)
+					
+				

@@ -36,15 +36,19 @@ class FuncionarioCadastrarNegocio:
 
             db.cadastra_lotacao(lotacao)
 
-            filename = secure_filename(form.file.data.filename)
+            if form.file.data is not None:
+                filename = secure_filename(form.file.data.filename)
 
-            if allowed_file(filename):
-                path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], str(id) + '.' + filename.rsplit('.',1)[1]))
-                form.file.data.save(path)
-                
-                return redirect(url_for('funcionario_listar'))
+                if allowed_file(filename):
+                    path = os.path.abspath(os.path.join(app.config['UPLOAD_FOLDER'], str(id) + '.' + filename.rsplit('.',1)[1]))
+                    form.file.data.save(path)
+                    
+                    return redirect(url_for('funcionario_listar'))
+                else:
+                    flash("Os formatos da foto são restritos a png, jpg e jpeg")
+                    
             else:
-                flash("Os formatos da foto são restritos a png, jpg e jpeg")
+                return redirect(url_for('funcionario_listar'))
         else:
             flash_errors(form)
 

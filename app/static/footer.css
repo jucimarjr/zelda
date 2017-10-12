@@ -5,7 +5,24 @@
     right: 0;
     width: 100%;
 
+    /* Altura mínima para o floating button não ficar em cima do último item das tabelas */
+    min-height: 55px;
+
     font-family: Segoe UI;
     font-size: 15px;
     color: #FFFFFF;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+#main-body {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    margin: 0;
+
+    /* Coloque aqui a altura do footer + 35px de espaçamento */
+    padding-bottom: 90px;
 }

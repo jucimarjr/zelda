@@ -2,7 +2,7 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static', filename='setor_crud_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -18,33 +18,25 @@
 {% endwith %}
 
 <div class="container">
-    <div class="row">
-
-        <h2 id="cad-setor">ATUALIZAR DADOS DE SETOR</h2>
+    <div class="row mt-5">
+        <div class="col-11 col-md-7 col-lg-5 mx-auto">
+            <h2>Editar setor</h2>
 
             <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
-                {{form.setor_id()}}
 
-                <!--Adicionar form-group numa div estiliza os inputs automaticamente (classe do bootstrap)-->
-                <div class="form-group">
-                    <label id="nome-setor">Nome do Setor</label>
-                    {{form.setor_nome(class_='form-control')}}
+                <div class="md-form mt-3">
+                    <label for="nome-input">Nome do Setor</label>
+                    {{form.setor_nome(class_='form-control', id='nome-input')}}
                 </div>
 
-                <div class="row section" id="my-buttons">
-                  <div class="col-md-10 col-md-10 col-md-push-6" id="af-buttons">
-                        <a href="{{url_for('setor_listar')}}"><button class="round-button" type="button">CANCELAR</button></a>
-                        <button id="up-button" class="round-button" type="submit">ATUALIZAR</button>
-                </div>
-
-                </div>
-
+                <button type="submit" class="btn btn-success">Salvar</button> 
+                <a href="{{url_for('setor_listar')}}">
+                    <button type="button" class="btn btn-default">Cancelar</button>
+                </a>
             </form>
         </div>
-
     </div>
-
 </div>
 
 {% endblock %}

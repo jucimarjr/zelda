@@ -3,6 +3,7 @@ from ...tables.funcionario.funcionario_modelo import Funcionario
 from ...tables.lotacao.lotacao_modelo import Lotacao
 from ...authentication import verifica_sessao
 from ...cursor import db
+from ...utils.flash_errors import flash_errors
 
 import os
 from werkzeug import secure_filename
@@ -33,8 +34,6 @@ class FuncionarioEditarNegocio:
             func.id = form.funcionario_id.data
 
             db.edita_funcionario(func)
-            filename = secure_filename(form.file.data.filename)
-            form.file.data.save(r'C:\zelda\app\funcionario\fotos\user_'+ filename)
             lotacao = db.get_lotacao_ativa(func.id)
 
             # Verifica se o setor selecionado permanece inalterado

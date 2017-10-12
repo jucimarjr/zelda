@@ -20,6 +20,8 @@ html, body {
     height: 40px;
 }
 
+/* Estilo do autocomplete */
+
 /* Estilo dos botões fixos na tela */
 #main-body .my-btn-fixed {
     position: fixed;
@@ -97,4 +99,8 @@ body, #main-body .uea-light {
 
 #main-body .gray-fg {
     color: lightgray;
+}
+
+#main-body .black-fg{
+    color: black;
 }

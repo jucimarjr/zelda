@@ -20,8 +20,6 @@ class UsuarioEditarNegocio:
             usuario.admin = form.usuario_admin.data - 1
 
             db.edita_usuario(usuario)
-            filename = secure_filename(form.file.data.filename)
-            form.file.data.save(r'C:zelda\app\usuario\fotos\user_'+filename)
             return redirect(url_for('usuario_listar'))
         else:
 

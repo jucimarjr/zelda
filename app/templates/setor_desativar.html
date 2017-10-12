@@ -2,7 +2,7 @@
 
 {% block styles %}
     {{ super() }}
-    <link href="{{url_for('static', filename='funcionario_crud_style.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='crud_style.css')}}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -18,23 +18,23 @@
 {% endwith %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
-            <h2 id="cad-func">CONFIRMAR REMOÇÃO DE SETOR</h2>
-            <p id="labels">
-                Deseja realmente desativar os seguintes setores?
-                <ul class="list-group">
-                    {% for setor in setores %}
-                    <li>{{setor.id}} - {{setor.nome}}</li>
-                    {% endfor %}
+    <div class="row mt-5">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-5 mx-auto">
+            <h2>Confirmar Desativação de Setor</h2>
+            <p>
+                Deseja realmente desativar o seguinte setor?
+            </p>
+            <p>
+                <ul class="list-group black-fg">
+                    <li class="list-group-item"><span><strong>Id:</strong></span> {{setor.id}}</li>
+                    <li class="list-group-item"><span><strong>Nome:</strong></span> {{setor.nome}}</li>
                 </ul>
             </p>
             <form class="form" action="" method="post">
-                {% for setor in setores %}
-                    <input type="hidden" value="{{setor.id}}" name="ids[]">
-                {% endfor %}
-                <button type="submit" name="origem" value="propria" class="round-button">SIM</button>
-                <a href="{{url_for('setor_listar')}}"><button type="button" class="round-button">NÃO</button></a>
+                <button type="submit" class="btn btn-danger">Sim</button> 
+                <a href="{{url_for('setor_listar')}}">
+                    <button type="button" class="btn btn-default">Não</button>
+                </a> 
             </form>
         </div>
     </div>

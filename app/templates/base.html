@@ -12,8 +12,8 @@
     {% endif %}
 
     <!-- CSS do Bootstrap e MDB -->
-    <link href="../static/mdb-free/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/mdb-free/css/mdb.min.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='mdb-free/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='mdb-free/css/mdb.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   
 
@@ -36,10 +36,10 @@
     {% block footer %}{% endblock %}
 
     <!-- JS necessário para MDB -->
-    <script src="../static/mdb-free/js/jquery-3.2.1.min.js"></script>
-    <script src="../static/mdb-free/js/popper.min.js"></script>
-    <script src="../static/mdb-free/js/bootstrap.min.js"></script>
-    <script src="../static/mdb-free/js/mdb.min.js"></script>
+    <script src="{{url_for('static', filename='mdb-free/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{url_for('static', filename='mdb-free/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='mdb-free/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='mdb-free/js/mdb.min.js')}}"></script>
 
     <!-- Bloco onde scripts personalizados dos templates serão utilizados -->
     {% block scripts %}{% endblock %}

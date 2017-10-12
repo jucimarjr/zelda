@@ -8,4 +8,4 @@ from flask_wtf.file import FileRequired
 class CadastrarFuncionarioForm(Form):
     funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
     funcionario_setor_id = SelectField('Setor', coerce=int)
-    file = FileField('Foto do Funcionário', validators=[FileRequired('Arquivo é obrigatório')])
+    file = FileField('Foto do Funcionário', validators=[])

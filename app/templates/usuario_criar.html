@@ -2,75 +2,54 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static', filename='usuario_crud_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
 {% endblock %}
 
 {% block content %}
 
-<body>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-            {% for message in messages %}
-                <li>{{ message }} </li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    <div class="container-fluid">
-		  <div class="row">
-  			<!--<div class="col-xs-10 col-xs-push-1">-->
-        <div class="col-md-6">
-            <h4 id="cad-usu">CADASTRO DE USUÁRIOS</h4>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-11 col-md-7 col-lg-5 mx-auto">
+            <h2>Cadastrar novo usuário</h2>
+            
+            <form  action="" class="form" method="POST">
+                {{form.hidden_tag()}}
+
+                <div class="md-form mt-3">
+                    <label for="login-input">Login do Usuário</label>
+                    {{form.usuario_login(class_='form-control', id='login-input')}}
+                </div>
+
+                <div class="md-form">
+                    <label for="password-input">Senha</label>
+                    {{form.usuario_senha(class_='form-control', id='password-input')}}
+                </div>
+            
+                <label>Tipo do Usuário</label>
+                {% for item in form.usuario_admin %}
+                    <div class="form-group mb-1">
+                        {{item}}{{item.label(class_='pl-2')}}
+                    </div>
+                {% endfor %}
+        
+                <button type="submit" class="btn btn-success">Cadastrar</button> 
+                <a href="{{url_for('usuario_listar')}}">
+                    <button type="button" class="btn btn-default">Cancelar</button>
+                </a>
+            </form>
         </div>
-
-  			<form  action="" class="form" method="POST">
-                  {{form.hidden_tag()}}
-          <div class="col-md-8">
-            <div class="form-group">
-              <label><h4 id="labels">Nome do Usuário</h4></label>
-              {{form.usuario_login(class_='form-control')}}
-            </div>
-          </div>
-  					<div class="col-md-4">
-  						<div class="form-group">
-  							<label><h4 id="labels">Senha do Usuário</h4></label>
-  							{{form.usuario_senha(class_='form-control')}}
-
-  						</div>
-  					</div>
-				</div>
-        <div class="col-md-4 col-md-3-push  form-group">
-            <h4 id="labels">Foto</h4>
-
-              <br><button class="round-button" type="submit">Selecionar</button>
-</div>
-
-                        <label><h4 id="labels">Tipo do Usuário</h4></label>
-                        {% for item in form.usuario_admin %}
-                            <div class="checkbox">
-                                <label><h4 id="labels">
-                                    {{item}}
-                                    {{item.label}}
-                                </h4></label>
-                            </div>
-                        {% endfor %}
-</div>
-
-
-				<div class="row mx-auto" id="my-buttons">
-					<div class="col-md-9 form-group">
-						<a href="{{url_for('usuario_listar')}}"><button type="button" class="round-button button1 pull-right">CANCELAR</button></a>
-					</div>
-					<div class="col-md-3 form-group">
-						<button type="submit" class="round-button button1 pull-right">CADASTRAR</button>
-
-					</div>
-				</div>
-
-			</form>
-         	<!-- </div> -->
-      	</div>
     </div>
+</div>
 
 {% endblock %}

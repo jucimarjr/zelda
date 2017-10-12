@@ -3,6 +3,7 @@ from .usuario_cadastrar_form import CadastrarUsuarioForm
 from ...utils.flash_errors import flash_errors
 from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
+from ...cursor import db
 
 class UsuarioCadastrarNegocio:
     

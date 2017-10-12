@@ -1,0 +1,11 @@
+table {
+    max-height: 400px;
+}
+
+table td a{
+    vertical-align: top;
+}
+
+td.my-icon-td {
+    width: 25px;
+}

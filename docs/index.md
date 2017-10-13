@@ -20,7 +20,7 @@ Desenvolver um Sistema de autenticação, denominado Zelda, o qual é um protót
  |RNF004              |Uso do Trello            |Todas as tarefas do projeto devem ser organizadas por meio do Trello		|
  |RNF005              |Segurança		            |O sistema deve garantir que seus dados não sejam acessados por pessoas sem as devidas permissões      |
  |RNF006		          |URLs amigáveis	          |O sistema deve possuir URLs de de fácil leitura e intuitivas	|
- |RNF007		          |Usuario Adiministrador   |Apenas o usuario administrador pode acessar os funcionarios e os seus setores |
+ |RNF007		          |Usuario Administrador   |Apenas o usuario administrador pode acessar os funcionarios e os seus setores |
  |RNF008		          |Telas separadas para funcionario e lotação| <space><space> |
 
 * * *

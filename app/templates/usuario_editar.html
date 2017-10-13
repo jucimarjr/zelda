@@ -23,7 +23,7 @@
         <div class="col-11 col-md-7 col-lg-5 mx-auto">
             <h2>Editar usuário</h2>
             
-            <form  action="" class="form" method="POST">
+            <form  action="" class="form" method="POST" enctype="multipart/form-data">
                 {{form.hidden_tag()}}
 
                 <div class="md-form mt-3">
@@ -35,7 +35,12 @@
                     <label for="password-input">Senha</label>
                     {{form.usuario_senha(class_='form-control', id='password-input')}}
                 </div>
-            
+                
+                <label>Foto de Perfil</label>
+                <div class="md-form">
+                    {{ form.file }}
+                </div>
+
                 <label>Tipo do Usuário</label>
                 {% for item in form.usuario_admin %}
                     <div class="form-group mb-1">

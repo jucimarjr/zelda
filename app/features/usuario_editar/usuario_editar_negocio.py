@@ -4,8 +4,15 @@ from ...utils.flash_errors import flash_errors
 from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
 from ...cursor import db
-from werkzeug import secure_filename
 import os
+
+from werkzeug import secure_filename
+from app import app, ALLOWED_EXTENSIONS
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 class UsuarioEditarNegocio:
     def exibir(user_id):
@@ -13,14 +20,30 @@ class UsuarioEditarNegocio:
 
         usuario = Usuario()
 
+
         if form.validate_on_submit():
             usuario.login = form.usuario_login.data
             usuario.id = form.usuario_id.data
             usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             usuario.admin = form.usuario_admin.data - 1
 
+            
             db.edita_usuario(usuario)
+            if form.file.data is not None:
+                filename = secure_filename(form.file.data.filename)
+
+                if allowed_file(filename):
+                    path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(user_id) + '.' + filename.rsplit('.',1)[1]))
+                    form.file.data.save(path)
+                    return redirect(url_for('usuario_listar'))
+                else:
+                    flash("Os formatos da foto são restritos a png, jpg e jpeg")
+                    
+            else:
+                return redirect(url_for('usuario_listar'))
+            
             return redirect(url_for('usuario_listar'))
+
         else:
 
             usuario = db.get_usuario(user_id)

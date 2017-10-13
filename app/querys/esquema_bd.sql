@@ -46,8 +46,9 @@ CREATE TABLE usuario (
   usuario_id int(11) AUTO_INCREMENT NOT NULL,
   usuario_login varchar(100) NOT NULL,
   usuario_senha varchar(50),
-  usuario_logado int(11) NOT NULL DEFAULT '1',
+  usuario_logado int(11) NOT NULL DEFAULT '0',
   usuario_admin int(11) NOT NULL DEFAULT '0',
+  usuario_email varchar(100) NOT NULL,
   usuario_confirmaemail int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (usuario_id)
 );

@@ -119,10 +119,10 @@ CREATE TABLE funcionalidade (
   funcionalidade_caminho_imagem varchar(150),
   funcionalidade_status int(11) NOT NULL DEFAULT '0',
   
-  sistema_id varchar(20) NOT NULL DEFAULT '1',
+  sistema_id int(11) NOT NULL DEFAULT '1',
 
   PRIMARY KEY(funcionalidade_id),
-  FOREIGN KEY(funcionalidade_sistema_id) REFERENCES zelda.sistema (sistema_id)
+  FOREIGN KEY(sistema_id) REFERENCES zelda.sistema (sistema_id)
 );
 
 -- --------------------------------------------------------

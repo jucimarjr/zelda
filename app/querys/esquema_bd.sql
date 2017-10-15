@@ -34,25 +34,6 @@ CREATE TABLE setor (
   FOREIGN KEY (setor_pai) REFERENCES zelda.setor(setor_id)
 );
 
--- ------------------------------------------------
---------
-
---
--- Estrutura da tabela usuario
---
-
-DROP TABLE IF EXISTS usuario;
-CREATE TABLE usuario (
-  usuario_id int(11) AUTO_INCREMENT NOT NULL,
-  usuario_login varchar(100) NOT NULL,
-  usuario_senha varchar(50),
-  usuario_logado int(11) NOT NULL DEFAULT '0',
-  usuario_admin int(11) NOT NULL DEFAULT '0',
-  usuario_email varchar(100) NOT NULL,
-  usuario_confirmaemail int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (usuario_id)
-);
-
 -- --------------------------------------------------------
 
 --
@@ -82,6 +63,29 @@ CREATE TABLE perfil (
   perfil_nome varchar(50) NOT NULL,
 
   PRIMARY KEY(perfil_id)
+);
+
+-- ------------------------------------------------
+--------
+
+--
+-- Estrutura da tabela usuario
+--
+
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE usuario (
+  usuario_id int(11) AUTO_INCREMENT NOT NULL,
+  usuario_login varchar(100) NOT NULL,
+  usuario_senha varchar(50),
+  usuario_logado int(11) NOT NULL DEFAULT '0',
+  usuario_admin int(11) NOT NULL DEFAULT '0',
+  usuario_email varchar(100) NOT NULL,
+  usuario_confirmaemail int(11) NOT NULL DEFAULT '0',
+  
+  perfil_id int(11) NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (usuario_id),
+  FOREIGN KEY (perfil_id) REFERENCES zelda.perfil (perfil_id)
 );
 
 -- --------------------------------------------------------
@@ -115,7 +119,7 @@ CREATE TABLE funcionalidade (
   funcionalidade_caminho_imagem varchar(150),
   funcionalidade_status int(11) NOT NULL DEFAULT '0',
   
-  sistema_id varchar(20),
+  sistema_id varchar(20) NOT NULL DEFAULT '1',
 
   PRIMARY KEY(funcionalidade_id),
   FOREIGN KEY(funcionalidade_sistema_id) REFERENCES zelda.sistema (sistema_id)
@@ -132,9 +136,9 @@ CREATE TABLE permissao (
   permissao_id int(11) AUTO_INCREMENT NOT NULL,
 
   funcionalidade_id varchar(20) NOT NULL,
-  perfil_id int(11) NOT NULL,
+  perfil_id int(11) NOT NULL DEFAULT '1',
 
   PRIMARY KEY(permissao_id),
   FOREIGN KEY(funcionalidade_id) REFERENCES zelda.funcionalidade(funcionalidade_id),
-  FOREIGN KEY(perfil_id) REFERENCES zelda.perfil_id(perfil_id)
+  FOREIGN KEY(perfil_id) REFERENCES zelda.perfil(perfil_id)
 );

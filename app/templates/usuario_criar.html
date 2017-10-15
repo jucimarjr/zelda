@@ -1,4 +1,4 @@
-{% extends "header.html" %}
+﻿{% extends "header.html" %}
 
 {% block styles %}
     {{ super() }}
@@ -41,8 +41,14 @@
                     <div class="form-group mb-1">
                         {{item}}{{item.label(class_='pl-2')}}
                     </div>
+
+		
                 {% endfor %}
         
+		  <label>Foto de Perfil</label>
+                    <div class="md-form">
+                        {{ form.file }}
+                    </div>
                 <button type="submit" class="btn btn-success">Cadastrar</button> 
                 <a href="{{url_for('usuario_listar')}}">
                     <button type="button" class="btn btn-default">Cancelar</button>

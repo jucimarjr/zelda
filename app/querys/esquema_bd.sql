@@ -69,3 +69,72 @@ CREATE TABLE lotacao (
   FOREIGN KEY (funcionario_id) REFERENCES zelda.funcionario (funcionario_id),
   FOREIGN KEY (setor_id) REFERENCES zelda.setor(setor_id)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela perfil
+--
+
+DROP TABLE IF EXISTS perfil;
+CREATE TABLE perfil (
+  perfil_id int(11) AUTO_INCREMENT NOT NULL,
+  perfil_nome varchar(50) NOT NULL,
+
+  PRIMARY KEY(perfil_id)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela sistema
+--
+
+DROP TABLE IF EXISTS sistema;
+CREATE TABLE sistema (
+  sistema_id int(11) AUTO_INCREMENT NOT NULL,
+  sistema_nome varchar(75) NOT NULL,
+  sistema_desc varchar(300),
+  sistema_status int(11) NOT NULL DEFAULT '0',
+
+  PRIMARY KEY(sistema_id)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela funcionalidade
+--
+
+DROP TABLE IF EXISTS funcionalidade;
+CREATE TABLE funcionalidade (
+  funcionalidade_id varchar(20) NOT NULL,
+  funcionalidade_nome varchar(100) NOT NULL,
+  funcionalidade_desc varchar(200),
+  funcionalidade_caminho varchar(150) NOT NULL,
+  funcionalidade_caminho_imagem varchar(150),
+  funcionalidade_status int(11) NOT NULL DEFAULT '0',
+  
+  sistema_id varchar(20),
+
+  PRIMARY KEY(funcionalidade_id),
+  FOREIGN KEY(funcionalidade_sistema_id) REFERENCES zelda.sistema (sistema_id)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela permissão
+--
+
+DROP TABLE IF EXISTS permissao;
+CREATE TABLE permissao (
+  permissao_id int(11) AUTO_INCREMENT NOT NULL,
+
+  funcionalidade_id varchar(20) NOT NULL,
+  perfil_id int(11) NOT NULL,
+
+  PRIMARY KEY(permissao_id),
+  FOREIGN KEY(funcionalidade_id) REFERENCES zelda.funcionalidade(funcionalidade_id),
+  FOREIGN KEY(perfil_id) REFERENCES zelda.perfil_id(perfil_id)
+);

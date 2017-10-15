@@ -32,31 +32,32 @@ Banco de dados
 
 	Tabela: funcionalidade
 	Colunas:
-		funcionalidade_id(varchar100)
+		funcionalidade_id(varchar20)
 		nome(varchar100)
 		descricao(varchar100)
 		link_path_funcionalidade(varchar300) #O que executa a funcionalidade
 		link_imagem(varchar300)
 		link_path_sistema(varchar300) #Quem executa a funcionalidade
-		sistema_id(Foreign Key, varchar100)
+		sistema_id(Foreign Key, varchar20)
 		funcionalidade_status(int)
 
 	Tabela: sistema
 	Colunas:
-		sistema_id(varchar100)
+		sistema_id(varchar20)
 		sistema_nome(varchar100)
 		sistema_desc(varchar300)
 		sistema_status(int)
 
 	Tabela: perfil
 	Colunas:
-		permissao_id(Foreign_key, varchar100)
-		perfil_id(varchar100)
+		perfil_nome(varchar50)
+		perfil_id(varchar20)
 	
 
 	Tabela: permissao
 	Colunas:
-		permissao_id(varchar100)
-		permissao_funcionalidades(varchar300) #Formato dos ids das funcionalidades 						    	      representados por Número  						       Vírgula (1,2,3,4,5)
+		permissao_id(int)
+		permissao_funcionalidade_id(Foreign Key, varchar20)
+		permissao_perfil_id(Foreign Key, varchar 20)
 					
 				

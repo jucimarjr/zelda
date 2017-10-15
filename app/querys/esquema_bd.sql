@@ -78,7 +78,6 @@ CREATE TABLE usuario (
   usuario_login varchar(100) NOT NULL,
   usuario_senha varchar(50),
   usuario_logado int(11) NOT NULL DEFAULT '0',
-  usuario_admin int(11) NOT NULL DEFAULT '0',
   usuario_email varchar(100) NOT NULL,
   usuario_confirmaemail int(11) NOT NULL DEFAULT '0',
   

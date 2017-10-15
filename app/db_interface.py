@@ -63,6 +63,8 @@ class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface):
                 login=d["usuario_login"],
                 senha=d["usuario_senha"],
                 logado=d["usuario_logado"],
-                admin=d["usuario_admin"])
+                #email=d["usuario_email"],
+                #confirmaemail=d["usuario_confirmaemail"],
+                perfil_id=d["perfil_id"])
             usuarios.append(usuario)
         return usuarios[0]

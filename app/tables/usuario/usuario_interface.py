@@ -18,7 +18,7 @@ class UsuarioInterface:
 
  # CRUD - USUARIO
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_senha, usuario_logado, usuario_admin) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.senha, usuario.logado, usuario.admin), True)
+        self.execute_query("insert into usuario (usuario_login, usuario_senha, usuario_logado, perfil_id) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.senha, usuario.logado, usuario.perfil_id), True)
 
     def get_usuarios(self):
         data = self.execute_query("select * from usuario")
@@ -29,7 +29,9 @@ class UsuarioInterface:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
+                #email=u["usuario_email"],
+                #confirmaemail=u["usuario_confirmaemail"],
+                perfil_id=u["perfil_id"])
             usuarios.append(usuario)
         return usuarios
 
@@ -43,12 +45,15 @@ class UsuarioInterface:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
+                #email=u["usuario_email"],
+                #confirmaemail=u["usuario_confirmaemail"],
+                perfil_id=u["perfil_id"])
             usuarios.append(usuario)
         return usuarios
 
     def get_usuarios_admin(self):
-        data = self.execute_query("select * from usuario where usuario_admin = 1")
+        setor_admin_id = self.execute_query("select perfil_id from perfil where perfil_nome = {}".format("Administrador"))
+        data = self.execute_query("select * from usuario where perfil_id = {}".format(setor_admin_id[0]))
         usuarios = []
         for u in data:
             usuario = Usuario(
@@ -56,12 +61,29 @@ class UsuarioInterface:
                 login=u["usuario_login"],
                 senha=u["usuario_senha"],
                 logado=u["usuario_logado"],
-                admin=u["usuario_admin"])
+                #email=u["usuario_email"],
+                #confirmaemail=u["usuario_confirmaemail"],
+                perfil_id=u["perfil_id"])
+            usuarios.append(usuario)
+        return usuarios
+
+    def get_usuarios_by_perfil(self, id):
+        data = self.execute_query("select * from usuario where perfil_id = {}".format(id))
+        usuarios = []
+        for d in data:
+            usuario = Usuario(
+                id=u["usuario_id"],
+                login=u["usuario_login"],
+                senha=u["usuario_senha"],
+                logado=u["usuario_logado"],
+                #email=u["usuario_email"],
+                #confirmaemail=u["usuario_confirmaemail"],
+                perfil_id=u["perfil_id"])
             usuarios.append(usuario)
         return usuarios
 
     def edita_usuario(self, usuario):
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_admin = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.admin, usuario.id), True)
+        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', perfil_id = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.perfil_id, usuario.id), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
@@ -73,11 +95,13 @@ class UsuarioInterface:
         usuarios = []
         for d in data:
             usuario = Usuario(
-                id=d["usuario_id"],
-                login=d["usuario_login"],
-                senha=d["usuario_senha"],
-                logado=d["usuario_logado"],
-                admin=d["usuario_admin"])
+                id=u["usuario_id"],
+                login=u["usuario_login"],
+                senha=u["usuario_senha"],
+                logado=u["usuario_logado"],
+                #email=u["usuario_email"],
+                #confirmaemail=u["usuario_confirmaemail"],
+                perfil_id=u["perfil_id"])
             usuarios.append(usuario)
         return usuarios[0]
 
@@ -88,10 +112,12 @@ class UsuarioInterface:
         usuarios = []
         for d in data:
             usuario = Usuario(
-                id=d["usuario_id"],
-                login=d["usuario_login"],
-                senha=d["usuario_senha"],
-                logado=d["usuario_logado"],
-                admin=d["usuario_admin"])
+                id=u["usuario_id"],
+                login=u["usuario_login"],
+                senha=u["usuario_senha"],
+                logado=u["usuario_logado"],
+                #email=u["usuario_email"],
+                #confirmaemail=u["usuario_confirmaemail"],
+                perfil_id=u["perfil_id"])
             usuarios.append(usuario)
         return usuarios[0]

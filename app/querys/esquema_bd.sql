@@ -34,6 +34,10 @@ CREATE TABLE setor (
   FOREIGN KEY (setor_pai) REFERENCES zelda.setor(setor_id)
 );
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9e084e934308aead5cff1679531c6ca275535c91
 -- --------------------------------------------------------
 
 --
@@ -79,12 +83,21 @@ CREATE TABLE usuario (
   usuario_senha varchar(50),
   usuario_logado int(11) NOT NULL DEFAULT '0',
   usuario_email varchar(100) NOT NULL,
+<<<<<<< HEAD
+  usuario_status int(11) NOT NULL DEFAULT '0',
+
+  perfil_id int(11) NOT NULL,
+
+  PRIMARY KEY (usuario_id),
+  FOREIGN KEY (perfil_id) REFERENCES zelda.perfil(perfil_id)
+=======
   usuario_confirmaemail int(11) NOT NULL DEFAULT '0',
   
   perfil_id int(11) NOT NULL DEFAULT '1',
 
   PRIMARY KEY (usuario_id),
   FOREIGN KEY (perfil_id) REFERENCES zelda.perfil (perfil_id)
+>>>>>>> 9e084e934308aead5cff1679531c6ca275535c91
 );
 
 -- --------------------------------------------------------
@@ -99,6 +112,7 @@ CREATE TABLE sistema (
   sistema_nome varchar(75) NOT NULL,
   sistema_desc varchar(300),
   sistema_status int(11) NOT NULL DEFAULT '0',
+  sistema_prefixo varchar(10) NOT NULL, /* Prefixo usado para descrever funcionalidades do sistema (ZD) */
 
   PRIMARY KEY(sistema_id)
 );
@@ -118,7 +132,11 @@ CREATE TABLE funcionalidade (
   funcionalidade_caminho_imagem varchar(150),
   funcionalidade_status int(11) NOT NULL DEFAULT '0',
   
+<<<<<<< HEAD
+  sistema_id int(11) NOT NULL,
+=======
   sistema_id int(11) NOT NULL DEFAULT '1',
+>>>>>>> 9e084e934308aead5cff1679531c6ca275535c91
 
   PRIMARY KEY(funcionalidade_id),
   FOREIGN KEY(sistema_id) REFERENCES zelda.sistema (sistema_id)

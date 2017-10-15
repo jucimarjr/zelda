@@ -34,6 +34,9 @@ html {
     /* Ajuste aqui a altura mínima para o conteúdo da versão desktop da tela */
     min-height: 400px;
 }
+.btn-cadastrar{
+    background-color: #00C851;
+}
 
 #left-content, #right-content, #right-content > .row {
     height: 100%;

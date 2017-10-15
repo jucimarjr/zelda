@@ -4,9 +4,9 @@ from flask_json import FlaskJSON, json_response, as_json
 from flask_mysqldb import MySQL
 
 from app.db_interface import Zelda
-from app.funcionario import Funcionario
-from app.usuario import Usuario
-from app.setor import Setor
+from app.tables.funcionario.funcionario_modelo import Funcionario
+from app.tables.usuario.usuario_modelo import Usuario
+from app.tables.setor.setor_modelo import Setor
 
 from webservice import app
 

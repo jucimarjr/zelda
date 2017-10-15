@@ -19,6 +19,10 @@ class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface):
             cur.close()
             return data
 
+    def verifica_email(self,email):
+        data = self.execute_query("Select count(*) from usuario where usuario_email ='{}'".format(email))
+        return int(data[0]['count'])>0
+
     def verifica_login(self, login, senha):
         data = self.execute_query("select count(*) from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
         return int(data[0]['count(*)']) > 0

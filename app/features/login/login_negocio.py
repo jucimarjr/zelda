@@ -2,11 +2,13 @@ from ...authentication import *
 from ...utils.flash_errors import flash_errors
 from .login_form import LoginForm
 from flask import redirect, render_template, flash, url_for
+from ..usuario_signup.usuario_signup_form import UsuarioSignupForm
 
 class LoginNegocio:
 
     def exibir():
         form = LoginForm()
+        sngform = UsuarioSignupForm()
 
         if form.validate_on_submit():
             user_login = form.login.data
@@ -23,4 +25,5 @@ class LoginNegocio:
         else:
             flash_errors(form)
 
-        return render_template('login.html', form=form)
+        return render_template('login.html', form=form,sngform =sngform)
+        

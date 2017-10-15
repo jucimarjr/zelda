@@ -25,5 +25,5 @@ class LoginNegocio:
         else:
             flash_errors(form)
 
-        return render_template('login.html', form=form,sngform =sngform)
+        return render_template('login.html', form=form,form_signup =sngform)
         

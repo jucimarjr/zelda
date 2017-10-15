@@ -18,7 +18,7 @@ class UsuarioInterface:
 
  # CRUD - USUARIO
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_senha, usuario_logado, perfil_id) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.senha, usuario.logado, usuario.perfil_id), True)
+        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, usuario_logado, perfil_id) values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, usuario.logado, 2), True)
 
     def get_usuarios(self):
         data = self.execute_query("select * from usuario")

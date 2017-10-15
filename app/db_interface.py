@@ -20,8 +20,8 @@ class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface):
             return data
 
     def verifica_email(self,email):
-        data = self.execute_query("Select count(*) from usuario where usuario_email ='{}'".format(email))
-        return int(data[0]['count'])>0
+        data = self.execute_query("select count(*) as cont_usuarios from usuario where usuario_email ='{}'".format(email))
+        return int(data[0]['cont_usuarios']) >0
 
     def verifica_login(self, login, senha):
         data = self.execute_query("select count(*) from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))

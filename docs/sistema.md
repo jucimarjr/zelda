@@ -4,6 +4,7 @@ layout: default
 
 ## Tabela de Sistema
 A tabela sistema tem os seguintes atributos : sistema_id, sistema_nome, sistema_desc, sistema_status, sistema_prefixo.
+
 |   coluna    | descrição           | tipo de dado |
 |:------------|---------------------|--------------|
 | sistema_id  | O atributo sistema_id é uma chave primária e será a identificação de cada objeto cadastrado no banco de dados.  | int(11) |

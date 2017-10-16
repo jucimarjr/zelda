@@ -4,6 +4,7 @@ layout: default
 
 ## Tabela de Funcionalidade
 A tabela funcionalidade tem os seguintes atributos : funcionalidade_id, funcionalidade_codigo, funcionalidade_nome, funcionalidade_desc, funcionalidade_caminho, funcionalidade_caminho_imagem, funcionalidade_status, sistema_id.
+
 |   coluna    | descrição           | tipo de dado |
 |:------------|---------------------|--------------|
 | funcionalidade_id  | O atributo funcionalidade_id é uma chave primária e será a identificação de cada objeto cadastrado no banco de dados.  | int(11) |

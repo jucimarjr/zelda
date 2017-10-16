@@ -4,6 +4,7 @@ layout: default
 
 ## Tabela de Permissão
 A tabela permissão tem os seguintes atributos : permissao_id, perfil_id e funcionalidade_id.
+
 |   coluna    | descrição           | tipo de dado |
 |:------------|---------------------|--------------|
 | permissao_id  | O atributo permissao_id é uma chave primária e será a identificação de cada objeto cadastrado no banco de dados.  | int(11) |

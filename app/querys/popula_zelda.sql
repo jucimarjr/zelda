@@ -20,5 +20,5 @@ INSERT INTO `permissao` (`permissao_id`, `funcionalidade_id`, `perfil_id`) VALUE
 INSERT INTO `permissao` (`permissao_id`, `funcionalidade_id`, `perfil_id`) VALUES (NULL, '5', '1');
 INSERT INTO `permissao` (`permissao_id`, `funcionalidade_id`, `perfil_id`) VALUES (NULL, '6', '1');
 
-/* Insere um admin no banco (usuario: admin, email: admin@uea.edu.br, senha: caiorolandodarocha) */
+/* Insere um admin no banco (usuario: Administrador, email: admin@uea.edu.br, senha: caiorolandodarocha) */
 INSERT INTO `usuario` (`usuario_id`, `usuario_login`, `usuario_senha`, `usuario_logado`, `usuario_email`, `usuario_status`, `perfil_id`) VALUES (NULL, 'Administrador', '709b4aa0e4fa0cfee2dc7662c5fe156f', '0', 'admin@uea.edu.br', '0', '1');

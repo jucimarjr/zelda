@@ -36,14 +36,13 @@
                     {{form.usuario_senha(class_='form-control', id='password-input')}}
                 </div>
             
-                <label>Tipo do Usuário</label>
-                {% for item in form.usuario_admin %}
+                <label>Perfil do Usuário</label>
                     <div class="form-group mb-1">
-                        {{item}}{{item.label(class_='pl-2')}}
+                        {{form.usuario_perfil(class_='form-control', id='perfil-input')}}
                     </div>
 
 		
-                {% endfor %}
+              
         
 		  <label>Foto de Perfil</label>
                     <div class="md-form">

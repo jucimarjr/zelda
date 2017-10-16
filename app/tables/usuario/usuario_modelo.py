@@ -5,14 +5,14 @@ class Usuario:
                  senha="none",
                  logado=0,
                  email="none",
-                 confirmaemail=0,
+                 status=0,
                  perfil_id=0):
                     self.id = id
                     self.login = login
                     self.senha = senha
                     self.logado = logado
-                    #self.email = email
-                    #self.confirmaemail = confirmaemail
+                    self.email = email
+                    self.status = status
                     self.perfil_id = perfil_id
 
     def serializa(self):
@@ -21,7 +21,7 @@ class Usuario:
                 "login": self.login,
                 "senha": self.senha,
                 "logado": self.logado,
-                #"email": self.email ,
-                #"confirmaemail": self.confirmaemail ,
+                "email": self.email ,
+                "status": self.status ,
                 "perfil_id": self.perfil_id
                 }

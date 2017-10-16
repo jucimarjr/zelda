@@ -25,14 +25,13 @@ class UsuarioEditarNegocio:
         form.usuario_perfil.choices = [(p.id,p.nome) for p in perfils]
         form.usuario_perfil.default = 1
 
-        print("coisa: ")
+
 
         if form.validate_on_submit():
             usuario.login = form.usuario_login.data
             usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             usuario.id = form.usuario_id.data
             usuario.perfil_id = form.usuario_perfil.data
-            print(form.usuario_perfil.data)
 
             
             db.edita_usuario(usuario)

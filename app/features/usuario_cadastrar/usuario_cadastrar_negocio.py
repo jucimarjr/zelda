@@ -17,9 +17,18 @@ def allowed_file(filename):
 class UsuarioCadastrarNegocio:
     
     def exibir():
+
         form = CadastrarUsuarioForm()
+        
+        perfils = db.get_perfil()
+
+        form.usuario_perfil.choices = [(p.id,p.nome) for p in perfils]
+        form.usuario_perfil.default = 1
+
+
+        
         if form.validate_on_submit():
-            usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), admin=form.usuario_admin.data - 1)
+            usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), perfil_id=form.usuario_perfil.data )
 
             db.cadastra_usuario(usuario)
             

@@ -1,5 +1,6 @@
 from flask_mysqldb import MySQL
 from .perfil_modelo import Perfil
+from ..permissao.permissao_modelo import Permissao
 
 class PerfilInterface:
 
@@ -18,16 +19,9 @@ class PerfilInterface:
 
     # CRUD - PERFIL
 
-    def cadastra_perfil(self, perfil, funcionalidade_id):
-        self.execute_query("insert into perfil (perfil_nome) values ('{}')".format(perfil_nome), True)
-        data = self.execute_query("select perfil_nome from perfil order by perfil_nome desc limit 1")
-
-        if len(funcionalidade_id) > 1:
-            for id in funcionalidade_id:
-                permissao = Permissao()
-                permissao.funcionalidade_id = id
-                permissao.perfil_id = data[0]['perfil_id']
-                self.cadastra_permissao(permissao)
+    def cadastra_perfil(self, perfil):
+        self.execute_query("insert into perfil (perfil_nome) values ('{}')".format(perfil.nome), True)
+        data = self.execute_query("select perfil_id from perfil order by perfil_id desc limit 1")
 
         return data[0]["perfil_id"]
 
@@ -38,7 +32,7 @@ class PerfilInterface:
             self.execute_query("delete permissao where perfil_id = '{}'".format(perfil_id), True)
             for id in funcionalidade_id:
                 permissao = Permissao()
-                permissao.funcionalidade_id = id
+                permissao.funcionalidade_codigo = id
                 permissao.perfil_id = data[0]['perfil_id']
                 self.cadastra_permissao(permissao)
 
@@ -47,10 +41,10 @@ class PerfilInterface:
         self.execute_query("delete perfil where perfil_id = '{}'".format(perfil_id), True)
 
     def cadastra_permissao(self, permissao):
-        self.execute_query("insert into permissao (funcionalidade_id, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_id, permissao.perfil_id), True)
+        self.execute_query("insert into permissao (funcionalidade_codigo, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_codigo, permissao.perfil_id), True)
 
     def retorna_permissao_ativa(self, perfil_id):
-        data = self.execute_query("select * from permissao where permissao.funcionalidade_id = '{}' order by permissao.permissao_id desc limit 1".format(funcionalidade_id))
+        data = self.execute_query("select * from permissao where permissao.perfil_id = '{}' order by permissao.permissao_id desc limit 1".format(perfil_id))
 
         if len(data) < 1:
             return None
@@ -58,7 +52,7 @@ class PerfilInterface:
         for d in data:
             permissao = Permissao(
                     id=d["permissao_id"],
-                    funcionalidade_id=d["funcionalidade_id"],
+                    funcionalidade_codigo=d["funcionalidade_codigo"],
                     perfil_id=d["perfil_id"])
 
         return permissao

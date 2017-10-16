@@ -112,12 +112,12 @@ class UsuarioInterface:
         usuarios = []
         for d in data:
             usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                #email=u["usuario_email"],
-                #confirmaemail=u["usuario_confirmaemail"],
-                perfil_id=u["perfil_id"])
+                id=d["usuario_id"],
+                login=d["usuario_login"],
+                senha=d["usuario_senha"],
+                logado=d["usuario_logado"],
+                #email=d["usuario_email"],
+                #confirmaemail=d["usuario_confirmaemail"],
+                perfil_id=d["perfil_id"])
             usuarios.append(usuario)
         return usuarios[0]

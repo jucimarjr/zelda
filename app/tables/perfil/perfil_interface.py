@@ -68,6 +68,18 @@ class PerfilInterface:
             perfis.append(perfil)
         return perfis[0]
 
+    def get_perfil(self):
+        data = self.execute_query("select * from perfil")
+        if len(data) < 1:
+            return None
+        perfis = []
+        for d in data:
+            perfil = Perfil(
+                id = d["perfil_id"],
+                nome = d["perfil_nome"])
+            perfis.append(perfil)
+        return perfis
+
     def get_funcionalidades(self):
         data = self.execute_query('''select funcionalidade_id, funcionalidade_nome from funcionalidade''')
 

@@ -20,12 +20,19 @@ class UsuarioEditarNegocio:
 
         usuario = Usuario()
 
+        perfils = db.get_perfil()
+
+        form.usuario_perfil.choices = [(p.id,p.nome) for p in perfils]
+        form.usuario_perfil.default = 1
+
+        print("coisa: ")
 
         if form.validate_on_submit():
             usuario.login = form.usuario_login.data
-            usuario.id = form.usuario_id.data
             usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
-            usuario.admin = form.usuario_admin.data - 1
+            usuario.id = form.usuario_id.data
+            usuario.perfil_id = form.usuario_perfil.data
+            print(form.usuario_perfil.data)
 
             
             db.edita_usuario(usuario)
@@ -49,7 +56,7 @@ class UsuarioEditarNegocio:
             usuario = db.get_usuario(user_id)
 
             if usuario is not None:
-                form.usuario_admin.default = int(usuario.admin + 1)
+                #form.usuario_admin.default = int(usuario.admin + 1)
                 form.process()
 
                 form.usuario_login.data = usuario.login

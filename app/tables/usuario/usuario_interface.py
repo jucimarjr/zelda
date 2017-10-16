@@ -70,7 +70,7 @@ class UsuarioInterface:
     def get_usuarios_by_perfil(self, id):
         data = self.execute_query("select * from usuario where perfil_id = {}".format(id))
         usuarios = []
-        for d in data:
+        for u in data:
             usuario = Usuario(
                 id=u["usuario_id"],
                 login=u["usuario_login"],
@@ -93,7 +93,7 @@ class UsuarioInterface:
         if len(data) < 1:
             return None
         usuarios = []
-        for d in data:
+        for u in data:
             usuario = Usuario(
                 id=u["usuario_id"],
                 login=u["usuario_login"],

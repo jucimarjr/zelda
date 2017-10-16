@@ -41,12 +41,10 @@
                     {{ form.file }}
                 </div>
 
-                <label>Tipo do Usuário</label>
-                {% for item in form.usuario_admin %}
-                    <div class="form-group mb-1">
-                        {{item}}{{item.label(class_='pl-2')}}
+                <label>Tipo de perfil</label>
+                    <div class="md-form">
+                        {{form.usuario_perfil(class_='form-control', id='perfil-input')}}
                     </div>
-                {% endfor %}
         
                 <button type="submit" class="btn btn-success">Salvar</button> 
                 <a href="{{url_for('usuario_listar')}}">

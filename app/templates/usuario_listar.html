@@ -31,7 +31,11 @@
                                     <td>{{usuario.id}}</td>
                                     <td>{{usuario.login}}</td>
                                     <td>
-                                        {{usuario.perfil_id}}
+                                        {% if usuario.perfil_id == 1 %}
+                                            Administrador
+                                        {% else %}
+                                            Usuário Comum
+                                        {% endif %}
                                     </td>
                                     <td class="my-icon-td">
                                         <a href="{{url_for('usuario_editar', user_id=usuario.id)}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">

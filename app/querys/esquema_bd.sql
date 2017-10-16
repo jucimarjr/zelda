@@ -136,9 +136,11 @@ DROP TABLE IF EXISTS permissao;
 CREATE TABLE permissao (
   permissao_id int(11) AUTO_INCREMENT NOT NULL,
 
-  funcionalidade_codigo varchar(20) NOT NULL,
+  funcionalidade_id int(11) NOT NULL,
   perfil_id int(11) NOT NULL,
 
   PRIMARY KEY(permissao_id),
-  FOREIGN KEY(perfil_id) REFERENCES zelda.perfil(perfil_id)
+  FOREIGN KEY(perfil_id) REFERENCES zelda.perfil(perfil_id),
+  FOREIGN KEY(funcionalidade_id) REFERENCES zelda.funcionalidade(funcionalidade_id)
+
 );

@@ -45,17 +45,28 @@ class PerfilInterface:
 
     def retorna_permissao_ativa(self, perfil_id):
         data = self.execute_query("select * from permissao where permissao.perfil_id = '{}' order by permissao.permissao_id desc limit 1".format(perfil_id))
-
         if len(data) < 1:
             return None
-
+        permissoes = []
         for d in data:
             permissao = Permissao(
                     id=d["permissao_id"],
                     funcionalidade_codigo=d["funcionalidade_codigo"],
                     perfil_id=d["perfil_id"])
-
+            permissoes.append(permissao)
         return permissao
+
+    def get_perfil_pelo_id(self, perfil_id):
+        data = self.execute_query("select * from perfil where perfil_id = '{}'".format(perfil_id))
+        if len(data) < 1:
+            return None
+        perfis = []
+        for d in data:
+            perfil = Perfil(
+                id = d["perfil_id"],
+                nome = d["perfil_nome"])
+            perfis.append(perfil)
+        return perfis[0]
 
     def get_funcionalidades(self):
         data = self.execute_query('''select funcionalidade_id, funcionalidade_nome from funcionalidade''')

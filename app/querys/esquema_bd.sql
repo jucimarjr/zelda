@@ -1,6 +1,7 @@
 --
 -- Database: zelda
 --
+DROP DATABASE IF EXISTS zelda;
 CREATE SCHEMA zelda;
 USE zelda;
 
@@ -66,7 +67,6 @@ CREATE TABLE perfil (
 );
 
 -- ------------------------------------------------
---------
 
 --
 -- Estrutura da tabela usuario

@@ -1,61 +1,15 @@
-web
----------------
-cadastro de usuários (1)
-cadastro de funcionários (2)
-cadastro de setores (4)
-cadastro de lotação (2)
-login/logout ( sign in/out ) (6) 
-upload de fotos para usuários e funcionários (7)
-
-padrão de interface novo - (5)
-
-NOVO  16/OUT
------------------
-- cadastro de sistemas (2)
-- cadastro de funcionalidades (3)
-- modificar cadastro de usuários (5)
-- cadastro de perfil e permissões (2)
-- menu (4)
-- upload de fotos (1)
-- css unica pros cadastros (0)
-- html/css responsivo (0)
-
-sign up de usuário (6)
-- confirmação por email
-- recuperação de senha por email
-
-
-
-api restful
----------------
-integrar Zelda/Flask com OAuth2
-cadastro de usuários
-cadastro de funcionários
-cadastro de setores
-cadastro de lotação
-login/logout ( sign in/out )
-
-sign up de usuário
-- confirmação por email
-- recuperação de senha por email
-
-
-testes (3)
----------------
-teste funcional
-teste de regressão
-teste de aceitação do usuário
-
-suporte (0)
----------------
-banco de dados
-git
-arquitetura
-
-
-documentação (gerentes)
----------------
-documentação do sistema padrão UML
-descrição da teoria baseada no Pressman/Sommerville
-descrição usando padrão RUP
+1/nov
+--------------------
+1 - login/logout (1)
+2 - menu (2)
+3 - cadastro de sistemas (3)
+4 - cadastro de funcionalidades (3)
+5 - cadastro de usuarios (1)
+6 - cadastro de permissões(4)
+7 - cadastro de perfil(4)
+8 - pagina web da doc sistema (2)
+9 - diagramas: classes, atividades, entidade-relacionamento(0)
+10 - servidor, banco de dados, codigo-fonte, html/css, arquitetura, git(0)
+11 - sign up de usuário com confirmação por email e recuperação de senha(5)
+12 - classe para upload de fotos(5)
 

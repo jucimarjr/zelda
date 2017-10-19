@@ -1,15 +1,69 @@
-1/nov
+﻿1/nov
 --------------------
-1 - login/logout (1)
-2 - menu (2)
+1 - login/logout (1) 
+
+2 - menu (2)   
+
 3 - cadastro de sistemas (3)
-4 - cadastro de funcionalidades (3)
+
+4 - cadastro de funcionalidades (3) 
+
 5 - cadastro de usuarios (1)
-6 - cadastro de permissões(4)
+
+6 - cadastro de permissões(4) 
+
 7 - cadastro de perfil(4)
+
 8 - pagina web da doc sistema (2)
+
 9 - diagramas: classes, atividades, entidade-relacionamento(0)
 10 - servidor, banco de dados, codigo-fonte, html/css, arquitetura, git(0)
-11 - sign up de usuário com confirmação por email e recuperação de senha(5)
+
+11 - sign up de usuário com confirmação por email e recuperação de senha(5) 
 12 - classe para upload de fotos(5)
 
+
+Equipe 0
+	André
+	Mikael Fonseca
+	Rodrigo Moraes
+	Vyctor Negreiros
+	Kid Mendes
+Equipe 1
+	Amanda
+	Ana Beatriz
+	Ana Jessye
+	Beatriz Stephanie
+	Bonifácio
+	Thatielen
+Equipe 2
+	Bruno
+	Caio
+	Calebe
+	Eduardo Freire
+	Nicolas
+	Nadine
+Equipe 3
+	Beth
+	Felipe
+	Filip
+	Jailson
+	Jefferson
+	Matheus Obando
+Equipe 4
+	Jéssica
+	João
+	Kylcianne
+	Leo Carvalho
+	Leo Monteiro
+	William
+	Paulo Sérgio
+
+Equipe 5
+	Levi
+	Lorene
+	Lucas
+	Luis Henrique
+	Luiz Gadelha
+	Jansen
+	Thiago

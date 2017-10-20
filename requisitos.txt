@@ -42,6 +42,7 @@ Equipe 2
 	Calebe
 	Eduardo Freire
 	Nicolas
+	Matheus Mota
 	Nadine
 Equipe 3
 	Beth

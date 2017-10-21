@@ -3,6 +3,7 @@ from ...tables.funcionario.funcionario_modelo import Funcionario
 from ...tables.lotacao.lotacao_modelo import Lotacao
 from ...utils.flash_errors import flash_errors
 from ...cursor import db
+from ...utils.zelda_modelo import ZeldaModelo
 
 import os
 from werkzeug import secure_filename
@@ -20,11 +21,11 @@ class FuncionarioCadastrarNegocio:
         form = CadastrarFuncionarioForm()
 
         # Recupera todos os setores do banco
-        setores = db.get_setores_ativos()
+        setores = ZeldaModelo.lista_setores_ativos()
 
         # Adiciona dinamicamente as opções do SelectField que vai ser renderizado
         # pelo wtforms
-        form.funcionario_setor_id.choices = [(s.id, s.nome) for s in setores]
+        form.funcionario_setor_id.choices = [(s.get_id(), s.nome) for s in setores]
         form.funcionario_setor_id.default = 1  # O setor de id 1 no banco é o Nenhum
 
         if form.validate_on_submit():

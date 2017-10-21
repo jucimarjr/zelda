@@ -4,6 +4,7 @@ from ...tables.lotacao.lotacao_modelo import Lotacao
 from ...authentication import verifica_sessao
 from ...cursor import db
 from ...utils.flash_errors import flash_errors
+from ...utils.zelda_modelo import ZeldaModelo
 
 import os
 from werkzeug import secure_filename
@@ -19,11 +20,11 @@ class FuncionarioEditarNegocio:
         lotacao = Lotacao()
 
         # Recupera todos os setores do banco
-        setores = db.get_setores()
+        setores = ZeldaModelo.lista_setores_ativos()
 
         # Adiciona dinamicamente as opções do SelectField que vai ser renderizado
         # pelo wtforms
-        form.setor_id.choices = [(s.id, s.nome) for s in setores]
+        form.setor_id.choices = [(s.get_id(), s.nome) for s in setores]
 
         # Se a página foi carregada com dados post (do formulário da própria
         # página), valida os campos

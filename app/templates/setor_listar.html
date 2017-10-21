@@ -28,24 +28,24 @@
                                 
                                 {% for setor in setores %}
                                 <tr>
-                                    <td>{{setor.id}}</td>
+                                    <td>{{setor.get_id()}}</td>
                                     <td>{{setor.nome}}</td>
                                     <td>
-                                        {% if setor.situacao == 1 %}
+                                        {% if setor.get_situacao() == 1 %}
                                             Desativado
                                         {% else %}
                                             Ativo
                                         {% endif %}
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('setor_editar', setor_id=setor.id)}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('setor_editar', setor_id=setor.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
                                         
-                                        {% if setor.situacao != 1 %}
-                                            <a href="{{url_for('setor_desativar', setor_id=setor.id)}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        {% if setor.get_situacao() != 1 %}
+                                            <a href="{{url_for('setor_desativar', setor_id=setor.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
                                         {% else %}

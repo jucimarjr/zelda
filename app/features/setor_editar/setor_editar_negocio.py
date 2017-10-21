@@ -8,23 +8,19 @@ class SetorEditarNegocio:
     def exibir(setor_id):        
         form = EditarSetorForm()
 
-        setor = Setor()
+        setor = Setor(setor_id = setor_id)
 
         if request.method == 'GET':
 
-            setor = db.get_setor(setor_id)
-
-            if setor is not None:
+            if setor.get_id() is not None:
                 form.setor_nome.data = setor.nome
-                form.setor_id.data = setor.id
+                form.setor_id.data = setor.get_id()
             else:
                 return redirect(url_for('setor_listar'))
 
         elif form.validate_on_submit():
             setor.nome = form.setor_nome.data
-            setor.id = form.setor_id.data
-
-            db.edita_setor(setor)
+            setor.salva()
 
             return redirect(url_for('setor_listar'))
         else:

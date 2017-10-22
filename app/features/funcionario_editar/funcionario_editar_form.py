@@ -6,7 +6,5 @@ from flask_wtf.file import FileField
 # Atualiza Funcionario
 class EditarFuncionarioForm(Form):
     funcionario_nome = StringField('Nome Funcionário', validators=[DataRequired('Nome de Funcionário é obrigatório')])
-    lotacao_id = HiddenField('ID Lotação', validators=[])
-    setor_id = SelectField('Setor', coerce=int)
-    funcionario_id = HiddenField('ID Funcionário', validators=[DataRequired('O ID do Funcionário não pode ser indefinido')])
+    setor_id = SelectField('Setor', validators=[DataRequired('O funcionário deve ocupar um setor')], coerce=int)
     file = FileField("Edite a imagem",validators=[])

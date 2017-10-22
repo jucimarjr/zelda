@@ -18,6 +18,7 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Nome</th>
+                                    <th>Setor</th>
                                     <th>Situação</th>
                                     <th></th>
                                     <th></th>
@@ -28,24 +29,31 @@
                                 
                                 {% for funcionario in funcionarios %}
                                 <tr>
-                                    <td>{{funcionario.id}}</td>
+                                    <td>{{funcionario.get_id()}}</td>
                                     <td>{{funcionario.nome}}</td>
                                     <td>
-                                        {% if funcionario.situacao == 1 %}
+                                        {% if funcionario.get_setor() %}
+                                            {{funcionario.get_setor().nome}}
+                                        {% else %}
+                                            Nenhum
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if funcionario.get_situacao() == 1 %}
                                             Desativado
                                         {% else %}
                                             Ativo
                                         {% endif %}
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('funcionario_editar', func_id=funcionario.id)}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('funcionario_editar', func_id=funcionario.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
                                         
-                                        {% if funcionario.situacao != 1 %}
-                                            <a href="{{url_for('funcionario_desativar', func_id=funcionario.id)}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        {% if funcionario.get_situacao() != 1 %}
+                                            <a href="{{url_for('funcionario_desativar', func_id=funcionario.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
                                         {% else %}

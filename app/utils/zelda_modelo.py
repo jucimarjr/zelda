@@ -1,9 +1,11 @@
 from ..cursor import db
 from ..tables.setor.setor_modelo import Setor
+from ..tables.funcionario.funcionario_modelo import Funcionario
 
 class ZeldaModelo:
 
     setores = []
+    funcionarios = []
 
     @staticmethod
     def lista_setores():
@@ -22,4 +24,11 @@ class ZeldaModelo:
 
         return result
 
-        
+    @staticmethod
+    def lista_funcionarios():
+        result = []
+        for data in db.get_funcionarios_ids():
+            funcionario = Funcionario(data['funcionario_id'])
+            result.append(funcionario)
+
+        return result

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for
-from ...cursor import db
+from ...utils.zelda_modelo import ZeldaModelo
 
 class FuncionarioListarNegocio:
-    def exibir():        
-        funcionarios = db.get_funcionarios()
+    def exibir():
+        funcionarios = ZeldaModelo.lista_funcionarios()
         return render_template('funcionario_listar.html', funcionarios=funcionarios)

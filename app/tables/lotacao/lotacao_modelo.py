@@ -1,20 +1,37 @@
+from ...cursor import db
+from ...tables.setor.setor_modelo import Setor
+
 class Lotacao:
-    def __init__(self, id=0, funcionario_id=0, setor_id=0):
-        self.id = id
-        self.funcionario_id = funcionario_id
-        self.setor_id = setor_id
 
-    def __str__(self):
-        string = "{"
-        string += "id:" + str(self.id) + ","
-        string += "funcionario_id:" + self.funcionario_id + ","
-        string += "setor_id:" + self.setor_id + ","
-        string += "}"
-        return string
+    __id : None
+    __setor : None
 
-    def __repr__(self):
-        return self.__str__()
+    def __init__(self, funcionario_id, setor_id = None):
+        self.__setor = None
+        self.__id = None
 
-if __name__ == '__main__':
-    lotacao = Lotacao()
-    print(lotacao)
+        if setor_id is None:
+            data = db.get_lotacao_ativa(funcionario_id)
+
+            if data is not None:
+
+                self.__id = data['lotacao_id']
+                self.__setor = Setor(data['setor_id'])
+
+            else:
+                setor = Setor(setor_id)
+                if setor.get_id() is not None:
+                    self.__setor = setor
+                    self.__id = db.cadastra_lotacao(funcionario_id, self)
+
+        else:
+            setor = Setor(setor_id)
+            if setor.get_id() is not None:
+                self.__setor = setor
+                self.__id = db.cadastra_lotacao(funcionario_id, self)
+
+    def get_setor(self):
+        return self.__setor
+
+    def get_id(self):
+        return self.__id

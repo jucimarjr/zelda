@@ -26,16 +26,13 @@ class FuncionarioCadastrarNegocio:
         # Adiciona dinamicamente as opções do SelectField que vai ser renderizado
         # pelo wtforms
         form.funcionario_setor_id.choices = [(s.get_id(), s.nome) for s in setores]
-        form.funcionario_setor_id.default = 1  # O setor de id 1 no banco é o Nenhum
+
+        funcionario = Funcionario()
 
         if form.validate_on_submit():
-            funcionario = Funcionario(nome=form.funcionario_nome.data)
-
-            id = db.cadastra_funcionario(funcionario)
-
-            lotacao = Lotacao(funcionario_id=id, setor_id=form.funcionario_setor_id.data)
-
-            db.cadastra_lotacao(lotacao)
+            funcionario.nome = form.funcionario_nome.data
+            funcionario.salva()
+            funcionario.mudar_setor(form.funcionario_setor_id.data)
 
             if form.file.data is not None:
                 filename = secure_filename(form.file.data.filename)

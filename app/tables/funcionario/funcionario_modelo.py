@@ -1,5 +1,5 @@
 from ...cursor import db
-from ..lotacao.lotacao_modelo import Lotacao
+from  ..lotacao.lotacao_modelo import Lotacao
 
 class Funcionario:
 

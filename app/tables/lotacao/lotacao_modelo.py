@@ -3,8 +3,8 @@ from ...tables.setor.setor_modelo import Setor
 
 class Lotacao:
 
-    __id : None
-    __setor : None
+    __id = None
+    __setor = None
 
     def __init__(self, funcionario_id, setor_id = None):
         self.__setor = None

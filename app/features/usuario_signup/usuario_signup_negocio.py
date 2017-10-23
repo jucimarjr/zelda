@@ -1,4 +1,4 @@
-from flask_json import json_response
+#from flask_json import json_response
 from .usuario_signup_form import UsuarioSignupForm
 from ...cursor import db
 from ...utils.return_errors import return_errors

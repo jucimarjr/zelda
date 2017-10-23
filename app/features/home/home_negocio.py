@@ -6,4 +6,4 @@ class HomeNegocio():
     
     def exibir():
         usuario = retorna_usuario()
-        return render_template('home.html', usuario=usuario)
+        return render_template('home.html', usuario=usuario, funcionalidades=db.get_funcionalidades_usuario(user_id=usuario.id) )

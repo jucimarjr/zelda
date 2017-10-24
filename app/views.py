@@ -20,3 +20,4 @@ from .features.usuario_remover.usuario_remover_front import *
 from .features.usuario_signup.usuario_signup_front import *
 
 from .features.perfil_criar.perfil_criar_front import *
+from .features.perfil_listar.perfil_listar_front import *

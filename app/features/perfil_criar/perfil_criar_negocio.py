@@ -19,10 +19,10 @@ class PerfilCadastrarNegocio:
             perfil = Perfil(nome=form.perfil_nome.data)
             id = db.cadastra_perfil(perfil)
 
-            if len(form.funcionalidade_id.data) > 1:
+            if len(form.funcionalidade_id.data) > 0:
                 for d in form.funcionalidade_id.data:
                     permissao = Permissao()
-                    permissao.funcionalidade_codigo = d;
+                    permissao.funcionalidade_id = d;
                     permissao.perfil_id = id
                     db.cadastra_permissao(permissao)
 

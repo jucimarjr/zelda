@@ -41,7 +41,7 @@ class PerfilInterface:
         self.execute_query("delete perfil where perfil_id = '{}'".format(perfil_id), True)
 
     def cadastra_permissao(self, permissao):
-        self.execute_query("insert into permissao (funcionalidade_codigo, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_codigo, permissao.perfil_id), True)
+        self.execute_query("insert into permissao (funcionalidade_id, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_id, permissao.perfil_id), True)
 
     def retorna_permissao_ativa(self, perfil_id):
         data = self.execute_query("select * from permissao where permissao.perfil_id = '{}' order by permissao.permissao_id desc limit 1".format(perfil_id))
@@ -51,7 +51,7 @@ class PerfilInterface:
         for d in data:
             permissao = Permissao(
                     id=d["permissao_id"],
-                    funcionalidade_codigo=d["funcionalidade_codigo"],
+                    funcionalidade_id=d["funcionalidade_id"],
                     perfil_id=d["perfil_id"])
             permissoes.append(permissao)
         return permissao

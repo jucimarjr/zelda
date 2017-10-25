@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-11 col-md-7 col-lg-5 mx-auto">
+            <h2>Cadastrar perfil</h2>
+            <form class="form" action="" method="post">
+                {{form.hidden_tag()}}
+                <div class="md-form mt-3">
+                    <label for="nome-input">Nome</label>
+                    {{form.perfil_nome(class_='form-control', id='login-input')}}
+                </div>
+                <div class="md-form mt-3">
+                    {{form.funcionalidade_id(class_='form-control')}}
+                </div>
+                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-default">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

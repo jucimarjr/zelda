@@ -1,4 +1,7 @@
 class Perfil:
+
+    __perfil_id = None
+
     def __init__(self,
                  id=0,
                  nome="none"):
@@ -10,3 +13,5 @@ class Perfil:
                 "id": self.id,
                 "nome": self.nome,
                 }
+    def get_id(self):
+        return self.__perfil_id

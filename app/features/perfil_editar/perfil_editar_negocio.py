@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from .perfil_criar_form import CadastrarPerfilForm
+from .perfil_editar_form import EditarPerfilForm
 from ...utils.flash_errors import flash_errors
 from ...tables.perfil.perfil_modelo import Perfil
 from ...tables.permissao.permissao_modelo import Permissao
@@ -19,7 +19,7 @@ class PerfilEditarNegocio:
             perfil = Perfil(nome=form.perfil_nome.data)
             id = db.edita_perfil(perfil)
 
-            if len(form.funcionalidade_id.data) > 1:
+            if len(form.funcionalidade_id.data) > 0:
                 for d in form.funcionalidade_id.data:
                     permissao = Permissao()
                     permissao.funcionalidade_codigo = d;

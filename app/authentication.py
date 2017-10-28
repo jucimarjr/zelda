@@ -33,6 +33,8 @@ def set_logado(value):
 def verifica_sessao():
     if 'user_login' not in session:
         return True
+    if db.get_usuario_pelo_login(session['user_login']) is None:
+        return True
     return False
 
 def retorna_usuario():

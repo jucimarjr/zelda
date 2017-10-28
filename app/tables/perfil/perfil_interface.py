@@ -29,7 +29,7 @@ class PerfilInterface:
         self.execute_query("update perfil set perfil_nome = '{}' where perfil_id = '{}'".format(perfil.nome, perfil.id), True)
 
         if len(funcionalidade_id) > 1:
-            self.execute_query("delete permissao where perfil_id = '{}'".format(perfil_id), True)
+            self.execute_query("delete permissao where perfil_id = '{}'".format(perfil.id), True)
             for id in funcionalidade_id:
                 permissao = Permissao()
                 permissao.funcionalidade_codigo = id

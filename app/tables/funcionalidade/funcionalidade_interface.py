@@ -36,3 +36,23 @@ class FuncionalidadeInterface:
                               sistema_id=d["F.sistema_id"])
             funcionalidades.append(funcionalidade)
         return funcionalidades
+
+    def get_funcionalidades(self):
+        data = self.execute_query('''select * from funcionalidade''')
+
+        if len(data) < 1:
+            return None
+
+        funcionalidades = []
+        for d in data:
+            funcionalidade = Funcionalidade(
+                              funcionalidade_id=d["funcionalidade_id"],
+                              funcionalidade_codigo=d["funcionalidade_codigo"],
+                              funcionalidade_nome=d["funcionalidade_nome"],
+                              funcionalidade_desc=d["funcionalidade_desc"],
+                              funcionalidade_caminho=d["funcionalidade_caminho"],
+                              funcionalidade_caminho_imagem=d["funcionalidade_caminho_imagem"],
+                              funcionalidade_status=d["funcionalidade_status"],
+                              sistema_id=d["sistema_id"])
+            funcionalidades.append(funcionalidade)
+        return funcionalidades

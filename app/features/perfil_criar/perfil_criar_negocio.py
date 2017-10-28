@@ -12,7 +12,7 @@ class PerfilCadastrarNegocio:
         form = CadastrarPerfilForm()
         
         funcionalidades = db.get_funcionalidades()
-        form.funcionalidade_id.choices = [(f['id'], f['nome']) for f in funcionalidades]
+        form.funcionalidade_id.choices = [(f.funcionalidade_id, f.funcionalidade_nome) for f in funcionalidades]
         
         if form.validate_on_submit():
             

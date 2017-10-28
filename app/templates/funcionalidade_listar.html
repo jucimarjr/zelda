@@ -28,11 +28,11 @@
 
                             {% for funcionalidade in funcionalidades %}
                             <tr>
-                                <td>{{funcionalidade.id}}</td>
-                                <td>{{funcionalidade.nome}}</td>
-                                <td>{{funcionalidade.desc}}</td>
+                                <td>{{funcionalidade.funcionalidade_id}}</td>
+                                <td>{{funcionalidade.funcionalidade_nome}}</td>
+                                <td>{{funcionalidade.funcionalidade_desc}}</td>
                                 <td>
-                                    {% if funcionalidade.situacao == 1 %}
+                                    {% if funcionalidade.funcionalidade_situacao == 1 %}
                                     Desativado
                                     {% else %}
                                     Ativo

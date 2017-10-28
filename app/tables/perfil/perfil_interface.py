@@ -79,16 +79,3 @@ class PerfilInterface:
                 nome = d["perfil_nome"])
             perfis.append(perfil)
         return perfis
-
-    def get_funcionalidades(self):
-        data = self.execute_query('''select funcionalidade_id, funcionalidade_nome from funcionalidade''')
-
-        if len(data) < 1:
-            return None
-
-        funcionalidade = []
-
-        for d in data:
-            funcionalidade.append({'id':d['funcionalidade_id'], 'nome':d['funcionalidade_nome']})
-
-        return funcionalidade

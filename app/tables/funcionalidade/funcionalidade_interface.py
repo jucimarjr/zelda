@@ -14,6 +14,10 @@ class FuncionalidadeInterface:
             data = cur.fetchall()
             cur.close()
             return data
+        
+    def cadastra_funcionalidade(self, funcionalidade):
+        self.execute_query("insert into funcionalidade(funcionalidade_nome, funcionalidade_codigo, funcionalidade_desc, sistema_id) values('{}', '{}', '{}', '{}')".format(funcionalidade.nome, funcionalidade.codigo, funcionalidade.desc, 1), True)
+    
 
     def get_funcionalidades_usuario(self,user_id):
         data = self.execute_query("select F.* from funcionalidade as F, permissao as P, usuario as U where P.perfil_id = U.perfil_id AND P.funcionalidade_id = F.funcionalidade_id AND U.usuario_id = '{}'".format(user_id))

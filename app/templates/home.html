@@ -13,7 +13,7 @@
                     <div class="text-center card-profile-image w-100">
                         <img id="user-img" class="img-responsive z-depth-1" src="{{url_for('static', filename='assets/user_profile.jpg')}}">
                     </div>
-                        
+
                     <div class="card-body mt-5">
                         <h4 class="card-title">Seus Dados</h4>
                         <ul class="list-group">
@@ -23,9 +23,17 @@
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    {% for func in funcionalidades %}
-                        <a href="{{func.funcionalidade_caminho}}"><button class="btn btn-success">{{func.funcionalidade_nome}}</button></a>
-                    {% endfor %}
+                    <div class="btn-group dropup">
+                        <button type="button" class="btn btn-default">Funcionalidades</button>
+                        <button type="button" class="btn btn-default dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          {% for func in funcionalidades %}
+                              <a class="dropdown-item" href="{{func.funcionalidade_caminho}}">{{func.funcionalidade_nome}}</a>
+                          {% endfor %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

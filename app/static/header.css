@@ -1,3 +1,7 @@
 #uea-logo {
     font-weight: bolder;
 }
+
+#main-body nav .btn-flat {
+    color: white !important;
+}

@@ -14,6 +14,23 @@ class FuncionalidadeInterface:
             data = cur.fetchall()
             cur.close()
             return data
+
+    def get_funcionalidade(self, funcionalidade_id):
+        data = self.execute_query("select * from funcionalidade where funcionalidade_id = '{}'".format(funcionalidade_id))
+        if len(data) < 1:
+            return None
+
+        data = data[0]
+
+        return Funcionalidade(
+            funcionalidade_id = data["funcionalidade_id"],
+            funcionalidade_codigo = data["funcionalidade_codigo"],
+            funcionalidade_nome = data["funcionalidade_nome"],
+            funcionalidade_desc = data["funcionalidade_desc"],
+            funcionalidade_caminho = data["funcionalidade_caminho"],
+            funcionalidade_caminho_imagem = data["funcionalidade_caminho_imagem"],
+            funcionalidade_status = data["funcionalidade_status"],
+            sistema_id = data["sistema_id"])
         
     def cadastra_funcionalidade(self, funcionalidade):
         self.execute_query("insert into funcionalidade(funcionalidade_nome, funcionalidade_codigo, funcionalidade_desc, sistema_id) values('{}', '{}', '{}', '{}')".format(funcionalidade.nome, funcionalidade.codigo, funcionalidade.desc, 1), True)
@@ -21,8 +38,7 @@ class FuncionalidadeInterface:
 
     def get_funcionalidades_usuario(self,user_id):
         data = self.execute_query("select F.* from funcionalidade as F, permissao as P, usuario as U where P.perfil_id = U.perfil_id AND P.funcionalidade_id = F.funcionalidade_id AND U.usuario_id = '{}'".format(user_id))
-        if len(data) < 1:
-            return None
+        
         funcionalidades = []
         for d in data:
             funcionalidade = Funcionalidade(
@@ -39,9 +55,6 @@ class FuncionalidadeInterface:
 
     def get_funcionalidades(self):
         data = self.execute_query('''select * from funcionalidade''')
-
-        if len(data) < 1:
-            return None
 
         funcionalidades = []
         for d in data:

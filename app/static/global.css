@@ -4,20 +4,27 @@ html {
 }
 
 /* Definições gerais usadas ao longo dos templates */
+body {
+    background-color: #eee;
+}
+
 .text-right {
     text-align: right;
 }
 
-.round-button {
-    /*Retira as bordas padrão do botão html*/
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    font-family: Segoe UI;
-    font-size: 20px;
-    background-color: #18a178;
-    color: #FFFFFF;
-    height: 40px;
+.zelda-btn-round {
+    border-radius: 10em;
+}
+
+#main-body .btn.uea-dark:hover {
+    background-color: #13966E;
+    background-color: #13A35D;
+}
+
+#main-body .btn-flat {
+    background-color: transparent;
+    color: #a07575 !important;
+    box-shadow: none;
 }
 
 /* Estilo do autocomplete */
@@ -77,12 +84,15 @@ html {
 }
 
 /* Definições de cores padrões do tema da uea */
-body, #main-body .uea-light {
-    background-color: #22c595; 
+#main-body .uea-light {
+    background-color: #22c596; /* antigo */
+    background-color: #54D182; /* novo */
 }
 
 #main-body .uea-dark {
-    background-color: #18a178;
+    background-color: #008349; /* novo */
+    background-color: #18a078; /* antigo */
+    background-color: #0e9956; /* play store */
 }
 
 #main-body .white-bg {
@@ -103,8 +113,4 @@ body, #main-body .uea-light {
 
 #main-body .black-fg{
     color: black;
-}
-
-#main-body .white-fg, #main-body .white-fg input {
-    color: white;
 }

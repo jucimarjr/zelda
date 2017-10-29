@@ -18,24 +18,29 @@
 {% endwith %}
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-11 col-sm-10 col-md-8 col-lg-5 mx-auto">
-            <h2>Confirmar Desativação de Funcionalidade</h2>
-            <p>
-                Deseja realmente desativar a seguinte funcionalidade?
-            </p>
-            <p>
-            <ul class="list-group black-fg">
-                <li class="list-group-item"><span><strong>Codigo:</strong></span> {{funcionalidade.id}}</li>
-                <li class="list-group-item"><span><strong>Nome:</strong></span> {{funcionalidade.nome}}</li>
-            </ul>
-            </p>
-            <form class="form" action="" method="post">
-                <button type="submit" class="btn btn-danger">Sim</button>
-                <a href="{{url_for('funcionalidade_listar')}}">
-                    <button type="button" class="btn btn-default">Não</button>
-                </a>
-            </form>
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Confirmar Desativação de Funcionalidade</h4>
+                    <p>
+                        Deseja realmente desativar a seguinte funcionalidade?
+                    </p>
+                    <p>
+                    <ul class="list-group black-fg">
+                        <li class="list-group-item"><span><strong>Codigo:</strong></span> {{funcionalidade.funcionalidade_id}}</li>
+                        <li class="list-group-item"><span><strong>Nome:</strong></span> {{funcionalidade.funcionalidade_nome}}</li>
+                    </ul>
+                    </p>
+                    <form class="form" action="" method="post">
+                        <a href="{{url_for('funcionalidade_listar')}}">
+                            <button type="button" class="btn uea-light">Não</button>
+                        </a>
+                        <button type="submit" class="btn btn-danger">Sim</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

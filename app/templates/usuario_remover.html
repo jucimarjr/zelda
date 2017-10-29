@@ -18,24 +18,29 @@
 {% endwith %}
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-11 col-sm-10 col-md-8 col-lg-5 mx-auto">
-            <h2>Confirmar Remoção de Funcionário</h2>
-            <p>
-                Deseja realmente excluir o seguinte usuário?
-            </p>
-            <p>
-                <ul class="list-group black-fg">
-                    <li class="list-group-item"><span><strong>Id:</strong></span> {{usuario.id}}</li>
-                    <li class="list-group-item"><span><strong>Login:</strong></span> {{usuario.login}}</li>
-                </ul>
-            </p>
-            <form class="form" action="" method="post">
-                <button type="submit" class="btn btn-danger">Sim</button> 
-                <a href="{{url_for('usuario_listar')}}">
-                    <button type="button" class="btn btn-default">Não</button>
-                </a> 
-            </form>
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Confirmar Remoção de Funcionário</h4>
+                    <p>
+                        Deseja realmente excluir o seguinte usuário?
+                    </p>
+                    <p>
+                        <ul class="list-group black-fg">
+                            <li class="list-group-item"><span><strong>Id:</strong></span> {{usuario.id}}</li>
+                            <li class="list-group-item"><span><strong>Login:</strong></span> {{usuario.login}}</li>
+                        </ul>
+                    </p>
+                    <form class="form" action="" method="post">
+                        <a href="{{url_for('usuario_listar')}}">
+                            <button type="button" class="btn uea-light">Não</button>
+                        </a> 
+                        <button type="submit" class="btn btn-danger">Sim</button> 
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

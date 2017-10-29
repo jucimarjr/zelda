@@ -18,33 +18,38 @@
     {% endif %}
     {% endwith %}
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col-11 col-md-7 col-lg-5 mx-auto">
-                <h4>Cadastrar novo funcionário</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Cadastrar novo funcionário</h4>
+                        
+                        <form action="" class="form" method="POST" enctype="multipart/form-data">
+                            {{form.hidden_tag()}}
+
+                            <div class="md-form">
+                                {{form.funcionario_nome(class_='form-control', id='nome-input')}}
+                                <label for="nome-input">Nome do Funcionário</label>
+                            </div>
+
+                            <label>Setor Inicial</label>
+                            <div class="md-form">
+                                {{form.funcionario_setor_id(class_='form-control', id='setor-input')}}
+                            </div>
+
+                            <label>Foto de Perfil</label>
+                            <div class="md-form">
+                                {{ form.file }}
+                            </div>
+                        
+                            <button type="submit" class="btn uea-light">Cadastrar</button> 
+                            <a href="{{url_for('funcionario_listar')}}">
+                                <button type="button" class="btn btn-flat">Cancelar</button>
+                            </a>        
+                        </form>
                 
-                <form action="" class="form" method="POST" enctype="multipart/form-data">
-                    {{form.hidden_tag()}}
-
-                    <div class="md-form mt-3">
-                        <label for="nome-input">Nome do Funcionário</label>
-                        {{form.funcionario_nome(class_='form-control', id='nome-input')}}
                     </div>
-
-                    <label>Setor Inicial</label>
-                    <div class="md-form">
-                        {{form.funcionario_setor_id(class_='form-control', id='setor-input')}}
-                    </div>
-
-                    <label>Foto de Perfil</label>
-                    <div class="md-form">
-                        {{ form.file }}
-                    </div>
-                
-                    <button type="submit" class="btn btn-success">Cadastrar</button> 
-                    <a href="{{url_for('funcionario_listar')}}">
-                        <button type="button" class="btn btn-default">Cancelar</button>
-                    </a>        
-                </form>
+                </div>
             </div>
         </div>
     </div>

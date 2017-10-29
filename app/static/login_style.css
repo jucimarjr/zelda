@@ -2,13 +2,35 @@
     /* Coloque aqui a altura do footer */
     padding-bottom: 55px !important;
 
-    background-color: white;
+    background-color: #eee;
     height: 100%;
     overflow: auto;
+
+    /*color: white;*/
 }
 
 html {
     display: block;
+}
+
+#login-button {
+    width: 100%;
+    max-width: 215px;
+}
+
+#right-content .card-footer {
+    /*color: white;*/
+}
+
+#main-body input {/*
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: none;
+}
+
+#main-body input:focus {
+    box-shadow: none;*/
 }
 
 /******** Versão Desktop da tela ********/
@@ -32,7 +54,7 @@ html {
 
 #main-body {
     /* Ajuste aqui a altura mínima para o conteúdo da versão desktop da tela */
-    min-height: 400px;
+    min-height: 470px;
 }
 .btn-cadastrar{
     background-color: #00C851;
@@ -62,7 +84,7 @@ html {
 
     #main-body {    
         /* Ajuste aqui a altura mínima para o conteúdo da versão mobile da tela */
-        min-height: 495px;
+        min-height: 565px;
     }
 
     .container-fluid {

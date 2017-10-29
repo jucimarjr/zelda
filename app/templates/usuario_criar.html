@@ -19,40 +19,43 @@
 {% endwith %}
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-11 col-md-7 col-lg-5 mx-auto">
-            <h2>Cadastrar novo usuário</h2>
-            
-            <form  action="" class="form" method="POST">
-                {{form.hidden_tag()}}
+            <div class="card">
+                <div class="card-body">
 
-                <div class="md-form mt-3">
-                    <label for="login-input">Login do Usuário</label>
-                    {{form.usuario_login(class_='form-control', id='login-input')}}
-                </div>
-
-                <div class="md-form">
-                    <label for="password-input">Senha</label>
-                    {{form.usuario_senha(class_='form-control', id='password-input')}}
-                </div>
-            
-                <label>Perfil do Usuário</label>
-                    <div class="form-group mb-1">
-                        {{form.usuario_perfil(class_='form-control', id='perfil-input')}}
-                    </div>
-
-		
-              
+                    <h4 class="card-title">Cadastrar novo usuário</h4>
+                    
+                    <form  action="" class="form" method="POST">
+                        {{form.hidden_tag()}}
         
-		  <label>Foto de Perfil</label>
-                    <div class="md-form">
-                        {{ form.file }}
-                    </div>
-                <button type="submit" class="btn btn-success">Cadastrar</button> 
-                <a href="{{url_for('usuario_listar')}}">
-                    <button type="button" class="btn btn-default">Cancelar</button>
-                </a>
-            </form>
+                        <div class="md-form">
+                            {{form.usuario_login(class_='form-control', id='login-input')}}
+                            <label for="login-input">Login do Usuário</label>
+                        </div>
+        
+                        <div class="md-form">
+                            {{form.usuario_senha(class_='form-control', id='password-input')}}
+                            <label for="password-input">Senha</label>
+                        </div>
+                    
+                        <label>Perfil do Usuário</label>
+                        <div class="form-group mb-1">
+                            {{form.usuario_perfil(class_='form-control', id='perfil-input')}}
+                        </div>
+
+                        <label>Foto de Perfil</label>
+                        <div class="md-form">
+                            {{ form.file }}
+                        </div>
+
+                        <button type="submit" class="btn uea-light">Cadastrar</button> 
+                        <a href="{{url_for('usuario_listar')}}">
+                            <button type="button" class="btn btn-flat">Cancelar</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

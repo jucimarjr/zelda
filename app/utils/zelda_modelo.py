@@ -9,6 +9,7 @@ class ZeldaModelo:
 
     @staticmethod
     def lista_setores():
+        ZeldaModelo.setores.clear()
         for setor_id in db.get_setores_ids():
             setor = Setor(setor_id)
             ZeldaModelo.setores.append(setor)

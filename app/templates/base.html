@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if title %}
-    <title>{{ title }} | Zelda</title>
+      <title>{{ title }} | Zelda</title>
     {% else %}
-    <title>Zelda</title>
+      <title>Zelda</title>
     {% endif %}
+
+    <link rel="icon" href="{{url_for('static', filename = 'Assets/icon_zelda.png')}}" type="image/png">
 
     <!-- CSS do Bootstrap e MDB -->
     <link href="{{url_for('static', filename='mdb-free/css/bootstrap.min.css')}}" rel="stylesheet">

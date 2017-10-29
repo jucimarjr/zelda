@@ -18,20 +18,27 @@
 {% endwith %}
 
 <div class="container-fluid">
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-11 col-md-7 col-lg-5 mx-auto">
-            <h2>Editar perfil</h2>
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+            <h4 class="card-title">Editar perfil</h4>
             <form class="form" action="" method="post">
                 {{form.hidden_tag()}}
-                <div class="md-form mt-3">
-                    <label for="nome-input">Nome</label>
+                <div class="md-form">
                     {{form.perfil_nome(class_='form-control', id='login-input')}}
+                    <label for="nome-input">Nome</label>
                 </div>
-                <div class="md-form mt-3">
+                <div class="md-form">
                     {{form.funcionalidade_id(class_='form-control')}}
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
-                <button type="button" class="btn btn-default">Cancelar</button>
+                <button type="submit" class="btn uea-light">Salvar</button>
+                <a href="{{url_for('perfil_listar')}}">
+                    <button type="button" class="btn btn-flat">Cancelar</button>
+                </a>
             </form>
         </div>
     </div>

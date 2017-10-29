@@ -37,8 +37,8 @@ class PerfilInterface:
                 self.cadastra_permissao(permissao)
 
     def deleta_perfil(self, perfil_id):
-        self.execute_query("delete permissao where perfil_id = '{}'".format(perfil_id), True)
-        self.execute_query("delete perfil where perfil_id = '{}'".format(perfil_id), True)
+        self.execute_query("delete from permissao where perfil_id = '{}'".format(perfil_id), True)
+        self.execute_query("delete from perfil where perfil_id = '{}'".format(perfil_id), True)
 
     def cadastra_permissao(self, permissao):
         self.execute_query("insert into permissao (funcionalidade_id, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_id, permissao.perfil_id), True)

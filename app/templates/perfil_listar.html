@@ -22,9 +22,9 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
-                                
+
                                 {% for perfil in perfis %}
                                 <tr>
                                     <td>{{perfil.id}}</td>
@@ -35,7 +35,7 @@
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="##" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        <a href="{{url_for('perfil_remover',perfil_id=perfil.id)}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                             <i class="fa fa-remove" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
 
 </div>

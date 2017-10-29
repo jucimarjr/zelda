@@ -42,14 +42,14 @@ class FuncionalidadeInterface:
         funcionalidades = []
         for d in data:
             funcionalidade = Funcionalidade(
-                              funcionalidade_id=d["F.funcionalidade_id"],
-                              funcionalidade_codigo=d["F.funcionalidade_codigo"],
-                              funcionalidade_nome=d["F.funcionalidade_nome"],
-                              funcionalidade_desc=d["F.funcionalidade_desc"],
-                              funcionalidade_caminho=d["F.funcionalidade_caminho"],
-                              funcionalidade_caminho_imagem=d["F.funcionalidade_caminho_imagem"],
-                              funcionalidade_status=d["F.funcionalidade_status"],
-                              sistema_id=d["F.sistema_id"])
+                              funcionalidade_id=d["funcionalidade_id"],
+                              funcionalidade_codigo=d["funcionalidade_codigo"],
+                              funcionalidade_nome=d["funcionalidade_nome"],
+                              funcionalidade_desc=d["funcionalidade_desc"],
+                              funcionalidade_caminho=d["funcionalidade_caminho"],
+                              funcionalidade_caminho_imagem=d["funcionalidade_caminho_imagem"],
+                              funcionalidade_status=d["funcionalidade_status"],
+                              sistema_id=d["sistema_id"])
             funcionalidades.append(funcionalidade)
         return funcionalidades
 

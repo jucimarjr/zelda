@@ -41,7 +41,7 @@
                         {% endif %}
                         {% endwith %}
                     </div>
-                    
+
                     <div class="card uea-light mt-4 mt-md-0">
                         <div class="card-body">
                             <h2 class="card-title white-fg">Login</h2>
@@ -49,19 +49,19 @@
                             <form class="form" action="{{url_for('login')}}" method="post">
                                 <!-- Necessário para funcionamento do CSRF -->
                                 {{form.hidden_tag()}}
-                                
+
                                 <label class="white-fg" for="email-input">Nome de Usuário</label>
                                 <div class="md-form">
                                     {{form.login(class_='white-bg', id='email-input')}}
                                 </div>
-                                
+
                                 <label class="white-fg" for="password-input">Senha</label>
                                 <div class="md-form mb-3">
                                     {{form.senha(class_='white-bg', id='password-input')}}
                                 </div>
                                 <button class="btn btn-success" id="wrapper" type="submit">LOGIN</button>
                                 <button type="button" id="wrapper" class="btn btn-cadastrar" data-toggle="modal" data-target="#modalRegisterForm">Cadastre-se</button>
-                                
+
                             </form>
                         </div>
                     </div>
@@ -99,12 +99,13 @@
                         <i class="fa fa-lock prefix grey-text"></i>
                         {{form_signup.signup_senha(class_='form-group')}}
                         {{form_signup.signup_senha.label}}
-                        
+
                     </div>
                 </div>
-                
+
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-success" type="submit">Cadastrar</button>
+                  <a href="http://127.0.0.1:5000/cadastrar">  <button class="btn btn-success" type="submit">Cadastrar</button></a>
+
                 </div>
             </form>
         </div>
@@ -125,8 +126,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
-        $('#form_signup').on("submit", function(event){ 
-            
+        $('#form_signup').on("submit", function(event){
+
             $.post( $('#form_signup').attr('action'),
                     $('#form_signup').serialize(),
                     function(data) {

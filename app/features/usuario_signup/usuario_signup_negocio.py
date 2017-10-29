@@ -9,6 +9,8 @@ from flask_mail import Message
 from app import app, mail
 from config import ADMINS
 from itsdangerous import URLSafeTimedSerializer
+from flask_json import json_response
+
 
 
 
@@ -26,7 +28,7 @@ class UsuarioSignupNegocio:
                     email = form.signup_email.data)
                 db.cadastra_usuario(usuario)
 
-    
+
                 token = s.dumps(usuario.email, salt = "1234")
 
                 msg = Message('Email de confirmação', sender = ADMINS[0], recipients = [usuario.email])
@@ -35,7 +37,7 @@ class UsuarioSignupNegocio:
 
 
                 msg.body = 'Bem vindo! Clique no link a seguir para confirmar seu endereço de email: {}'.format(link)
-                
+
                 with app.app_context():
                     mail.send(msg)
 
@@ -45,4 +47,3 @@ class UsuarioSignupNegocio:
                 return json_response(mensagem="Email ja cadastrado no sistema")
         else:
             return json_response(mensagem=return_errors(form))
-            

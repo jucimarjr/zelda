@@ -1,5 +1,4 @@
 from flask_mysqldb import MySQL
-
 class SetorInterface:
 
     def __init__(self, app):
@@ -20,7 +19,11 @@ class SetorInterface:
     # CRUD - SETOR
 
     def cadastra_setor(self, setor):
-        self.execute_query("insert into setor (setor_nome, setor_pai) values (\"{}\", {})".format(setor.nome, setor.get_pai()), True)
+        setor_pai = 'NULL'
+        if setor.get_pai() is not None:
+            setor_pai = setor.get_pai()
+        
+        self.execute_query("insert into setor (setor_nome, setor_pai) values (\"{}\", {})".format(setor.nome,setor_pai), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from setor")
         return data[0]['last']
 

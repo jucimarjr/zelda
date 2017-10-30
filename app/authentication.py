@@ -1,10 +1,13 @@
 from flask import session
 from .utils.criptografador import Criptografador
 from .cursor import db
+from app import app
 from .tables.usuario.usuario_modelo import Usuario
+from datetime import timedelta
 
 def inicia_sessao(user_id):
     session['user_id'] = user_id
+    session.permanent = True
 
 def encerra_sessao():
     session.pop('user_id', None)
@@ -21,6 +24,7 @@ def autentica(login, senha):
     return False
 
 def sessao_ativa():
+    print(session)
     if 'user_id' not in session:
         return False
 
@@ -36,3 +40,12 @@ def retorna_usuario():
         return None
 
     return usuario
+
+def make_session_permanent():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=10)
+
+def sessao_expirada():
+    if session.permanent is False:
+        return True
+    return False

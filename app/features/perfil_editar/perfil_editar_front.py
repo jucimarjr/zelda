@@ -4,6 +4,6 @@ from ...utils.login_required import *
 
 @app.route('/perfil/<perfil_id>', methods=['GET', 'POST'])
 @login_required
-def perfil_editar():
+def perfil_editar(perfil_id):
    return PerfilEditarNegocio.exibir(perfil_id)
  

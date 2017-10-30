@@ -18,6 +18,7 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Nome</th>
+                                    <th>Permissões</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -29,6 +30,7 @@
                                 <tr>
                                     <td>{{perfil.get_id()}}</td>
                                     <td>{{perfil.nome}}</td>
+                                    <td>{{perfil.get_funcionalidades()|length}}</td>
                                     <td class="my-icon-td">
                                         <a href="{{url_for('perfil_editar', perfil_id = perfil.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>

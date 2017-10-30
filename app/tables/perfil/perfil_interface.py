@@ -31,7 +31,12 @@ class PerfilInterface:
         self.execute_query("delete from perfil where perfil_id = '{}'".format(perfil_id), True)
 
     def cadastra_permissao(self, permissao):
-        self.execute_query("insert into permissao (funcionalidade_id, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_id, permissao.perfil_id), True)
+        self.execute_query("insert into permissao (funcionalidade_id, perfil_id)  values('{}', '{}')" .format(permissao.get_funcionalidade().get_id(), permissao.get_perfil_id()), True)
+        data = self.execute_query("select LAST_INSERT_ID() as last from permissao")
+        return data[0]
+
+    def remove_permissao(self, permissao_id):
+        self.execute_query("delete from permissao where permissao_id = '{}'".format(permissao_id), True)
 
     def get_perfil(self, perfil_id):
         data = self.execute_query("select * from perfil where perfil_id = '{}'".format(perfil_id))

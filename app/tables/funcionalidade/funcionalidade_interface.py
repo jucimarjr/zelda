@@ -19,7 +19,7 @@ class FuncionalidadeInterface:
         return data[0]
         
     def cadastra_funcionalidade(self, funcionalidade):
-        self.execute_query("insert into funcionalidade(funcionalidade_nome, funcionalidade_codigo, funcionalidade_desc, sistema_id) values('{}', '{}', '{}', '{}')".format(funcionalidade.nome, funcionalidade.codigo, funcionalidade.desc, funcionalidade.get_sistema().get_id()), True)
+        self.execute_query("insert into funcionalidade(funcionalidade_nome, funcionalidade_codigo, funcionalidade_desc, sistema_id) values('{}', '{}', '{}', '{}')".format(funcionalidade.nome, funcionalidade.get_codigo(), funcionalidade.desc, funcionalidade.get_sistema().get_id()), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from funcionalidade")
 
         if len(data) < 1:

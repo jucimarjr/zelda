@@ -35,24 +35,36 @@ class Perfil:
 
         return funcionalidades
 
-    def adiciona_permissao(self, funcionalidade_id = None):
-        if self.get_id() is not None:
-            if funcionalidade_id is not None:
-                permissao = Permissao(self.get_id(), funcionalidade_id)
-                if permissao.get_funcionalidade().get_id() is not None:
-                    permissao.cadastra()
-                    self.__permissoes.append(permissao.serializa())
-
-    def remove_permissao(self, funcionalidade_id = None):
-        if self.get_id() is not None:
-            if funcionalidade_id is not None:
-                permissao = Permissao(self.get_id(), funcionalidade_id)
-                if permissao.get_funcionalidade().get_id() is not None:
-                    permissao.remove()
-                    self.__permissoes.remove(permissao.serializa())
-
     def salva(self):
         if self.get_id() is None:
             self.__perfil_id = db.cadastra_perfil(self)
         else:
             db.edita_perfil(self)
+
+    def deleta(self):
+        if self.get_id() is not None:
+            db.deleta_perfil(self.get_id())
+
+    def altera_funcionalidades(self, novas_funcionalidades):
+        self.__funcs_novas = []
+        self.__perms_removidas = []
+
+        for n in novas_funcionalidades:
+            if n not in [(f.get_id()) for f in self.get_funcionalidades()]:
+                self.__funcs_novas.append(n)
+
+        for p in self.__permissoes:
+            if p.get_funcionalidade().get_id() not in novas_funcionalidades:
+                self.__perms_removidas.append(p)
+
+        for n in self.__funcs_novas:
+            permissao = Permissao(funcionalidade = Funcionalidade(n), perfil = self)
+            permissao.cadastra()
+            self.__permissoes.append(permissao)
+        
+        for r in self.__perms_removidas:
+            db.remove_permissao(r.get_id())
+            self.__permissoes.remove(r)
+
+        self.__funcs_novas = []
+        self.__funcs_removidas = []

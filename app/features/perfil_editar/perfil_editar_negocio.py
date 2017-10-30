@@ -4,29 +4,27 @@ from ...utils.flash_errors import flash_errors
 from ...tables.perfil.perfil_modelo import Perfil
 from ...tables.permissao.permissao_modelo import Permissao
 from ...utils.criptografador import Criptografador
-from ...cursor import db
+from ...utils.zelda_modelo import ZeldaModelo
 
 class PerfilEditarNegocio:
 
     def exibir(perfil_id):
         form = EditarPerfilForm()
+
+        perfil = Perfil(perfil_id)
+        if perfil.get_id() is None:
+            return redirect(url_for('perfil_listar'))
         
-        funcionalidades = db.get_funcionalidades()
-        form.funcionalidade_id.choices = [(f['id'], f['nome']) for f in funcionalidades]
+        funcionalidades = ZeldaModelo.lista_funcionalidades()
+        form.funcionalidades_ids.choices = [(f.get_id(), f.nome) for f in funcionalidades]
         
         if form.validate_on_submit():
-            
-            perfil = Perfil(nome=form.perfil_nome.data)
-            id = db.edita_perfil(perfil)
-
-            if len(form.funcionalidade_id.data) > 0:
-                for d in form.funcionalidade_id.data:
-                    permissao = Permissao()
-                    permissao.funcionalidade_codigo = d;
-                    permissao.perfil_id = id
-                    db.cadastra_permissao(permissao)
-
+            perfil.nome = form.perfil_nome.data
+            perfil.salva()
+            perfil.altera_funcionalidades(form.funcionalidades_ids.data)
+            return redirect(url_for('perfil_listar'))
         else:
             flash_errors(form)
 
+        form.perfil_nome.data = perfil.nome
         return render_template('perfil_editar.html', form=form)

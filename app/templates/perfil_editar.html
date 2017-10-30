@@ -23,23 +23,23 @@
             <div class="card">
                 <div class="card-body">
 
+                    <h4 class="card-title">Editar perfil</h4>
+                    <form class="form" action="" method="post">
+                        {{form.hidden_tag()}}
+                        <div class="md-form">
+                            {{form.perfil_nome(class_='form-control', id='login-input')}}
+                            <label for="nome-input">Nome</label>
+                        </div>
+                        <div class="md-form">
+                            {{form.funcionalidades_ids(class_='form-control')}}
+                        </div>
+                        <button type="submit" class="btn uea-light">Salvar</button>
+                        <a href="{{url_for('perfil_listar')}}">
+                            <button type="button" class="btn btn-flat">Cancelar</button>
+                        </a>
+                    </form>
                 </div>
             </div>
-            <h4 class="card-title">Editar perfil</h4>
-            <form class="form" action="" method="post">
-                {{form.hidden_tag()}}
-                <div class="md-form">
-                    {{form.perfil_nome(class_='form-control', id='login-input')}}
-                    <label for="nome-input">Nome</label>
-                </div>
-                <div class="md-form">
-                    {{form.funcionalidade_id(class_='form-control')}}
-                </div>
-                <button type="submit" class="btn uea-light">Salvar</button>
-                <a href="{{url_for('perfil_listar')}}">
-                    <button type="button" class="btn btn-flat">Cancelar</button>
-                </a>
-            </form>
         </div>
     </div>
 </div>

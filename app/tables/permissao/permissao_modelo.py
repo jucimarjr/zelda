@@ -30,9 +30,12 @@ class Permissao:
     def get_funcionalidade(self):
         return self.__funcionalidade
 
+    def get_perfil_id(self):
+        return self.__perfil_id
+
     def cadastra(self):
-        if self.__perfil_id is not None:
-            self.__permissao_id = db.cadastra_permissao(self.__perfil_id, self.get_funcionalidade().get_id())
+        if self.__perfil_id is not None and self.get_id() is None:
+            self.__permissao_id = db.cadastra_permissao(self)
 
     def remove(self):
         if self.get_id() is not None:

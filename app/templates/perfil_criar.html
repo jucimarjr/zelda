@@ -27,11 +27,13 @@
                     <form class="form" action="" method="post">
                         {{form.hidden_tag()}}
                         <div class="md-form">
-                            {{form.perfil_nome(class_='form-control', id='login-input')}}
+                            {{form.perfil_nome(class_='form-control', id='nome-input')}}
                             <label for="nome-input">Nome</label>
                         </div>
+
+                        {{form.funcionalidades_ids.label}}
                         <div class="md-form">
-                            {{form.funcionalidade_id(class_='form-control')}}
+                            {{form.funcionalidades_ids(class_='form-control')}}
                         </div>
                         <button type="submit" class="btn uea-light">Cadastrar</button>
                         <a href="{{url_for('perfil_listar')}}">

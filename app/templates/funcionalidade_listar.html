@@ -32,7 +32,7 @@
                                 <td>{{funcionalidade.nome}}</td>
                                 <td>{{funcionalidade.desc}}</td>
                                 <td>
-                                    {% if funcionalidade.status == 1 %}
+                                    {% if funcionalidade.get_status() == 1 %}
                                     Desativado
                                     {% else %}
                                     Ativo
@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="my-icon-td">
 
-                                    {% if funcionalidade.status != 1 %}
+                                    {% if funcionalidade.get_status() != 1 %}
                                     <a href="{{url_for('funcionalidade_desativar', funcionalidade_id= funcionalidade.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </a>

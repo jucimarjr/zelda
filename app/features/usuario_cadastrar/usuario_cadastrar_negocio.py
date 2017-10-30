@@ -34,15 +34,16 @@ class UsuarioCadastrarNegocio:
             
             caminho_foto = None
             if form.file.data is not None:
+                usuario.salva()
                 filename = secure_filename(form.file.data.filename)
 
                 if allowed_file(filename):
-                    caminho_foto = os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(user_id) + '.' + filename.rsplit('.',1)[1])
+                    caminho_foto = os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(usuario.get_id()) + '.' + filename.rsplit('.',1)[1])
                     path = os.path.abspath(caminho_foto)
-                    form.file.data.save(path)
+                    form.file.data.save(caminho_foto)
                 else:
                     flash("Os formatos da foto são restritos a png, jpg e jpeg")
-                    return render_template('usuario_editar.html', form = form)
+                    return render_template('usuario_cadastrar.html', form = form)
 
             usuario.caminho_foto = caminho_foto
             usuario.salva()

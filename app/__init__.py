@@ -2,8 +2,8 @@ from flask import Flask
 import os
 from flask_mail import Mail
 
-FUNCIONARIOS_UPLOAD_PATH = os.path.abspath('') + '/app/files/profiles/funcionarios/'
-USUARIOS_UPLOAD_PATH = os.path.abspath('') + '/app/files/profiles/usuarios/'
+FUNCIONARIOS_UPLOAD_PATH = os.path.abspath('') + '\\zelda\\app\\files\\profiles\\funcionarios\\'
+USUARIOS_UPLOAD_PATH = os.path.abspath('') + '\\zelda\\app\\files\\profiles\\usuarios\\'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 

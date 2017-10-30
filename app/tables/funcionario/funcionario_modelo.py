@@ -3,11 +3,11 @@ from  ..lotacao.lotacao_modelo import Lotacao
 
 class Funcionario:
 
-    __funcionario_id = None
-    __situacao = 0
-    __lotacao = None
-
     def __init__(self, funcionario_id = None):
+        
+        self.__funcionario_id = None
+        self.__situacao = 0
+        self.__lotacao = None
         self.nome = None
         #self.caminho_foto = None
 

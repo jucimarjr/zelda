@@ -1,5 +1,4 @@
 from flask_mysqldb import MySQL
-from .usuario_modelo import Usuario
 
 class UsuarioInterface:
 
@@ -16,108 +15,39 @@ class UsuarioInterface:
             cur.close()
         return data
 
- # CRUD - USUARIO
     def cadastra_usuario(self, usuario):
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, usuario_logado, perfil_id) values ('{}', '{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, usuario.logado, 2), True)
+        perfil = 'NULL'
+        if usuario.get_perfil() is not None:
+            if usuario.get_perfil().get_id() is not None:
+                perfil = usuario.get_perfil().get_id()
+
+        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, perfil_id) values ('{}', '{}', '{}', {})".format(usuario.login, usuario.email, usuario.senha, perfil), True)
 
     def get_usuarios(self):
-        data = self.execute_query("select * from usuario")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"],
-                perfil_id=u["perfil_id"])
-            usuarios.append(usuario)
-        return usuarios
+        data = self.execute_query("select usuario_id, usuario_login, usuario_email, usuario_status, perfil_id from usuario")
+        return data
 
-    def get_usuarios_logados(self):
-        data = self.execute_query("select * from usuario\
-            where usuario_logado = 1")
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"],
-                perfil_id=u["perfil_id"])
-            usuarios.append(usuario)
-        return usuarios
-
-    def get_usuarios_admin(self):
-        setor_admin_id = self.execute_query("select perfil_id from perfil where perfil_nome = {}".format("Administrador"))
-        data = self.execute_query("select * from usuario where perfil_id = {}".format(setor_admin_id[0]))
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"],
-                perfil_id=u["perfil_id"])
-            usuarios.append(usuario)
-        return usuarios
-
-    def get_usuarios_by_perfil(self, id):
-        data = self.execute_query("select * from usuario where perfil_id = {}".format(id))
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"],
-                perfil_id=u["perfil_id"])
-            usuarios.append(usuario)
-        return usuarios
+    def ativa_usuario(self, usuario_id):
+        self.execute_query("update usuario set usuario_status = 1 where usuario_id = '{}'".format(usuario_id), True)
 
     def edita_usuario(self, usuario):
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', perfil_id = '{}' where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.perfil_id, usuario.id), True)
+        perfil = 'NULL'
+        if usuario.get_perfil() is not None:
+            if usuario.get_perfil().get_id() is not None:
+                perfil = usuario.get_perfil().get_id()
+
+        self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}', perfil_id = {} where usuario_id = '{}'".format(usuario.login, usuario.email, perfil, usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
 
     def get_usuario(self, id):
-        data = self.execute_query("select * from usuario where usuario_id = '{}'".format(id))
-        if len(data) < 1:
-            return None
-        usuarios = []
-        for u in data:
-            usuario = Usuario(
-                id=u["usuario_id"],
-                login=u["usuario_login"],
-                senha=u["usuario_senha"],
-                logado=u["usuario_logado"],
-                email=u["usuario_email"],
-                status=u["usuario_status"],
-                perfil_id=u["perfil_id"])
-            usuarios.append(usuario)
-        return usuarios[0]
+        data = self.execute_query("select usuario_id, usuario_login, usuario_email, usuario_status, perfil_id from usuario where usuario_id = '{}' limit 1".format(id))
+        return data
 
-    def get_usuario_pelo_login(self, login):
-        data = self.execute_query("select * from usuario where usuario_login = '{}'".format(login))
+    def verifica_credenciais(self, login, senha):
+        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
         if len(data) < 1:
             return None
-        usuarios = []
-        for d in data:
-            usuario = Usuario(
-                id=d["usuario_id"],
-                login=d["usuario_login"],
-                senha=d["usuario_senha"],
-                logado=d["usuario_logado"],
-                email=d["usuario_email"],
-               status=d["usuario_status"],
-                perfil_id=d["perfil_id"])
-            usuarios.append(usuario)
-        return usuarios[0]
+
+        return data[0]['usuario_id']

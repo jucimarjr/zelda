@@ -2,11 +2,10 @@ from ...cursor import db
 
 class Setor:
 
-    __setor_id = None
-    __pai = None
-    __situacao = 0
-
     def __init__(self, setor_id = None):
+        self.__setor_id = None
+        self.__pai = None
+        self.__situacao = 0
         self.__situacao = 0
         self.nome = ''
         self.__pai = None

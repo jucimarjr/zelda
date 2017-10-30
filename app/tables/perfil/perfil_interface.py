@@ -1,6 +1,4 @@
 from flask_mysqldb import MySQL
-from .perfil_modelo import Perfil
-from ..permissao.permissao_modelo import Permissao
 
 class PerfilInterface:
 
@@ -25,16 +23,8 @@ class PerfilInterface:
 
         return data[0]["perfil_id"]
 
-    def edita_perfil(self, perfil, funcionalidade_id):
-        self.execute_query("update perfil set perfil_nome = '{}' where perfil_id = '{}'".format(perfil.nome, perfil.id), True)
-
-        if len(funcionalidade_id) > 1:
-            self.execute_query("delete permissao where perfil_id = '{}'".format(perfil.id), True)
-            for id in funcionalidade_id:
-                permissao = Permissao()
-                permissao.funcionalidade_codigo = id
-                permissao.perfil_id = data[0]['perfil_id']
-                self.cadastra_permissao(permissao)
+    def edita_perfil(self, perfil):
+        self.execute_query("update perfil set perfil_nome = '{}' where perfil_id = '{}'".format(perfil.nome, perfil.get_id()), True)
 
     def deleta_perfil(self, perfil_id):
         self.execute_query("delete from permissao where perfil_id = '{}'".format(perfil_id), True)
@@ -43,39 +33,18 @@ class PerfilInterface:
     def cadastra_permissao(self, permissao):
         self.execute_query("insert into permissao (funcionalidade_id, perfil_id)  values('{}', '{}')" .format(permissao.funcionalidade_id, permissao.perfil_id), True)
 
-    def retorna_permissao_ativa(self, perfil_id):
-        data = self.execute_query("select * from permissao where permissao.perfil_id = '{}' order by permissao.permissao_id desc limit 1".format(perfil_id))
-        if len(data) < 1:
-            return None
-        permissoes = []
-        for d in data:
-            permissao = Permissao(
-                    id=d["permissao_id"],
-                    funcionalidade_id=d["funcionalidade_id"],
-                    perfil_id=d["perfil_id"])
-            permissoes.append(permissao)
-        return permissao
-
-    def get_perfil_pelo_id(self, perfil_id):
+    def get_perfil(self, perfil_id):
         data = self.execute_query("select * from perfil where perfil_id = '{}'".format(perfil_id))
-        if len(data) < 1:
-            return None
-        perfis = []
-        for d in data:
-            perfil = Perfil(
-                id = d["perfil_id"],
-                nome = d["perfil_nome"])
-            perfis.append(perfil)
-        return perfis[0]
+        return data
 
-    def get_perfil(self):
+    def get_perfis_ids(self):
         data = self.execute_query("select * from perfil")
-        if len(data) < 1:
-            return None
-        perfis = []
-        for d in data:
-            perfil = Perfil(
-                id = d["perfil_id"],
-                nome = d["perfil_nome"])
-            perfis.append(perfil)
-        return perfis
+        return data
+
+    def get_permissoes_ids(self, perfil_id):
+        data = self.execute_query("select permissao_id from permissao where perfil_id = '{}'".format(perfil_id))
+        return data
+
+    def get_permissao(self, permissao_id):
+        data = self.execute_query("select * from permissao where permissao_id = '{}' limit 1".format(permissao_id))
+        return data

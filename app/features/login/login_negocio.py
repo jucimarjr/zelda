@@ -11,17 +11,14 @@ class LoginNegocio:
         sngform = UsuarioSignupForm()
 
         if form.validate_on_submit():
-            user_login = form.login.data
-            user_senha = form.senha.data
-            inicia_sessao(user_login = user_login)
-            if (autentica(user_senha)):
-                if (is_logado()):
-                    db.set_logado_true(user_login)
-                    return redirect(url_for('home'))
-                flash("Usuario já logado!")
-                encerra_sessao()
+
+            login = form.login.data
+            senha = form.senha.data
+
+            if autentica(login, senha):
+                return redirect(url_for('home'))
+            
             flash("Nome de usuário ou senha incorretos")
-            encerra_sessao()
         else:
             flash_errors(form)
 

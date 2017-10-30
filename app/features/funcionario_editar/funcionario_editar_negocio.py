@@ -1,6 +1,5 @@
 from .funcionario_editar_form import EditarFuncionarioForm
 from ...tables.funcionario.funcionario_modelo import Funcionario
-from ...authentication import verifica_sessao
 from ...utils.flash_errors import flash_errors
 from ...utils.zelda_modelo import ZeldaModelo
 

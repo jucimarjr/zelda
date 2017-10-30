@@ -22,30 +22,31 @@ class UsuarioSignupNegocio:
         form = UsuarioSignupForm()
 
         if form.validate_on_submit():
-            if db.verifica_existe_email(form.signup_email.data) is not True:
-                usuario = Usuario()
-                usuario.login = form.signup_login.data
-                usuario.senha = Criptografador.gerar_hash(form.signup_senha.data,'')
-                usuario.email = form.signup_email.data
-                usuario.salva()
-
-
-                token = s.dumps(usuario.email, salt = "1234")
-
-                msg = Message('Email de confirmação', sender = ADMINS[0], recipients = [usuario.email])
-
-                link = 'http://127.0.0.1:5000' + url_for('home', token=token, external = True)
-
-
-                msg.body = 'Bem vindo! Clique no link a seguir para confirmar seu endereço de email: {}'.format(link)
-
-                with app.app_context():
-                    mail.send(msg)
-
-                
-                return json_response(mensagem="Um email foi enviado para o endereço \"{}\". Confirme sua conta.".format(usuario.email))
-            else:
-
+            if db.verifica_existe_email(form.signup_email.data) is True:
                 return json_response(mensagem="Email ja cadastrado no sistema")
+            
+            if db.verifica_existe_login(form.signup_login.data) is True:
+                return json_response(mensagem="Login já cadastrado no sistema")
+                    
+            usuario = Usuario()
+            usuario.login = form.signup_login.data
+            usuario.senha = Criptografador.gerar_hash(form.signup_senha.data,'')
+            usuario.email = form.signup_email.data
+            usuario.salva()
+
+
+            token = s.dumps(usuario.email, salt = "1234")
+
+            msg = Message('Email de confirmação', sender = ADMINS[0], recipients = [usuario.email])
+
+            link = 'http://127.0.0.1:5000' + url_for('home', token=token, external = True)
+
+
+            msg.body = 'Bem vindo! Clique no link a seguir para confirmar seu endereço de email: {}'.format(link)
+
+            with app.app_context():
+                mail.send(msg)
+            
+            return json_response(mensagem="Um email foi enviado para o endereço \"{}\". Confirme sua conta.".format(usuario.email))
         else:
             return json_response(mensagem=return_errors(form))

@@ -38,7 +38,7 @@ class PerfilInterface:
         return data
 
     def get_perfis_ids(self):
-        data = self.execute_query("select * from perfil")
+        data = self.execute_query("select perfil_id from perfil")
         return data
 
     def get_permissoes_ids(self, perfil_id):

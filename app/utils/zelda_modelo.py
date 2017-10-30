@@ -1,6 +1,10 @@
 from ..cursor import db
 from ..tables.setor.setor_modelo import Setor
 from ..tables.funcionario.funcionario_modelo import Funcionario
+from ..tables.usuario.usuario_modelo import Usuario
+from ..tables.perfil.perfil_modelo import Perfil
+from ..tables.funcionalidade.funcionalidade_modelo import Funcionalidade
+from ..tables.sistema.sistema_modelo import Sistema
 
 class ZeldaModelo:
 
@@ -31,5 +35,41 @@ class ZeldaModelo:
         for data in db.get_funcionarios_ids():
             funcionario = Funcionario(data['funcionario_id'])
             result.append(funcionario)
+
+        return result
+
+    @staticmethod
+    def lista_usuarios():
+        result = []
+        for data in db.get_usuarios_ids():
+            usuario = Usuario(data['usuario_id'])
+            result.append(usuario)
+
+        return result
+
+    @staticmethod
+    def lista_perfis():
+        result = []
+        for data in db.get_perfis_ids():
+            perfil = Perfil(data['perfil_id'])
+            result.append(perfil)
+
+        return result
+
+    @staticmethod
+    def lista_funcionalidades():
+        result = []
+        for data in db.get_funcionalidades_ids():
+            funcionalidade = Funcionalidade(data['funcionalidade_id'])
+            result.append(funcionalidade)
+
+        return result
+
+    @staticmethod
+    def lista_sistemas():
+        result = []
+        for data in db.get_sistemas_ids():
+            sistema = Sistema(data['sistema_id'])
+            result.append(sistema)
 
         return result

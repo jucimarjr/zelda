@@ -21,6 +21,10 @@ class SistemaInterface():
 		data = self.execute_query("select * from sistema where sistema_id = '{}' limit 1".format(sistema_id))
 		return data[0]
 
+	def get_sistemas_ids(self):
+		data = self.execute_query("select * from sistema")
+		return data
+
 	def cadastra_sistema(self, sistema):
 		self.execute_query("insert into sistema(sistema_nome, sistema_desc, sistema_status, sistema_prefixo)\
 		 values ('{}', '{}', '{}', '{}')".format(sistema.nome, sistema.desc, sistema.get_status(), sistema.get_prefixo()), True)

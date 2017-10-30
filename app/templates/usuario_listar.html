@@ -29,22 +29,16 @@
                                 
                                 {% for usuario in usuarios %}
                                 <tr>
-                                    <td>{{usuario.id}}</td>
+                                    <td>{{usuario.get_id()}}</td>
                                     <td>{{usuario.login}}</td>
-                                    <td>
-                                        {% if usuario.perfil_id == 1 %}
-                                            Administrador
-                                        {% else %}
-                                            Usuário Comum
-                                        {% endif %}
-                                    </td>
+                                    <td>{{usuario.get_perfil().nome}}</td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('usuario_editar', user_id=usuario.id)}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('usuario_editar', user_id=usuario.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('usuario_remover', user_id=usuario.id)}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        <a href="{{url_for('usuario_remover', user_id=usuario.get_id())}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                             <i class="fa fa-remove" aria-hidden="true"></i>
                                         </a>
                                     </td>

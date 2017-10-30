@@ -31,8 +31,8 @@ class FuncionalidadeInterface:
         data = self.execute_query("select F.* from funcionalidade as F, permissao as P, usuario as U where P.perfil_id = U.perfil_id AND P.funcionalidade_id = F.funcionalidade_id AND U.usuario_id = '{}'".format(user_id))
         return data
 
-    def get_funcionalidades(self):
-        data = self.execute_query('''select * from funcionalidade''')
+    def get_funcionalidades_ids(self):
+        data = self.execute_query('''select funcionalidade_id from funcionalidade''')
         return data
 
     def edita_funcionalidade(self, funcionalidade):

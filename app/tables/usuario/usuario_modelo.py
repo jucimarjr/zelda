@@ -14,7 +14,7 @@ class Usuario:
 
         if usuario_id is not None:
             data = db.get_usuario(usuario_id)
-            if data is not None:
+            if len(data) > 0:
                 self.__usuario_id = usuario_id
                 self.login = data[0]['usuario_login']
                 self.email = data[0]['usuario_email']
@@ -37,6 +37,10 @@ class Usuario:
         if self.get_status() == 0:
             self.__status = 1
             db.ativa_usuario(self.get_id())
+
+    def set_perfil(self, perfil):
+        if perfil.get_id() is not None:
+            self.__perfil = perfil
 
     def deleta(self):
         db.deleta_usuario(self.get_id())

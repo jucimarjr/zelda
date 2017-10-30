@@ -23,8 +23,8 @@ class UsuarioInterface:
 
         self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, perfil_id) values ('{}', '{}', '{}', {})".format(usuario.login, usuario.email, usuario.senha, perfil), True)
 
-    def get_usuarios(self):
-        data = self.execute_query("select usuario_id, usuario_login, usuario_email, usuario_status, perfil_id from usuario")
+    def get_usuarios_ids(self):
+        data = self.execute_query("select usuario_id from usuario")
         return data
 
     def ativa_usuario(self, usuario_id):

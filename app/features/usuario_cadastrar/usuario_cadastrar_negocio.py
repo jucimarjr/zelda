@@ -2,8 +2,9 @@ from flask import render_template, flash, redirect, url_for
 from .usuario_cadastrar_form import CadastrarUsuarioForm
 from ...utils.flash_errors import flash_errors
 from ...tables.usuario.usuario_modelo import Usuario
+from ...tables.perfil.perfil_modelo import Perfil
 from ...utils.criptografador import Criptografador
-from ...cursor import db
+from ...utils.zelda_modelo import ZeldaModelo
 import os
 
 from werkzeug import secure_filename
@@ -20,34 +21,35 @@ class UsuarioCadastrarNegocio:
 
         form = CadastrarUsuarioForm()
         
-        perfils = db.get_perfil()
+        perfis = ZeldaModelo.lista_perfis()
 
-        form.usuario_perfil.choices = [(p.id,p.nome) for p in perfils]
-        form.usuario_perfil.default = 1
-
-
+        form.usuario_perfil.choices = [(p.get_id(),p.nome) for p in perfis]
         
         if form.validate_on_submit():
-            usuario = Usuario(login=form.usuario_login.data, senha=Criptografador.gerar_hash(form.usuario_senha.data, ''), perfil_id=form.usuario_perfil.data )
+            usuario = Usuario()
 
-            db.cadastra_usuario(usuario)
+            usuario.login = form.usuario_login.data
+            usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
+            usuario.set_perfil( Perfil(form.usuario_perfil.data) )
             
+            caminho_foto = None
             if form.file.data is not None:
                 filename = secure_filename(form.file.data.filename)
 
                 if allowed_file(filename):
-                    path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(user_id) + '.' + filename.rsplit('.',1)[1]))
+                    caminho_foto = os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(user_id) + '.' + filename.rsplit('.',1)[1])
+                    path = os.path.abspath(caminho_foto)
                     form.file.data.save(path)
-                    return redirect(url_for('usuario_listar'))
                 else:
                     flash("Os formatos da foto são restritos a png, jpg e jpeg")
+                    return render_template('usuario_editar.html', form = form)
 
-            else:
-                return redirect(url_for('usuario_listar'))
-            
+            usuario.caminho_foto = caminho_foto
+            usuario.salva()
+
             return redirect(url_for('usuario_listar'))
-        
+
         else:
             flash_errors(form)
-        
+
         return render_template('usuario_criar.html', form=form)

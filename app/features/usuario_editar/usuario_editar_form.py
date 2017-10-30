@@ -7,7 +7,6 @@ from flask_wtf.file import FileRequired
 # Editar Usuário
 class EditarUsuarioForm(Form):
     usuario_login = StringField('Login do Usuário', validators=[DataRequired('Login do Usuário é obrigatório')])
-    usuario_id = HiddenField('ID Usuário', validators=[DataRequired('O ID do Usuário não pode ser indefinido')])
     usuario_senha = PasswordField('Senha do Usuário', validators=[DataRequired('A senha do Usuário é obrigatória')])
     usuario_perfil = SelectField('Perfil', coerce=int)
     file = FileField('Foto do Usuário', validators=[])

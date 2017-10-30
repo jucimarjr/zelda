@@ -22,11 +22,11 @@ class Funcionalidade:
                 self.__codigo = data['funcionalidade_codigo']
                 self.nome = data['funcionalidade_nome']
                 self.desc = data['funcionalidade_desc']
-                self.__caminho = data['funcionalidade_caminho']
-                self.__caminho_imagem = data['funcionalidade_caminho_imagem']
+                self.caminho = data['funcionalidade_caminho']
+                self.caminho_imagem = data['funcionalidade_caminho_imagem']
                 self.__status = data['funcionalidade_status']
 
-                self.muda_sistema(data['sistema_id'])
+                self.set_sistema(data['sistema_id'])
 
     def get_id(self):
         return self.__funcionalidade_id
@@ -45,7 +45,7 @@ class Funcionalidade:
     def get_sistema(self):
         return self.__sistema
 
-    def muda_sistema(self, sistema_id):
+    def set_sistema(self, sistema_id):
         sistema = Sistema(sistema_id)
         if sistema.get_id() is not None:
 

@@ -17,7 +17,7 @@
                     <div class="card-body mt-5">
                         <h4 class="card-title">Seus Dados</h4>
                         <ul class="list-group">
-                            <li class="list-group-item"><span><strong>Id:</strong></span> {{usuario.id}}</li>
+                            <li class="list-group-item"><span><strong>Id:</strong></span> {{usuario.get_id()}}</li>
                             <li class="list-group-item"><span><strong>Login:</strong></span> {{usuario.login}}</li>
                         </ul>
                     </div>
@@ -30,7 +30,7 @@
                         </button>
                         <div class="dropdown-menu">
                           {% for func in funcionalidades %}
-                              <a class="dropdown-item" href="{{func.funcionalidade_caminho}}">{{func.funcionalidade_nome}}</a>
+                              <a class="dropdown-item" href="{{func.caminho}}">{{func.nome}}</a>
                           {% endfor %}
                         </div>
                     </div>

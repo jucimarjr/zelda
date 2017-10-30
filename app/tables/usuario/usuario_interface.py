@@ -21,7 +21,10 @@ class UsuarioInterface:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()
 
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, perfil_id) values ('{}', '{}', '{}', {})".format(usuario.login, usuario.email, usuario.senha, perfil), True)
+        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, usuario_caminho_foto, perfil_id)\
+         values ('{}', '{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, usuario.caminho_foto, perfil), True)
+        data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
+        return data[0]['last']
 
     def get_usuarios_ids(self):
         data = self.execute_query("select usuario_id from usuario")
@@ -31,18 +34,20 @@ class UsuarioInterface:
         self.execute_query("update usuario set usuario_status = 1 where usuario_id = '{}'".format(usuario_id), True)
 
     def edita_usuario(self, usuario):
-        perfil = 'NULL'
+        perfil = '2'
         if usuario.get_perfil() is not None:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()
 
-        self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}', perfil_id = {} where usuario_id = '{}'".format(usuario.login, usuario.email, perfil, usuario.get_id()), True)
+        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_email = '{}', usuario_caminho_foto = '{}', perfil_id = {}\
+         where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.email, usuario.caminho_foto, perfil, usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
 
     def get_usuario(self, id):
-        data = self.execute_query("select usuario_id, usuario_login, usuario_email, usuario_status, perfil_id from usuario where usuario_id = '{}' limit 1".format(id))
+        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_logado, usuario_email, usuario_status,\
+         usuario_caminho_foto, perfil_id from usuario where usuario_id = '{}' limit 1".format(id))
         return data
 
     def verifica_credenciais(self, login, senha):

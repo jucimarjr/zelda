@@ -38,7 +38,7 @@ class FuncionarioCadastrarNegocio:
                 filename = secure_filename(form.file.data.filename)
 
                 if allowed_file(filename):
-                    path = os.path.abspath(os.path.join(app.config['FUNCIONARIOS_UPLOAD_PATH'], str(id) + '.' + filename.rsplit('.',1)[1]))
+                    path = os.path.abspath(os.path.join(app.config['FUNCIONARIOS_UPLOAD_PATH'], str(funcionario.get_id()) + '.' + filename.rsplit('.',1)[1]))
                     form.file.data.save(path)
                     
                     return redirect(url_for('funcionario_listar'))

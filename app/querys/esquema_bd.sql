@@ -80,6 +80,7 @@ CREATE TABLE usuario (
   usuario_logado int(11) NOT NULL DEFAULT '0',
   usuario_email varchar(100) NOT NULL,
   usuario_status int(11) NOT NULL DEFAULT '0',
+  usuario_caminho_foto varchar(100) NOT NULL DEFAULT 'user_profile.jpg',
 
   perfil_id int(11) NOT NULL,
 

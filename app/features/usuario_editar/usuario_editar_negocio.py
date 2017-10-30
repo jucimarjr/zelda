@@ -31,19 +31,17 @@ class UsuarioEditarNegocio:
             usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             usuario.set_perfil( Perfil(form.usuario_perfil.data) )
             
-            caminho_foto = None
             if form.file.data is not None:
                 filename = secure_filename(form.file.data.filename)
 
                 if allowed_file(filename):
-                    caminho_foto = os.path.join(app.config['USUARIOS_UPLOAD_PATH'], str(user_id) + '.' + filename.rsplit('.',1)[1])
-                    path = os.path.abspath(caminho_foto)
+                    usuario.caminho_foto = str(user_id) + '.' + filename.rsplit('.',1)[1]
+                    path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], usuario.caminho_foto))
                     form.file.data.save(path)
                 else:
                     flash("Os formatos da foto são restritos a png, jpg e jpeg")
                     return render_template('usuario_editar.html', form = form)
 
-            usuario.caminho_foto = caminho_foto
             usuario.salva()
 
             return redirect(url_for('usuario_listar'))

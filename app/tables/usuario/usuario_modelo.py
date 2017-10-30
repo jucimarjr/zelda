@@ -10,6 +10,7 @@ class Usuario:
         self.__logado = 1 #padrão (deslogado)
         self.email = None
         self.__status = 0
+        self.caminho_foto = 'user_profile.jpg'
         self.__perfil = None
 
         if usuario_id is not None:
@@ -19,6 +20,7 @@ class Usuario:
                 self.login = data[0]['usuario_login']
                 self.email = data[0]['usuario_email']
                 self.__status = data[0]['usuario_status']
+                self.caminho_foto = data[0]['usuario_caminho_foto']
                 self.__perfil = Perfil(perfil_id = data[0]['perfil_id'])
 
     def get_id(self):

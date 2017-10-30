@@ -30,7 +30,19 @@ class FuncionarioEditarNegocio:
             funcionario.salva()
             funcionario.mudar_setor(form.setor_id.data)
 
-            return redirect(url_for('funcionario_listar'))
+            if form.file.data is not None:
+                filename = secure_filename(form.file.data.filename)
+
+                if allowed_file(filename):
+                    path = os.path.abspath(os.path.join(app.config['FUNCIONARIOS_UPLOAD_PATH'], str(func_id) + '.' + filename.rsplit('.',1)[1]))
+                    form.file.data.save(path)
+                    
+                    return redirect(url_for('funcionario_listar'))
+                else:
+                    flash("Os formatos da foto são restritos a png, jpg e jpeg")
+                    
+            else:
+                return redirect(url_for('funcionario_listar'))
 
         # A página pode ser acessada diretamente pela URL ao passar somente o id
         # do item a ser editado

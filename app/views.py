@@ -22,6 +22,7 @@ from .features.usuario_signup.usuario_signup_front import *
 from .features.funcionalidade_listar.funcionalidade_listar_front import *
 from .features.funcionalidade_cadastrar.funcionalidade_cadastrar_front import *
 from .features.funcionalidade_remover.funcionalidade_remover_front import *
+from .features.funcionalidade_editar.funcionalidade_editar_front import *
 
 from .features.perfil_criar.perfil_criar_front import *
 from .features.perfil_listar.perfil_listar_front import *

@@ -10,12 +10,12 @@ class PerfilCadastrarNegocio:
 
     def exibir():
         form = CadastrarPerfilForm()
-        
+
         funcionalidades = db.get_funcionalidades()
         form.funcionalidade_id.choices = [(f.funcionalidade_id, f.funcionalidade_nome) for f in funcionalidades]
-        
+
         if form.validate_on_submit():
-            
+
             perfil = Perfil(nome=form.perfil_nome.data)
             id = db.cadastra_perfil(perfil)
 
@@ -25,6 +25,8 @@ class PerfilCadastrarNegocio:
                     permissao.funcionalidade_id = d;
                     permissao.perfil_id = id
                     db.cadastra_permissao(permissao)
+
+            return redirect(url_for('perfil_listar'))
 
         else:
             flash_errors(form)

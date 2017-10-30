@@ -16,7 +16,7 @@ class UsuarioInterface:
         return data
 
     def cadastra_usuario(self, usuario):
-        perfil = 'NULL'
+        perfil = 2
         if usuario.get_perfil() is not None:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()

@@ -27,3 +27,8 @@ from .features.perfil_criar.perfil_criar_front import *
 from .features.perfil_listar.perfil_listar_front import *
 from .features.perfil_remover.perfil_remover_front import *
 from .features.perfil_editar.perfil_editar_front import *
+
+from .features.sistema_listar.sistema_listar_front import *
+from .features.sistema_remover.sistema_remover_front import *
+#from .features.sistema_criar.sistema_criar_front import *
+#from .features.sistema_editar.sistema_editar_front import

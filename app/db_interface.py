@@ -24,8 +24,8 @@ class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterf
 
     def verifica_existe_email(self,email):
         data = self.execute_query("select count(*) as cont_usuarios from usuario where usuario_email ='{}'".format(email))
-        return int(data[0]['cont_usuarios']) >0
+        return int(data[0]['cont_usuarios']) > 0
 
-    def verifica_existe_login(self, login, senha):
-        data = self.execute_query("select count(*) from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
+    def verifica_existe_login(self, login):
+        data = self.execute_query("select count(*) from usuario where usuario_login = '{}'".format(login))
         return int(data[0]['count(*)']) > 0

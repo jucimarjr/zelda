@@ -4,7 +4,7 @@ from ...cursor import db
 from ...utils.return_errors import return_errors
 from ...tables.usuario.usuario_modelo import Usuario
 from ...utils.criptografador import Criptografador
-from flask import url_for, request
+from flask import url_for, request, flash
 from flask_mail import Message
 from app import app, mail
 from config import ADMINS
@@ -22,12 +22,12 @@ class UsuarioSignupNegocio:
         form = UsuarioSignupForm()
 
         if form.validate_on_submit():
-            if db.verifica_existe_email(form.signup_email.data) is True:
+            if db.verifica_existe_email(form.signup_email.data) is not False:
                 return json_response(mensagem="Email ja cadastrado no sistema")
-            
-            if db.verifica_existe_login(form.signup_login.data) is True:
+
+            if db.verifica_existe_login(form.signup_login.data) is not False:
                 return json_response(mensagem="Login já cadastrado no sistema")
-                    
+
             usuario = Usuario()
             usuario.login = form.signup_login.data
             usuario.senha = Criptografador.gerar_hash(form.signup_senha.data,'')
@@ -46,7 +46,7 @@ class UsuarioSignupNegocio:
 
             with app.app_context():
                 mail.send(msg)
-            
+
             return json_response(mensagem="Um email foi enviado para o endereço \"{}\". Confirme sua conta.".format(usuario.email))
         else:
             return json_response(mensagem=return_errors(form))

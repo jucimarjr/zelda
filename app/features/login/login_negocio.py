@@ -17,10 +17,9 @@ class LoginNegocio:
 
             if autentica(login, senha):
                 return redirect(url_for('home'))
-            
-            flash("Nome de usuário ou senha incorretos")
+
+            flash("Nome de usuário ou senha incorretos. Verifique se sua conta foi confirmada.")
         else:
             flash_errors(form)
 
         return render_template('login.html', form = form, form_signup = sngform)
-        

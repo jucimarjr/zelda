@@ -1,4 +1,5 @@
 /* Insere o Zelda na tabela sistema */
+use zelda;
 INSERT INTO `sistema` (`sistema_id`, `sistema_nome`, `sistema_desc`, `sistema_status`, `sistema_prefixo`) VALUES (NULL, 'Zelda', 'Sistema de autenticação de serviços da UEA', '0', 'ZD');
 
 /* Popula as funcionalidades do Zelda */
@@ -21,4 +22,4 @@ INSERT INTO `permissao` (`permissao_id`, `funcionalidade_id`, `perfil_id`) VALUE
 INSERT INTO `permissao` (`permissao_id`, `funcionalidade_id`, `perfil_id`) VALUES (NULL, '6', '1');
 
 /* Insere um admin no banco (usuario: Administrador, email: admin@uea.edu.br, senha: caiorolandodarocha) */
-INSERT INTO `usuario` (`usuario_id`, `usuario_login`, `usuario_senha`, `usuario_logado`, `usuario_email`, `usuario_status`, `perfil_id`) VALUES (NULL, 'Administrador', '709b4aa0e4fa0cfee2dc7662c5fe156f', '0', 'admin@uea.edu.br', '0', '1');
+INSERT INTO `usuario` (`usuario_id`, `usuario_login`, `usuario_senha`, `usuario_logado`, `usuario_email`, `usuario_status`, `perfil_id`) VALUES (NULL, 'Administrador', '709b4aa0e4fa0cfee2dc7662c5fe156f', '0', 'admin@uea.edu.br', '1', '1');

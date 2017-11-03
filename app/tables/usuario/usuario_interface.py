@@ -51,8 +51,18 @@ class UsuarioInterface:
         return data
 
     def verifica_credenciais(self, login, senha):
-        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
+        data = self.execute_query("select usuario_id from usuario where usuario_status = '1' and usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
         if len(data) < 1:
             return None
 
         return data[0]['usuario_id']
+
+    def get_usuario_pelo_email(self, email):
+        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_logado, usuario_email, usuario_status,\
+         usuario_caminho_foto, perfil_id from usuario where usuario_email = '{}' limit 1".format(email))
+        return data[0]['usuario_id']
+
+    def get_usuario_status(self, id):
+        data = self.execute_query("select usuario_id, usuario_login, usuario_senha, usuario_logado, usuario_email, usuario_status,\
+         usuario_caminho_foto, perfil_id from usuario where usuario_id = '{}' limit 1".format(id))
+        return data[0]['usuario_status']

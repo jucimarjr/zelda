@@ -6,3 +6,7 @@ app.config['JSON_ADD_STATUS'] = False
 @app.route('/cadastrar',methods=['POST'])
 def cadastrar():
     return UsuarioSignupNegocio.exibir()
+
+@app.route('/confirm/<token>')
+def confirm_email(token):
+	return UsuarioSignupNegocio.confirm(token = token);

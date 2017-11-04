@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        #container-canvas-ucd {
+            width: 100%;
+            overflow: auto;
+            max-height: 450px;
+        }
+        #container-canvas-ucd canvas {
+            width: 100%;
+            min-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+    <div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
+    <section>
+
+        <h1 id="1-objetivo"><a href="https://github.com/jucimarjr/zelda/1_objetivo">1</a> Objetivo</h1>
+
+    <p>Desenvolver um Sistema de autenticação, denominado Zelda, o qual é um protótipo para o Sistema SAMUS. Com a finalidade de levantar os principais pontos relacionados ao desenvolvimento do projeto real, no que tange tecnologias e documentações relacionadas. Para que a experiência de desenvolvimento seja a mais branda possível, de forma a não ocorrer atrasos inesperados por ausência de conhecimento de determinada tecnologia, ou até mesmo, necessidade de conhecimento de funcionamento de processos.</p>
+    <blockquote>
+    <p>Para acessar o código do projeto, <a href="https://github.com/jucimarjr/zelda">clique aqui</a></p>
+    </blockquote>
+
+    <h1 id="2-requisitos"><a href="#header-1">2.</a> Requisitos</h1>
+    <p>Os requisitos de um sistema são descrições dos serviços fornecidos pelo sistema e as suas restrições operacionais. Esses requisitos refletem as necessidades dos clientes de um sistema que ajuda a resolver algum problema, por exemplo, controlar um dispositivo, enviar um pedido ou encontrar informações (SOMMERVILLE,2011).</p>
+
+    <h2 id="21-não-funcionais"><a href="#header-2">2.1.<a href="nao_funcionais.html"> Não Funcionais</a></h2>
+    <p>São restrições aos serviços ou funções oferecidos pelo sistema. Incluem restrições de timing, restrições no processo de desenvolvimento e restrições im postas pelas normas (SOMMERVILLE,2011).</p>
+
+    <hr>
+    <h2 id="22-funcionais"><a href="#header-3">2.2</a> Funcionais</h2>
+    <p>Os requisitos funcionais são declarações que o sistema deve fornecer, de como o sistema deve reagir a entradas específicas e de como o sistema deve se comportar em determinadas situações (SOMMERVILLE,2011).</p>
+
+    <h2 id="221-usuário"><a href="#header-4">2.2.1.</a> Usuário</h2>
+    <p>São os requisitos funcionais com os quais o usuário interage diretamente, de tal forma que sua participação ativa é necessária para que alguma ação seja efetuada pelo sistema.</p>
+
+    <hr>
+
+    <h2 id="222-sistema"><a href="#header-4">2.2.2.</a> Sistema</h2>
+    <p>São os requisitos funcionais com os quais o usuário não interage diretamente, de modo que sua participação ativa não é necessária para que o sistema efetue alguma ação.</p>
+
+    <hr>
+
+    <h2 id="23-regras-de-negócio"><a href="#header-2">2.3. </a> Regras de Negócio</h2>
+
+
+    <p>Regra de Negócio (RN) é toda norma ou tudo aquilo que a lei ou o uso comum
+        determina a respeito de qualquer transação que envolve uma determinada organização.
+        Portanto, regra de negócio é uma diretriz destinada a regulamentar o comportamento do
+        negócio.
+        Sob a perspectiva de SI, regra de negócio é: "uma declaração que define ou restringe
+        algum aspecto do negócio". Neste contexto regras de negócio são usualmente
+        definidas como restrições ou metadados sobre operações de negócio, e também são
+        conhecidas como regras do domínio da aplicação, ou regras de minimundo. As RN expressam
+        declarações que são
+        "elementos-chave na definição das intenções e necessidades do negócio, ou
+        reflexões de como a organização trabalha ou como pretende trabalhar no
+        futuro" (SOMMERVILLE, 2011). Para mais informações <a href="/zelda/negocio.html">clique aqui</a>.</p>
+
+
+    <ul>
+    <li>Usuário
+        <ul>
+        <li>O usuário poderá fazer login;
+            <ul>
+            <li>Enquanto o usuário estiver logado, poderá fazer logout;</li>
+            </ul>
+        </li>
+        <li>O usuário poderá visualizar seus dados;</li>
+        </ul>
+    </li>
+    <li>Administrador
+        <ul>
+        <li>O administrador poderá fazer login;
+            <ul>
+            <li>Enquanto o administrador estiver logado, poderá fazer logout.</li>
+            </ul>
+        </li>
+        <li>O administrador poderá visualizar seus dados;</li>
+        <li>O administrador poderá listar usuários;
+            <ul>
+            <li>Nesta lista, o administrador poderá cadastrar, editar e desativar um ou mais usuários.</li>
+            </ul>
+        </li>
+        <li>O administrador poderá listar funcionários;
+            <ul>
+            <li>Nesta lista, o administrador poderá cadastrar, editar e desativar um ou mais funcionários.</li>
+            </ul>
+        </li>
+        <li>O administrador poderá listar setores;
+            <ul>
+            <li>Nesta lista, o administrador poderá cadastrar, editar e desativar um ou mais setores.</li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>
+
+    <hr>
+
+    <h2 id="24--diagrama-de-casos-de-uso"><a href="#header-2">2.4. </a> Diagrama de Casos de Uso</h2>
+
+    <!-- Essa div deve existir ao redor do canvas para o scrollbar -->
+	<div id="container-canvas-ucd">
+		<!-- A largura e altura inicial do grid do canvas deve ser igual � da imagem de fundo para melhor resolu��o ao alterar o tamanho da tela-->
+		<canvas id="ucd-canvas" width="1698" height="1158" onmousemove="getCursorPosition(event)" onclick="getCursorPosition(event)"></canvas>
+	</div>
+
+    <h3 id="241--atores-do-sistema"><a href="#header-2">2.4.1 </a> Atores do Sistema</h3>
+
+    <ul>
+    <li>
+        <p><strong>Administrador</strong>:  Usuário do sistema que possui acesso às funcionalidades de CRUD do sistema, incluindo o CRUD para as tabelas de Usuário, Funcionário e Setor.</p>
+    </li>
+    <li>
+        <p><strong>Usuário comum</strong>: Usuário do sistema que, por enquanto, apenas pode visualizar seus dados após ser autenticado pelo sistema.</p>
+    </li>
+    </ul>
+
+    <h3 id="242--casos-de-uso"><a href="#header-2">2.4.2 </a> Casos de Uso</h3>
+    <p> Segundo Ivar Jacobson, podemos dizer que um caso de uso é um "documento narrativo que descreve a sequência de eventos de um ator que usa um sistema para completar um processo"</p>
+
+    <ul>
+    <li><a href="caso_de_uso.html?id=uc004" target="_blank">Cadastrar Funcionário</a></li>
+    <li><a href="caso_de_uso.html?id=uc008" target="_blank">Cadastrar Setor</a></li>
+    <li><a href="caso_de_uso.html?id=uc012" target="_blank">Cadastrar Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc005" target="_blank">Editar Funcionário</a></li>
+    <li><a href="caso_de_uso.html?id=uc009" target="_blank">Editar Setor</a></li>
+    <li><a href="caso_de_uso.html?id=uc013" target="_blank">Editar Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc003" target="_blank">Listar Funcionários</a></li>
+    <li><a href="caso_de_uso.html?id=uc007" target="_blank">Listar Setores</a></li>
+    <li><a href="caso_de_uso.html?id=uc011" target="_blank">Listar Usuários</a></li>
+    <li><a href="caso_de_uso.html?id=uc010" target="_blank">Desativar Setor</a></li>
+    <li><a href="caso_de_uso.html?id=uc006" target="_blank">Desativar Funcionário</a></li>
+    <li><a href="caso_de_uso.html?id=uc014" target="_blank">Remover Usuário</a></li>
+    <li><a href="caso_de_uso.html?id=uc015" target="_blank">Login</a></li>
+    <li><a href="caso_de_uso.html?id=uc016" target="_blank">Logout</a></li>
+    <li><a href="caso_de_uso.html?id=uc017" target="_blank">Visualizar Dados de Usuário</a></li>
+    </ul>
+
+    <hr>
+
+    <h2 id="3-análise-e-projeto"><a href="#header-2">3.</a> Análise e Projeto</h2>
+
+    <p>Abrange o conjunto de princípios, conceitos e práticas que levam ao desenvolvimento de um sistema ou produto de alta qualidade(PRESSMAN, 2016). </p>
+    <h3><a href="#header-2">3.1</a><a href="diagrama de classes\ER_Zelda.png"> Diagrama Entidade - Relacionamento Pé-de-Galinha</a></h3>
+
+    <p>Um Diagrama Entidade - Relacionamento, também conhecido como Diagrama ER, é a representação gráfica de um Modelo Entidade - Relacionamento (MER). Seu propósito é o de facilitar a comunicação entre os integrantes das equipes, pois utiliza-se uma linguagem mais comum, informal entre o analista e os desenvolvedores. </p>
+    <h3><a href="#header-2">3.2</a> Tabelas</h2>
+    <ul>
+        <li><a href="setor.html">Tabela do Setor</a></li>
+        <li><a href="usuario.html">Tabela do Usuário</a></li>
+        <li><a href="funcionario.html">Tabela do Funcionário</a></li>
+        <li><a href="perfil.html">Tabela de Perfil</a></li>
+        <li><a href="sistema.html">Tabela de Sistema</a></li>
+        <li><a href="funcionalidade.html">Tabela de Funcionalidade</a></li>
+        <li><a href="permissao.html">Tabela de Permissão</a></li>
+    </ul>
+
+    <hr>
+
+    <h2 id="4-implementação"><a href="#header-2">4. </a>Implementação</h2>
+
+    <p>Na sua versão atual, o sistema contém 6(seis) telas, que compõem o módulo Zelda. Onde estas são:</p>
+
+    <ul>
+    <li><a href="images/login_page.png">Login</a></li>
+    <li><a href="images/main_page_administrador.png">Administrador</a></li>
+    <li><a href="images/main_page_usuario.png">Usuário</a></li>
+    <li><a href="images/cadastrar_funcionarios.png">Cadastro de funcionários</a></li>
+    <li><a href="images/cadastrar_setor.png">Cadastro de setor</a></li>
+    <li><a href="images/cadastrar_usuario.png">Cadastro de usuário</a></li>
+    <li><a href="images/tabela_de_funcionarios.png">Listagem de funcionários</a></li>
+    <li><a href="images/tabela_de_setores.png">Listagem de setores</a></li>
+    <li><a href="images/tabela_de_usuarios.png">Listagem de usuários</a></li>
+    </ul>
+
+    <p>Segue abaixo a iteração entre as telas do sistema.</p>
+
+    <p><img src="images/Diagrama.png?raw=true" alt=""></p>
+
+    <hr>
+
+    <h2><a href="#header-2">5.</a> Diagramas de Classes</h2>
+
+    <p>Um Diagrama de Classes é uma representação gráfica que tem como objetivo descrever o objeto e as informações de estruturas usadas pelo seu aplicativo internamente e a comunicação com seus usuários. Suas classes e relações podem ser implementadas de várias maneiras, como tabelas de banco de dados ou composições de objetos de software.</p>
+    <ul>
+        <li><a href="diagrama de classes\classes_da_camada_negocio.png">Classes de Negocio</a></li>
+        <li><a href="diagrama de classes\classes_da_camada_de_fronteira.png">Classes da Camada de Fronteira</a></li>
+        <li><a href="diagrama de classes\classes_da_camada_de_entidade.png">Classes da Camada de Entidade</a></li>
+        <li><a href="diagrama de classes\classe_da_camada_de_conexao_com_o_banco_de_ados.png">Classes da Camada de Conexão com Banco de Dados</a></li>
+				<li><a href="diagrama de classes\classe_funcionario_crud.jpg">Diagrama Exemplo de CRUD</a></li>
+
+    </ul>
+
+    <hr>
+
+    <h2 id="6-planejamento-e-gerência"><a href="#header-2">6. </a>Planejamento e Gerência</h2>
+    <h3 id="61-interações"><a href="#header-3">6.1. </a>Iterações</h3>
+    <ul>
+        <li><a href="https://docs.google.com/spreadsheets/d/1ga7FUHW1fwXJ-QKw07dC1fTgyU7mx4D7mlef2r9M1uc/edit#gid=0">Iteração</a></li>
+    </ul>
+    <h3 id="52"></h3>
+
+    <hr>
+
+		<h2 id="7-teste"><a href="#header-2">7. </a>Teste do Sistema</h2>
+    <h3 id="71-teste-funcional"><a href="#header-3">7.1. </a>Teste Funcional</h3>
+		<p>Teste funcional é uma técnica utilizada para se projetarem casos de teste na qual o programa ou sistema é considerado uma caixa-preta(DELAMARO, 2016).</p>
+		<ul>
+			<li>O software deve fazer o que se propõe a fazer.</li>
+		</ul>
+		<ul>
+			<li>O software deve realizar tarefas específicas corretamente</li>
+		</ul>
+		<p>Assim, temos que, para os usuários de software, qualidade se refere ao software executar o que foi definido e de forma correta e satisfatória.</p>
+    <ul>
+        <li><a href="">Resultado Teste Funcional</a></li>
+    </ul>
+
+		<h3 id="72-teste-de-regrecao"><a href="#header-3">7.2 </a>Teste de Regreção</h3>
+		<p>O teste de regressão é uma técnica do teste de software que consiste na aplicação de versões mais recente do software, para garantir que não surgiram novos defeitos em componentes já analisados. Se, ao juntar o novo componente ou as suas alterações com os componentes restantes do sistema surgirem novos defeitos em componentes inalterados, então considera-se que o sistema regrediu.</p>
+		<ul>
+				<li><a href="">Resultado Teste de Regreção</a></li>
+		</ul>
+		<p>Assim, temos que, para os usuários de software, qualidade se refere ao software executar o que foi definido e de forma correta e satisfatória.</p>
+
+		<h3 id="73-teste-de-aceitacao"><a href="#header-3">7.3 </a>Teste de Aceitação do Usuário</h3>
+		<p>O teste de aceitação é a última ação de teste antes da implantação do software. A meta do teste de aceitação é verificar se o software está pronto e pode ser usado pelos usuários finais para executar as funções e as tarefas para as quais foi criado.</p>
+		<ul>
+				<li><a href="">Resultado Teste de Aceitação do Usuário</a></li>
+		</ul>
+
+
+		<hr>
+
+
+    <p><img src="http://www.cdn.ueg.br/source/mobilidade_nacional_211/noticias/31283/uea.png" alt=""></p>
+    </section>
+    </div>
+    </div>
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="assets/js/ucd-canvas-script.js"></script>
+</body>
+</html>

@@ -22,24 +22,20 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-3">
-                    {% if funcionalidades[0] %}
-                    <div class="btn-dropdown dropup">
-                        <button type="button" class="btn dropdown-toggle uea-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Funcionalidades
-                        </button>
-                        <div class="dropdown-menu">
-                          {% for func in funcionalidades %}
-                              <a class="dropdown-item" href="{{func.caminho}}">{{func.nome}}</a>
-                          {% endfor %}
-                        </div>
+            </div>
+            <div class="row justify-content-center mt-4 mx-5">
+                {% if funcionalidades[0] %}
+                    {% for func in funcionalidades %}
+                    <div class="col-md-2 mt-4 mb-4 text-center">
+                        <a class="waves-effect waves-light uea-dark btn-lg my-btn-floating" href="{{func.caminho}}"><i class="fa fa-android" aria-hidden="true"></i></a>
+                        <p>{{func.nome}}</p>
                     </div>
-                    {% else %}
-                        <p class="text-center">
-                            Você não tem acesso a nenhuma funcionalidade
-                        </p>
-                    {% endif %}
-                </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center">
+                        Você não tem acesso a nenhuma funcionalidade
+                    </p>
+                {% endif %}
             </div>
         </div>
     </div>

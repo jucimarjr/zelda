@@ -14,7 +14,7 @@
                         <div class="image-cropper mx-auto d-flex justify-content-center z-depth-1">
                             <img id="user-img" class="img-responsive"
                             {% if usuario.get_caminho_foto() %}
-                            src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.get_caminho_foto()}}">
+                            src="{{url_for('static', filename='images/usuarios/')}}{{usuario.get_caminho_foto()}}">
                             {% else %}
                             src="{{url_for('static', filename='assets/user_profile.jpg')}}">
                             {% endif %}

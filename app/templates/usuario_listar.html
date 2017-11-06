@@ -19,7 +19,8 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Login</th>
-                                    <th>Tipo</th>
+                                    <th>Perfil</th>
+                                    <th>Status</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -32,6 +33,7 @@
                                     <td>{{usuario.get_id()}}</td>
                                     <td>{{usuario.login}}</td>
                                     <td>{{usuario.get_perfil().nome}}</td>
+                                    <td>{{usuario.get_status_texto()}}</td>
                                     <td class="my-icon-td">
                                         <a href="{{url_for('usuario_editar', user_id=usuario.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>

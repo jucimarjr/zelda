@@ -6,7 +6,6 @@ class Setor:
         self.__setor_id = None
         self.__pai = None
         self.__situacao = 0
-        self.__situacao = 0
         self.nome = ''
         self.__pai = None
 
@@ -29,6 +28,14 @@ class Setor:
     def get_situacao(self):
         return self.__situacao
 
+    def get_situacao_texto(self):
+        if self.__situacao == 0:
+            return 'Ativado'
+        elif self.__situacao == 1:
+            return 'Desativado'
+        
+        return 'Indefinido'
+
     def set_pai(self, pai):
         if pai is Setor and pai.get_id() is not None:
             self.__pai = pai.get_id()
@@ -36,7 +43,7 @@ class Setor:
     def desativa(self):
         if self.__situacao != -1:
             self.__situacao = 1
-            db.deleta_setor(self.__setor_id)
+            db.desativa_setor(self.__setor_id)
 
     def salva(self):
         if self.__setor_id is not None:

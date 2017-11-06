@@ -55,7 +55,7 @@ class SetorInterface:
 
         self.execute_query("update setor set setor_nome = '{}', setor_pai = {} where setor_id = '{}'".format(setor.nome, setor_pai, setor.get_id()), True)
 
-    def deleta_setor(self, setor_id):
+    def desativa_setor(self, setor_id):
         self.execute_query("update setor set setor_situacao = 1  where setor_id = '{}'".format(setor_id), True)
 
     def get_setor(self, setor_id):
@@ -65,12 +65,3 @@ class SetorInterface:
             return None
 
         return data[0]
-
-        #setores = []
-        #for d in data:
-        #    setor = Setor(
-        #            id=d["setor_id"],
-        #            nome=d["setor_nome"],
-        #            situacao=d["setor_situacao"])
-        #    setores.append(setor)
-        #return setores[0]

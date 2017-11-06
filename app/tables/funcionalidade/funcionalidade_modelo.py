@@ -33,9 +33,17 @@ class Funcionalidade:
     
     def get_codigo(self):
         return self.__codigo
-    
+
     def get_status(self):
         return self.__status
+    
+    def get_status(self):
+        if self.__status == 0:
+            return 'Ativado'
+        elif self.__status == 1:
+            return 'Desativado'
+        
+        return 'Indefinido'
 
     def desativa(self):
         if self.__status == 0:

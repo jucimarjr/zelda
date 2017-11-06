@@ -32,6 +32,14 @@ class Usuario:
     def get_status(self):
         return self.__status
 
+    def get_status_texto(self):
+        if self.__status == 0:
+            return 'Não confirmado'
+        elif self.__status == 1:
+            return 'Confirmado'
+        
+        return 'Indefinido'
+
     def get_perfil(self):
         return self.__perfil
 

@@ -25,6 +25,14 @@ class Sistema:
 
 	def get_status(self):
 		return self.__status
+	
+	def get_status_texto(self):
+		if self.__status == 0:
+			return 'Ativado'
+		elif self.__status == 1:
+			return 'Desativado'
+		
+		return 'Indefinido'
 
 	def desativa(self):
 		if self.__status == 0:

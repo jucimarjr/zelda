@@ -10,13 +10,15 @@
         <div class="row" id="home-main-div">
             <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
                 <div class="card w-100">
-                    <div class="text-center card-profile-image w-100">
-                        <img id="user-img" class="img-responsive z-depth-1"
+                    <div class="card-profile-image w-100">
+                        <div class="image-cropper mx-auto d-flex justify-content-center z-depth-1">
+                            <img id="user-img" class="img-responsive"
                             {% if usuario.caminho_foto %}
-                                src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.caminho_foto}}">
+                            src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.caminho_foto}}">
                             {% else %}
-                                src="{{url_for('static', filename='assets/user_profile.jpg')}}">
+                            src="{{url_for('static', filename='assets/user_profile.jpg')}}">
                             {% endif %}
+                        </div>
                     </div>
                     <div class="card-body mt-5">
                         <h4 class="card-title">Seus Dados</h4>
@@ -24,11 +26,32 @@
                             <li class="list-group-item"><span><strong>Id:</strong></span> {{usuario.get_id()}}</li>
                             <li class="list-group-item"><span><strong>Login:</strong></span> {{usuario.login}}</li>
                             <li class="list-group-item"><span><strong>Email:</strong></span> {{usuario.email}}</li>
+                            <li class="list-group-item"><span><strong>Situação:</strong></span> {{usuario.get_status_texto()}}</li>
                         </ul>
                     </div>
                 </div>
+
+                {% if usuario.get_status() == 0 %}
+                    <hr>
+                    <h4 class="mt-4">Usuário não confirmado</h4>
+                    <p>
+                        Você ainda não tem um email confirmado cadastrado para acessar as funcionalidades do Zelda.
+                    </p>
+                    <p>
+                        Deseja enviar um novo email de confirmação?
+                    </p>
+                    <form class="form" method="post" action="">
+                        <input hidden value="{{usuario.get_id()}}">
+                        <div class="md-form">
+                            <input class="form-control" id="email-input" type="email">
+                            <label for="email-input">Seu e-mail</label>
+                        </div>
+                        <button class="uea-light btn">Enviar</button>
+                    </form>
+                {% endif %}
             </div>
         </div>
+        {% if usuario.get_status() != 0 %}
         <div class="row justify-content-center">
             <div class="mx-auto col-10 col-md-11 col-lg-9 mt-4">
                 <div class="row no-gutters">
@@ -56,5 +79,6 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 {% endblock %}

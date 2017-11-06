@@ -33,6 +33,14 @@ class Funcionario:
     def get_situacao(self):
         return self.__situacao
 
+    def get_situacao_texto(self):
+        if self.__situacao == 0:
+            return 'Ativado'
+        elif self.__situacao == 1:
+            return 'Desativado'
+        
+        return 'Indefinido'
+
     def get_setor(self):
         if self.__lotacao is None:
             return None

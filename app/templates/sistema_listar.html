@@ -33,13 +33,7 @@
                                 <td>{{sistema.nome}}</td>
                                 <td>{{sistema.desc}}</td>
                                 <td>{{sistema.prefixo}}</td>
-                                <td>
-                                    {% if sistema.get_status() == 1 %}
-                                    Desativado
-                                    {% else %}
-                                    Ativo
-                                    {% endif %}
-                                </td>
+                                <td>{{sistema.get_status_texto()}}</td>
                                 <td class="my-icon-td">
                                     <a href="" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>

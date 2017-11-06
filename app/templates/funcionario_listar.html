@@ -38,13 +38,7 @@
                                             Nenhum
                                         {% endif %}
                                     </td>
-                                    <td>
-                                        {% if funcionario.get_situacao() == 1 %}
-                                            Desativado
-                                        {% else %}
-                                            Ativo
-                                        {% endif %}
-                                    </td>
+                                    <td>{{funcionario.get_situacao_texto()}}</td>
                                     <td class="my-icon-td">
                                         <a href="{{url_for('funcionario_editar', func_id=funcionario.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>

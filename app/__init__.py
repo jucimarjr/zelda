@@ -17,4 +17,5 @@ mail = Mail(app)
 app.config['FUNCIONARIOS_UPLOAD_PATH'] = FUNCIONARIOS_UPLOAD_PATH
 app.config['USUARIOS_UPLOAD_PATH'] = USUARIOS_UPLOAD_PATH
 
+from app import cursor
 from app import views

@@ -30,13 +30,7 @@
                                 <tr>
                                     <td>{{setor.get_id()}}</td>
                                     <td>{{setor.nome}}</td>
-                                    <td>
-                                        {% if setor.get_situacao() == 1 %}
-                                            Desativado
-                                        {% else %}
-                                            Ativo
-                                        {% endif %}
-                                    </td>
+                                    <td>{{setor.get_situacao_texto()}}</td>
                                     <td class="my-icon-td">
                                         <a href="{{url_for('setor_editar', setor_id=setor.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>

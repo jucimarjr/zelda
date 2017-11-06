@@ -36,7 +36,7 @@ class FuncionalidadeInterface:
         return data
 
     def edita_funcionalidade(self, funcionalidade):
-        self.execute_query("update funcionalidade set funcionalidade_nome = '{}', funcionalidade_codigo = '{}', funcionalidade_desc = '{}' where funcionalidade_id = '{}'".format(funcionalidade.nome, funcionalidade.codigo, funcionalidade.desc, funcionalidade.get_id()), True)
+        self.execute_query("update funcionalidade set funcionalidade_nome = '{}', funcionalidade_codigo = '{}', funcionalidade_desc = '{}' where funcionalidade_id = '{}'".format(funcionalidade.nome, funcionalidade.get_codigo(), funcionalidade.desc, funcionalidade.get_id()), True)
 
     def desativa_funcionalidade(self, funcionalidade_id):
         self.execute_query("update funcionalidade set funcionalidade_status = 1 where funcionalidade_id = '{}'".format(funcionalidade_id), True)

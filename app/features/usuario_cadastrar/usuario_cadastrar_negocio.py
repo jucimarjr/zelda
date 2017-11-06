@@ -40,7 +40,6 @@ class UsuarioCadastrarNegocio:
                 if allowed_file(filename):
                     usuario.caminho_foto = str(usuario.get_id()) + '.' + filename.rsplit('.',1)[1]
                     path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], usuario.caminho_foto))
-                    
                     form.file.data.save(path)
                 else:
                     flash("Os formatos da foto são restritos a png, jpg e jpeg")

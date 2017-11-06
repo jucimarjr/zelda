@@ -9,32 +9,51 @@
     <div class="container">
         <div class="row" id="home-main-div">
             <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-                <div class="card mx-auto">
+                <div class="card w-100">
                     <div class="text-center card-profile-image w-100">
-                        <img id="user-img" class="img-responsive z-depth-1" src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.caminho_foto}}">
+                        <img id="user-img" class="img-responsive z-depth-1"
+                            {% if usuario.caminho_foto %}
+                                src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.caminho_foto}}">
+                            {% else %}
+                                src="{{url_for('static', filename='assets/user_profile.jpg')}}">
+                            {% endif %}
                     </div>
                     <div class="card-body mt-5">
                         <h4 class="card-title">Seus Dados</h4>
                         <ul class="list-group">
                             <li class="list-group-item"><span><strong>Id:</strong></span> {{usuario.get_id()}}</li>
                             <li class="list-group-item"><span><strong>Login:</strong></span> {{usuario.login}}</li>
+                            <li class="list-group-item"><span><strong>Email:</strong></span> {{usuario.email}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center mt-4 mx-5">
-                {% if funcionalidades[0] %}
-                    {% for func in funcionalidades %}
-                    <div class="col-md-2 mt-4 mb-4 text-center">
-                        <a class="waves-effect waves-light uea-dark btn-lg my-btn-floating" href="{{func.caminho}}"><i class="fa fa-android" aria-hidden="true"></i></a>
-                        <p>{{func.nome}}</p>
-                    </div>
-                    {% endfor %}
-                {% else %}
+        </div>
+        <div class="row justify-content-center">
+            <div class="mx-auto col-10 col-md-11 col-lg-9 mt-4">
+                <div class="row no-gutters">
+                    {% if funcionalidades|length > 0 %}
+                        {% for func in funcionalidades %}
+                        <div class="col-12 col-sm-6 col-lg-4 mb-1">
+                            <a href="{{func.caminho}}">
+                                <div class="menu-item text-center uea-light waves-effect waves-light menu-item d-flex flex-column">
+
+                                    {% if func.caminho_imagem %}
+                                        <img class="mx-auto" src="{{func.caminho_imagem}}" aria-hidden="true">
+                                    {% else %}
+                                        <i class="fa fa-list-alt mx-auto" aria-hidden="true"></i>
+                                    {% endif %}
+                                    <span class="mt-auto">{{func.nome}}</span>
+                                </div>
+                            </a>                        
+                        </div>
+                        {% endfor %}
+                    {% else %}
                     <p class="text-center">
                         Você não tem acesso a nenhuma funcionalidade
                     </p>
-                {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

@@ -37,7 +37,7 @@ class Funcionalidade:
     def get_status(self):
         return self.__status
     
-    def get_status(self):
+    def get_status_texto(self):
         if self.__status == 0:
             return 'Ativado'
         elif self.__status == 1:

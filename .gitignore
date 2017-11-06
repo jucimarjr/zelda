@@ -100,8 +100,8 @@ ENV/
 # mypy
 .mypy_cache/
 
-*/flask_linux/*
-*/flask_windows/*
+**/flask_linux/**
+**/flask_windows/**
 
 # Configs do BD pessoal
-*cursor.py
+**/cursor.py

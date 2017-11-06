@@ -72,3 +72,11 @@ class Usuario:
             self.__usuario_id = db.cadastra_usuario(self)
         else:
             db.edita_usuario(self)
+
+    def pode_acessar(self, funcionalidade):
+        if funcionalidade.get_id() is not None:
+            for f in self.get_perfil().get_funcionalidades():
+                if f.get_id() == funcionalidade.get_id():
+                    return True
+        
+        return False

@@ -35,6 +35,10 @@ class FuncionalidadeInterface:
         data = self.execute_query('''select funcionalidade_id from funcionalidade''')
         return data
 
+    def get_funcionalidade_id_por_caminho(self, caminho):
+        data = self.execute_query("select funcionalidade_id from funcionalidade where funcionalidade_caminho = '{}'".format(caminho))
+        return data
+
     def edita_funcionalidade(self, funcionalidade):
         self.execute_query("update funcionalidade set funcionalidade_nome = '{}', funcionalidade_codigo = '{}', funcionalidade_desc = '{}' where funcionalidade_id = '{}'".format(funcionalidade.nome, funcionalidade.get_codigo(), funcionalidade.desc, funcionalidade.get_id()), True)
 

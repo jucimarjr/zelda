@@ -28,9 +28,19 @@
                     <form class="form" action="" method="post">
                         {{form.hidden_tag()}}
 
-                        <div class="md-form mt-3">
-                            <label for="nome-input">Nome do Sistema</label>
+                        <div class="md-form">
                             {{form.sistema_nome(class_='form-control', id='nome-input')}}
+                            <label for="nome-input">Nome</label>
+                        </div>
+
+                        <div class="md-form">
+                            {{form.sistema_prefixo(class_='form_control', id='prefixo-input')}}
+                            <label for="prefixo-input">Prefixo</label>
+                        </div>
+
+                        <div class="md-form">
+                            {{form.sistema_desc(class_='md-textarea', id='desc-input')}}
+                            <label for="desc-input">Descrição</label>
                         </div>
 
                         <button type="submit" class="btn uea-light">Salvar</button>

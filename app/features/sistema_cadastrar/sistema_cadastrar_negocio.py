@@ -1,7 +1,6 @@
 from .sistema_cadastrar_form import CadastrarSistemaForm
 from ...tables.sistema.sistema_modelo import Sistema
 from ...utils.flash_errors import flash_errors
-from ...utils.zelda_modelo import ZeldaModelo
 
 from flask import render_template, flash, redirect, url_for
 
@@ -16,7 +15,6 @@ class SistemaCadastrarNegocio:
             sistema.nome = form.sistema_nome.data
             sistema.desc = form.sistema_desc.data
             sistema.prefixo = form.sistema_prefixo.data
-            sistema.status = form.sistema_status.data
 
 
             sistema.salva()

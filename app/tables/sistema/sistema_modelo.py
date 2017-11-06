@@ -8,7 +8,7 @@ class Sistema:
 		self.nome = None
 		self.desc = None
 		self.__status = 0
-		prefixo = None
+		self.prefixo = None
 
 		if sistema_id is not None:
 			data = db.get_sistema(sistema_id)
@@ -44,7 +44,7 @@ class Sistema:
 			self.__status = 0
 			db.ativa_sistema(self.get_id())
 
-	def salva():
+	def salva(self):
 		if self.__sistema_id is not None:
 			db.edita_sistema(self)
 		else:

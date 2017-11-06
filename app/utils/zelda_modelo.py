@@ -73,3 +73,15 @@ class ZeldaModelo:
             result.append(sistema)
 
         return result
+
+    @staticmethod
+    def pesquisa_funcionalidade(caminho):
+        data = db.get_funcionalidade_id_por_caminho(caminho)
+        if len(data) < 1:
+            return None
+
+        funcionalidade = Funcionalidade(data[0]['funcionalidade_id'])
+        if funcionalidade.get_id() is None:
+            return None
+
+        return funcionalidade

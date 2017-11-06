@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container">
     <div class="row mt-3">
-        <div class="col col-md-10 col-lg-6 mx-auto">
+        <div class="col col-md-10 col-lg-8 mx-auto">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Lista de Sistemas</h4>
@@ -35,7 +35,7 @@
                                 <td>{{sistema.prefixo}}</td>
                                 <td>{{sistema.get_status_texto()}}</td>
                                 <td class="my-icon-td">
-                                    <a href="" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                    <a href="{{url_for('sistema_editar', sistema_id = sistema.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
                                 </td>
@@ -56,10 +56,9 @@
                             </tbody>
                         </table>
                         <!-- Adicianar botão flutuante -->
-                        <!-- Adicionar uma "{" antes do url_for quando sistema_cadastrar estiver pronto -->
-                        <!-- <a href="{url_for('sistema_cadastrar')}}" class="waves-effect waves-light green btn-lg my-btn-floating my-btn-fixed">
+                        <a href="{{url_for('sistema_cadastrar')}}" class="waves-effect waves-light green btn-lg my-btn-floating my-btn-fixed">
                             <i class="fa fa-plus"></i>
-                        </a>-->
+                        </a>
                     </div>
                 </div>
             </div>

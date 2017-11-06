@@ -7,7 +7,6 @@
 
 {% block content %}
 
-<body>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
@@ -30,6 +29,11 @@
                             <div class="md-form">
                                 {{form.sistema_nome(class_='form-control', id='nome-input')}}
                                 <label for="nome-input">Nome</label>
+                            </div>
+
+                            <div class="md-form">
+                                {{form.sistema_prefixo(class_='form_control', id='prefixo-input')}}
+                                <label for="prefixo-input">Prefixo</label>
                             </div>
 
                             <div class="md-form">

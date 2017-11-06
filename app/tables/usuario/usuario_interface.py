@@ -68,3 +68,6 @@ class UsuarioInterface:
 
     def edita_usuario_caminho_foto(self, usuario):
         self.execute_query("update usuario set usuario_caminho_foto = '{}' where usuario_id = '{}'".format(usuario.get_caminho_foto(), usuario.get_id()), True)
+
+    def set_usuario_senha(self, id, senha):
+        self.execute_query("update usuario set usuario_senha = '{}' where usuario_id = '{}'".format(senha, id), True)

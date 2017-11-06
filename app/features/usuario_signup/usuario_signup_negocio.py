@@ -19,10 +19,10 @@ class UsuarioSignupNegocio:
 
 		if form.validate_on_submit():
 			if db.verifica_existe_email(form.signup_email.data) is not False:
-				return json_response(mensagem="Email ja cadastrado no sistema")
+				return json_response(mensagem="Email ja cadastrado no sistema", tipo = "warning")
 
 			if db.verifica_existe_login(form.signup_login.data) is not False:
-				return json_response(mensagem="Login já cadastrado no sistema")
+				return json_response(mensagem="Login já cadastrado no sistema", tipo = "warning")
 
 			usuario = Usuario()
 			usuario.login = form.signup_login.data
@@ -44,9 +44,9 @@ class UsuarioSignupNegocio:
 			with app.app_context():
 				mail.send(msg)
 
-			return json_response(mensagem="Um email foi enviado para o endereço \"{}\". Confirme sua conta.".format(usuario.email))
+			return json_response(mensagem="Um email foi enviado para o endereço \"{}\". Confirme sua conta.".format(usuario.email), tipo = "success")
 		else:
-			return json_response(mensagem=return_errors(form))
+			return json_response(mensagem=return_errors(form), tipo = "danger")
 
 	def confirm(token):
 		try:

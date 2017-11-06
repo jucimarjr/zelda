@@ -67,9 +67,13 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-center mb-1">
-                                Não tem uma conta? 
+                                Não tem uma conta?
                                 <a href="#" data-toggle="modal" data-target="#modalRegisterForm">Cadastre-se!</a>
                             </div>
+							<div class="text-center mb-1">
+								<p><a href="/reset">Esqueci minha senha!</a></p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -139,6 +143,7 @@
                     $('#form_signup').serialize(),
                     function(data) {
                         // Use este data para exibir as respostas do servidor ao usuário
+						$.simplyToast(data.mensagem, data.tipo);
                         console.log(data);
                     },
                     'json');

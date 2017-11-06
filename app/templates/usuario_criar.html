@@ -25,20 +25,25 @@
                 <div class="card-body">
 
                     <h4 class="card-title">Cadastrar novo usuário</h4>
-                    
+
                     <form  action="" class="form" method="POST" enctype="multipart/form-data">
                         {{form.hidden_tag()}}
-        
+
                         <div class="md-form">
                             {{form.usuario_login(class_='form-control', id='login-input')}}
                             <label for="login-input">Login do Usuário</label>
                         </div>
-        
+
+                        <div class="md-form">
+                            {{form.usuario_email(class_='form-control', id='email-input')}}
+                            <label for="email-input">Email do Usuário</label>
+                        </div>
+
                         <div class="md-form">
                             {{form.usuario_senha(class_='form-control', id='password-input')}}
                             <label for="password-input">Senha</label>
                         </div>
-                    
+
                         <label>Perfil do Usuário</label>
                         <div class="form-group mb-1">
                             {{form.usuario_perfil(class_='form-control', id='perfil-input')}}
@@ -49,7 +54,7 @@
                             {{ form.file }}
                         </div>
 
-                        <button type="submit" class="btn uea-light">Cadastrar</button> 
+                        <button type="submit" class="btn uea-light">Cadastrar</button>
                         <a href="{{url_for('usuario_listar')}}">
                             <button type="button" class="btn btn-flat">Cancelar</button>
                         </a>

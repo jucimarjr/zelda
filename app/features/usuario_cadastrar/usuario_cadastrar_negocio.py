@@ -8,19 +8,20 @@ from ...utils.zelda_modelo import ZeldaModelo
 from ...utils.files import flash_errors_extensao
 
 class UsuarioCadastrarNegocio:
-    
+
     def exibir():
 
         form = CadastrarUsuarioForm()
-        
+
         perfis = ZeldaModelo.lista_perfis()
 
         form.usuario_perfil.choices = [(p.get_id(),p.nome) for p in perfis]
-        
+
         if form.validate_on_submit():
             usuario = Usuario()
 
             usuario.login = form.usuario_login.data
+            usuario.email = form.usuario_email.data
             usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             usuario.set_perfil( Perfil(form.usuario_perfil.data) )
             usuario.salva()

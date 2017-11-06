@@ -5,9 +5,7 @@ from ..funcionalidade_cadastrar.funcionalidade_cadastrar_form import CadastrarFu
 from ...utils.flash_errors import flash_errors
 from ...utils.criptografador import Criptografador
 from ...utils.zelda_modelo import ZeldaModelo
-import os
-
-from app import app, ALLOWED_EXTENSIONS
+from ...utils.files import flash_errors_extensao
 
 class FuncionalidadeEditarNegocio:
     def exibir(funcionalidade_id):
@@ -35,9 +33,14 @@ class FuncionalidadeEditarNegocio:
             funcionalidade.desc = form.funcionalidade_desc.data
             funcionalidade.caminho = form.funcionalidade_caminho.data
             funcionalidade.set_sistema(form.funcionalidade_sistema.data)
-            # funcionalidade.codigo
-
             funcionalidade.salva()
+
+            if form.funcionalidade_imagem.data is not None:
+                funcionalidade.set_imagem(form.funcionalidade_imagem.data)
+                if funcionalidade.get_caminho_imagem() is None:
+                    flash_errors_extensao()
+                    return render_template('funcionalidade_editar.html', form=form)
+
             return redirect(url_for('funcionalidade_listar'))
         else:
             flash_errors(form)

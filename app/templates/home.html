@@ -13,8 +13,8 @@
                     <div class="card-profile-image w-100">
                         <div class="image-cropper mx-auto d-flex justify-content-center z-depth-1">
                             <img id="user-img" class="img-responsive"
-                            {% if usuario.caminho_foto %}
-                            src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.caminho_foto}}">
+                            {% if usuario.get_caminho_foto() %}
+                            src="{{url_for('static', filename='profiles/usuarios/')}}{{usuario.get_caminho_foto()}}">
                             {% else %}
                             src="{{url_for('static', filename='assets/user_profile.jpg')}}">
                             {% endif %}
@@ -61,8 +61,8 @@
                             <a href="{{func.caminho}}">
                                 <div class="menu-item text-center uea-light waves-effect waves-light menu-item d-flex flex-column">
 
-                                    {% if func.caminho_imagem %}
-                                        <img class="mx-auto" src="{{func.caminho_imagem}}" aria-hidden="true">
+                                    {% if func.get_caminho_imagem() %}
+                                        <img class="mx-auto" src="{{func.get_caminho_imagem()}}" aria-hidden="true">
                                     {% else %}
                                         <i class="fa fa-list-alt mx-auto" aria-hidden="true"></i>
                                     {% endif %}

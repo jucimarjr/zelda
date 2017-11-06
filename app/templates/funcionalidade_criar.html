@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Cadastrar nova funcionalidade</h4>
                         
-                        <form action="" class="form" method="POST">
+                        <form action="" class="form" method="POST" enctype="multipart/form-data">
                             {{form.hidden_tag()}}
         
                             <div class="md-form">
@@ -35,6 +35,11 @@
                             <div class="md-form">
                                 {{form.funcionalidade_caminho(class_='form-control', id='caminho-input')}}
                                 <label for="caminho-input">Caminho</label>
+                            </div>
+
+                            <label>Imagem</label>
+                            <div class="md-form">
+                                {{form.funcionalidade_imagem}}
                             </div>
         
                             <label for="sistema-input">Sistema</label>

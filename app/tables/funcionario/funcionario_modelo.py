@@ -9,7 +9,6 @@ class Funcionario:
         self.__situacao = 0
         self.__lotacao = None
         self.nome = None
-        #self.caminho_foto = None
 
         if funcionario_id is not None:
 

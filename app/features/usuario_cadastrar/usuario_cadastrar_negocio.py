@@ -5,15 +5,7 @@ from ...tables.usuario.usuario_modelo import Usuario
 from ...tables.perfil.perfil_modelo import Perfil
 from ...utils.criptografador import Criptografador
 from ...utils.zelda_modelo import ZeldaModelo
-import os
-
-from werkzeug import secure_filename
-from app import app, ALLOWED_EXTENSIONS
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+from ...utils.files import flash_errors_extensao
 
 class UsuarioCadastrarNegocio:
     
@@ -31,21 +23,13 @@ class UsuarioCadastrarNegocio:
             usuario.login = form.usuario_login.data
             usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             usuario.set_perfil( Perfil(form.usuario_perfil.data) )
-            
-            caminho_foto = None
-            if form.file.data is not None:
-                usuario.salva()
-                filename = secure_filename(form.file.data.filename)
-
-                if allowed_file(filename):
-                    usuario.caminho_foto = str(usuario.get_id()) + '.' + filename.rsplit('.',1)[1]
-                    path = os.path.abspath(os.path.join(app.config['USUARIOS_UPLOAD_PATH'], usuario.caminho_foto))
-                    form.file.data.save(path)
-                else:
-                    flash("Os formatos da foto são restritos a png, jpg e jpeg")
-                    return render_template('usuario_cadastrar.html', form = form)
-
             usuario.salva()
+
+            if form.file.data is not None:
+                usuario.set_foto(form.file.data)
+                if usuario.get_caminho_foto() is None:
+                    flash_errors_extensao()
+                    return render_template('usuario_criar.html', form=form)
 
             return redirect(url_for('usuario_listar'))
 

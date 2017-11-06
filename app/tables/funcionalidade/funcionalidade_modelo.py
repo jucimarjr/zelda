@@ -1,5 +1,7 @@
 from ...cursor import db
 from ..sistema.sistema_modelo import Sistema
+from app import app
+from ...utils.files import upload
 
 class Funcionalidade:
 
@@ -9,7 +11,7 @@ class Funcionalidade:
         self.__codigo = None
         self.__status = 0
         self.__sistema = None
-        self.caminho_imagem = None
+        self.__caminho_imagem = None
         self.nome = None
         self.desc = None
         self.caminho = None
@@ -23,7 +25,7 @@ class Funcionalidade:
                 self.nome = data['funcionalidade_nome']
                 self.desc = data['funcionalidade_desc']
                 self.caminho = data['funcionalidade_caminho']
-                self.caminho_imagem = data['funcionalidade_caminho_imagem']
+                self.__caminho_imagem = data['funcionalidade_caminho_imagem']
                 self.__status = data['funcionalidade_status']
 
                 self.set_sistema(data['sistema_id'])
@@ -36,6 +38,9 @@ class Funcionalidade:
 
     def get_status(self):
         return self.__status
+
+    def get_caminho_imagem(self):
+        return self.__caminho_imagem
     
     def get_status_texto(self):
         if self.__status == 0:
@@ -59,6 +64,13 @@ class Funcionalidade:
 
             self.__sistema = sistema
             self.__codigo = sistema.prefixo + str(self.get_id()) #melhorar
+
+    def set_imagem(self, arquivo_input):
+        if self.get_id() is not None:
+            caminho = upload(app.config['FUNCIONALIDADES_UPLOAD_PATH'], arquivo_input, self.get_id())
+            if caminho is not None:
+                self.__caminho_imagem = caminho
+                db.edita_funcionalidade_caminho_imagem(self)
 
     def salva(self):
         if self.get_id() is not None:

@@ -21,8 +21,8 @@ class UsuarioInterface:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()
 
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, usuario_caminho_foto, perfil_id)\
-         values ('{}', '{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, usuario.caminho_foto, perfil), True)
+        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, perfil_id)\
+         values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, perfil), True)
         data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
         return data[0]['last']
 
@@ -39,8 +39,8 @@ class UsuarioInterface:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()
 
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_email = '{}', usuario_caminho_foto = '{}', perfil_id = {}\
-         where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.email, usuario.caminho_foto, perfil, usuario.get_id()), True)
+        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_email = '{}', perfil_id = {}\
+         where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.email, perfil, usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
@@ -65,3 +65,6 @@ class UsuarioInterface:
     def get_usuario_status(self, id):
         data = self.execute_query("select usuario_status from usuario where usuario_id = '{}' limit 1".format(id))
         return data[0]['usuario_status']
+
+    def edita_usuario_caminho_foto(self, usuario):
+        self.execute_query("update usuario set usuario_caminho_foto = '{}' where usuario_id = '{}'".format(usuario.get_caminho_foto(), usuario.get_id()), True)

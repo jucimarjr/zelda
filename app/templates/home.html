@@ -49,11 +49,12 @@
                     <p>
                         Deseja enviar um novo email de confirmação?
                     </p>
-                    <form class="form" method="post" action="">
-                        <input hidden value="{{usuario.get_id()}}">
+                    <form class="form" method="post" action="{{url_for('enviar_email_confirmacao')}}">
+                        {{form.hidden_tag()}}
+                        {{form.usuario_id}}
                         <div class="md-form">
-                            <input class="form-control" id="email-input" type="email">
-                            <label for="email-input">Seu e-mail</label>
+                            {{form.email(_class='form-control')}}
+                            {{form.email.label}}
                         </div>
                         <button class="uea-light btn">Enviar</button>
                     </form>
@@ -81,7 +82,7 @@
                         </div>
                         {% endfor %}
                     {% else %}
-                    <p class="text-center">
+                    <p class="w-100 text-center">
                         Você não tem acesso a nenhuma funcionalidade
                     </p>
                     {% endif %}

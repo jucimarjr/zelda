@@ -22,17 +22,17 @@ class UsuarioCadastrarNegocio:
         if form.validate_on_submit():
 
             if db.verifica_existe_email(form.usuario_email.data) is not False:
-                flash("Email ja cadastrado no sistema.")
+                flash("Email já cadastrado no sistema.")
                 return render_template('usuario_criar.html', form=form)
-
 
             usuario = Usuario()
 
             usuario.login = form.usuario_login.data
             usuario.email = form.usuario_email.data
-            usuario.senha = Criptografador.gerar_hash(form.usuario_senha.data, '')
             usuario.set_perfil( Perfil(form.usuario_perfil.data) )
             usuario.salva()
+
+            usuario.set_senha(form.usuario_senha.data)
 
             if form.file.data is not None:
                 usuario.set_foto(form.file.data)

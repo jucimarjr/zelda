@@ -23,15 +23,15 @@ def verifica_permissao(f):
     return decorated_function
 
 def login_required(f):
-	@wraps(f)
-	def decorated_function(*args, **kwargs):
-		if sessao_expirada():
-			flash("Sessão expirada")
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if sessao_expirada():
+            flash("Sessão expirada")
 
-		if not sessao_ativa():
-			return redirect(url_for('login'))
+        if not sessao_ativa():
+            return redirect(url_for('login'))
 
-		make_session_permanent()
+        make_session_permanent()
 
-		return f(*args, **kwargs)
-	return decorated_function
+        return f(*args, **kwargs)
+    return decorated_function

@@ -3,6 +3,8 @@ from .features.home.home_front import *
 from .features.login.login_front import *
 from .features.logout.logout_front import *
 
+from .features.usuario_confirmar_email.usuario_confirmar_email_front import *
+
 from .features.funcionario_listar.funcionario_listar_front import *
 from .features.funcionario_cadastrar.funcionario_cadastrar_front import *
 from .features.funcionario_editar.funcionario_editar_front import *

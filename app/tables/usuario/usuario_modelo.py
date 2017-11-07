@@ -1,6 +1,7 @@
 from ...cursor import db
 from  ..perfil.perfil_modelo import Perfil
 from ...utils.files import upload
+from ...utils.criptografador import Criptografador
 from app import app
 
 class Usuario:
@@ -63,6 +64,10 @@ class Usuario:
             if caminho is not None:
                 self.__caminho_foto = caminho
                 db.edita_usuario_caminho_foto(self)
+
+    def set_senha(self, senha):
+        senhaHash = Criptografador.gerar_hash(senha, '')
+        db.altera_senha(self.get_id(), senhaHash)
 
     def deleta(self):
         db.deleta_usuario(self.get_id())

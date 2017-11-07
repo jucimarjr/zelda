@@ -24,19 +24,21 @@
 
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title">Recuperar Senha</h4>
-                    <p>Enviaremos um email para você recuperar sua senha.</p>
+                    <h4 class="card-title">Nova Senha</h4>
+                    <p>Insira sua nova Senha.</p>
+
                     <form class="form" action="" method="post">
                         <!-- Necessário para funcionamento do CSRF -->
                         {{form.hidden_tag()}}
 
-                        <div class="md-form">
-                            {{form.recupera_email(class_='form-control', id='email-input')}}
-                            <label class="" for="email-input">Email do Usuário</label>
+                        <div class="md-form mb-3">
+                            {{form.nova_senha(class_='form-control', id='password-input')}}
+                            <label class="" for="password-input">Nova Senha</label>
                         </div>
 
+
                         <div class="text-center">
-                            <button id="login-button" class="btn uea-light zelda-btn-round" type="submit">Enviar Email</button>
+                            <button id="login-button" class="btn uea-light zelda-btn-round" type="submit">Mudar Senha</button>
                         </div>
                     </form>
                 </div>

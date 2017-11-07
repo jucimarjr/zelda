@@ -33,14 +33,17 @@ class UsuarioInterface:
     def ativa_usuario(self, usuario_id):
         self.execute_query("update usuario set usuario_status = 1 where usuario_id = '{}'".format(usuario_id), True)
 
+    def altera_senha(self, usuario_id, senha):
+        self.execute_query("update usuario set usuario_senha = '{}' where usuario_id = '{}'".format(senha, usuario_id), True)        
+
     def edita_usuario(self, usuario):
         perfil = '2'
         if usuario.get_perfil() is not None:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()
 
-        self.execute_query("update usuario set usuario_login = '{}', usuario_senha = '{}', usuario_email = '{}', perfil_id = {}\
-         where usuario_id = '{}'".format(usuario.login, usuario.senha, usuario.email, perfil, usuario.get_id()), True)
+        self.execute_query("update usuario set usuario_login = '{}', usuario_email = '{}', perfil_id = {}\
+         where usuario_id = '{}'".format(usuario.login, usuario.email, perfil, usuario.get_id()), True)
 
     def deleta_usuario(self, usuario_id):
         self.execute_query("delete from usuario where usuario_id = '{}'".format(usuario_id), True)
@@ -51,7 +54,7 @@ class UsuarioInterface:
         return data
 
     def verifica_credenciais(self, login, senha):
-        data = self.execute_query("select usuario_id from usuario where usuario_status = '1' and usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
+        data = self.execute_query("select usuario_id from usuario where usuario_login = '{}' and usuario_senha = '{}'".format(login, senha))
         if len(data) < 1:
             return None
 

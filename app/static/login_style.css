@@ -54,7 +54,7 @@ html {
 
 #main-body {
     /* Ajuste aqui a altura mínima para o conteúdo da versão desktop da tela */
-    min-height: 470px;
+    min-height: 630px;
 }
 .btn-cadastrar{
     background-color: #00C851;
@@ -84,7 +84,7 @@ html {
 
     #main-body {    
         /* Ajuste aqui a altura mínima para o conteúdo da versão mobile da tela */
-        min-height: 565px;
+        min-height: 655px;
     }
 
     .container-fluid {

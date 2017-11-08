@@ -57,12 +57,15 @@ class ZeldaModelo:
         return result
 
     @staticmethod
-    def lista_funcionalidades():
+    def lista_funcionalidades(id = None):
         result = []
         for data in db.get_funcionalidades_ids():
             funcionalidade = Funcionalidade(data['funcionalidade_id'])
-            result.append(funcionalidade)
-
+            if id is not None:
+                if funcionalidade.get_sistema().get_id() == id:
+                    result.append(funcionalidade)
+            else:
+                result.append(funcionalidade)
         return result
 
     @staticmethod

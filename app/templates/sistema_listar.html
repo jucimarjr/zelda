@@ -12,46 +12,94 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Lista de Sistemas</h4>
-                    <div class="table-responsive">
-                        <table class="table table-hover table-sm">
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="table hover table-sm">
                             <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Prefixo</th>
-                                <th>Situação</th>
-                                <th></th>
-                            </tr>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Prefixo</th>
+                                    <th>Situação</th>
+                                    <th></th>
+                                </tr>
                             </thead>
-
                             <tbody>
-
                             {% for sistema in sistemas %}
-                            <tr>
-                                <td>{{sistema.get_id()}}</td>
-                                <td>{{sistema.nome}}</td>
-                                <td>{{sistema.desc}}</td>
-                                <td>{{sistema.prefixo}}</td>
-                                <td>{{sistema.get_status_texto()}}</td>
-                                <td class="my-icon-td">
-                                    <a href="{{url_for('sistema_editar', sistema_id = sistema.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                    </a>
-                                </td>
-                                <td class="my-icon-td">
-
-                                    {% if sistema.get_status() != 1 %}
-                                    <a href="{{url_for('sistema_desativar', sistema_id= sistema.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
-                                    {% else %}
-                                    <div class="my-icon-button" title="Desativado" aria-label="desativado">
-                                        <i class="fa fa-trash-o gray-fg" aria-hidden="true"></i>
+                                <!-- cada tr desse é quem expande ou fecha sua respectiva lista (marcada com id)-->
+                                <tr data-toggle="collapse" data-target="#collapseExample-{{sistema.get_id()}}" aria-expanded="false" aria-controls="collapseExample">
+                                    <td>
+                                        {{sistema.get_id()}}
+                                    </td>
+                                    <td>{{sistema.nome}}</td>
+                                    <td>{{sistema.desc}}</td>
+                                    <td>{{sistema.prefixo}}</td>
+                                    <td>{{sistema.get_status_texto()}}</td>
+                                    <td class="my-icon-td">
+                                        <a href="{{url_for('sistema_editar', sistema_id = sistema.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td class="my-icon-td">
+                                        {% if sistema.get_status() != 1 %}
+                                        <a href="{{url_for('sistema_desativar', sistema_id= sistema.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                        {% else %}
+                                        <div class="my-icon-button" title="Desativado" aria-label="desativado">
+                                            <i class="fa fa-trash-o gray-fg" aria-hidden="true"></i>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% with funcionalidades = ZeldaModelo.lista_funcionalidades(sistema.get_id()) %}
+                                {% if funcionalidades %}
+                                <!-- essa estrutura tr > td > div "class collapse" é necessária -->
+                                <tr class="hiddenRow">
+                                    <td colspan="7">
+                                    <div class="accordian-body collapse" id="collapseExample-{{sistema.get_id()}}">
+                                        <table class="table table-hover table-sm">
+                                            <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                                <th>Situação</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for funcionalidade in funcionalidades %}
+                                            <tr>
+                                                <td>{{funcionalidade.get_id()}}</td>
+                                                <td>{{funcionalidade.nome}}</td>
+                                                <td>{{funcionalidade.desc}}</td>
+                                                <td>{{funcionalidade.get_status_texto()}}</td>
+                                                <td class="my-icon-td">
+                                                    <a href="{{url_for('funcionalidade_editar', funcionalidade_id= funcionalidade.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                                <td class="my-icon-td">
+                                                    {% if funcionalidade.get_status() != 1 %}
+                                                    <a href="{{url_for('funcionalidade_desativar', funcionalidade_id= funcionalidade.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                    {% else %}
+                                                    <div class="my-icon-button" title="Desativado" aria-label="desativado">
+                                                        <i class="fa fa-trash-o gray-fg" aria-hidden="true"></i>
+                                                    </div>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    {% endif %}
-                                </td>
-                            </tr>
+                                    <td>
+                                </tr>
+                                {% endif %}
+                                {% endwith %}
                             {% endfor %}
                             </tbody>
                         </table>

@@ -5,4 +5,4 @@ from ...utils.zelda_modelo import ZeldaModelo
 class SistemaListarNegocio:
     def exibir():
         sistemas = ZeldaModelo.lista_sistemas();
-        return render_template('sistema_listar.html', sistemas=sistemas)
+        return render_template('sistema_listar.html', sistemas=sistemas, ZeldaModelo=ZeldaModelo)

@@ -21,8 +21,8 @@ class UsuarioInterface:
             if usuario.get_perfil().get_id() is not None:
                 perfil = usuario.get_perfil().get_id()
 
-        self.execute_query("insert into usuario (usuario_login, usuario_email, usuario_senha, perfil_id)\
-         values ('{}', '{}', '{}', '{}')".format(usuario.login, usuario.email, usuario.senha, perfil), True)
+        self.execute_query("insert into usuario (usuario_login, usuario_email, perfil_id)\
+         values ('{}', '{}', '{}')".format(usuario.login, usuario.email, perfil), True)
         data = self.execute_query('select LAST_INSERT_ID() as last from usuario')
         return data[0]['last']
 

@@ -25,9 +25,10 @@ class UsuarioSignupNegocio:
 
 			usuario = Usuario()
 			usuario.login = form.signup_login.data
-			usuario.senha = Criptografador.gerar_hash(form.signup_senha.data,'')
 			usuario.email = form.signup_email.data
 			usuario.salva()
+
+			usuario.set_senha(form.signup_senha.data)
 
 			enviar_email_confirmacao(usuario)
 

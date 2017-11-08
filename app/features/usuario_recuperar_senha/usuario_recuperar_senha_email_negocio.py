@@ -46,5 +46,7 @@ class UsuarioRecuperarSenhaEmailNegocio:
 
 			flash('Sua senha foi atualizada!', 'success')
 			return redirect(url_for('login'))
+		else:
+			flash_errors(form)
 
 		return render_template('usuario_alterar_senha.html', form = form, token = token)

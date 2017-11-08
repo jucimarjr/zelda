@@ -61,7 +61,6 @@ class Funcionalidade:
     def set_sistema(self, sistema_id):
         sistema = Sistema(sistema_id)
         if sistema.get_id() is not None:
-
             self.__sistema = sistema
             self.__codigo = sistema.prefixo + str(self.get_id()) #melhorar
 

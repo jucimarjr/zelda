@@ -4,8 +4,7 @@ from ...tables.lotacao.lotacao_modelo import Lotacao
 from ...utils.flash_errors import flash_errors
 from ...cursor import db
 from ...utils.zelda_modelo import ZeldaModelo
-
-
+from flask import render_template, flash, redirect, url_for
 class FuncionarioCadastrarNegocio:
 
     def exibir():

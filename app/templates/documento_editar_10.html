@@ -1,0 +1,43 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-11 col-md-7 col-lg-5 mx-auto">
+            {% include "errors.html" %}
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Editar documento</h4>
+                    <form class="form" action="" method="post">
+                        {{form.hidden_tag()}}
+						<div class="md-form">
+							{{form.documento_id(class_='form-control', id='id-input')}}
+							<label for="id-input">ID</label>
+						</div>
+                        <div class="md-form">
+                            {{form.documento_tipo(class_='form-control', id='tipo-input')}}
+                            <label for="tipo-input">Tipo</label>
+                        </div>
+                        <div class="md-form">
+                            {{form.documento_desc(class_='form-control', id='desc-input')}}
+                            <label for="desc-input">Descrição</label>
+                        </div>
+                        <button type="submit" class="btn uea-light">Salvar</button>
+                        <a href="{{url_for('documento_listar_10')}}">
+                            <button type="button" class="btn btn-flat">Cancelar</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

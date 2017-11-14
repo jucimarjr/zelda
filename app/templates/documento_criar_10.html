@@ -1,0 +1,45 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-11 col-md-7 col-lg-5 mx-auto">
+            {% include "errors.html" %}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Cadastrar documento</h4>
+                    <form class="form" action="" method="post">
+                        {{form.hidden_tag()}}
+						{{form.processo_id.label}}
+							<div class="md-form">
+								{{form.processo_id(class_='md-textarea', id='id-input')}}
+                                <label for="id-input">ID</label>
+							</div>
+						{{form.documento_tipo.label}}
+                            <div class="md-form">
+                                {{form.documento_tipo(class_='md-textarea', id='tipo-input')}}
+                                <label for="tipo-input">Tipo</label>
+                            </div>
+                        {{form.documento_desc.label}}
+                            <div class="md-form">
+                                {{form.documento_desc(class_='md-textarea', id='desc-input')}}
+                                <label for="desc-input">Descrição</label>
+                            </div>
+                        <button type="submit" class="btn uea-light">Cadastrar</button>
+                        <a href="{{url_for('documento_listar_10')}}">
+                            <button type="button" class="btn btn-flat">Cancelar</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

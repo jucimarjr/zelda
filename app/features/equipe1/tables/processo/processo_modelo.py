@@ -36,6 +36,13 @@ class Processo:
     def get_id(self):
         return self.__id
 
+    def get_documento(self, documento_id):
+        for i in range(0, len(self.get_documentos())):
+            if self.get_documentos()[i].get_id() == documento_id:
+                return self.get_documentos()[i]
+
+        return None
+
     def get_usuario(self):
         return self.__usuario
 
@@ -70,8 +77,9 @@ class Processo:
 
     def remove_documento(self, documento_id):
         for i in range(0, len(self.get_documentos())):
-            if documento_id == self.get_documentos()[i]:
+            if documento_id == self.get_documentos()[i].get_id():
                 self.__documentos.remove(self.get_documentos()[i])
+                DocumentoInterface.deleta_documento(documento_id)
 
     def set_usuario(self, usuario):
         if usuario.get_id() is not None:

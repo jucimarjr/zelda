@@ -5,5 +5,5 @@ from .processo_editar_negocio import ProcessoEditarNegocio
 @app.route('/equipe1/processo/<processo_id>', methods=['GET', 'POST'])
 @login_required
 @verifica_permissao
-def processo_editar(processo_id):
+def equipe1_processo_editar(processo_id):
     return ProcessoEditarNegocio.exibir(processo_id)

@@ -1,32 +1,34 @@
 from .documento_interface import DocumentoInterface
 
 class Documento:
+    lista_tipos = [ "Identidade", "Requerimento", "Declaração"]
+
     def __init__(self, id_documento = None, id_processo = None):
         self.__id = None
         self.tipo = None
         self.descricao = None
-        self.__caminho = None
+        self.caminho = None
         self.__processo_id = None
 
-        if id_processo is not None:
-            if id_documento is not None:
-                data = DocumentoInterface.get_documento(id_documento)
-                if len(data) > 0:
+        if id_documento is not None:
+            data = DocumentoInterface.get_documento(id_documento)
+            if len(data) > 0:
 
-                    self.__id = data['documento_id']
-                    self.tipo = data['tipo']
-                    self.descricao = data['descricao']
-                    self.__caminho = data['caminho']
-                    self.__processo_id = data['processo_id']
+                self.__id = data[0]['documento_id']
+                self.tipo = data[0]['tipo']
+                self.descricao = data[0]['descricao']
+                self.caminho = data[0]['caminho']
+                self.__processo_id = data[0]['processo_id']
+
+        elif id_processo is not None:
+            self.__processo_id = id_processo
 
     def get_id(self):
         return self.__id
 
     def get_tipo_texto(self):
-        lista_nomes = [ "Identidade", "Requerimento", "Declaração"]
-
-        if self.tipo in range(0, len(lista_nomes)):
-            return lista_nomes[self.tipo]
+        if self.tipo in range(0, len(Documento.lista_tipos)):
+            return Documento.lista_tipos[self.tipo]
 
         return 'Indefinido'
 

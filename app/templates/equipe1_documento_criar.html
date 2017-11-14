@@ -1,0 +1,50 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='crud_style.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-11 col-md-7 col-lg-5 mx-auto">
+                {% include "errors.html" %}
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Cadastrar novo documento</h4>
+
+                        <p>
+                            {{processo.get_tipo_texto()}} de {{processo.get_usuario().login}}
+                        </p>
+                        
+                        <form action="" class="form" method="POST">
+                            {{form.hidden_tag()}}
+        
+                            <label for="nome-input">Tipo do Documento</label>
+                            <div class="md-form">
+                                {{form.documento_tipo(class_='form-control')}}
+                            </div>
+
+                            <div class="md-form">
+                                {{form.documento_caminho(class_='form-control')}}
+                                {{form.documento_caminho.label}}
+                            </div>
+                            
+                            <div class="md-form">
+                                {{form.documento_desc(class_='md-textarea')}}
+                                {{form.documento_desc.label}}
+                            </div>
+                        
+                            <button type="submit" class="btn uea-light">Cadastrar</button> 
+                            <a href="{{url_for('equipe1_processo_editar', processo_id = processo.get_id())}}">
+                                <button type="button" class="btn btn-flat waves-effect">Cancelar</button>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+{% endblock %}

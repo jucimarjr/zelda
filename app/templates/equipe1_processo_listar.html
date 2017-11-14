@@ -36,12 +36,12 @@
                                     <td>{{processo.get_documentos() | length}}</td>
                                     <td>{{processo.descricao}}</td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_editar', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('equipe1_processo_editar', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_remover', processo_id=processo.get_id())}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        <a href="{{url_for('equipe1_processo_remover', processo_id=processo.get_id())}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                         </a>
                                     </td>

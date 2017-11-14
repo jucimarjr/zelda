@@ -19,8 +19,8 @@ class FuncionalidadeInterface:
         return data[0]
         
     def cadastra_funcionalidade(self, funcionalidade):
-        self.execute_query("insert into funcionalidade(funcionalidade_nome, funcionalidade_codigo, funcionalidade_desc, sistema_id)\
-         values('{}', '{}', '{}', '{}')".format(funcionalidade.nome, funcionalidade.get_codigo(), funcionalidade.desc, funcionalidade.get_sistema().get_id()), True)
+        self.execute_query("insert into funcionalidade(funcionalidade_nome, funcionalidade_codigo, funcionalidade_desc, funcionalidade_caminho, sistema_id)\
+         values('{}', '{}', '{}', '{}', 1)".format(funcionalidade.nome, funcionalidade.get_codigo(), funcionalidade.desc, funcionalidade.caminho), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from funcionalidade")
 
         if len(data) < 1:
@@ -42,13 +42,16 @@ class FuncionalidadeInterface:
 
     def edita_funcionalidade(self, funcionalidade):
         self.execute_query("update funcionalidade set funcionalidade_nome = '{}', funcionalidade_caminho = '{}',\
-         sistema_id = '{}', funcionalidade_codigo = '{}', funcionalidade_desc = '{}'\
+         funcionalidade_codigo = '{}', funcionalidade_desc = '{}'\
          where funcionalidade_id = '{}'".format(funcionalidade.nome, funcionalidade.caminho,
-         funcionalidade.get_sistema().get_id(), funcionalidade.get_codigo(), funcionalidade.desc,
+         funcionalidade.get_codigo(), funcionalidade.desc,
          funcionalidade.get_id()), True)
 
     def edita_funcionalidade_caminho_imagem(self, funcionalidade):
         self.execute_query("update funcionalidade set funcionalidade_caminho_imagem = '{}' where funcionalidade_id = '{}'".format(funcionalidade.get_caminho_imagem(), funcionalidade.get_id()), True)
-        
+
+    def edita_funcionalidade_sistema(self, funcionalidade):
+        self.execute_query("update funcionalidade set sistema_id = '{}' where funcionalidade_id = '{}'".format(funcionalidade.get_sistema().get_id(), funcionalidade.get_id()), True)
+
     def desativa_funcionalidade(self, funcionalidade_id):
         self.execute_query("update funcionalidade set funcionalidade_status = 1 where funcionalidade_id = '{}'".format(funcionalidade_id), True)

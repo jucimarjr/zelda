@@ -1,0 +1,39 @@
+{% extends "header.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{url_for('static', filename='crud_style.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-5 mx-auto">
+            {% include "errors.html" %}
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Confirmar Remoção de Documento</h4>
+                    <p>
+                        Deseja realmente excluir o seguinte documento?
+                    </p>
+                    <p>
+                        <ul class="list-group black-fg">
+                            <li class="list-group-item"><span><strong>Id:</strong></span> {{documento.get_id()}}</li>
+                            <li class="list-group-item"><span><strong>Nome:</strong></span> {{documento.tipo}}</li>                            
+                        </ul>
+                    </p>
+                    <form class="form" action="" method="post">
+                        <a href="{{url_for('documento_listar_10')}}">
+                            <button type="button" class="btn uea-light">Não</button>
+                        </a>
+                        <button type="submit" class="btn btn-danger">Sim</button>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

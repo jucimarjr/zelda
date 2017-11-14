@@ -1,4 +1,5 @@
-from flask_mysqldb import MySQL
+from flask_mysqldb import MySQLdef deleta(self):
+        db.deleta_processo(self.get_id())
 
 class ProcessosInterface:
 

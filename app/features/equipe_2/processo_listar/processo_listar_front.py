@@ -5,5 +5,5 @@ from app import app
 @app.route('/processodois')
 #@login_required
 #@verifica_permissao
-def processo_listar():
+def processo_listar_2():
     return ProcessoListarNegocio.exibir()

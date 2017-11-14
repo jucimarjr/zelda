@@ -1,13 +1,9 @@
 from flask import render_template, flash, redirect, url_for
 from .processo_editar_form import EditarProcessoForm
 from ....utils.flash_errors import flash_errors
-<<<<<<< HEAD:app/features/Equipe_4/features/processo_editar/processo_editar_negocio.py
 from ....features.Equipe_4.processo.processo_modelo import Processo
 from ....utils.zelda_modelo_4 import ZeldaModelo
-=======
-from ....tables.processo.processo_modelo import Processo
-from ....utils.zelda_modelo import ZeldaModelo
->>>>>>> 2d01658080d0fc3a8428dc3595386d3da0c04b94:app/features/Equipe_4/processo_editar_negocio.py
+
 
 
 from app import app

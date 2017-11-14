@@ -7,8 +7,9 @@ from .tables.funcionalidade.funcionalidade_interface import FuncionalidadeInterf
 from .tables.sistema.sistema_interface import SistemaInterface
 from .tables.processos.processos_interface import ProcessosInterface
 from .tables.equipe_2.processo.processo_interface import ProcessoInterfaceDois
+from .tables.processo_equipe_3.processo_interface import ProcessoInterface
 
-class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterface):
+class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterface, ProcessoInterface):
 
     def __init__(self, app):
         self.mysql = MySQL(app)

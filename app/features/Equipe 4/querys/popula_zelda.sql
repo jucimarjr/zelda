@@ -1,4 +1,4 @@
-﻿/* Insere o Zelda na tabela sistema */
+/* Insere o Zelda na tabela sistema */
 use zelda;
 INSERT INTO `sistema` (`sistema_id`, `sistema_nome`, `sistema_desc`, `sistema_status`, `sistema_prefixo`) VALUES (NULL, 'Zelda', 'Sistema de autenticação de serviços da UEA', '0', 'ZD');
 
@@ -23,5 +23,3 @@ INSERT INTO `permissao` (`permissao_id`, `funcionalidade_id`, `perfil_id`) VALUE
 
 /* Insere um admin no banco (usuario: Administrador, email: admin@uea.edu.br, senha: caiorolandodarocha) */
 INSERT INTO `usuario` (`usuario_id`, `usuario_login`, `usuario_senha`, `usuario_email`, `usuario_status`, `perfil_id`) VALUES (NULL, 'Administrador', '709b4aa0e4fa0cfee2dc7662c5fe156f', 'admin@uea.edu.br', '1', '1');
-
-INSERT INTO `processo` (`processo_id`, `processo_desc`, `processo_tipo`,`usuario_id`) VALUES ('1', 'Provê o trancamento de matrícula para alunos solicitantes', 'Trancamento','1');

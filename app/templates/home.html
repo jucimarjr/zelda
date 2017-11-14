@@ -9,6 +9,7 @@
     <div class="container">
         <div class="row" id="home-main-div">
             <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+                {% include "errors.html" %}
                 <div class="card w-100">
                     <div class="card-profile-image w-100">
                         <div class="image-cropper mx-auto d-flex justify-content-center z-depth-1">
@@ -33,7 +34,6 @@
 
                 {% if usuario.get_status() == 0 %}
                     <hr>
-                    {% include "errors.html" %}
                     <h4 class="mt-4">Usuário não confirmado</h4>
                     <p>
                         Você ainda não tem um email confirmado cadastrado para acessar as funcionalidades do Zelda.

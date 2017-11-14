@@ -63,6 +63,8 @@ class Funcionalidade:
         if sistema.get_id() is not None:
             self.__sistema = sistema
             self.__codigo = sistema.prefixo + str(self.get_id()) #melhorar
+            db.edita_funcionalidade_sistema(self)
+            self.salva()
 
     def set_imagem(self, arquivo_input):
         if self.get_id() is not None:

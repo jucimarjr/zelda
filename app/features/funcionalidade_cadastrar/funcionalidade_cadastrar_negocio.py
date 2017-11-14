@@ -17,11 +17,12 @@ class FuncionalidadeCadastrarNegocio:
         if form.validate_on_submit():
 
             funcionalidade = Funcionalidade()
-            funcionalidade.salva()
             funcionalidade.nome = form.funcionalidade_nome.data
-            funcionalidade.desc = form.funcionalidade_desc.data 
-            funcionalidade.set_sistema(form.funcionalidade_sistema.data)
+            funcionalidade.desc = form.funcionalidade_desc.data
+            funcionalidade.caminho = form.funcionalidade_caminho.data
             funcionalidade.salva()
+            
+            funcionalidade.set_sistema(form.funcionalidade_sistema.data)
 
             if form.funcionalidade_imagem.data is not None:
                 funcionalidade.set_imagem(form.funcionalidade_imagem.data)

@@ -32,9 +32,10 @@ class FuncionalidadeEditarNegocio:
             funcionalidade.nome = form.funcionalidade_nome.data
             funcionalidade.desc = form.funcionalidade_desc.data
             funcionalidade.caminho = form.funcionalidade_caminho.data
-            funcionalidade.set_sistema(form.funcionalidade_sistema.data)
             funcionalidade.salva()
 
+            funcionalidade.set_sistema(form.funcionalidade_sistema.data)
+            
             if form.funcionalidade_imagem.data is not None:
                 funcionalidade.set_imagem(form.funcionalidade_imagem.data)
                 if funcionalidade.get_caminho_imagem() is None:

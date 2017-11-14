@@ -144,3 +144,40 @@ CREATE TABLE permissao (
   FOREIGN KEY(funcionalidade_id) REFERENCES zelda.funcionalidade(funcionalidade_id)
 
 );
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela processo
+--
+
+DROP TABLE IF EXISTS processo;
+CREATE TABLE processo (
+  processo_id int(11) AUTO_INCREMENT NOT NULL,
+
+  usuario_id int(11) NOT NULL,
+  descricao varchar(120),
+  tipo int(11) NOT NULL,
+
+  PRIMARY KEY(processo_id),
+  FOREIGN KEY(usuario_id) REFERENCES zelda.usuario(usuario_id)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela documento
+--
+
+DROP TABLE IF EXISTS documento;
+CREATE TABLE documento (
+  documento_id int(11) AUTO_INCREMENT NOT NULL,
+
+  processo_id int(11) NOT NULL,
+  descricao varchar(120),
+  tipo int(11) NOT NULL,
+  caminho varchar(150) NOT NULL,
+
+  PRIMARY KEY(documento_id),
+  FOREIGN KEY(processo_id) REFERENCES zelda.processo(processo_id)
+);

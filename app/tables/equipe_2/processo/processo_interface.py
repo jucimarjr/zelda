@@ -27,3 +27,6 @@ class ProcessoInterfaceDois:
     def get_processos_ids_dois(self):
         data = self.execute_query("select * from processo_dois")
         return data
+
+    def desativa_processo(self, processo_id):
+        self.execute_query("update processo_dois set processo_status = 1  where processo_id = '{}'".format(processo_id), True)

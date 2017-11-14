@@ -20,3 +20,9 @@ class Processo:
 
     def get_id(self):
         return self.__processo_id
+
+    def salva(self):
+        if self.__processo_id is not None:
+            db.edita_sistema(self)
+        else:
+            self.__processo_id = db.cadastra_processo(self)

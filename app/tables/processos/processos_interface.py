@@ -24,3 +24,8 @@ class ProcessosInterface:
         if len(data)<1:
             return None
         return data[0]
+
+    def cadastra_processo(self,processo):
+        self.execute_query("insert into processo(processo_tipo,processo_desc) values('{}','{}')".format(processo.tipo, processo.desc), True)
+        data = self.execute_query("select LAST_INSERT_ID() as last from processo")
+        return data[0]['last']

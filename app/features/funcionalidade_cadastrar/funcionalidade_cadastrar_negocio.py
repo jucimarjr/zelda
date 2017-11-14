@@ -19,11 +19,11 @@ class FuncionalidadeCadastrarNegocio:
             funcionalidade = Funcionalidade()
             funcionalidade.nome = form.funcionalidade_nome.data
             funcionalidade.desc = form.funcionalidade_desc.data
-<<<<<<< HEAD
+
             funcionalidade.set_sistema(form.funcionalidade_sistema.data)
-=======
+
             funcionalidade.caminho = form.funcionalidade_caminho.data
->>>>>>> 48e4940c845c63c0538779774497c8f522fbbbce
+
             funcionalidade.salva()
             
             funcionalidade.set_sistema(form.funcionalidade_sistema.data)

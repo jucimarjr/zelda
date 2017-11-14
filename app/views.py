@@ -37,12 +37,12 @@ from .features.sistema_remover.sistema_remover_front import *
 from .features.sistema_cadastrar.sistema_cadastrar_front import *
 from .features.sistema_editar.sistema_editar_front import *
 
-<<<<<<< HEAD
+
 from .features.equipe12.processos_listar.processos_listar_front import *
 from .features.equipe12.processos_cadastrar.processos_cadastrar_front import *
-=======
+
 from .features.equipe_2.processo_listar.processo_listar_front import *
 from .features.equipe_2.processo_editar.processo_editar_front import *
 from .features.equipe_2.processo_remover.processo_remover_front import *
 
->>>>>>> 48e4940c845c63c0538779774497c8f522fbbbce
+

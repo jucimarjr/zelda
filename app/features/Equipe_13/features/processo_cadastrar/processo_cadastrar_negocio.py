@@ -20,8 +20,8 @@ class ProcessoCadastrarNegocio:
             processo.tipo = form.tipo.data
             processo.salva()
 
-            return redirect(url_for('equipe13_processo_listar'))
+            return redirect(url_for('processo_listar_13'))
         else:
             flash_errors(form)
 
-        return render_template('equipe13_processo_criar.html', form = form)
+        return render_template('processo_criar_13.html', form = form)

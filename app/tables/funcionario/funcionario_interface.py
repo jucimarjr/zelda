@@ -48,3 +48,9 @@ class FuncionarioInterface:
         if len(data) < 1:
             return None
         return data[0]
+
+    def get_funcionarioporsetor(self, setor_id):
+        data = self.execute_query("select * from funcionario,lotacao where setor_id = '{}'".format(setor_id))
+        if len(data) < 1:
+            return None
+        return data[0]

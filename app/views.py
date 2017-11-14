@@ -36,3 +36,6 @@ from .features.sistema_listar.sistema_listar_front import *
 from .features.sistema_remover.sistema_remover_front import *
 from .features.sistema_cadastrar.sistema_cadastrar_front import *
 from .features.sistema_editar.sistema_editar_front import *
+
+from .features.equipe12.processos_listar.processos_listar_front import *
+from .features.equipe12.processos_cadastrar.processos_cadastrar_front import *

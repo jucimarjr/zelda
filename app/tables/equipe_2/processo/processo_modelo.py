@@ -19,20 +19,12 @@ class Processo:
                 self.__descricao = data['processo_descricao']
                 self.__tipo = data['processo_tipo']
                 self.__status = data['processo_status']
-        '''
-        data = {}
-        data['id'] = 1
-        data['id_usuario'] = 2
-        data['descricao'] = "teste"
-        data['tipo']  = 3
-        data['situacao']  = 2
+    
+    def desativa(self):
+        if self.__status != -1:
+            self.__status= 1
+            db.desativa_processo(self.__processo_id)
 
-        self.__id = data['id']
-        self.__id_usuario = data['id_usuario']
-        self.__descricao = data['descricao']
-        self.__tipo = data['tipo']
-        self.__situacao = data['situacao']
-        '''
     def get_status(self):
         return self.__status
 

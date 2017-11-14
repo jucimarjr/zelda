@@ -40,6 +40,8 @@ from .features.sistema_editar.sistema_editar_front import *
 
 from .features.equipe12.processos_listar.processos_listar_front import *
 from .features.equipe12.processos_cadastrar.processos_cadastrar_front import *
+from .features.equipe12.processos_editar.processos_editar_front import *
+from .features.equipe12.processos_remover.processos_remover_front import *
 
 from .features.equipe_2.processo_listar.processo_listar_front import *
 from .features.equipe_2.processo_editar.processo_editar_front import *

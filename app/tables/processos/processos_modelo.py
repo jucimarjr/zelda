@@ -26,3 +26,5 @@ class Processo:
             db.edita_sistema(self)
         else:
             self.__processo_id = db.cadastra_processo(self)
+
+    

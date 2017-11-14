@@ -6,8 +6,9 @@ from .tables.perfil.perfil_interface import PerfilInterface
 from .tables.funcionalidade.funcionalidade_interface import FuncionalidadeInterface
 from .tables.sistema.sistema_interface import SistemaInterface
 from .tables.processos.processos_interface import ProcessosInterface
+from .tables.equipe_2.processo.processo_interface import ProcessoInterfaceDois
 
-class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, FuncionalidadeInterface, SistemaInterface, ProcessosInterface):
+class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterface):
 
     def __init__(self, app):
         self.mysql = MySQL(app)

@@ -3,22 +3,22 @@ from ....cursor import db
 class Processo:
 
     def __init__(self, processo_id = None):
-        self.__id = None
-        self.__id_usuario = None
+        self.__processo_id = None
+        self.__usuario_id = None
         self.__descricao = None
         self.__tipo = None
-        self.__situacao = 0
+        self.__status = 0
         
         if processo_id is not None:
-            data = db.get_processo_id(processo_id)
-
+            data = db.get_processo(processo_id)
+            
             if data is not None:
 
-                self.__id = processo_id
-                self.__id_usuario = data['id_usuario']
-                self.__descricao = data['descricao']
-                self.__tipo = data['tipo']
-                self.__situacao = data['situacao']
+                self.__processo_id = processo_id
+                self.__usuario_id = data['usuario_id']
+                self.__descricao = data['processo_descricao']
+                self.__tipo = data['processo_tipo']
+                self.__status = data['processo_status']
         '''
         data = {}
         data['id'] = 1
@@ -33,11 +33,11 @@ class Processo:
         self.__tipo = data['tipo']
         self.__situacao = data['situacao']
         '''
-    def get_situacao(self):
-        return self.__situacao
+    def get_status(self):
+        return self.__status
 
     def get_id(self):
-        return self.__id
+        return self.__processo_id
 
     def get_descricao(self):
         return self.__descricao
@@ -46,7 +46,7 @@ class Processo:
         return self.__tipo
 
     def get_id_usuario(self):
-        return self.__id_usuario
+        return self.__usuario_id
 
     def serializa(self):
         return {

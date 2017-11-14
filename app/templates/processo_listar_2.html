@@ -37,8 +37,13 @@
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
+<<<<<<< HEAD
 
                                         {% if processo.get_situacao() != 1 %}
+=======
+                                        
+                                        {% if processo.get_status() != 1 %}
+>>>>>>> 9baf23fadb844203aa07cf7768c0d7414e6d6b95
                                             <a href="{{url_for('processo_desativar_2', processo_id=processo.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>

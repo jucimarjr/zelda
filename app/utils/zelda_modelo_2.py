@@ -1,6 +1,9 @@
 from ..cursor import db
 from ..tables.equipe_2.processo.processo_modelo import Processo
+from ..tables.usuario.usuario_modelo import Usuario
 from .zelda_modelo import ZeldaModelo
+from flask import session
+from app import app
 
 class ZeldaModeloDois:
 
@@ -85,24 +88,18 @@ class ZeldaModeloDois:
         return funcionalidade
 
     @staticmethod
-    def lista_processo_2(usuario_id):
+    def lista_processo_2():
 
         ZeldaModeloDois.processos_2.clear()
-        '''
-        data = db.get_processos_ids(usuario_id)
-        
-
+        data = db.get_processos_ids_dois()
+        usuario = Usuario(session['user_id'])
+        user_id = usuario.get_id()
         if len(data) < 1:
             return None
         
-        for data in db.get_processos_ids():
-            processo = Processo(data['processo_id'])
-            ZeldaModelo.processos_2.append(processo)
-        '''
-
-        p = Processo()
-        print(p.get_descricao())
-
-        ZeldaModeloDois.processos_2.append(p)
+        for data in db.get_processos_ids_dois():
+            processo = Processo(str(data['processo_id']))
+            if(processo.get_id_usuario() == user_id):
+                ZeldaModeloDois.processos_2.append(processo)
 
         return ZeldaModeloDois.processos_2

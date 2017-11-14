@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
 
-class ProcessoInterface:
+class ProcessoInterfaceDois:
 
     def __init__(self, app):
         self.mysql = MySQL(app)
@@ -15,12 +15,15 @@ class ProcessoInterface:
             cur.close()
         return data
 
-    def get_processos_ids(self, usuario_id):
-        data = self.execute_query("select processo_id from processo where usuario_id = '{}'".format(usuario_id))
-        ids = []
+    def get_processo(self, processo_id):
+        data = self.execute_query("select * from processo_dois where processo_id = {} limit 1".format(processo_id))
 
-        if data is not None:
-            for d in data:
-                ids.append(d['processo_id'])
+        if len(data) < 1:
+            return None
 
-        return ids
+        return data[0]
+
+
+    def get_processos_ids_dois(self):
+        data = self.execute_query("select * from processo_dois")
+        return data

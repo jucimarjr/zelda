@@ -45,4 +45,7 @@ from .features.equipe_2.processo_listar.processo_listar_front import *
 from .features.equipe_2.processo_editar.processo_editar_front import *
 from .features.equipe_2.processo_remover.processo_remover_front import *
 
-
+from .features.equipe1.features.processo_listar.processo_listar_front import *
+from .features.equipe1.features.processo_cadastrar.processo_cadastrar_front import *
+from .features.equipe1.features.processo_editar.processo_editar_front import *
+from .features.equipe1.features.processo_remover.processo_remover_front import *

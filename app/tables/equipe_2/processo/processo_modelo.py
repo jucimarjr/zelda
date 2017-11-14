@@ -8,7 +8,7 @@ class Processo:
         self.__descricao = None
         self.__tipo = None
         self.__situacao = 0
-        '''
+        
         if processo_id is not None:
             data = db.get_processo_id(processo_id)
 
@@ -32,7 +32,7 @@ class Processo:
         self.__descricao = data['descricao']
         self.__tipo = data['tipo']
         self.__situacao = data['situacao']
-
+        '''
     def get_situacao(self):
         return self.__situacao
 

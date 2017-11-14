@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for
 from .processo_cadastrar_form import ProcessoCadastrarForm
 from .....utils.zelda_modelo import ZeldaModelo
-from ...tables.processo.processo_modelo import Processo
+from ..features.Equipe_13.tables.processo.processo_modelo import Processo
 from .....utils.flash_errors import flash_errors
 from .....tables.usuario.usuario_modelo import Usuario
 

@@ -26,6 +26,12 @@
                     <h4 class="card-title">Cadastrar Processo</h4>
                     <form class="form" action="" method="post">
                         {{form.hidden_tag()}}
+
+						{{form.usuario.label}}
+                        <div class="md-form">
+                            {{form.usuario(class_='form-control')}}
+                        </div>
+
                         <div class="md-form">
                             {{form.processo_tipo(class_='form-control', id='tipo-input')}}
                             <label for="nome-input">Tipo</label>

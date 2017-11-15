@@ -6,6 +6,7 @@ from .....utils.flash_errors import flash_errors
 from .....utils.zelda_modelo import ZeldaModelo
 from ...tables.processo.processo_modelo import Processo
 from .....utils.zelda_modelo_13 import ProcessoModelo
+from .....tables.usuario.usuario_modelo import Usuario
 
 
 class ProcessoCadastrarNegocio:
@@ -17,10 +18,8 @@ class ProcessoCadastrarNegocio:
         form.usuario.choices = [ (usuario.get_id(), usuario.login) for usuario in usuarios ]
 
         if form.validate_on_submit():
-
-            processo = Processo()
+            
             processo = Processo(usuario = Usuario(form.usuario.data))
-
             processo.tipo = form.processo_tipo.data
             processo.descricao = form.processo_descricao.data
             processo.salva()

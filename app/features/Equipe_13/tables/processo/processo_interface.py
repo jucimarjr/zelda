@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
 
-class ProcessoInterface:
+class ProcessoInterface13:
     def __init__(self, app):
         self.mysql = MySQL(app)
     
@@ -47,3 +47,6 @@ class ProcessoInterface:
                 ids.append(d['processo_id'])
 
         return ids
+
+    def edita_processo_usuario(processo):
+        db.execute_query("UPDATE processo SET usuario_id = '{}' WHERE processo_id = '{}'".format(processo.get_usuario().get_id(), processo.get_id()), True)

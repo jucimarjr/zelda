@@ -1,5 +1,5 @@
-from ...cursor import db
-from ..usuario.usuario_modelo import Usuario
+from .....cursor import db
+from .....tables.usuario.usuario_modelo import Usuario
 from app import app
 
 class Processo:
@@ -44,7 +44,7 @@ class Processo:
         else:
             db.edita_processo(self)
 
-     def set_usuario(self, usuario_id):
-        usuario = Usuario(usuario_id)
+    def set_usuario(self, usuario):
         if usuario.get_id() is not None:
             self.__usuario = usuario
+            ProcessoInterface.edita_processo_usuario(self)

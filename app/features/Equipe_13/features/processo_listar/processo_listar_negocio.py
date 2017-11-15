@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for
-from ....utils.zelda_modelo_13 import ProcessoModelo
+from .....utils.zelda_modelo_13 import ProcessoModelo
 
 class ProcessoListarNegocio:
     def exibir():

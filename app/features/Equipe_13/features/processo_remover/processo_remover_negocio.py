@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, request
-from ..features.Equipe_13.tables.processo.processo_modelo import Processo
+from ...tables.processo.processo_modelo import Processo
 
 class ProcessoRemoverNegocio:
     def exibir(processo_id):

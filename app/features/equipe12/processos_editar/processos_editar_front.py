@@ -1,6 +1,6 @@
-from .processo_editar_negocio import ProcessoEditarNegocio
+from .processos_editar_negocio import ProcessoEditarNegocio
 from app import app
-from ....util.front_helper import *
+from ....utils.front_helper import *
 
 @app.route('/processos/editar/<processo_id>',methods=['GET','POST'])
 @login_required

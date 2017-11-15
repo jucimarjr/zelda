@@ -5,4 +5,3 @@ class ProcessoListarNegocio:
     def exibir():
         processos = ProcessoModelo.listar_processos()
         return render_template('processos_listar_13.html',processos=processos)
-

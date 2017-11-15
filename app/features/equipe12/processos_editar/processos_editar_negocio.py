@@ -1,8 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request
-from ...tables.equipe12.processos.processos_modelo import Processo
-from .processo_editar_form import EditarProcessoForm
-from .processo_cadastrar.processo_cadastrar_form import CadastrarProcessoForm
-from ....util.flash_errors import flash_errors
+from ....tables.equipe_12.processos.processos_modelo import Processo12
+from .processos_editar_form import EditarProcessoForm
+from ..processos_cadastrar.processos_cadastrar_form import CadastrarProcessoForm
+
+from ....utils.flash_errors import flash_errors
 from ....utils.processos_modelo_12 import ProcessaModelo
 from ....utils.files import flash_errors_extensao
 

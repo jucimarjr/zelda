@@ -1,6 +1,6 @@
-from ...cursor import db
+from ....cursor import db
 
-class Processo:
+class Processo12:
 
     def __init__(self,processo_id = None):
 

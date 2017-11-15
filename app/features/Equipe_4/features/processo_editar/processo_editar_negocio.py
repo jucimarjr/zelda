@@ -1,8 +1,8 @@
 from flask import render_template, flash, redirect, url_for
 from .processo_editar_form import EditarProcessoForm
-from ....utils.flash_errors import flash_errors
-from ....features.Equipe_4.processo.processo_modelo import Processo
-from ....utils.zelda_modelo_4 import ZeldaModelo
+from app.utils.flash_errors import flash_errors
+from app.tables.equipe4.tables.processo.processo_modelo import Processo
+from app.utils.zelda_modelo_4 import ZeldaModelo
 
 
 

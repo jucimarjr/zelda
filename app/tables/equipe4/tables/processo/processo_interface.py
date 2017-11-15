@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
 
-class ProcessoInterface:
+class ProcessoInterfaceQuatro:
     def __init__(self, app):
         self.mysql = MySQL(app)
     
@@ -15,15 +15,14 @@ class ProcessoInterface:
             cur.close()
             return data
 
-    def get_processo(self, processo_id):
+    def get_processos2(self, processo_id):
         data = self.execute_query("select * from processo where processo_id = '{}' limit 1".format(processo_id))
         return data[0]
         
 
     def edita_processo(self,processo):
-        self.execute_query("update processo set processo_desc = '{}', processo_tipo = '{}',usuario_id = '{}',\
-         where processo_id = '{}'".format(processo.get_desc,processo.get_tipo(),usuario.get_usuario().get_id()), True)
-
+        self.execute_query("update processo set processo_desc = '{}', processo_tipo = '{}' where processo_id = '{}'".format(processo.get_desc(),processo.get_tipo(),processo.get_id()), True)
+    
     def cadastra_processo(self, processo):
         self.execute_query("insert into processo(processo_tipo, processo_desc, usuario_id)\
          values('{}', '{}', '{}', '{}')".format(processo.get_tipo(), processo.get_desc(), processo.get_usuario().get_id()), True)
@@ -40,7 +39,7 @@ class ProcessoInterface:
 
     
     def get_processos_ids(self):
-        data = self.execute_query("select processo_id from setor")
+        data = self.execute_query("select processo_id from processo")
         ids = []
 
         if data is not None:
@@ -49,9 +48,7 @@ class ProcessoInterface:
 
         return ids
 
-    #Talvez não tenha
-    def get_processos_usuario(self,user_id):
-        data = self.execute_query("select F.* from processo as F AND P.processo_id = F.funcionalidade_id AND U.usuario_id = '{}'".format(user_id))
-        return data
+    def edita_processos_usuario(processo):
+        db.execute_query("update processo set usuario_id = '{}' where processo_id = '{}'".format(processo.get_usuario().get_id(), processo.get_id(), True))
 
     

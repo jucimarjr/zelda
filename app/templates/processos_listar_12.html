@@ -27,9 +27,14 @@
 
                                 {% for processo in processos %}
                                 <tr>
-                                    <td>{{processo.get_id()}}</td>
+                                    <td>{{processo.get_id_12()}}</td>
                                     <td>{{processo.tipo}}</td>
                                     <td>{{processo.desc}}</td>
+                                    <td class="my-icon-td">
+                                        <a href="{{url_for('processos_editar_12', processo_id=processo.get_id_12())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

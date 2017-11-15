@@ -30,8 +30,8 @@ class ProcessosInterfaceDoze:
         data = self.execute_query("select LAST_INSERT_ID() as last from processo")
         return data[0]['last']
 
-    def edita_processo(self, processo):
-        self.execute_query("update processo set processo_tipo={},sistema_desc='{}'".format(processo.tipo,processo.desc),True)
+    def edita_processo_12(self, processo):
+        self.execute_query("update processo set processo_tipo='{}',processo_desc='{}' where processo_id='{}'".format(processo.tipo,processo.desc, processo.get_id_12()),True)
 
     def deleta_processo(self,processo):
         self.execute_query("delete from usuario where usuario_id='{}'".format(processo_id),True)

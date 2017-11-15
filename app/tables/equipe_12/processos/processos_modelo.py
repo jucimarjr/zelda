@@ -18,12 +18,12 @@ class Processo12:
                 self.desc = data['processo_desc']
 
 
-    def get_id(self):
+    def get_id_12(self):
         return self.__processo_id
 
     def salva(self):
         if self.__processo_id is not None:
-            db.edita_sistema(self)
+            db.edita_processo_12(self)
         else:
             self.__processo_id = db.cadastra_processo(self)
 

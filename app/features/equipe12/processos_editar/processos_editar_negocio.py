@@ -8,24 +8,22 @@ from ....utils.processos_modelo_12 import ProcessaModelo
 from ....utils.files import flash_errors_extensao
 
 class ProcessoEditarNegocio():
-    def exibir(funcionalidade_id):
+    def exibir(processo_id):
 
         form = EditarProcessoForm()
-        processo = Processo(processo_id = processo_id)
+        processo = Processo12(processo_id = processo_id)
 
-        if request.method == 'GET':
-
-            if processo.get_id() is not None:
-                form.processo_tipo.data = processo_tipo
-                form.processo_desc.data = processo_desc
-            else:
-                return redirect(url_for('processo_listar'))
+        if processo.get_id_12() is None:
+            return redirect(url_for('processos_listar_12'))
 
         if form.validate_on_submit():
-            form.processo_tipo.data = processo_tipo
-            form.processo_desc.data = processo_desc
+            processo.tipo = form.processo_tipo.data
+            processo.desc = form.processo_desc.data
             processo.salva()
+            return redirect(url_for('processos_listar_12'))
         else:
             flash_errors(form)
 
-        return render_template('processo_editar.html', form=form)
+        form.processo_tipo.data = processo.tipo
+        form.processo_desc.data = processo.desc
+        return render_template('processos_editar_12.html',form=form)

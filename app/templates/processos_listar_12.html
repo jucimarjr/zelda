@@ -19,6 +19,7 @@
                                     <th>Código</th>
                                     <th>Tipo</th>
                                     <th>Descrição</th>
+                                    <th>Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -30,10 +31,22 @@
                                     <td>{{processo.get_id_12()}}</td>
                                     <td>{{processo.tipo}}</td>
                                     <td>{{processo.desc}}</td>
+                                    <td>{{processo.get_situacao_texto_12()}}</td>
                                     <td class="my-icon-td">
                                         <a href="{{url_for('processos_editar_12', processo_id=processo.get_id_12())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
+                                    </td>
+                                    <td class="my-icon-td">
+                                        {% if processo.get_status_12() != 1 %}
+                                            <a href="{{url_for('processos_remover_12', processo_id=processo.get_id_12())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        {% else %}
+                                            <div class="my-icon-button" title="Desativado" aria-label="desativado">
+                                                <i class="fa fa-trash-o gray-fg" aria-hidden="true"></i>
+                                            </div>
+                                        {% endif %}
                                     </td>
                                 </tr>
                                 {% endfor %}

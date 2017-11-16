@@ -102,3 +102,8 @@ from .features.equipe12.processos_listar.processos_listar_front import *
 from .features.equipe12.processos_cadastrar.processos_cadastrar_front import *
 from .features.equipe12.processos_editar.processos_editar_front import *
 from .features.equipe12.processos_remover.processos_remover_front import *
+
+from .features.equipe_11.features.processo_listar.processo_listar_front import *
+from .features.equipe_11.features.processo_cadastrar.processo_cadastrar_front import *
+from .features.equipe_11.features.processo_editar.processo_editar_front import *
+from .features.equipe_11.features.processo_remover.processo_remover_front import *

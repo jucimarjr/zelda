@@ -8,10 +8,10 @@ class ProcessoRemoverNegocio:
     def exibir(processo_id):
         processo = Processo(processo_id)
         if processo.get_id() is None:
-            return redirect(url_for('processo_listar'))
+            return redirect(url_for('processo_listar_4'))
 
         if request.method == 'POST':
             processo.deleta()
-            return redirect(url_for('processo_listar'))
+            return redirect(url_for('processo_listar_4'))
 
         return render_template('equipe4_processo_remover.html', processo = processo)

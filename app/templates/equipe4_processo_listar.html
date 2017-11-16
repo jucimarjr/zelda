@@ -20,7 +20,8 @@
                                     <th>Código</th>
                                     <th>Descrição</th>
                                     <th>Tipo</th>
-                                    <th>Usuário</th>
+                                    <th>ID do Usuário</th>
+                                    <th>Login do Usuário</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -33,13 +34,14 @@
                                     <td>{{processo.get_desc()}}</td>
                                     <td>{{processo.get_tipo()}}</td>
                                     <td>{{processo.get_usuario().get_id()}}</td>
+                                    <td>{{processo.get_usuario().get_login()}}</td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_editar', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('processo_editar_4', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_remover', processo_id=processo.get_id())}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        <a href="{{url_for('processo_remover_4', processo_id=processo.get_id())}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                             <i class="fa fa-remove" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -49,7 +51,7 @@
                         </table>
 
                         <!-- Adicianar botão flutuante -->
-                        <a href="{{url_for('equipe4_processo_cadastrar')}}" class="waves-effect waves-light green btn-lg my-btn-floating my-btn-fixed">
+                        <a href="{{url_for('processo_cadastrar_4')}}" class="waves-effect waves-light green btn-lg my-btn-floating my-btn-fixed">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>

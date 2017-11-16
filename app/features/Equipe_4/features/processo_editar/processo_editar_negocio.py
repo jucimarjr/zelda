@@ -14,14 +14,14 @@ class ProcessoEditarNegocio:
 
         processo = Processo(processo_id)
         if processo.get_id() is None:
-            return redirect(url_for('processo_listar'))
+            return redirect(url_for('processo_listar_4'))
 
         if form.validate_on_submit():
             processo.tipo = form.processo_tipo.data
             processo.desc = form.processo_desc.data
             processo.salva()
 
-            return redirect(url_for('processo_listar'))
+            return redirect(url_for('processo_listar_4'))
 
         else:
             flash_errors(form)

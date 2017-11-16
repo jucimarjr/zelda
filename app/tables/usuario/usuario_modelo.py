@@ -28,6 +28,9 @@ class Usuario:
 
     def get_id(self):
         return self.__usuario_id
+    
+    def get_login(self):
+        return self.login
 
     def get_logado(self):
         return self.__logado

@@ -24,7 +24,7 @@ class ProcessoCadastrarNegocio:
             processo.descricao = form.processo_descricao.data
             processo.salva()
 
-            #return redirect(url_for('processo_'))
+            return redirect(url_for('processo_listar_13'))
 
         else:
             flash_errors(form)

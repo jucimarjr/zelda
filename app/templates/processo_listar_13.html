@@ -19,7 +19,6 @@
                                     <th>Id</th>
                                     <th>Descrição</th>
                                     <th>Tipo</th>
-                                    <th>Link</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -30,16 +29,15 @@
                                 {% for processo in processos %}
                                 <tr>
                                     <td>{{processo.get_id()}}</td>
-                                    <td>{{processo.descricao}}</td>
+                                    <td>{{processo.get_descricao()}}</td>
                                     <td>{{processo.get_tipo()}}</td>
-                                    <td>{{processo.get_link()}}</td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_editar', proc_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="#" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_remover', proc_id=processo.get_id())}}" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                        <a href="#" title="Remover" aria-label="remover" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                             <i class="fa fa-remove" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -49,7 +47,7 @@
                         </table>
 
                         <!-- Adicianar botão flutuante -->
-                        <a href="{{url_for('processo_cadastrar')}}" class="waves-effect waves-light green btn-lg my-btn-floating my-btn-fixed">
+                        <a href="{{url_for('processo_cadastrar_13')}}" class="waves-effect waves-light green btn-lg my-btn-floating my-btn-fixed">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>

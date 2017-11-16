@@ -16,7 +16,7 @@ class ProcessoInterface13:
 
      # CRUD - PROCESSO
      
-    def get_processo(self,processo_id):
+    def get_processo_13(self,processo_id):
         data = self.execute_query("select * from processo where processo_id = '{}' limit 1".format(processo_id))
         return data[0]
 

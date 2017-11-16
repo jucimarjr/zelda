@@ -4,5 +4,5 @@ from .processo_cadastrar_negocio import ProcessoCadastrarNegocio
 
 @app.route('/equipe13/processo/novo', methods=['GET', 'POST'])
 @login_required
-def equipe13_processo_cadastrar():
+def processo_cadastrar_13():
     return ProcessoCadastrarNegocio.exibir()

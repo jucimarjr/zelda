@@ -9,9 +9,6 @@ class ProcessoEditarNegocio:
         form = EditarProcessoForm()
 
         processo = Processo(processo_id)
-
-       
-
         if processo.get_id() is  None:
             return redirect(url_for('processo_listar_13'))
 

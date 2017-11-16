@@ -36,7 +36,7 @@
 									<td>{{processo.get_usuario().get_id()}}</td>
 									<td>{{processo.get_usuario().get_login()}}</td>
                                     <td class="my-icon-td">
-                                        <a href="#" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('processo_editar_13', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>

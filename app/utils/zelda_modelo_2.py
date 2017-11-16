@@ -1,6 +1,5 @@
 from ..cursor import db
-from ..tables.equipe_2.processo.processo_modelo import Processo
-from ..tables.equipe_2.documento.documento_modelo import Documento
+from ..tables.equipe_2.processo.processo_modelo import ProcessoDois
 from ..tables.usuario.usuario_modelo import Usuario
 from .zelda_modelo import ZeldaModelo
 from flask import session
@@ -9,7 +8,7 @@ from app import app
 class ZeldaModeloDois:
 
     processos_2 = []
-    documentos_2 = []
+
     @staticmethod
     def lista_setores():
         ZeldaModelo.setores.clear()
@@ -18,7 +17,7 @@ class ZeldaModeloDois:
             ZeldaModelo.setores.append(setor)
 
         return ZeldaModelo.setores
-
+    
     @staticmethod
     def lista_setores_ativos():
         result = []
@@ -97,37 +96,10 @@ class ZeldaModeloDois:
         user_id = usuario.get_id()
         if len(data) < 1:
             return None
-
+        
         for data in db.get_processos_ids_dois():
-            processo = Processo(str(data['processo_id']))
+            processo = ProcessoDois(str(data['processo_id']))
             if(processo.get_id_usuario() == user_id):
                 ZeldaModeloDois.processos_2.append(processo)
 
         return ZeldaModeloDois.processos_2
-
-    @staticmethod
-    def lista_documento_2():
-        ZeldaModeloDois.processos_2.clear()
-        data = db.get_processos_ids_dois() # pega todos os processos do banco
-        usuario = Usuario(session['user_id'])
-        user_id = usuario.get_id()
-        if len(data) < 1:
-            return None
-
-        for d in data:
-            processo = Processo(str(d['processo_id']))
-            if(processo.get_id_usuario() == user_id): #verifica se o processo refere ao usuario logado
-                ZeldaModeloDois.processos_2.append(processo)
-
-        ZeldaModeloDois.documentos_2.clear()
-        data = db.get_documentos_ids_dois() #pega todos os documentos do banco
-        if len(data) < 1:
-            return None
-
-        for d in data:
-            documento = Documento(d['documento_id'])
-            for p in ZeldaModeloDois.processos_2:
-                print("doc_id: ", documento.get_id_processo(),"processo_id: ", p.get_id())
-                if str(documento.get_id_processo()) in str(p.get_id()): # verifica se o documento refere àquele processo
-                    ZeldaModeloDois.documentos_2.append(documento)
-        return ZeldaModeloDois.documentos_2

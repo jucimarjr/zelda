@@ -1,6 +1,6 @@
 from ....cursor import db
 
-class Documento:
+class DocumentoDois:
 
     def __init__(self, documento_id = None):
         self.__id = None
@@ -10,7 +10,7 @@ class Documento:
         self.__status = 1
 
         if documento_id is not None:
-            data = db.get_documento(documento_id)
+            data = db.get_documento_dois(documento_id)
 
             if data is not None:
 

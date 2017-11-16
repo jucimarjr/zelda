@@ -16,6 +16,6 @@ class SetorRemoverNegocio:
             setor.desativa()
         else:
             return render_template('setor_desativar.html', setor=setor)
-        
+
         """Se o método foi GET ou o form deu erro de submissão, redireciona pra página de listagem"""
         return redirect(url_for('setor_listar'))

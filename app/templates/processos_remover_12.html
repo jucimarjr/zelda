@@ -14,21 +14,21 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Confirmar Remoção de Processo</h4>
+                    <h4 class="card-title">Confirmar Desativação de Processo</h4>
                     <p>
-                        Deseja realmente excluir o seguinte Processo?
+                        Deseja realmente desativar o seguinte Processo?
                     </p>
                     <p>
                         <ul class="list-group black-fg">
-                            <li class="list-group-item"><span><strong>Tipo:</strong></span> {{processo.tipo()}}</li>
-                            <li class="list-group-item"><span><strong>Descrição:</strong></span> {{processo.login}}</li>
+                            <li class="list-group-item"><span><strong>Tipo:</strong></span> {{processo.tipo}}</li>
+                            <li class="list-group-item"><span><strong>Descrição:</strong></span> {{processo.desc}}</li>
                         </ul>
                     </p>
                     <form class="form" action="" method="post">
-                        <a href="{{url_for('processo_listar')}}">
-                            <button type="button" class="btn uea-light">Não</button>
+                        <a href="{{url_for('processos_listar_12')}}">
+                            <button type="button" class="btn btn-danger">Não</button>
                         </a>
-                        <button type="submit" class="btn btn-danger">Sim</button>
+                        <button type="submit" class="btn uea-light">Sim</button>
                     </form>
                 </div>
             </div>

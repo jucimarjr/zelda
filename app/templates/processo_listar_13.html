@@ -19,6 +19,7 @@
                                     <th>Id</th>
                                     <th>Descrição</th>
                                     <th>Tipo</th>
+									<th>ID do Usuario</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -31,6 +32,7 @@
                                     <td>{{processo.get_id()}}</td>
                                     <td>{{processo.get_descricao()}}</td>
                                     <td>{{processo.get_tipo()}}</td>
+									<td>{{processo.get_usuario().get_id()}}</td>
                                     <td class="my-icon-td">
                                         <a href="#" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>

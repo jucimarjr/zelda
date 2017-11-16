@@ -12,8 +12,10 @@ from .features.Equipe_13.tables.processo.processo_interface import ProcessoInter
 from .tables.equipe4.tables.processo.processo_interface import ProcessoInterfaceQuatro
 from .tables.equipe7.processo.processo_interface import ProcessoInterface7
 from .tables.equipe7.documento.documento_interface import DocumentoInterface7
+from .tables.equipe9.processo.processo_interface import ProcessoInterface9
+from .tables.equipe9.documento.documento_interface import DocumentoInterface9
 
-class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterfaceDoze, ProcessoInterface,ProcessoInterface13,ProcessoInterfaceQuatro,ProcessoInterface7,DocumentoInterface7):
+class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterfaceDoze, ProcessoInterface,ProcessoInterface13,ProcessoInterfaceQuatro,ProcessoInterface7,DocumentoInterface7,ProcessoInterface9,DocumentoInterface9):
 
 
     def __init__(self, app):

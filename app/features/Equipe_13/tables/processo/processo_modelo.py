@@ -13,12 +13,16 @@ class Processo:
         self.__usuario = None
 
         if processo_id is not None:
-            data = db.get_processo(processo_id)
+            data = db.get_processo(processo.get_id())
             if len(data) > 0:
                 self.__processo_id = processo_id
                 self.__descricao = data[0]['processo_descricao']
                 self.__tipo = data[0]['processo_tipo']
-                self.set_usuario(data['usuario_id'])
+                usuario = Usuario(data[0]['usuario_id'])
+            if usuario.get_id() is not None:
+                    self.__usuario = usuario
+        else:
+            self.__usuario = usuario
 
     def get_id(self):
         return self.__processo_id

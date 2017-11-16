@@ -21,13 +21,9 @@ class ProcessoInterface13:
         return data[0]
 
     def cadastra_processo_13(self,processo):
-        self.execute_query("insert into processo(processo_descricao, processso_tipo,usuario_id)\
-         values('{}', '{}','{}')".format(processo.get_descricao(), processo.get_tipo(),usuario.get_usuario().get_id()), True)
+        self.execute_query("insert into processo(processo_descricao,processo_tipo,usuario_id)\
+         values('{}', '{}','{}')".format(processo.descricao, processo.tipo,processo.get_usuario().get_id()), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from processo")
-
-        if len(data) < 1:
-            return None
-
         return data[0]["last"]
     
     def deleta_processo(self, processo_id):

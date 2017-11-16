@@ -46,3 +46,9 @@ class DocumentoDois:
         if self.__status != -1:
             self.__status= 1
             db.desativa_documento_dois(self.__id)
+
+    def salva_dois(self, d, t, i):
+        if self.get_id() is not None:
+            db.edita_documento_dois(d, t, i)
+        else:
+            self.__id = db.cadastra_documento_dois(d, t, i) 

@@ -55,6 +55,7 @@ from .features.equipe_2.processo_cadastrar.processo_cadastrar_front import *
 from .features.equipe_2.documento_listar.documento_listar_front import *
 from .features.equipe_2.documento_editar.documento_editar_front import *
 from .features.equipe_2.documento_remover.documento_remover_front import *
+from .features.equipe_2.documento_cadastrar.documento_cadastrar_front import *
 
 
 # Imports da Equipe 1
@@ -88,7 +89,7 @@ from .features.processo_3.editar_processo_front import *
 from .features.processo_3.editar_processo_negocio import *
 from .features.processo_3.delete_processo_front import *
 from .features.processo_3.delete_processo_negocio import *
-'''
+
 from .features.equipe9.processo_editar.processo_editar_front import *
 from .features.equipe9.processo_listar.processo_listar_front import *
 from .features.equipe9.processo_remover.processo_remover_front import *
@@ -96,7 +97,7 @@ from .features.equipe9.documento_cadastrar.documento_cadastrar_front import *
 from .features.equipe9.documento_editar.documento_editar_front import *
 from .features.equipe9.documento_listar.documento_listar_front import *
 from .features.equipe9.documento_remover.documento_remover_front import *
-'''
+
 
 from .features.equipe12.processos_listar.processos_listar_front import *
 from .features.equipe12.processos_cadastrar.processos_cadastrar_front import *
@@ -104,19 +105,19 @@ from .features.equipe12.processos_editar.processos_editar_front import *
 from .features.equipe12.processos_remover.processos_remover_front import *
 
 
-'''
+
 from .features.equipe_11.features.processo_listar.processo_listar_front import *
 from .features.equipe_11.features.processo_cadastrar.processo_cadastrar_front import *
 from .features.equipe_11.features.processo_editar.processo_editar_front import *
 from .features.equipe_11.features.processo_remover.processo_remover_front import *
-'''
+
 
 #Equipe 8
-'''from .features.equipe_8.features.processo_listar.processo_listar_front import *
+from .features.equipe_8.features.processo_listar.processo_listar_front import *
 from .features.equipe_8.features.processo_cadastrar.processo_cadastrar_front import *
 from .features.equipe_8.features.processo_editar.processo_editar_front import *
 from .features.equipe_8.features.processo_remover.processo_remover_front import *
 from .features.equipe_8.features.documento_cadastrar.documento_cadastrar_front import *
 from .features.equipe_8.features.documento_editar.documento_editar_front import *
 from .features.equipe_8.features.documento_remover.documento_remover_front import *
-from .features.equipe_8.features.documento_listar.documento_remover_front import *'''
+from .features.equipe_8.features.documento_listar.documento_remover_front import *

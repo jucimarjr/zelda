@@ -25,7 +25,8 @@ class ProcessoInterfaceQuatro:
         self.execute_query("update processo set processo_desc = '{}', processo_tipo = '{}' where processo_id = '{}'".format(processo.get_desc(),processo.get_tipo(),processo.get_id()), True)
 
     def cadastra_processo4(self, processo):
-        self.execute_query("insert into processo(processo_tipo, processo_desc, usuario_id) values('{}', '{}', '{}')".format(processo.get_tipo(), processo.get_desc(), processo.get_usuario().get_id()), True)
+        self.execute_query("insert into processo(processo_tipo, processo_desc, usuario_id)\
+        values('{}', '{}', '{}')".format(processo.get_tipo(), processo.get_desc(), processo.get_usuario().get_id()), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from processo")
         return data[0]["last"]
 

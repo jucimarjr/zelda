@@ -4,6 +4,7 @@ from app.cursor import db
 from app.utils.flash_errors import flash_errors
 from app.tables.equipe4.tables.processo.processo_modelo import Processo
 from app.utils.zelda_modelo_4 import ZeldaModelo
+from app.tables.usuario.usuario_modelo import Usuario
 
 
 class ProcessoCadastrarNegocio:
@@ -11,11 +12,12 @@ class ProcessoCadastrarNegocio:
     def exibir():
 
         form = CadastrarProcessoForm()
-
+        usuarios = ZeldaModelo.lista_usuarios()
+        form.usuario.choices = [ (usuario.get_id(), usuario.login) for usuario in usuarios ]
+        
         if form.validate_on_submit():
 
-            processo = Processo()
-
+            processo = Processo(usuario = Usuario(form.usuario.data))
             processo.tipo = form.processo_tipo.data
             processo.desc = form.processo_desc.data
             processo.salva()

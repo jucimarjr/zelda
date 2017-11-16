@@ -87,7 +87,6 @@ from .features.processo_3.editar_processo_negocio import *
 from .features.processo_3.delete_processo_front import *
 from .features.processo_3.delete_processo_negocio import *
 
-from .features.equipe9.processo_cadastrar.processo_cadastrar_front import *
 from .features.equipe9.processo_editar.processo_editar_front import *
 from .features.equipe9.processo_listar.processo_listar_front import *
 from .features.equipe9.processo_remover.processo_remover_front import *

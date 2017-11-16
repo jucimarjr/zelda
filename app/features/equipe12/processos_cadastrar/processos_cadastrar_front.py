@@ -5,5 +5,5 @@ from ....utils.front_helper import *
 @app.route('/processos12/novo',methods=['GET','POST'])
 @login_required
 @verifica_permissao
-def processo_cadastrar():
+def processo_cadastrar_12():
     return ProcessoCadastrarNegocio.exibir()

@@ -26,12 +26,12 @@ class ProcessoInterface13:
         data = self.execute_query("select LAST_INSERT_ID() as last from processo")
         return data[0]["last"]
     
-    def deleta_processo(self, processo_id):
+    def deleta_processo_13(self, processo_id):
         self.execute_query("delete from processo where processo_id = '{}'".format(processo_id), True)
         self.execute_query("delete from docs where processo_id = '{}'".format(processo_id), True)
 
 
-    def edita_processo(self,processo):
+    def edita_processo_13(self,processo):
         self.execute_query("update processo set processo_descricao = '{}', processo_tipo = '{}',usuario_id = '{}',\
          where processo_id = '{}'".format(processo.get_descricao(),processo.get_tipo(),usuario.get_usuario().get_id()), True)
 

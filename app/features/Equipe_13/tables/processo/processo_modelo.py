@@ -40,14 +40,14 @@ class Processo:
         if descricao.get_id() is not None:
             self.__descricao = descricao
     
-    def deleta(self):
-        db.deleta_processo(self.get_id())
+    def deleta_13(self):
+        db.deleta_processo_13(self.get_id())
 
     def salva(self):
         if self.get_id() is None:
             self.__processo_id = db.cadastra_processo_13(self)
         else:
-            db.edita_processo(self)
+            db.edita_processo_13(self)
 
     def set_usuario(self, usuario):
         if usuario.get_id() is not None:

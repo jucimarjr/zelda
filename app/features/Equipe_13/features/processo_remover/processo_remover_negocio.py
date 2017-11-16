@@ -8,7 +8,7 @@ class ProcessoRemoverNegocio:
             return redirect(url_for('processo_listar_13'))
 
         if request.method == 'POST':
-            processo.remove()
+            processo.deleta_13()
             return redirect(url_for('processo_listar_13'))
 
         return render_template('processo_remover_13.html', processo = processo)

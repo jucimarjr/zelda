@@ -2,12 +2,12 @@ from flask import render_template, flash, redirect, url_for, request
 from .processo_remover_form import RemoverProcessoForm
 from ....utils.flash_errors import flash_errors
 from ....cursor import db
-from ....tables.equipe_2.processo.processo_modelo import Processo
+from ....tables.equipe_2.processo.processo_modelo import ProcessoDois
 
 class ProcessoRemoverNegocio:
 
     def exibir(processo_id):
-        processo = Processo(processo_id)
+        processo = ProcessoDois(processo_id)
         if processo.get_id() is None:
             return redirect(url_for('processo_listar_2'))
 

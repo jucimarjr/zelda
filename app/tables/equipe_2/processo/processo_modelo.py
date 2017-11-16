@@ -1,6 +1,6 @@
 from ....cursor import db
 
-class Processo:
+class ProcessoDois:
 
     def __init__(self, processo_id = None):
         self.__processo_id = None
@@ -10,7 +10,7 @@ class Processo:
         self.__status = 0
         
         if processo_id is not None:
-            data = db.get_processo(processo_id)
+            data = db.get_processo_dois(processo_id)
             
             if data is not None:
 
@@ -23,7 +23,7 @@ class Processo:
     def desativa(self):
         if self.__status != -1:
             self.__status= 1
-            db.desativa_processo(self.__processo_id)
+            db.desativa_processo_dois(self.__processo_id)
 
     def get_status(self):
         return self.__status
@@ -48,4 +48,8 @@ class Processo:
                 "tipo": self.get_tipo()
                 }
 
-       
+    def salva_dois(self, d, t, i):
+        if self.get_id() is not None:
+            db.edita_processo_dois(d, t, i)
+        else:
+            self.__id = db.cadastra_processo_dois(self)   

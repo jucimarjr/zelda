@@ -15,6 +15,8 @@ from .tables.equipe7.processo.processo_interface import ProcessoInterface7
 from .tables.equipe7.documento.documento_interface import DocumentoInterface7
 from .tables.equipe9.processo.processo_interface import ProcessoInterface9
 from .tables.equipe9.documento.documento_interface import DocumentoInterface9
+from .tables.equipe_11.processo.processo_interface import ProcessoInterfaceOnze
+from .tables.equipe_11.documento.documento_interface import DocumentoInterfaceOnze
 
 class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterfaceDoze, ProcessoInterface,ProcessoInterface13,ProcessoInterfaceQuatro,ProcessoInterface7,DocumentoInterface7,ProcessoInterface9,DocumentoInterface9, DocumentoInterfaceDois):
 

@@ -4,5 +4,5 @@ from app.utils.front_helper import *
 
 @app.route('/equipe4/processo/novo', methods=['GET', 'POST'])
 #@login_required
-def equipe4_processo_cadastrar():
+def processo_cadastrar_4():
    return ProcessoCadastrarNegocio.exibir()

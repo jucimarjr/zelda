@@ -5,5 +5,5 @@ from app.utils.front_helper import *
 @app.route('/equipe4/processo/<processo_id>', methods=['GET', 'POST'])
 #@login_required
 #@verifica_permissao
-def processo_editar(processo_id):
+def processo_editar_4(processo_id):
     return ProcessoEditarNegocio.exibir(processo_id)

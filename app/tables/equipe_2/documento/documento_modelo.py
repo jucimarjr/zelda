@@ -42,3 +42,7 @@ class DocumentoDois:
                 "descricao": self.get_descricao(),
                 "tipo": self.get_tipo()
                 }
+    def desativa(self):
+        if self.__status != -1:
+            self.__status= 1
+            db.desativa_documento_dois(self.__id)

@@ -8,18 +8,16 @@ class ProcessoEditarNegocio:
     def exibir(processo_id):        
         form = EditarProcessoForm()
 
-        processo = Processo(processo_id = processo_id)
+        processo = Processo(processo_id)
 
-        if request.method == 'GET':
+       
 
-            if processo.get_id() is not None:
-                form.processo_descricao.data = processo.descricao
-                form.processo_id.data = processo.get_id()
-            else:
-                return redirect(url_for('processo_listar_13'))
+        if processo.get_id() is  None:
+            return redirect(url_for('processo_listar_13'))
 
-        elif form.validate_on_submit():
+        if form.validate_on_submit():
             processo.descricao = form.processo_descricao.data
+            processo.tipo = form.processo_tipo.data
             processo.salva()
 
             return redirect(url_for('processo_listar_13'))

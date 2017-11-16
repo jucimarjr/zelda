@@ -32,8 +32,10 @@ class ProcessoInterface13:
 
 
     def edita_processo_13(self,processo):
-        self.execute_query("update processo set processo_descricao = '{}', processo_tipo = '{}',usuario_id = '{}',\
-         where processo_id = '{}'".format(processo.get_descricao(),processo.get_tipo(),usuario.get_usuario().get_id()), True)
+        self.execute_query("update processo set processo_descricao = '{}', processo_tipo = '{}'\
+        where processo_id = '{}'".format(processo.get_descricao(),processo.get_tipo(),processo.get_id()), True)
+
+
 
     def get_processos_ids(self):
         data = self.execute_query("select processo_id from processo")

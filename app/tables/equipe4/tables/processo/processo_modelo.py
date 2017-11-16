@@ -5,22 +5,23 @@ from app.utils.files import upload
 
 class Processo:
 
-    def __init__(self, processo_id = None):
+    def __init__(self, processo_id = None, usuario = None):
 
         self.__processo_id = None
         self.tipo = None
         self.desc = None
-        self._usuario = None
+        self.__usuario = None
 
         if processo_id is not None:
-            data = db.get_processos2(processo_id)
+            data = db.get_processos_4(processo_id)
             if data is not None:
-
-                self.__processo_id = processo_id
+                self.__processo_id = data['processo_id']
                 self.tipo = data['processo_tipo']
                 self.desc = data['processo_desc']
 
-                self.set_usuario(data['usuario_id'])
+                usuario = Usuario(data['usuario_id'])
+                if usuario.get_id() is not None:
+                    self.__usuario = usuario
 
     def get_id(self):
         return self.__processo_id
@@ -34,16 +35,11 @@ class Processo:
     def get_desc(self):
         return self.desc
 
-    def set_usuario(self, usuario_id):
-        usuario = Usuario(usuario_id)
-        if usuario.get_id() is not None:
-            self.__usuario = usuario
-            
     def salva(self):
         if self.__processo_id is not None:
-            db.edita_processo(self)            
+            db.edita_processo_4(self)
         else:
-            self.__processo_id = db.cadastra_processo(self)
+            self.__processo_id = db.cadastra_processo4(self)
 
     def deleta(self):
         if self.get_id() is not None:

@@ -48,3 +48,7 @@ class Processo:
     def deleta(self):
         if self.get_id() is not None:
             db.deleta_processos4(self.get_id())
+            
+    def set_usuario(self, usuario):
+        if usuario.get_id() is not None:
+            self.__usuario = usuario

@@ -48,8 +48,8 @@ class ProcessoDois:
                 "tipo": self.get_tipo()
                 }
 
-    def salva_dois(self, d, t, i):
+    def salva_dois(self, d, t, i, u):
         if self.get_id() is not None:
-            db.edita_processo_dois(d, t, i)
+            db.edita_processo_dois(d, t, i, u)
         else:
-            self.__id = db.cadastra_processo_dois(self)   
+            self.__id = db.cadastra_processo_dois(d, t, i, u)   

@@ -33,9 +33,9 @@ class ProcessoInterfaceQuatro:
 
         return data[0]["last"]
 
-    def deleta_processo():
+    def deleta_processos4(self, processo_id):
         self.execute_query("delete from processo where processo_id = '{}'".format(processo_id), True)
-        self.execute_query("delete from docs where processo_id = '{}'".format(processo_id), True)    
+        #self.execute_query("delete from docs where processo_id = '{}'".format(processo_id), True)    
 
     
     def get_processos_ids(self):

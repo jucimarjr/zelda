@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
-from ....utils.flash_errors import flash_errors
-from ....features.Equipe_4.processo.processo_modelo import Processo
+from app.utils.flash_errors import flash_errors
+from app.tables.equipe4.tables.processo.processo_modelo import Processo
 
 
 class ProcessoRemoverNegocio:

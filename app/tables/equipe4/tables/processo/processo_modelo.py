@@ -44,3 +44,7 @@ class Processo:
             db.edita_processo(self)            
         else:
             self.__processo_id = db.cadastra_processo(self)
+
+    def deleta(self):
+        if self.get_id() is not None:
+            db.deleta_processos4(self.get_id())

@@ -4,5 +4,5 @@ from ....utils.zelda_modelo_2 import ZeldaModeloDois
 
 class DocumentoListarNegocio:
     def exibir():
-        documentos = ZeldaModeloDois.lista_documento_2()
+        documentos = ZeldaModeloDois.listar_documento_2()
         return render_template('documento_listar_2.html', documentos = documentos)

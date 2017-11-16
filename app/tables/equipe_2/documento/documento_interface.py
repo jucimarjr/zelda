@@ -15,7 +15,7 @@ class DocumentoInterfaceDois:
             cur.close()
         return data
 
-    def get_documento(self, documento_id):
+    def get_documento_dois(self, documento_id):
         data = self.execute_query("select * from documento_dois where documento_id = {} limit 1".format(documento_id))
 
         if len(data) < 1:

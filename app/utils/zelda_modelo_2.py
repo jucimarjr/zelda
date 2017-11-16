@@ -1,5 +1,6 @@
 from ..cursor import db
 from ..tables.equipe_2.processo.processo_modelo import ProcessoDois
+from ..tables.equipe_2.documento.documento_modelo import DocumentoDois
 from ..tables.usuario.usuario_modelo import Usuario
 from .zelda_modelo import ZeldaModelo
 from flask import session
@@ -8,7 +9,7 @@ from app import app
 class ZeldaModeloDois:
 
     processos_2 = []
-
+    documentos_2 = []
     @staticmethod
     def lista_setores():
         ZeldaModelo.setores.clear()
@@ -103,3 +104,25 @@ class ZeldaModeloDois:
                 ZeldaModeloDois.processos_2.append(processo)
 
         return ZeldaModeloDois.processos_2
+
+    @staticmethod
+    def listar_documento_2():
+
+        ZeldaModeloDois.documentos_2.clear()
+        d = db.get_documentos_ids_dois()
+        p = db.get_processos_ids_dois()
+        usuario = Usuario(session['user_id'])
+        user_id = usuario.get_id()
+        if len(d) < 1 or len(p) < 1:
+            return None
+        for d in db.get_documentos_ids_dois():
+            doc = DocumentoDois(str(d['documento_id']))
+            for p in db.get_processos_ids_dois():
+                proc = ProcessoDois(str(p['processo_id']))
+                p_id = str(proc.get_id())
+                dp_id = str(doc.get_id_processo())
+                if(proc.get_id_usuario() == user_id and p_id == dp_id):
+                    ZeldaModeloDois.documentos_2.append(doc)
+               
+        return ZeldaModeloDois.documentos_2
+

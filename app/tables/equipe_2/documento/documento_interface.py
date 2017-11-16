@@ -28,5 +28,5 @@ class DocumentoInterfaceDois:
         data = self.execute_query("select * from documento_dois")
         return data
 
-    def desativa_documento(self, documento_id):
+    def desativa_documento_dois(self, documento_id):
         self.execute_query("update documento_dois set documento_status = 1  where documento_id = '{}'".format(documento_id), True)

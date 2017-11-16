@@ -41,6 +41,24 @@ class ZeldaModelo:
         return result
 
     @staticmethod
+    def lista_processos():
+        result = []
+        for data in db.get_processos_ids():
+            processo = Processo(data['processo_id'])
+            result.append(processo)
+
+        return result
+        
+    @staticmethod
+    def lista_documentos():
+        result = []
+        for data in db.get_documento_ids():
+            documento = Documento(data['documento_id'])
+            result.append(documento)
+
+        return result
+
+    @staticmethod
     def lista_funcionarios():
         result = []
         for data in db.get_funcionarios_ids():

@@ -1,6 +1,6 @@
 from flask_mysqldb import MySQL
 
-class ProcessoInterface:
+class ProcessoInterface7:
 
     def __init__(self, app):
         self.mysql = MySQL(app)
@@ -15,16 +15,25 @@ class ProcessoInterface:
             cur.close()
             return data
 
-    # CRUD - PERFIL
-
     def cadastra_processo(self, processo):
-        self.execute_query("insert into processo (processo_tipo, processo_desc) values ('{}','{}')".format(processo.tipo, processo.desc), True)
-        data = self.execute_query("select processo_id from processo order by processo_id desc limit 1")
+        usuario = 2
+        if processo.get_usuario() is not None:
+            if processo.get_usuario().get_id() is not None:
+                usuario = processo.get_usuario().get_id()
 
-        return data[0]["processo_id"]
+        self.execute_query("insert into processo (usuario_id, descricao, tipo)\
+         values ('{}', '{}', '{}')".format(usuario, processo.descricao, processo.tipo), True)
+        data = self.execute_query('select LAST_INSERT_ID() as ultimo from processo')
+        return data[0]['ultimo']
 
     def edita_processo(self, processo):
-        self.execute_query("update processo set processo_tipo = '{}', processo_desc = '{}' where processo_id = '{}'".format(processo.tipo, processo.desc, processo.get_id()), True)
+        usuario = '2'
+        if processo.get_usuario() is not None:
+            if processo.get_usuario().get_id() is not None:
+                usuario = processo.get_usuario().get_id()
+
+        self.execute_query("update processo set usuario_id = '{}', descricao = '{}', tipo = {}\
+         where processo_id = '{}'".format(usuario, processo.desc, processo.tipo, processo.get_id()), True)
 
     def deleta_processo(self, processo_id):
         self.execute_query("delete from processo where processo_id = '{}'".format(processo_id), True)

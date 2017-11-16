@@ -38,6 +38,11 @@
                             {{form.processo_desc(class_='form-control', id='desc-input')}}
                             <label for="password-input">Descrição</label>
                         </div>
+
+                        <label>Usuário</label>
+                        <div class="md-form">
+                            {{form.processo_usuario(class_='form-control', id='usuario-input')}}
+                        </div>
                 
                         <button type="submit" class="btn uea-light">Salvar</button> 
                         <a href="{{url_for('processo_listar')}}">

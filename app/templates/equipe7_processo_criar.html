@@ -24,7 +24,7 @@
                 <div class="card-body">
                     
                     <h4 class="card-title">Cadastrar processo</h4>
-                    <form class="form" action="" method="post">
+                    <form class="form" action="" method="POST" enctype="multipart/form-data">
                         {{form.hidden_tag()}}
                         <div class="md-form">
                             {{form.processo_tipo(class_='form-control', id='tipo-input')}}
@@ -34,6 +34,11 @@
                         <div class="md-form">
                             {{form.processo_desc(class_='form-control', id='desc-input')}}
                             <label for="nome-input">Descrição</label>
+                        </div>
+
+                        <label>Usuário do Processo</label>
+                        <div class="form-group mb-1">
+                            {{form.processo_usuario(class_='form-control', id='usuario-input')}}
                         </div>
 
                         <button type="submit" class="btn uea-light">Cadastrar</button>

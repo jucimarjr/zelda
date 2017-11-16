@@ -17,7 +17,6 @@ class ProcessoCadastrarNegocio:
         
         if form.validate_on_submit():
             processo = Processo()
-
             processo.set_usuario(usuario = Usuario(form.usuario.data))
             processo.tipo = form.processo_tipo.data
             processo.desc = form.processo_desc.data

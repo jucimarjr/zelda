@@ -10,19 +10,18 @@ class ProcessoInterface:
 
         if insert:
             self.mysql.connection.commit()
-        
+
         data = cur.fetchall()
         cur.close()
 
         return data
-        
-    # CRUD - SETOR
 
-    def cadastra_processo(self, processo):
-        self.execute_query("insert into setor (processo_desc, processo_tipo) values (\"{}\", {})".format(processo.desc,processo_tipo), True)
+    # CRUD - PROCESSO
+
+    def cadastra_processo_dois(self, d, t, i, u):
+        self.execute_query("insert into processo (processo_descricao, processo_tipo, usuario_id) values ('{}', '{}', '{}')".format(d, t, u), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from processo")
         return data[0]['last']
-
 
     def get_processos_ids(self):
         data = self.execute_query("select processo_id from processo")
@@ -44,8 +43,8 @@ class ProcessoInterface:
 
         return ids
 
-    def edita_processo(self, processo):
-        self.execute_query("update processo set processo_desc = '{}', processo_tipo = {} where processo_id = '{}'".format(processo_desc, processo_tipo, processo.get_id()), True)
+    def edita_processo_dois(self, d, t, i, u):
+        self.execute_query("update processo set processo_descricao = '{}', processo_tipo = '{}' where processo_id = '{}'".format(d, t, i), True)
 
     def desativa_processo(self, processo_id):
         self.execute_query("update processo set processo_situacao = 1  where processo_id = '{}'".format(processo_id), True)

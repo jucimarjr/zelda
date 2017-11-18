@@ -1,8 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request
 from .processo_editar_form import EditarProcessoForm
-from ...tables.equipe5.processo_modelo import Processo
-from ...utils.flash_errors import flash_errors
-from ...cursor import db
+from ....tables.equipe5.processo_modelo import Processo
+from ....utils.flash_errors import flash_errors
+from ....cursor import db
+from ....authentication import *
 
 class ProcessoEditarNegocio:
     def exibir(processo_id):

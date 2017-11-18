@@ -1,6 +1,6 @@
 from .processo_remover_negocio import ProcessoRemoverNegocio
 from app import app
-from ...utils.front_helper import *
+from ....utils.front_helper import *
 
 @app.route('/processo5/desativar/<processo_id>', methods=['GET', 'POST'])
 #@login_required

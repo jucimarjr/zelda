@@ -12,28 +12,24 @@
                 {% include "errors.html" %}
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Cadastrar novo sistema</h4>
+                        <h4 class="card-title">Cadastrar novo Processo</h4>
 
                         <form action="" class="form" method="POST">
                             {{form.hidden_tag()}}
 
                             <div class="md-form">
-                                {{form.sistema_nome(class_='form-control', id='nome-input')}}
-                                <label for="nome-input">Nome</label>
+                                {{form.processo_descricao(class_='form-control', id='desc-input')}}
+                                <label for="desc-input">Descrição do Processo</label>
                             </div>
 
                             <div class="md-form">
-                                {{form.sistema_prefixo(class_='form_control', id='prefixo-input')}}
-                                <label for="prefixo-input">Prefixo</label>
+                                {{form.processo_tipo(class_='form_control', id='tipo-input')}}
+                                <label for="tipo-input">Tipo de Processo</label>
                             </div>
 
-                            <div class="md-form">
-                                {{form.sistema_desc(class_='md-textarea', id='desc-input')}}
-                                <label for="desc-input">Descrição</label>
-                            </div>
 
                             <button type="submit" class="btn uea-light">Cadastrar</button>
-                            <a href="{{url_for('funcionalidade_listar')}}">
+                            <a href="{{url_for('processo_listar_5')}}">
                                 <button type="button" class="btn btn-flat waves-effect">Cancelar</button>
                             </a>
                         </form>

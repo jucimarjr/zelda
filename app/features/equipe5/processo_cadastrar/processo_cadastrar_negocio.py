@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 from .processo_cadastrar_form import CadastrarProcessoForm
-from ...utils.flash_errors import flash_errors
-from ...tables.equipe5.processo_modelo import Processo
+from ....utils.flash_errors import flash_errors
+from ....tables.equipe5.processo_modelo import Processo
 from ....authentication import *
 
 class ProcessoCadastrarNegocio:

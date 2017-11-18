@@ -23,17 +23,21 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Editar processo</h4>
-        
+
                     <form class="form" action="" method="post">
                         {{form.hidden_tag()}}
-        
+
                         <div class="md-form">
-                            {{form.processo_nome(class_='form-control', id='nome-input')}}
-                            <label for="nome-input">Nome do Processo</label>
+                            {{form.processo_descricao(class_='form-control', id='desc-input')}}
+                            <label for="nome-input">Descrição do Processo</label>
                         </div>
-        
-                        <button type="submit" class="btn uea-light">Salvar</button> 
-                        <a href="{{url_for('processo_listar')}}">
+                        <div class="md-form">
+                            {{form.processo_tipo(class_='form-control', id='tipo-input')}}
+                            <label for="tipo-input">Tipo do Processo</label>
+                        </div>
+
+                        <button type="submit" class="btn uea-light">Salvar</button>
+                        <a href="{{url_for('processo_listar_5')}}">
                             <button type="button" class="btn btn-flat">Cancelar</button>
                         </a>
                     </form>

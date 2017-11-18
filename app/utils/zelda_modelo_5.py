@@ -1,16 +1,15 @@
 from ..cursor import db
-from ..tables.setor.setor_modelo import Setor
-from ..tables.funcionario.funcionario_modelo import Funcionario
+from ..tables.equipe5.processo_modelo import Processo
+#from ..tables.equipe_2.documento.documento_modelo import DocumentoDois
 from ..tables.usuario.usuario_modelo import Usuario
-from ..tables.perfil.perfil_modelo import Perfil
-from ..tables.funcionalidade.funcionalidade_modelo import Funcionalidade
-from ..tables.sistema.sistema_modelo import Sistema
+from .zelda_modelo import ZeldaModelo
+from flask import session
+from app import app
 
 class ZeldaModelo:
 
-    setores = []
-    funcionarios = []
-
+    processos_5 = []
+    #documentos_2 = []
     @staticmethod
     def lista_setores():
         ZeldaModelo.setores.clear()
@@ -19,7 +18,7 @@ class ZeldaModelo:
             ZeldaModelo.setores.append(setor)
 
         return ZeldaModelo.setores
-    
+
     @staticmethod
     def lista_setores_ativos():
         result = []
@@ -88,24 +87,42 @@ class ZeldaModelo:
             return None
 
         return funcionalidade
-    
-    @staticmethod
-    def lista_processos():
-        result = []
-        for data in db.get_processos_ids():
-            processo = Processos(data['processo_id'])
-            result.append(processo)
 
-        return result
-    
     @staticmethod
-    def lista_documentos(id = None):
-        result = []
-        for data in db.get_documentos_ids():
-            documento = Documento(data['documento_id'])
-            if id is not None:
-                if documento.get_processo().get_id() == id:
-                    result.append(documento)
-            else:
-                result.append(documento)
-        return result
+    def lista_processo_5():
+
+        ZeldaModelo.processos_5.clear()
+        data = db.get_processos_ids_cinco()
+        usuario = Usuario(session['user_id'])
+        user_id = usuario.get_id()
+        if len(data) < 1:
+            return None
+
+        for data in db.get_processos_ids_cinco():
+            processo = Processo(str(data['processo_id']))
+            if(processo.get_id_usuario() == user_id):
+                ZeldaModelo.processos_5.append(processo)
+
+        return ZeldaModelo.processos_2
+
+    #@staticmethod
+
+#    def listar_documento_2():
+
+#        ZeldaModeloDois.documentos_2.clear()
+#        d = db.get_documentos_ids_dois()
+#        p = db.get_processos_ids_dois()
+#        usuario = Usuario(session['user_id'])
+#        user_id = usuario.get_id()
+#        if len(d) < 1 or len(p) < 1:
+#            return None
+#        for d in db.get_documentos_ids_dois():
+#            doc = DocumentoDois(str(d['documento_id']))
+#            for p in db.get_processos_ids_dois():
+#                proc = ProcessoDois(str(p['processo_id']))
+#                p_id = str(proc.get_id())
+#                dp_id = str(doc.get_id_processo())
+#                if(proc.get_id_usuario() == user_id and p_id == dp_id):
+#                    ZeldaModeloDois.documentos_2.append(doc)
+#
+#        return ZeldaModeloDois.documentos_2

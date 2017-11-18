@@ -32,13 +32,13 @@
                                     <td>{{processo.get_descricao()}}</td>
                                     <td>{{processo.get_tipo()}}</td>
                                     <td class="my-icon-td">
-                                        <a href="{{url_for('processo_editar_2', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
+                                        <a href="{{url_for('processo_editar_5', processo_id=processo.get_id())}}" aria-label="editar" title="Editar" class="waves-effect waves-dark my-icon-button green-fg">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td class="my-icon-td">
                                         {% if processo.get_status() != 1 %}
-                                            <a href="{{url_for('processo_remover_2', processo_id=processo.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
+                                            <a href="{{url_for('processo_remover_5', processo_id=processo.get_id())}}" title="Desativar" aria-label="desativar" class="waves-effect waves-dark my-icon-button red-fg" aria-label="desativar">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
                                         {% else %}

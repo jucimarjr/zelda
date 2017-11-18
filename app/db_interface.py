@@ -18,8 +18,9 @@ from .tables.equipe9.documento.documento_interface import DocumentoInterface9
 from .tables.equipe_11.processo.processo_interface import ProcessoInterfaceOnze
 from .tables.equipe_11.documento.documento_interface import DocumentoInterfaceOnze
 from .features.equipe_8.tables.processo.processo_interface import ProcessoInterfaceOito
+from .tables.equipe5.processo_interface import ProcessoInterfaceCinco
 
-class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterfaceDoze, ProcessoInterface,ProcessoInterface13,ProcessoInterfaceQuatro,ProcessoInterface7,DocumentoInterface7,ProcessoInterface9,DocumentoInterface9, DocumentoInterfaceDois, ProcessoInterfaceOito):
+class Zelda(FuncionarioInterface, UsuarioInterface, SetorInterface, PerfilInterface, ProcessoInterfaceDois, FuncionalidadeInterface, SistemaInterface, ProcessosInterfaceDoze, ProcessoInterface,ProcessoInterface13,ProcessoInterfaceQuatro,ProcessoInterface7,DocumentoInterface7,ProcessoInterface9,DocumentoInterface9, DocumentoInterfaceDois, ProcessoInterfaceOito, ProcessoInterfaceCinco):
 
 
     def __init__(self, app):

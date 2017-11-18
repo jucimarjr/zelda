@@ -4,6 +4,6 @@ from ...utils.zelda_modelo_5 import ZeldaModelo
 
 class ProcessoListarNegocio:
     def exibir():
-        processos = ZeldaModelo.lista_processos()
+        processos = ZeldaModelo.lista_processo_5()
 
         return render_template('processo_listar_5.html', processos = processos)

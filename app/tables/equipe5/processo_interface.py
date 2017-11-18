@@ -1,5 +1,5 @@
 from flask_mysqldb import MySQL
-class ProcessoInterface:
+class ProcessoInterfaceCinco:
 
     def __init__(self, app):
         self.mysql = MySQL(app)

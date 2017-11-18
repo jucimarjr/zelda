@@ -1,6 +1,6 @@
 from .processo_listar_negocio import ProcessoListarNegocio
 from app import app
-from ...utils.front_helper import *
+#from ...utils.front_helper import *
 
 @app.route('/processocinco')
 #@login_required

@@ -6,7 +6,7 @@ from passlib.hash import sha256_crypt
 from functools import wraps
 from wtforms.validators import DataRequired
 
-# Cadastra Setor
+# Cadastra Processo
 class CadastrarProcessoForm(Form):
-    processo_desc = TextAreaField('Descrição')
+    processo_descricao = StringField('Descrição processo', validators=[DataRequired('Descrição do processo é obrigatório')])
     processo_tipo = StringField('Processo Tipo', validators=[DataRequired('Tipo do Processo é obrigatório')])

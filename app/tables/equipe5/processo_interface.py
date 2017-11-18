@@ -18,12 +18,12 @@ class ProcessoInterface:
 
     # CRUD - PROCESSO
 
-    def cadastra_processo_dois(self, d, t, i, u):
+    def cadastra_processo_cinco(self, d, t, i, u):
         self.execute_query("insert into processo (processo_descricao, processo_tipo, usuario_id) values ('{}', '{}', '{}')".format(d, t, u), True)
         data = self.execute_query("select LAST_INSERT_ID() as last from processo")
         return data[0]['last']
 
-    def get_processos_ids(self):
+    def get_processos_ids_cinco(self):
         data = self.execute_query("select processo_id from processo")
         ids = []
 
@@ -33,7 +33,7 @@ class ProcessoInterface:
 
         return ids
 
-    def get_processos_ativos_ids(self):
+    def get_processos_ativos_ids_cinco(self):
         data = self.execute_query("select processo_id from processo where processo_situacao = 0")
         ids = []
 
@@ -43,13 +43,13 @@ class ProcessoInterface:
 
         return ids
 
-    def edita_processo_dois(self, d, t, i, u):
+    def edita_processo_cinco(self, d, t, i, u):
         self.execute_query("update processo set processo_descricao = '{}', processo_tipo = '{}' where processo_id = '{}'".format(d, t, i), True)
 
-    def desativa_processo(self, processo_id):
+    def desativa_processo_cinco(self, processo_id):
         self.execute_query("update processo set processo_situacao = 1  where processo_id = '{}'".format(processo_id), True)
 
-    def get_processo(self, processo_id):
+    def get_processo_cinco(self, processo_id):
         data = self.execute_query("select * from processo where processo_id = {} limit 1".format(processo_id))
 
         if len(data) < 1:

@@ -10,7 +10,7 @@ class Processo:
         self.__status = 0
 
         if processo_id is not None:
-            data = db.get_processo(processo_id)
+            data = db.get_processo_cinco(processo_id)
 
             if data is not None:
 
@@ -47,7 +47,7 @@ class Processo:
     def desativa(self):
         if self.__situacao != -1:
             self.__situacao = 1
-            db.desativa_processo(self.__processo_id)
+            db.desativa_processo_cinco(self.__processo_id)
 
     def serializa(self):
         return {
@@ -59,6 +59,6 @@ class Processo:
 
     def salva(self,d,t,i,u):
         if self.get_id() is not None:
-            db.edita_processo(d,t,i,u)
+            db.edita_processo_cinco(d,t,i,u)
         else:
-            self.__id = db.cadastra_processo(d,t,i,u)
+            self.__id = db.cadastra_processo_cinco(d,t,i,u)

@@ -1,4 +1,5 @@
 import abc
+import inspect
 
 class Componente:
 	@abc.abstractmethod
@@ -76,7 +77,7 @@ class ComputadorIterator:
 		retorno = None
 		for c in cl._componentes :
 			self.__steps += 1
-			if type(c) in [Computador, PlacaMae] :
+			if ComponenteComposite in inspect.getmro(c.__class__) :
 				if self.__steps == self.__current :
 					retorno = c
 					break
@@ -177,7 +178,7 @@ print("Listando os componentes do computador:")
 i = c1.getComputadorIterator()
 clista = i.proximoComponente()
 while(clista != None):
-	nome = str(type(clista))
+	nome = str(clista.__class__.__name__)
 	preco = str(clista.getPrecoCusto())
 	print("Componente " + nome + " Preco Custo: " + preco)
 	clista = i.proximoComponente()

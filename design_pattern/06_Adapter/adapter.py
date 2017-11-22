@@ -1,4 +1,5 @@
 
+
 """
 	Adapter converte a interface de uma classe em outra interface que 
 melhor se adapta às necessdades do cliente.
@@ -47,4 +48,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+	
+
 	

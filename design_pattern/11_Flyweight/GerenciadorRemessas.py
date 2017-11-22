@@ -3,20 +3,19 @@ from Remessa import Remessa
 
 class GerenciadorRemessas:
 
-    remessas = None
+    __remessas = None
 
     def __init__(self):
-        self.remessas = []
-        self.estado_factory = EstadoFactory()
+        self.__remessas = []
+        self.__estado_factory = EstadoFactory()
 
     def gerar_remessa(self, e):
-        estado = self.estado_factory.get_estado(e)
-        self.remessas.append(estado)
+        estado = self.__estado_factory.get_estado(e)
+        self.__remessas.append(estado)
 
     def mostrar_remessas(self):#verificação
-        for remessa in self.remessas:
+        for remessa in self.__remessas:
             print(remessa.get_nome())
 
     def mostrar_estado_factory(self):#verificação
-        print(self.estado_factory.estados)
-
+        print(self.__estado_factory.get_estados())

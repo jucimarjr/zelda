@@ -1,9 +1,9 @@
 from Estado import Estado
 class Remessa:
 
-    estado = None
+    __estado = None
 
     def __init__(self, estado):
-        self.estado = Estado(estado)
+        self.__estado = Estado(estado)
     def get_estado(self):
-        return self.estado
+        return self.__estado

@@ -1,10 +1,10 @@
-from Factory import ShapeFactory
+from factory import ShapeFactory
 
 
 def main():
     factory = ShapeFactory()
 
-    shape = factory.produce("Triangle")
+    shape = factory.produce("Elipse")
     
     shape.draw()
     shape.erase()

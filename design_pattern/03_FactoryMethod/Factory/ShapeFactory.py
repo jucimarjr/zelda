@@ -1,4 +1,4 @@
-from Shape import *
+from shape import *
 
 
 class ShapeFactory:
@@ -11,7 +11,7 @@ class ShapeFactory:
 
 
     def produce(self, shape_name):                
-        module = __import__("Shape." + shape_name)
+        module = __import__("shape." + shape_name)
         shape_class = getattr(module, shape_name)
         
         return shape_class()

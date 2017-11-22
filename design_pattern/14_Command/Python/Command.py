@@ -1,17 +1,5 @@
-import abc
-
-class Operar(metaclass=abc.ABCMeta):
-	@abc.abstractmethod
-	def operar(self, A, B):
-		pass
-
-class Somar(Operar):
-	def operar(self, A, B):
-		return (A+B)
-
-class Subtrair(Operar):
-	def operar(self, A, B):
-		return (A-B)
+from Somar import Somar
+from Subtrair import Subtrair
 
 class Command():
 

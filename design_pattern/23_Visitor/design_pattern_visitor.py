@@ -1,40 +1,72 @@
 import abc
 
-class Numero(metaclass=abc.ABCMeta):
+class Animal(metaclass=abc.ABCMeta):
 	@abc.abstractmethod
-	def accept(self, visitor):
-		 pass
-
-class NumerosConcretos(Numero):
-	def __init__(self, num1, num2):
-		self.num1 = num1
-		self.num2 = num2
-
-	def accept(self, visitor):
-		print (visitor.visit_concrete_element_a(self))
-
-class Visitor(metaclass=abc.ABCMeta):
+	def falar(self,text):
+		pass
+	
 	@abc.abstractmethod
-	def visit_concrete_element_a(self, NumerosConcretos):
+	def correr(self,text):
+		pass
+	
+	@abc.abstractmethod
+	def accept(self,visitor):
 		pass
 
-class SomaVisitor(Visitor):
-	def visit_concrete_element_a(self, NumerosConcretos):
-		soma = NumerosConcretos.num1 + NumerosConcretos.num2
-		return soma		
 
-class SubVisitor(Visitor):
-	def visit_concrete_element_a(self, NumerosConcretos):
-		sub = NumerosConcretos.num1 - NumerosConcretos.num2
-		return sub
+class Cat(Animal):
+	def falar(self,text):
+		print(text)
+	
+	def correr(self,text):
+		print(text)
+	
+	def accept(self,visitor):
+		visitor.visitCat(self)
+
+class Dog(Animal):
+	def falar(self,text):
+		print(text)
+	
+	def correr(self,text):
+		print(text)
+	
+	def accept(self,visitor):
+		visitor.visitDog(self)
+
+class Visitor(metaclass=abc.ABCMeta):
+	def visitDog(self,Dog):
+		pass
+	
+	def visitCat(self,Cat):
+		pass
+
+class CorrerVisitor(Visitor):
+	def visitDog(self,Dog):
+		Dog.correr("O cachorro esta correndo!")
+	
+	def visitCat(self,Cat):
+		Cat.correr("O gato esta correndo!")
+
+class FalarVisitor(Visitor):
+	def visitDog(self,Dog):
+		Dog.falar("O cachorro esta latindo!")
+	
+	def visitCat(self,Cat):
+		Cat.falar("O gato esta miando!")
 
 def main():
-	somaVisitor = SomaVisitor()
-	subVisitor = SubVisitor()
-	numeroConcreto = NumerosConcretos(2,5)
+	fala = FalarVisitor()
+	corre = CorrerVisitor()
 
-	numeroConcreto.accept(somaVisitor)
-	numeroConcreto.accept(subVisitor)
+	dog = Dog()
+	cat = Cat()
+
+	dog.accept(fala)
+	cat.accept(fala)
+
+	dog.accept(corre)
+	cat.accept(corre)
 
 if __name__ == "__main__":
 	main()

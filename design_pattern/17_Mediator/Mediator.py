@@ -86,7 +86,7 @@ class Mediator(IMediator):
     def registerView(self, v):
         self.btnView = v
 
-    def def registerSearch(self, s):
+    def registerSearch(self, s):
         self.btnSearch = s
 
     def registerBook(self, b):
@@ -129,5 +129,5 @@ class MediatorDemo():
 
 
 MediatorDemo()
-    
-    
+
+

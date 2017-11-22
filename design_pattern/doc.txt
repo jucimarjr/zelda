@@ -1,0 +1,12 @@
+DESIGN PATTERNS
+- classe, objeto, associação, agregação, composição
+- coesão e acoplamento
+- Pricipios de Design de Robert C. Martin
+- Tipos de padrão
+- padrões
+- 
+-- Descrição
+-- UML do Padrão
+-- Descrição do Exemplo
+-- UML do exemplo
+-- código ( link github )

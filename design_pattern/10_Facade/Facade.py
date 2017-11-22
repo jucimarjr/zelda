@@ -15,5 +15,5 @@ class Chamar:
         self.gato.falar()
 
 if __name__ == '__main__':
-    farcade = Chamar()
-    farcade.chamar()
+    facade = Chamar()
+    facade.chamar()

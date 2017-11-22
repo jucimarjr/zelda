@@ -2,8 +2,8 @@ import abc
 
 class Pedido(metaclass=abc.ABCMeta):
 
-    def __init__(self, status):
-        self.status = status
+    def __init__(self):
+        self.status = None
 
     def alterar(self):
         return self.status

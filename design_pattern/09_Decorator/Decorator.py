@@ -23,8 +23,8 @@ class Animal(metaclass=abc.ABCMeta):
 	def setIdade(self, idade):
 		self.__idade = idade
 
-	nome = property(fget = getNome, fset = setNome)
-	idade = property(fget = getIdade, fset = setIdade)
+	#nome = property(fget = getNome, fset = setNome)
+	#idade = property(fget = getIdade, fset = setIdade)
 	
 class Gato(Animal):
 	def __init__(self, nome, idade):

@@ -1,0 +1,24 @@
+							            ------ Adapter design pattern ------
+
+	Design Patterns Estruturais nos fornecem diferentes modos de criar uma estrutura de classes,
+por exemplo, usando herança e composição para criar objetos mais complexos e maiores a partir
+de outros mais simples e menores.
+
+	Adapter é um Design Pattern do tipo Estrutural. Sua função é adaptar a interface de uma
+classe para que esta trabalhe em conjunto com outra.
+	Adapter trabalha como uma ponte entre duas interfaces incopatíveis. Ele é útil em situações
+que se tem dois objetos que não se encaixam	e o trabalho conjunto deles é necessário para o projeto. 
+Isso ocorre, por exemplo, quando se quer modificar partes do código de uma API. 
+	Um exemplo prático da vida real são os carregadores de celular. Eles adaptam a voltagem da
+tomada (120V) para a voltagem da bateria do celular (3V).
+
+	Elementos do código:
+		Target define as particularidades da interface que o cliente usa;
+		Client trabalha com objetos conforme a interface Target;
+		Adaptee define uma interface existente que precisa ser adaptada;
+		Adapter adapta a interface de Adaptee para a interface Target.
+
+	O padrão Adapter deve ser usado quando:
+		Há uma interface de classe que não combina com outra que você precisa;
+		Você quer criar classes reutilizáveis que coopere que uma classe qualquer;
+		Existem muitas interfaces de subclasses e é inviável adapter uma a uma, então ultiliza-se Adapter por herança.

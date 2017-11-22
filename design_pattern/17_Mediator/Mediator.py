@@ -130,4 +130,4 @@ class MediatorDemo():
 
 MediatorDemo()
 
-m = MediatorDemo()  
+

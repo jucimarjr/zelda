@@ -35,25 +35,25 @@ class Dog(Animal):
 		visitor.visitDog(self)
 
 class Visitor(metaclass=abc.ABCMeta):
-	def visitDog(self,Dog):
+	def visitDog(self,dog):
 		pass
 	
-	def visitCat(self,Cat):
+	def visitCat(self,cat):
 		pass
 
 class CorrerVisitor(Visitor):
-	def visitDog(self,Dog):
-		Dog.correr("O cachorro esta correndo!")
+	def visitDog(self,dog):
+		dog.correr("O cachorro esta correndo!")
 	
-	def visitCat(self,Cat):
-		Cat.correr("O gato esta correndo!")
+	def visitCat(self,cat):
+		cat.correr("O gato esta correndo!")
 
 class FalarVisitor(Visitor):
-	def visitDog(self,Dog):
-		Dog.falar("O cachorro esta latindo!")
+	def visitDog(self,dog):
+		dog.falar("O cachorro esta latindo!")
 	
-	def visitCat(self,Cat):
-		Cat.falar("O gato esta miando!")
+	def visitCat(self,cat):
+		cat.falar("O gato esta miando!")
 
 def main():
 	fala = FalarVisitor()

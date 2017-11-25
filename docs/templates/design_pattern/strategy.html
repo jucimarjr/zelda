@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+	<head>
+		<meta charset="UTF-8">
+		<title>Documentação Zelda</title>
+		<link rel="stylesheet" href="../../statics/styles.css">
+	</head>
+	<body>
+		<div>
+			<h2 style="text-align: center">21 - Strategy</h2>
+
+			<h3>Descrição do padrão:</h3>
+				<p style="margin-left:5%">
+					Estratégia é um padrão de projeto que permite que sejam criadas várias classes
+					encapsuladas umas das outras mas que podem ser trocadas, de forma que o algoritmo
+					varie independentemente dos clientes que o utilizam.
+				</p>
+			<h3>UML do padrão:</h3>
+				<img src="../../images/design_pattern/strategy.png" alt="Strategy">
+			<h3>Descrição do exemplo do livro:</h3>
+				<p style="margin-left:5%">
+					O exemplo é um algoritmo que determina as melhores posições para uma quebra de
+					linha num texto. É baseado na implementação das classes Composition e Compositor.
+
+					A classe Composition contém diversos Components, que são tanto textos quanto
+					elementos gráficos em um determinado documento. Um composition arranja os elementos
+					em linhas utilizando uma instância da subclasse Compositor. Cada componente
+					tem um tamanho associado a ele, além de sua capacidade de aumentar e encolher.
+					Essas informações dos components são passadas para o compositor pelo composition,
+					que os utiliza para determinar os melhores lugares para as quebras de linhas.
+				</p>
+			<h3>UML do exemplo do livro:</h3>
+				<img src="../../images/design_pattern/strategy_exemplo.png" alt="Strategy">
+			<h3><a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/21_Strategy">Clique aqui</a> para ver o código fonte no Github</h3>
+			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
+		</div>
+	</body>
+</html>

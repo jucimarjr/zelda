@@ -1,12 +1,19 @@
-from composition import Composition
-from compositor import Compositor
-from array_compositor import ArrayCompositor
-from simple_compositor import SimpleCompositor
-from tex_compositor import TexCompositor
+import MallardDuck
+import ModelDuck
+import RedHeadDuck
+import RubberDuck
+import DecoyDuck
 
-def main():
-    quick = Composition(SimpleCompositor)
-    slick = Composition(TexCompositor)
-    iconic = Composition(ArrayCompositor)
 
-main()
+mallard = MallardDuck()
+rubber_duckie = RubberDuck()
+decoy = DecoyDuck()
+
+model = ModelDuck()
+mallard.perform_quack()
+rubber_duckie.perform_quack()
+decoy.perform_quack()
+
+model.perform_fly()
+model.set_fly_behavior(FlyRocketPowered())
+model.perform_fly()

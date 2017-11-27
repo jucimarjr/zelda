@@ -1,0 +1,1 @@
+Bridge é um padrão de projeto de software, utilizado quando é desejável que uma interface(abstração) possa variar independentemente das suas Implementações.

@@ -1,4 +1,4 @@
-import QuackBehavior
+from QuackBehavior import QuackBehavior
 
 class Quack(QuackBehavior):
     def quack():

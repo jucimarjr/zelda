@@ -1,4 +1,6 @@
-import Duck
+from Duck import Duck
+from FlyNoWay import FlyNoWay
+from Quack import Quack
 
 class ModelDuck(Duck):
     def __init__(self):

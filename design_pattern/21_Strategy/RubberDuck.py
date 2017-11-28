@@ -1,4 +1,6 @@
-import Duck
+from Duck import Duck
+from FlyNoWay import FlyNoWay
+from Squeak import Squeak
 
 class RubberDuck(Duck):
     def __init__(self):

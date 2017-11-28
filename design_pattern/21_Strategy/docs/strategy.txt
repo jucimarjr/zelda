@@ -7,15 +7,16 @@ varie independentemente dos clientes que o utilizam.
 === UML DO PADRÃO ===
 
 Exemplo:
-O exemplo é um algoritmo que determina as melhores posições para uma quebra de
-linha num texto. É baseado na implementação das classes Composition e Compositor.
+A ideia do exemplo apresentado no livro é criar um "simulador" de patos. Esse simu-
+lador terá diversos tipos de pato, que voam de formas diferentes e grasnos diferentes.
+A Estratégia é aplicada três vezes:
+    - Para instanciar os vários tipos de quacks;
+    - Para instancior os vários tipode de vôos e;
+    - Para instanciar os vários tipos de patos.
 
-A classe Composition contém diversos Components, que são tanto textos quanto
-elementos gráficos em um determinado documento. Um composition arranja os elementos
-em linhas utilizando uma instância da subclasse Compositor. Cada componente
-tem um tamanho associado a ele, além de sua capacidade de aumentar e encolher.
-Essas informações dos components são passadas para o compositor pelo composition,
-que os utiliza para determinar os melhores lugares para as quebras de linhas.
+As classes abstratas são as classes FlyBehavior (que determina o modo de voo do pato), 
+QuackBehavior (que determina o tipo de quack do pato) e Duck (que determina o tipo de
+pato a ser instanciado, com todas as suas características).
 
 === UML DO EXEMPLO ===
 

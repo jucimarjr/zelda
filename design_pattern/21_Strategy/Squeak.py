@@ -1,4 +1,4 @@
-import QuackBehavior
+from QuackBehavior import QuackBehavior
 
 class Squeak(QuackBehavior):
     def quack():

@@ -1,0 +1,22 @@
+13 - Chain Of Responsability
+
+A intenção deste padrão é evitar o acoplamento do remetente de uma solicitação ao seu receptor, ao dar a mais de um objeto
+a oportunidade de se tratar essa solicitação. Encadear os objetos receptores, passando a solicitação ao longo da cadeia até
+que um objeto a trate.
+
+=== UML DO PADRÃO ===
+
+Exemplo:
+O exemplo a seguir ilustra como o padrão chain of responsability pode
+tratar solicitações para um sistema de help online. A classe HelpHandler
+define a interface para tratamento de solicitações de ajuda. Ela mantém
+um tópico de ajuda (que,por omissão,é vazio) e mantém uma referência para
+o seu sucessor na cadeia handlers de ajuda. A operação-chave é HandleHelp,
+que as subclasses redefinem. HasHelp é uma operação de conveniência para
+verificar se existe um tópico de ajuda associado.
+
+
+=== UML DO EXEMPLo ===
+
+=== LINK DO GITHUB ===
+

@@ -82,6 +82,10 @@ td, th {
 	padding: 8px;
 }
 
+li {
+	padding: 1px;
+}
+
 #UEA-LOGO {
 	width:auto;
   text-align: center;

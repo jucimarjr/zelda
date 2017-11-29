@@ -1,11 +1,44 @@
-from ConfigManager import ConfigManager
+class ChocolateBoiler():
+    class __Singleton():
 
-ConfigManager().get_instance().set_server_name("ConfigManager's name")
-s = ConfigManager().get_server_name()
+        def __init__(self):
+            self._is_instantiated = False
+            self._instance = None
+            self.empty = True
+            self.boiled = False
 
-config_manager = ConfigManager().get_instance()
+        def print_boiler_state(self):
+            print("empty  : " + str(self.empty))
+            print("boiled : " + str(self.boiled))
 
-s1 = config_manager.get_server_name()
+        def get_instance(self):
+            if(self._is_instantiated == False):
+                self._instance = ChocolateBoiler()
+                self._is_instantiated = True
+                return self._instance
+            else:
+                return self._instance
 
-print "Name: " + s
-print "Name: " + s1
+    singleton = __Singleton()
+
+    def fill(self):
+        if(self.singleton.empty == True):
+            self.singleton.empty = False
+            self.singleton.boiled = False
+            self.print_boiler_state()
+
+    def drain(self):
+        if(self.singleton.empty == False and self.singleton.boiled == True):
+            self.singleton.empty = True
+        self.print_boiler_state()
+
+    def boil(self):
+        if(self.singleton.empty == False and self.singleton.boiled == False):
+            self.singleton.boiled = True
+        self.print_boiler_state()
+
+    def print_boiler_state(self):
+        self.singleton.print_boiler_state()
+
+    def get_instance(self):
+        return self.singleton.get_instance()

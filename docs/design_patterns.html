@@ -36,14 +36,17 @@
 					</p>
 					<img src="images/diagrama de classes/agregacao_exemplo.png" alt="Exemplo de Agregação" widht="661px" height="326px">
 					<p>
-						No diagrama de classes em UML acima, um Banco pode conter qualquer número de objetos Cliente. O losango aberto indica qual objeto é o todo e qual é a parte. Aqui, o losango diz que o Banco é o todo. Banco é classe que 'tem um' no relacionamento. Um objeto Banco contém objetos Cliente. Em termos de programação, isso poderia significar que Banco contém um array de objetos Cliente.
+						No diagrama de classes em UML acima, um Banco pode conter qualquer número de objetos Cliente. O losango aberto indica qual objeto é o todo e qual é a parte. Aqui, o losango diz que o Banco é o todo. Banco é a classe que 'tem um' no relacionamento, um objeto Banco contém objetos Cliente. Em termos de programação, isso poderia significar que Banco contém um array de objetos Cliente.
 					</p>
 				<li style="font-size:25px;">Composição:</li>
 					<p>
 						<!-- DESCRIÇÃO -->
 						Uma composição é um pouco mais rigorosa do que a agregação, não é um relacionamento entre pares, ou seja, na composição os objetos não são independentes uns dos outros (SINTES, 2002).
 					</p>
-					
+					<img src="images/diagrama de classes/composicao_exemplo.png" alt="Exemplo de Composição" widht="661px" height="326px">
+					<p>
+						No diagrama de classes em UML acima, um Banco pode conter muitos objetos Filial. O losango fechado diz que esse é um relacionamento de composição e também diz quem 'tem um'. Neste caso, Banco 'tem um', ou contém, objetos Filial. Como esse é um relacionamento de composição, os objetos Filial não podem existir independente do objeto Banco. A composição diz que, se o banco encerrar suas atividades, as filiais também fecharão. Entretanto, o inverso não é necessariamente verdade. Se uma filial fechar, o banco poderá permanecer funcionando. 
+					</p>
 				<li style="font-size:25px;">Coesão:</li>
 					<p>
 						<!-- DESCRIÇÃO -->

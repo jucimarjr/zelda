@@ -1,0 +1,20 @@
+ - COMPOSITE:
+
+DESCRIÇÃO DO PADRÃO:
+
+Compor objetos em estruturas de árvore para representar hierarquias parciais. 
+O Composite permite aos clientes tratar objetos individuais e composições de 
+objetos uniformemente.
+
+UML DO PADRÃO:
+
+
+DESCRIÇÃO DO EXEMPLO: 
+
+
+
+UML DO EXEMPLO:
+
+
+
+=== LINK DO GIT ===

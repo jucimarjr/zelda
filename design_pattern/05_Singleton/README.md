@@ -1,6 +1,6 @@
-# Singleton
+﻿# Singleton
 
-Singleton é um padrão de projeto que permite que apenas uma instância de um determinado objeto seja criada, é muito útil em situações nas quais não pode haver discrepância de dados.
+Singleton é um padrão de projeto que permite que apenas uma instância de um determinado objeto seja criada, é muito útil em situações nas quais não pode haver inconsistencia de dados.
 
 # Exemplo
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+	<head>
+		<meta charset="UTF-8">
+		<title>Observer</title>
+		<link rel="stylesheet" href="../../statics/styles.css">
+	</head>
+	<body>
+    <div>
+		<p>
+			<h2 style="text-align: center">19 - Observer</h2>
+
+			<h3>Descrição do padrão:</h3>
+				<p style="margin-left:5%">
+					Observer, ou observador, é um padrão de projeto que implementa o tipo de relacionamento
+                    um-para-muitos entre objetos, assim permitindo que quando um objeto sofrer alguma mudança todos
+                    os objetos que se relacionam com ele são notificados e podem ser atualizados, caso necessário.
+                </p>
+			<h3>UML do padrão:</h3>
+				<img src="../../design_patterns/observer/observer.png" alt="Observer">
+			<h3>Descrição do exemplo do livro:</h3>
+				<p style="margin-left:5%">
+					A ideia do exemplo apresentada no livro consiste num aplicativo de monitoramento do clima, o sistema
+                    deverá receber os dados do <b>weather_data</b> sobre a temperatura, a humidade e pressão baromêtrica
+                    e mostrar na tela esses dados, sendo atualizado sempre que houver mudanças e em todas as telas que
+                    usem os dados fornecidos.<br>
+                    <br>
+                    No exemplo devem-se destacar as seguintes classes:<br>
+                </p>
+                    <ol class="listing">
+                        <li>subject, observer e display_element.</li>
+                        <li>weather_data.</li>
+    				    <li>current_conditions, statistics_display,
+                            forecast_display e third_party_display.</li>
+                    </ol>
+                <p style="padding-left: 5%">
+                    As classes <b>subject</b>, <b>observer</b> e <b>display_element</b> são as classes abstratas que moldam
+                    como devem se comportar tanto o sujeito quanto os observadores,respectivamente, já o display_element
+                    molda como cada classe que o implementará irá mostrar os dados na tela.<br><br>
+                    A <b>weather_data</b> é quem implementa a classe abstrata <b>subject</b>
+                    e é de onde os dados que seus observadores usam para exercer
+                    suas funções, nesta relação ele é tratado como o sujeito a ser observado.<br><br>
+                    Por fim, as demais classes implementam as classe abstratas <b>observer</b>
+                    e <b>display_element</b>, e nesta relação são tratados como os observadores de
+                    <b>weather_data</b>.
+                </p>
+			<h3>UML do exemplo do livro:</h3>
+				<img src="../../design_patterns/observer/observer_exemplo.png" alt="Observer">
+			<h3><a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/19_Observer">Clique aqui</a> para ver o codigo fonte no Github</h3>
+			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
+		</div>
+	</body>
+</html>

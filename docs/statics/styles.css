@@ -69,6 +69,12 @@ a {
 	color:#000066;
 }
 
+.listing {
+	text-align: justify;
+	font-size: 14px;
+	padding-left: 90px;
+}
+
 img {
 	max-width:100%;
 	height:auto;

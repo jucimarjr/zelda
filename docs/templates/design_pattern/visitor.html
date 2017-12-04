@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+	<head>
+		<meta charset="UTF-8">
+		<title>Strategy</title>
+		<link rel="stylesheet" href="../../statics/styles.css">
+	</head>
+	<body>
+		<div>
+			<h2 style="text-align: center">23 - Visitor</h2>
+
+			<h3>Descrição do padrão:</h3>
+				<p style="margin-left:5%">
+					Visitor é um padrão de projeto que representa uma operação a ser executada nos
+					elementos de uma estrutura de objetos. Visitor permite definir uma nova operação
+					 sem mudar as classes dos elementos sobre os quais opera.
+				</p>
+			<h3>UML do padrão:</h3>
+				<img src="../../design_patterns/visitor/visitor.png" alt="Visitor">
+			<h3>Descrição do exemplo do livro:</h3>
+				<p style="margin-left:5%">
+					A ideia do exemplo apresentado no livro é criar um controle de inventario e custos
+					de produtos (no caso do exemplo, chassis e disquetes). Esse exemplo terá uma classe
+					abstrata Equipment (equipamento) e dela duas classes concretas FloppyDisk e Chassis.
+					Como visitor teremos a abstrata, InventoryVisitor(para contar a quantidade no inventario) e
+					PricingVisitor(para saber o custo final).
+				</p>
+			<h3>UML do exemplo do livro:</h3>
+				<img src="../../design_patterns/visitor/visitor_exemplo.png" alt="VisitorExample">
+			<h3><a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/23_Visitor">Clique aqui</a> para ver o codigo fonte no Github</h3>
+			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
+		</div>
+	</body>
+</html>

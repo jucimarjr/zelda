@@ -13,6 +13,25 @@
 				<p style="margin-left:5%">
 					A intenção do padrão de projeto Decorator é dinamicamente, agregar responsabilidades adicionais a um objeto. Os Decorators fornecem uma alternativa flexível ao uso de subclasses para extensão de funcionalidades.
 				</p>
+				<p style="margin-left:5%">
+					Descrição da UML do padrão de projeto Decorator.<br>
+					<li style="margin-left:5%">
+						<strong>Component</strong>
+						<ul> - define a interface para objetos que podem ter responsabilidades acrescentadas aos mesmos dinamicamente.</ul>
+					</li>
+					<li style="margin-left: 5%">
+						<strong>ConcreteComponent</strong>
+						<ul> - define um objeto para o qual responsabilidades adicionais podem ser atribuídas. </ul>
+					</li>
+					<li style="margin-left: 5%">
+						<strong>Decorator</strong>
+						<ul> - mantém uma referência para um objeto Component e define uma interface que segue a interface de Component. </ul>
+					</li>
+					<li style="margin-left:5%">
+						<strong>ConcreteDecorator</strong>
+						<ul> - acrescenta responsabilidades ao componente.</ul>
+					</li>
+				</p>
 			<h3>UML do padrão:</h3>
 				<img src="../../design_patterns/decorator/decorator_class_diagram.png">
 
@@ -21,7 +40,7 @@
 					<!-- Descrição aqui -->
 				</p>
 			<h3>UML do exemplo do livro:</h3>
-				<img src="../../design_patterns/<nome_da_imagem>" alt="Nome do Padrão">
+				<img src="../../design_patterns/decorator/starbuzz_diagram_class.png">
 			<h3>Link para o código fonte no Github: <a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/09_Decorator" target="_blank">Clique aqui</a></h3>
 			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
 		</div>

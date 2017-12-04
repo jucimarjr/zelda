@@ -1,0 +1,17 @@
+
+	O autor do usa a diferença entre patos e perus com intuito
+criar um cenário simples e de fácil entendimento para a aplicação dos
+conceitos do padrão de projeto Adapter.
+	Primeiro, o autor cria a interface Duck correspondente a um pato.
+Em seguida, ele nos dá a implementação de um pato da espécie Mallard.
+	Por conseguinte, o autor cria a interface Turkey correspondente
+a um peru. Daí, há a implementação de um peru do tipo Wild.
+	Após a criação do contexto, ele nos indaga sobre o seguinte:
+"E se quisermos usar um peru no lugar de um pato?". Como resposta, ele
+cria o Adapter chamado TurkeyAdapter, que recebe um peru como parâmetro
+e o adapta para se comportar como um pato.
+	Há ainda uso de um método auxiliar que recebe patos como parâ-
+metro e verifica seu comportamento.
+	Por fim, o autor cria a classe principal (main) para testar
+o Adapter, passando tanto um pato como um peru para o método auxilar e,
+como desejado, o método funciona para ambos objetos.

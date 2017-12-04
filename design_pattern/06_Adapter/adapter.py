@@ -1,53 +1,110 @@
 
+# *
+# * Duck interface que permite
+# * um Duck quackar e voar
+# *
 
-"""
-	Adapter converte a interface de uma classe em outra interface que 
-melhor se adapta às necessdades do cliente.
-	Ele torna possível o trabalho conjunto de duas classes que antes não
-poderiam se juntar devido às suas interfaces incompatíveis.
-"""
-
-import exemplo
+class duck_interface(object):
+    pass
 
 
-class Target(metaclass=exemplo.EXMeta):
-    """
-    Particularidades da interface que será exibida ao cliente.
-    """
+# *
+# * Uma subclasse de duck_interface,
+# * a MallardDuck
+# *
 
-    def __init__(self):
-        self._adaptee = Adaptee()
+class mallard_duck(object):
+    duck_interface = property()
 
-    @exemplo.abstractmethod
-    def request(self):
-        pass
+    def quack(self):
+        print("Quack")
 
-
-class Adapter(Target):
-    """
-	Adapta a interface de Adaptee para a interface Target.
-    """
-
-    def request(self):
-        self._adaptee.specific_request()
+    def fly(self):
+        print("I'm flying")
 
 
-class Adaptee:
-    """
-	Define uma interface existente que precisa ser adaptada.
-    """
+# *
+# * Agora conhecemos uma nova ave: a turkey.
+# * Elas não quackam, fazem gobble; também
+# * voam, porém por apenas poucos metros.
+# *
 
-    def specific_request(self):
-        pass
-
-
-def main():
-    adapter = Adapter()
-    adapter.request()
+class turkey_interface(object):
+    pass
 
 
-if __name__ == "__main__":
-    main()
-	
+# *
+# * Implementação concreta de um turkey.
+# *
 
-	
+class wild_turkey(object):
+    duck_interface = property()
+
+    def gobble(self):
+        print("Gobble gobble")
+
+    def fly(self):
+        print("I'm flying a short distance")
+
+
+# *
+# * Agora, digamos que você queira usar um objeto do tipo Turkey
+# * no lugar de um Duck. Obviamente você não pode, pois eles possuem
+# * interfaces diferentes. Então, vamos criar um Adapter.
+# *
+
+
+# *
+# * Primeiro, você precisa implementar a interface do tipo que deseja
+# * adaptar. Essa é a interface que o client espera ver.
+# *
+
+class turkey_adapter(object):
+    duck_interface = property()
+
+    def turkey_adapter(self, turkey):
+        self.turkey = turkey;
+
+    def quack(self, turkey):
+        self.gobble()
+
+    def fly(self):
+        for i in range(5):
+            self.fly()
+
+
+# * Método para testarmos um duck
+
+def test_duck(duck_interface):
+    duck.quack()
+    duck.fly()
+
+# *
+# * Test drive the adapter
+# *
+
+if __name__ == '__main__':
+
+    # Vamos criar um duck...
+    duck = mallard_duck()
+
+    # ...e um turkey
+    turkey = wild_turkey()
+
+    # Então "embrulhe" o turkey no adapter,
+    # fato que o faz parecer um duck
+    turkey_adapter_obj = turkey_adapter()
+
+    print("The turkey_interface says...")
+    turkey.gobble()
+    turkey.fly()
+
+    # Testamos o duck passando-o como parâmetro para
+    # o método de teste que espera um objeto do tipo duck_interface
+    print("\nThe duck_interface says...")
+    test_duck(duck)
+
+    # Por fim, o grande teste: tentar passar um turkey como
+    # se fosse um duck para o método teste
+    print("\nThe turkey_adapter says...")
+    test_duck(turkey_adapter_obj)

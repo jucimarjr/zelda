@@ -1,5 +1,5 @@
-from ...cursor import db
-from  ..processo.processo_modelo import Processo
+from .....cursor import db
+from ..processo.processo_modelo import Processo
 from app import app
 
 class Documento:

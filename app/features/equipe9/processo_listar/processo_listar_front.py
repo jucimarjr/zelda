@@ -5,5 +5,5 @@ from ....utils.front_helper import *
 @app.route('/processo9')
 @login_required
 @verifica_permissao
-def processo_listar():
+def processo9_listar():
     return ProcessoListarNegocio.exibir()

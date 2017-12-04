@@ -5,5 +5,5 @@ from ....utils.front_helper import *
 @app.route('/documento9')
 @login_required
 @verifica_permissao
-def documento_listar():
+def documento9_listar():
     return DocumentoListarNegocio.exibir()

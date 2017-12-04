@@ -1,9 +1,9 @@
-from .usuario_processo_negocio import ProcessoCadastrarNegocio
+from .processo_cadastrar_negocio import ProcessoCadastrarNegocio
 from app import app
-from ...utils.front_helper import *
+from .....utils.front_helper import *
 
-@app.route('/processo/novo', methods=['GET', 'POST'])
+@app.route('/equipe8/processo/novo', methods=['GET', 'POST'])
 @login_required
 @verifica_permissao
-def processo_cadastrar():
+def processo8_cadastrar():
     return ProcessoCadastrarNegocio.exibir()

@@ -5,5 +5,5 @@ from ....utils.front_helper import *
 @app.route('/documento9/novo', methods=['GET', 'POST'])
 @login_required
 @verifica_permissao
-def documento_cadastrar():
+def documento9_cadastrar():
     return DocumentoCadastrarNegocio.exibir()

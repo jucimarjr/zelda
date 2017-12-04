@@ -3,9 +3,9 @@ from app import app
 from .....utils.front_helper import *
 
 
-@app.route('/processo8', methods=['GET', 'POST'])
+@app.route('/equipe8/documento', methods=['GET', 'POST'])
 @login_required
 @verifica_permissao
 
-def documento_listar():
+def documento8_listar():
     return DocumentoListarNegocio.exibir()

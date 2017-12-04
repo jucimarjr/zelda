@@ -1,10 +1,10 @@
 from flask import render_template, flash, redirect, url_for
-from .usuario_cadastrar_form import CadastrarDocumentoForm
-from ...cursor import db
-from ...utils.flash_errors import flash_errors
+from .documento_cadastrar_form import CadastrarDocumentoForm
+from .....cursor import db
+from .....utils.flash_errors import flash_errors
 from ...tables.documento.documento_modelo import Documento
-from ...utils.zelda_modelo import ZeldaModelo
-from ...utils.files import flash_errors_extensao
+from .....utils.zelda_modelo import ZeldaModelo
+from .....utils.files import flash_errors_extensao
 from flask_json import json_response
 
 class DocumentoCadastrarNegocio:

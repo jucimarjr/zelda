@@ -1,17 +1,16 @@
 from flask import render_template, flash, redirect, url_for
-from .usuario_editar_form import EditarUsuarioForm
-from ...utils.flash_errors import flash_errors
-from ...tables.usuario.usuario_modelo import Usuario
-from ...tables.perfil.perfil_modelo import Perfil
-from ...utils.criptografador import Criptografador
-from ...utils.zelda_modelo import ZeldaModelo
-from ...utils.files import flash_errors_extensao
+from .documento_editar_form import EditarDocumentoForm
+from .....utils.flash_errors import flash_errors
+from .....tables.usuario.usuario_modelo import Usuario
+from .....tables.perfil.perfil_modelo import Perfil
+from .....utils.criptografador import Criptografador
+from .....utils.zelda_modelo import ZeldaModelo
+from .....utils.files import flash_errors_extensao
 
 from app import app
 
-class UsuarioEditarNegocio:
-    def exibir(user_id):
-     def exibir(documento_id):
+class DocumentoEditarNegocio:
+    def exibir(documento_id):
         form = EditarDocumentoForm()
 
         documento = Documento(documento_id)

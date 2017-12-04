@@ -1,5 +1,5 @@
-from ...cursor import db
-from  ..usuario.usuario_modelo import Usuario
+from .....cursor import db
+from .....tables.usuario.usuario_modelo import Usuario
 from app import app
 
 class Processo:

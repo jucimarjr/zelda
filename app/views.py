@@ -120,7 +120,7 @@ from .features.equipe_8.features.processo_remover.processo_remover_front import 
 from .features.equipe_8.features.documento_cadastrar.documento_cadastrar_front import *
 from .features.equipe_8.features.documento_editar.documento_editar_front import *
 from .features.equipe_8.features.documento_remover.documento_remover_front import *
-from .features.equipe_8.features.documento_listar.documento_remover_front import *
+from .features.equipe_8.features.documento_listar.documento_listar_front import *
 
 from .features.equipe5.processo_listar.processo_listar_front import *
 from .features.equipe5.processo_editar.processo_editar_front import *

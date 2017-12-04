@@ -3,9 +3,9 @@ from app import app
 from .....utils.front_helper import *
 
 
-@app.route('/processo8/novo', methods=['GET', 'POST'])
+@app.route('/equipe8/documento/novo', methods=['GET', 'POST'])
 @login_required
 @verifica_permissao
 
-def documento_cadastrar():
-    return DocumentoCadastrarNegocio.exibir(documento_id)
+def documento8_cadastrar():
+    return DocumentoCadastrarNegocio.exibir()

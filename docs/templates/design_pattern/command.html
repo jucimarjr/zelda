@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+        <head>
+              <meta charset="UTF-8">
+              <title>Documentação Zelda</title>
+              <link rel="stylesheet" href="../../statics/styles.css">
+        </head>
+        <body>
+                <div>
+                         <h2 style="text-align: center">14 - Command</h2>
+
+                         <h3>Descrição do Padrão:</h3>
+                                  <p style="margin-left:5%">
+                                    A intenção deste padrão é encapsular uma solicitação como um objeto, desta forma permitindo parametrizar clientes com diferentes solicitações, enfileirar ou fazer o registro de solicitações e suportar operações que podem ser desfeitas.
+                                  </p>
+                        <h3>Descrição da UML:</h3>
+                        <li style="margin-left:5%"><strong>Command :</strong><ul> - declara uma interface para a execução de uma operação.</ul></li>
+                        <li style="margin-left:5%"><strong>ConcreteCommand :</strong><ul> - define uma vinculação entre um objeto Receiver e uma ação.</ul><ul> - implementa Execute através da invocação da(s) correspondente(s) operação(ões) no Receiver.</ul></li>
+                        <li style="margin-left:5%"><strong>Client :</strong><ul> - cria um objeto ConcreteCommand e estabelece o seu receptor.</ul></li>
+                        <li style="margin-left:5%"><strong>Invoker :</strong><ul> - solicita ao Command a execução da solicitação.</ul></li>
+                        <li style="margin-left:5%"><strong>Receiver :</strong><ul> - sabe como executar as operações associadas a uma solicitação. Qualquer classe pode funcionar como um Receiver.</ul></li>
+                                
+
+                         <h3>UML do Padrão:</h3>
+                                  <img src="../../design_patterns/command/command_diagram_class.png">
+
+                         <h3>Descrição do exemplo do livro:</h3>
+                                    <p style="margin-left: 5%">
+                                      <!-- Descrição Aqui -->
+                                      O exemplo exposto no livro, que contém a interface de programação de aplicativo para o Controle Remoto para Automção Doméstica.
+                                      O objetivo central no projeto foi manter o código o mais simples possível para que não fosse necessário introduzir alterações
+                                      quando novas classes fossem produzidas pelos fornecedores. Para essa finalidade, foi empregado o Padrão Command para desconcectar
+                                      logicamente a classe RemoteControl das classes de vendedor. Acredita-se que isto irá reduzir o custo da produção do controle remoto,
+                                      além de diminuir drasticamente seus custos permanentes de manutenção.
+                                    </p>
+
+                          <h3>UML do exemplo do livro:</h3>
+                                    <img src="../../design_patterns/command/command_diagrama_class_exemplo.png" alt="Command">
+                          <h3>Link para o código fonte no Github: <a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/14_Command" target="_blank">Clique aqui</a></h3>
+                          <img id="UEA-LOGO" src="../../images/uea-logo.png" alt = "UEA-Logo">
+                </div>
+        </body>
+</html>

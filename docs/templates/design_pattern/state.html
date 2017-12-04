@@ -12,37 +12,39 @@
 
 			<h3>Descrição do padrão:</h3>
 				<p style="margin-left:5%">
-					Observer, ou observador, é um padrão de projeto que implementa o tipo de relacionamento
-                    um-para-muitos entre objetos, assim permitindo que quando um objeto sofrer alguma mudança todos
-                    os objetos que se relacionam com ele são notificados e podem ser atualizados, caso necessário.
+					State, ou Estado, é um padrão de projeto que permite a um objeto alterar seu comportamento
+                    quando seu estado interno muda. Quando analisado por fora, o objeto aparentará que está mudando suas
+                    classes.
                 </p>
 			<h3>UML do padrão:</h3>
 				<img src="../../design_patterns/state/state.png" alt="State">
 			<h3>Descrição do exemplo do livro:</h3>
 				<p style="margin-left:5%">
-					A ideia do exemplo apresentada no livro consiste num aplicativo de monitoramento do clima, o sistema
-                    deverá receber os dados do <b>weather_data</b> sobre a temperatura, a humidade e pressão baromêtrica
-                    e mostrar na tela esses dados, sendo atualizado sempre que houver mudanças e em todas as telas que
-                    usem os dados fornecidos.<br>
+					A ideia do exemplo apresentada no livro consiste num sistema de controle para uma máquina
+                    distribuidora de chicletes, aqueles que se poem uma moeda, gira a catraca e pega o chiclete.<br>
                     <br>
-                    No exemplo devem-se destacar as seguintes classes:<br>
+                    Esta atividade parece bem simples, mas é preciso tomar algumas precauções para que a máquina
+                    funcione corretamente, como por exemplo:<br>
                 </p>
                     <ol class="listing">
-                        <li>subject, observer e display_element.</li>
-                        <li>weather_data.</li>
-    				    <li>current_conditions, statistics_display,
-                            forecast_display e third_party_display.</li>
+                        <li>Não pode dar doces se não houver uma moeda.</li>
+                        <li>Não pode colocar duas moedas na máquina simultâneamente.</li>
+    				    <li>Não pode ejetar uma moeda que não está na máquina.</li>
+                        <li>Não se pode distribuir mais de um doce por girada de catraca.</li>
                     </ol>
                 <p style="padding-left: 5%">
-                    As classes <b>subject</b>, <b>observer</b> e <b>display_element</b> são as classes abstratas que moldam
-                    como devem se comportar tanto o sujeito quanto os observadores,respectivamente, já o display_element
-                    molda como cada classe que o implementará irá mostrar os dados na tela.<br><br>
-                    A <b>weather_data</b> é quem implementa a classe abstrata <b>subject</b>
-                    e é de onde os dados que seus observadores usam para exercer
-                    suas funções, nesta relação ele é tratado como o sujeito a ser observado.<br><br>
-                    Por fim, as demais classes implementam as classe abstratas <b>observer</b>
-                    e <b>display_element</b>, e nesta relação são tratados como os observadores de
-                    <b>weather_data</b>.
+                    Para isso, é preciso analisar os estados que a máquina possui e então separá-las em classes diferentes
+                    dentro da uml, cada uma possuindo um comportamento para quando não existe uma moeda(NO_QUARTER), quando
+                    existe uma moeda(HAS_QUARTER), quando se vende um chiclete(SOLD) e quando não existem mais chicletes na
+                    máquina(SOLD_OUT).<br><br>
+                    Cada um desses Estados que atualmente estão separados na uml, estarão juntas dentro de uma grande classe
+                    chamada de <b>gumball_machine</b>, classe que controlará esses estados, dentro do padrão esta classe seria o
+                    <b>context</b>.
+                    <br><br>
+                    A gumball_machine irá identificar quando uma moeda é colocada e mudará o estado interno da classe
+                    para <b>HAS_QUARTER</b>, e todos os comportamentos para quando se coloca uma moeda, se tira, gira a catraca
+                    e libera o chiclete corresponderão a esse estado, o mesmo quando não existe moeda, quando se vende um chiclete
+                    e quando não existe mais nenhum na máquina.
                 </p>
 			<h3>UML do exemplo do livro:</h3>
 				<img src="../../design_patterns/state/state_exemplo.png" alt="State">

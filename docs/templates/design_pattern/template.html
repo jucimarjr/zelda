@@ -2,36 +2,31 @@
 <html lang="PT-BR">
 	<head>
 		<meta charset="UTF-8">
-		<title>Strategy</title>
+		<title>Template</title>
 		<link rel="stylesheet" href="../../statics/styles.css">
 	</head>
 	<body>
 		<div>
-			<h2 style="text-align: center">21 - Strategy</h2>
+			<h2 style="text-align: center">22 - Template</h2>
 
 			<h3>Descrição do padrão:</h3>
 				<p style="margin-left:5%">
-					Estratégia é um padrão de projeto que permite que sejam criadas várias classes
-					encapsuladas umas das outras mas que podem ser trocadas, de forma que o algoritmo
-					varie independentemente dos clientes que o utilizam.
+					Template é um método que define a estrutura de um algoritmo em método, adiando alguns passos para subclasses. O Método Template permite que subclasses redefinam alguns passos para um algoritmo sem ter que mudar a sua estrutura.
 				</p>
 			<h3>UML do padrão:</h3>
-				<img src="../../design_patterns/strategy/strategy.png" alt="Strategy">
+				<img src="../../design_patterns/template/template.png" alt="Template">
 			<h3>Descrição do exemplo do livro:</h3>
 				<p style="margin-left:5%">
-					A ideia do exemplo apresentado no livro é criar um "simulador" de patos. Esse simu-
-					lador terá diversos tipos de pato, que voam de formas diferentes e grasnos diferentes.
-					A Estratégia é aplicada três vezes:
-    				- Para instanciar os vários tipos de quacks;
-    				- Para instancior os vários tipode de vôos e;
-    				- Para instanciar os vários tipos de patos.
-
-					As classes abstratas são as classes FlyBehavior (que determina o modo de voo do pato),
-					QuackBehavior (que determina o tipo de quack do pato) e Duck (que determina o tipo de
-					pato a ser instanciado, com todas as suas características).
+					A ideia do exemplo citado no livro é criar um simulador de babidas cafeinadas.
+					Esse simulador possui dois tipos de bebidas cafeinadas, que possuem formas de preparo diferentes.
+					O Template e aplicado quatro vezes:
+						- Para instanciar a água fervendo;
+						- Para instanciar a preparação;
+						- Para instanciar a ação de botar em um recipiente;
+						- Para instanciar a adição de condimentos.
 				</p>
 			<h3>UML do exemplo do livro:</h3>
-				<img src="../../design_patterns/strategy/strategy_exemplo.png" alt="Strategy">
+				<img src="../../design_patterns/template/template_exemplo.jpg" alt="Template">
 			<h3><a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/07_Bridge">Clique aqui</a> para ver o codigo fonte no Github</h3>
 			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
 		</div>

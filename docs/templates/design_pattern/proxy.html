@@ -19,7 +19,7 @@
 				<img src="../../design_patterns/proxy/proxy_class_diagram.png" alt="Proxy">
 			<h3>Descrição do exemplo do livro:</h3>
 				<p style="margin-left:5%">
-					
+					Nesse exemplo, usamos o ambiente de uma empresa e sua lista de funcionários para implementar o pattern <b>Proxy</b>. Pelo motivo de uma empresa poder ter milhares de funcionários no seu quadro, poderia ser muito custoso carregar o objeto empresa com todos os seus funcionários de uma só vez, assim economizamos memória e deixamos a aplicação mais veloz. Criamos uma instancia da classe <b>company</b> com uma referência a uma lista de funcionários proxy(classe <b>contact_list_proxy</b>), mas não existe uma referência a um objeto lista de funcionários real ainda, portanto não existe nenhuma lista carregada na memória. Em seguida, pedimos a lista de funcionários para o objeto company, onde tem a refenrência da classe proxy, assim utilizando o método get_employee_list(), o proxy cria um objeto lista de funcionários real, desta forma podemos ter acesso aos funcionários cadastrados no sistema da empresa.
 				</p>
 			<h3>UML do exemplo do livro:</h3>
 				<img src="../../design_patterns/proxy/proxy_example.png" alt="ProxyExample">

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+        <head>
+              <meta charset="UTF-8">
+              <title>Documentação Zelda</title>
+              <link rel="stylesheet" href="../../statics/styles.css">
+        </head>
+        <body>
+                <div>
+                         <h2 style="text-align: center">17 - Mediator</h2>
+
+                         <h3>Descrição do Padrão:</h3>
+                                  <p style="margin-left:5%">
+                                    A intenção desse padrão é definir um objeto que encapsula a forma como um conjunto de objetos interage. O Mediator promove o acoplamento fraco ao evitar que os objetos se refiram uns aos outros explicitamente e permite variar suas interações independentemente.
+                                  </p>
+                        <h3>Descrição da UML:</h3>
+                        <li style="margin-left:5%">
+                          <strong>Mediator :</strong><ul> - O UML a seguir ilustra como o Mediator funciona como um intermediário que evita que os objetos do grupo referenciem uns aos outros explicitamente. Os objetos apenas conhecem o mediador, desta forma reduzindo o número de interconexões.</ul>
+                        </li>
+
+                         <h3>UML do Padrão:</h3>
+                                  <img src="../../design_patterns/mediator/mediator_uml.png">
+
+                         <h3>Descrição do exemplo do livro:</h3>
+                                    <p style="margin-left: 5%">
+                                      <!-- Descrição Aqui -->
+                                      O exemplo do livro se trata de uma casa inteligente, onde todos os eletrodomésticos são projetados para facilitar a vida do morador. Mas apesar de todas as facilidades já fornecidas pela casa automática os clientes sempre querem novos recursos que exigem uma iteração mais complexa entre os eletrodomésticos. O Mediator é usado para:
+                                      <br> - Controlar o sistema;
+                                      <br> - Fazer solicitações individuais a cada objeto;
+                                      <br>	- Deixar os objetos mais independentes e desconectados;
+                                      <br>
+                                      <br>Os objetos precisam informar ao mediator quando o seu estado muda e responder as solicitações do mediator.
+                                    </p>
+
+                          <h3>UML do exemplo do livro:</h3>
+                                    <img src="../../design_patterns/mediator/exemplo_mediator_uml.png" alt="Mediator">
+                          <h3>Link para o código fonte no Github: <a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/17_Mediator" target="_blank">Clique aqui</a></h3>
+                          <img id="UEA-LOGO" src="../../images/uea-logo.png" alt = "UEA-Logo">
+                </div>
+        </body>
+</html>

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>Bridge</title>
 		<link rel="stylesheet" href="../../statics/styles.css">
-	</head>	
+	</head>
 	<body>
 		<div>
 			<h2 style="text-align: center">7 - Bridge</h2>
@@ -17,8 +17,11 @@
 				<img src="../../design_patterns/bridge/patternBridge.png">
 			<h3>Descrição do exemplo do livro:</h3>
 				<p style="margin-left:5%">
-					O exemplo do livro consiste em criar uma interação entre um controle remoto e uma TV. 
-					O controle remoto seria uma abstração da TV, ou seja, existe uma espécie de ponte entre eles, onde os métodos se conversam.
+					O exemplo do livro consiste em criar uma interação entre um controle remoto e uma TV,
+					onde, entre a classe TV, que é a classe de implementação, e a classe RemoteControl,
+					que é a classe de abstração, existe uma espécie de "ponte", evidenciada pelo método set_channel()
+					que usa a abstração do método tune_channel(). As classes que herdarem da TV, usarão da abstração
+					dos métodos que foram implementadas dos "herdeiros" de RemoteControl.
 				</p>
 			<h3>UML do exemplo do livro:</h3>
 			<img src="../../design_patterns/bridge/exampleBridge.png">

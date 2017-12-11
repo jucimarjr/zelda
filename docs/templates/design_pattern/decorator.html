@@ -6,28 +6,28 @@
 		<link rel="stylesheet" href="../../statics/styles.css">
 	</head>
 	<body>
-		<div>
-			<h2 style="text-align: center">9 - Decorator</h2>
+		<div id="main-div">
+			<h2 style="text-align: center">Decorator</h2>
 
 			<h3>Descrição do padrão:</h3>
-				<p style="margin-left:5%">
+				<p >
 					A intenção do padrão de projeto Decorator é dinamicamente, agregar responsabilidades adicionais a um objeto. Os Decorators fornecem uma alternativa flexível ao uso de subclasses para extensão de funcionalidades.
 				</p>
-				<p style="margin-left:5%">
+				<p >
 					Descrição da UML do padrão de projeto Decorator.<br>
-					<li style="margin-left:5%">
+					<li >
 						<strong>Component</strong>
 						<ul> - define a interface para objetos que podem ter responsabilidades acrescentadas aos mesmos dinamicamente.</ul>
 					</li>
-					<li style="margin-left: 5%">
+					<li >
 						<strong>ConcreteComponent</strong>
 						<ul> - define um objeto para o qual responsabilidades adicionais podem ser atribuídas. </ul>
 					</li>
-					<li style="margin-left: 5%">
+					<li >
 						<strong>Decorator</strong>
 						<ul> - mantém uma referência para um objeto Component e define uma interface que segue a interface de Component. </ul>
 					</li>
-					<li style="margin-left:5%">
+					<li >
 						<strong>ConcreteDecorator</strong>
 						<ul> - acrescenta responsabilidades ao componente.</ul>
 					</li>
@@ -36,30 +36,30 @@
 				<img src="../../design_patterns/decorator/decorator_class_diagram.png">
 
 			<h3>Descrição do exemplo do livro:</h3>
-				<p style="margin-left:5%">
+				<p >
 					Beverage é uma classe abstrata com os dois métodos <i>getDescription()</i> e <i>cost(). getDescription()</i> já está implementado, mas é necessário implementar <i>cost()</i> nas subclasses.
 				</p>
-				<p style="margin-left:5%">
+				<p >
 					Para implementar a classe abstrata Condiments (Decorator) é necessário intercambiar com a classe Beverage, por isso é estendido a classe Beverage.
 				</p>
-				<p style="margin-left: 5%">
+				<p >
 					Para implementar algumas bebidas é preciso definir uma descrição para a bebida especifica e também implentar o método <i>cost()</i>.
 
-					<li style="margin-left:5%">Por exemplo, a <i>classe Espresso</i>:
+					<li >Por exemplo, a <i>classe Espresso</i>:
 						<ul tyle="margin-left: 5%"> - primeiro se estende a classe beverage, já que se trata de uma bebida.</ul>
 						<ul> - a descrição fica definida no construtor da classe, a variável de instância de descrição é herdada de Beverage.</ul>
 						<ul> - para calcular o custo de um Espresso, não é mais necessário se preocupar com a adição de condimentos a essa classe, é preciso apenas retornar o preço do Espresso.</ul>
 					</li>
 				</p>
-				<p style="margin-left:5%">
+				<p >
 					As outras classes <i>HouseBlend, DarkRoast e Decaf</i> podem ser implementadas exatamendo nesse padrão.
 				</p>
-				<p style="margin-left: 5%">
+				<p >
 					No diagrama de classe é possível ver o componente abstrato <i>(Beverage)</i>, os componentes concretos <i>(HouseBlend, DarkRoast, Decaf, Espresso)</i> e o decorator abstrato <i>(CondimentDecorator)</i>.
 				</p>
 
-				<p style="margin-left: 5%">
-					<li style="margin-left: 5%">
+				<p >
+					<li >
 						Como exemplificação de implementação para os decoradores concretos, eis o <i>Mocha</i>:
 						<ul> - é importante lembrar que o CondimentDecorator estende Beverage. <i>Mocha</i> é um decorador, então é necessário estender <i>CondimentDecorator</i></ul>
 						<ul> - instâncias referentes a <i>Beverage</i> são criadas: (1) uma variável de instância para conter a bebida que está sendo englobada. (2) uma maneira de definir essa variável de instância para o objeto que está sendo englobado, é passar a bebida que está sendo englobada para o construtor do decorador.</ul>
@@ -68,7 +68,7 @@
 				</p>
 			<h3>UML do exemplo do livro:</h3>
 				<img src="../../design_patterns/decorator/starbuzz_diagram_class.png">
-			<h3>Link para o código fonte no Github: <a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/09_Decorator" target="_blank">Clique aqui</a></h3>
+			<p style="text-align: center;"> 				<a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/09_Decorator" target="_blank">Ver código fonte no Github</a> 			</p>
 			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
 		</div>
 	</body>

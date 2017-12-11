@@ -17,7 +17,13 @@
 				<img src="../../design_patterns/abstract_factory/abstract_factory_cd.png" alt="<Imagem do UML padrão do Abstract Factory>">
 			<h3>Descrição do exemplo do livro:</h3>
 				<p style="margin-left:5%">
-					A ideia do exemplo apresentado no livro é [preencher conteúdo]
+					No exemplo do livro, uma pizzaria abre lojas por todo o país, mas vê que pizzas de um mesmo sabor são produzidas com ingredientes diferentes em cada região. Assim, para manter a qualidade, cria-se, para cada região, uma fábrica que prepare as pizzas nos padrões regionais. Isto é, para cada região, cria-se uma classe que implementa a interface <em>PizzaIngredientFactory</em> com os ingredientes da região. 
+					A Interface contém os métodos:
+					<em>Dough createDough()</em> - retorna um tipo de borda;
+					<em>Clam createClams()</em> - retorna um tipo de fruto do mar;
+					<em>Cheese createCheese()</em> - retornanum tipo de queijo;
+					<em>Sauce createSauce()</em> - retorna um tipo de molho.
+					Cada método abstrato acima também retorna uma classe abstrata. Dessa forma, as fábrica implementam cada método retornando o tipo especifico da região, como no exemplo abaixo: a fábrica de Nova Iorque usa queijo muzzarela. A fábrica de Chicago, queijo reggiano.
 				</p>
 			<h3>UML do exemplo do livro:</h3>
 				<img src="../../design_patterns/abstract_factory/abstract_factory_example_cd.png" alt="<Imagem do Exemplo sobre Abstract Factory no livro>">

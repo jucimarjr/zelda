@@ -6,10 +6,10 @@
 		<link rel="stylesheet" href="statics/styles.css">
 	</head>
 	<body>
-		<div>
+		<div id="main-div">
 			<h1 style="text-align:center;font-size:50px";>Padrões de Projeto</h1>
 			<h2>Conceitos preliminares:</h2>
-			<ul style="margin-left:2.5%">
+			<ul>
 				<li style="font-size:25px;">Classe:</li>
 					<p>
 						<!-- DESCRIÇÃO -->
@@ -62,7 +62,7 @@
 						<!-- DESCRIÇÃO -->
 						Os princípios de Design Orientado a Objetos SOLID, acrônimo para os cinco princípios básicos de Design OO introduzidos por Robert C. Martin, são:
 					</p>
-					<ul style="margin-left:2%">
+					<ul>
 						<li style="font-size:25px;">
 							<p>
 								Single Responsibility Principle: Este princípio diz que cada classe deve ter apenas uma responsabilidade[1]. Quando várias responsabilidades são agregadas em uma única classe, mudanças em uma destas pode ocasionar problemas com as outras responsabilidades.
@@ -94,7 +94,7 @@
 						<!-- DESCRIÇÃO -->
 						Um design pattern ou padrão de projeto é uma solução geral para problemas frequentes dentro do desenvolvimento de um projeto de software, portanto não é uma solução pronta, mas sim uma descrição ou modelo para ser aplicado de acordo com o problema a ser resolvido. Os padrões são divididos em três tipos:
 					</p>
-					<ul style="margin-left:2%">
+					<ul>
 						<li style="font-size:25px;">
 							<p>
 								Padrões de criação: Abstraem o processo de instanciação. Eles ajudam a tornar um sistema independente de como seus objetos são criados, compostos e representados. Um padrão criacional de classe usa herança para variar a classe que é instanciada, enquanto um padrão criacional de objeto delegará a instanciação para outro objeto.
@@ -113,35 +113,42 @@
 					</ul>
 			</ul>
 			<h2>Design Patterns:</h2>
-			<ul style="margin-left:2.5%; list-style-type:none">
-					<h3 style="margin-left: 0%">Padrões de criação:</h3>
-					<li><a href="templates/design_pattern/abstract_factory.html">1. Abstract Factory</a></li>
-					<li><a href="templates/design_pattern/builder.html">2. Builder</a></li>
-					<li><a href="templates/design_pattern/factory_method.html">3. Factory Method</a></li>
-					<li><a href="templates/design_pattern/prototype.html">4. Prototype</a></li>
-					<li><a href="templates/design_pattern/singleton.html">5. Singleton</a></li>
-					<h3 style="margin-left: 0%">Padrões estruturais:</h3>
-					<li><a href="templates/design_pattern/adapter.html">6. Adapter</a></li>
-					<li><a href="templates/design_pattern/bridge.html">7. Bridge</a></li>
-					<li><a href="templates/design_pattern/composite.html">8. Composite</a></li>
-					<li><a href="templates/design_pattern/decorator.html">9. Decorator</a></li>
-					<li><a href="templates/design_pattern/facade.html">10. Facade</a></li>
-					<li><a href="templates/design_pattern/flyweight.html">11. Flyweight</a></li>
-					<li><a href="templates/design_pattern/proxy.html">12. Proxy</a></li>
-					<h3 style="margin-left: 0%">Padrões comportamentais:</h3>
-					<li><a href="templates/design_pattern/chain_of_responsibility.html">13. Chain of Responsibility</a></li>
-					<li><a href="templates/design_pattern/command.html">14. Command</a></li>
-					<li><a href="templates/design_pattern/interpreter.html">15. Interpreter</a></li>
-					<li><a href="templates/design_pattern/iterator.html">16. Iterator</a></li>
-					<li><a href="templates/design_pattern/mediator.html">17. Mediator</a></li>
-					<li><a href="templates/design_pattern/memento.html">18. Memento</a></li>
-					<li><a href="templates/design_pattern/observer.html">19. Observer</a></li>
-					<li><a href="templates/design_pattern/state.html">20.State</a></li>
-					<li><a href="templates/design_pattern/strategy.html">21. Strategy</a></li>
-					<li><a href="templates/design_pattern/template.html">22. Template</a></li>
-					<li><a href="templates/design_pattern/visitor.html">23. Visitor</a></li>
-					<h3 style="margin-left: 0%">Padrões de Arquitetura:</h3>
-					<li><a href="templates/design_pattern/model_view_controller.html">24. Model-View-Controller</a></li>
+
+			<h3>Padrões de criação:</h3>
+			<ul>
+				<li><a href="templates/design_pattern/abstract_factory.html">1. Abstract Factory</a></li>
+				<li><a href="templates/design_pattern/builder.html">2. Builder</a></li>
+				<li><a href="templates/design_pattern/factory_method.html">3. Factory Method</a></li>
+				<li><a href="templates/design_pattern/prototype.html">4. Prototype</a></li>
+				<li><a href="templates/design_pattern/singleton.html">5. Singleton</a></li>
+			</ul>
+			<h3>Padrões estruturais:</h3>
+			<ul>
+				<li><a href="templates/design_pattern/adapter.html">6. Adapter</a></li>
+				<li><a href="templates/design_pattern/bridge.html">7. Bridge</a></li>
+				<li><a href="templates/design_pattern/composite.html">8. Composite</a></li>
+				<li><a href="templates/design_pattern/decorator.html">9. Decorator</a></li>
+				<li><a href="templates/design_pattern/facade.html">10. Facade</a></li>
+				<li><a href="templates/design_pattern/flyweight.html">11. Flyweight</a></li>
+				<li><a href="templates/design_pattern/proxy.html">12. Proxy</a></li>	
+			</ul>
+			<h3>Padrões comportamentais:</h3>
+			<ul>
+				<li><a href="templates/design_pattern/chain_of_responsibility.html">13. Chain of Responsibility</a></li>
+				<li><a href="templates/design_pattern/command.html">14. Command</a></li>
+				<li><a href="templates/design_pattern/interpreter.html">15. Interpreter</a></li>
+				<li><a href="templates/design_pattern/iterator.html">16. Iterator</a></li>
+				<li><a href="templates/design_pattern/mediator.html">17. Mediator</a></li>
+				<li><a href="templates/design_pattern/memento.html">18. Memento</a></li>
+				<li><a href="templates/design_pattern/observer.html">19. Observer</a></li>
+				<li><a href="templates/design_pattern/state.html">20.State</a></li>
+				<li><a href="templates/design_pattern/strategy.html">21. Strategy</a></li>
+				<li><a href="templates/design_pattern/template.html">22. Template</a></li>
+				<li><a href="templates/design_pattern/visitor.html">23. Visitor</a></li>
+			</ul>
+			<h3>Padrões de Arquitetura:</h3>
+			<ul>
+				<li><a href="templates/design_pattern/model_view_controller.html">24. Model-View-Controller</a></li>
 			</ul>
 			<img id="UEA-LOGO" src="images/uea-logo.png" alt="UEA Logo">
 		</div>

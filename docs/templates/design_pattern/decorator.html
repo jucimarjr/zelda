@@ -9,12 +9,12 @@
 		<div id="main-div">
 			<h2 style="text-align: center">Decorator</h2>
 
-			<h3>Descrição do padrão:</h3>
+			<h3>Descrição:</h3>
 				<p >
 					A intenção do padrão de projeto Decorator é dinamicamente, agregar responsabilidades adicionais a um objeto. Os Decorators fornecem uma alternativa flexível ao uso de subclasses para extensão de funcionalidades.
 				</p>
 				<p >
-					Descrição da UML do padrão de projeto Decorator.<br>
+					Descrição da Diagrama de Classes genérico do padrão de projeto Decorator.<br>
 					<li >
 						<strong>Component</strong>
 						<ul> - define a interface para objetos que podem ter responsabilidades acrescentadas aos mesmos dinamicamente.</ul>
@@ -32,10 +32,10 @@
 						<ul> - acrescenta responsabilidades ao componente.</ul>
 					</li>
 				</p>
-			<h3>UML do padrão:</h3>
+			<h3>Diagrama de Classes genérico do padrão:</h3>
 				<img src="../../design_patterns/decorator/decorator_class_diagram.png">
 
-			<h3>Descrição do exemplo do livro:</h3>
+			<h3>Exemplo:</h3>
 				<p >
 					Beverage é uma classe abstrata com os dois métodos <i>getDescription()</i> e <i>cost(). getDescription()</i> já está implementado, mas é necessário implementar <i>cost()</i> nas subclasses.
 				</p>
@@ -66,7 +66,7 @@
 						<ul> - na descrição é incluida a bebida - por exemplo, <i>"DarkRoast"</i> - e também é incluido cada item que decora a bebida, como <i>"DarkRoast, Mocha"</i>. Assim, é delegado que o objeto está sendo decorado para obter a descrição, depois é anexado <i>"Mocha"</i> a essa descrição.</ul>
 						<ul> - para colocar o custo da bebida com <i>Mocha</i>, primeiro é delegado a chamada para o objeto que está sendo decorado, para que ele possa calcular o custo, depois, é adicionado o custo de <i>Mocha</i> ao resultado.</ul>
 				</p>
-			<h3>UML do exemplo do livro:</h3>
+			<h3>Diagrama de Classes do exemplo:</h3>
 				<img src="../../design_patterns/decorator/starbuzz_diagram_class.png">
 			<p style="text-align: center;"> 				<a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/09_Decorator" target="_blank">Ver código fonte no Github</a> 			</p>
 			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">

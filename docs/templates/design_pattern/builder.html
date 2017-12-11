@@ -9,23 +9,54 @@
 		<div id="main-div">
 			<h2 style="text-align: center">Builder</h2>
 
-			<h3>Descrição do padrão:</h3>
+			<h3>Descrição:</h3>
 			<p>
 				O padrão de projeto Builder encapsula a construção de um produto e permite que sua criação seja feita passo-a-passo. Assim, é possível construir objetos compostos a partir dos objetos-parte que o compõem.
 			</p>
 
-			<h3>UML do padrão:</h3>
-				<img src="../../design_patterns/builder/builder_cd.png" alt="Builder">
-			<h3>Descrição do exemplo do livro:</h3>
-				<p >
-					No exemplo do livro, o planejamento dos dias de férias em um parque temático é feita através de um builder. O builder é um objeto da classe VacationBuilder e através dele é possível:<br>
-					Adicionar um novo dia ao planejamento - <em>build_day()</em>; <br>
-		Planejar eventos para um dia escolhido - <em>add_hotel(), add_special_events(), add_reservation(), add_tickets()</em>; <br>
-		recuperar o plano de férias com as programações feitas - <em>get_vacation_planner()</em>.
-				</p>
-			<h3>UML do exemplo do livro:</h3>
-				<img src="../../design_patterns/builder/builder_example_cd.png" alt="Imagem do Exemplo sobre Builder no livro">
-			<p style="text-align: center;"> 				<a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/02_Builder">Ver código fonte no Github</a> 			</p>
+			<h3>Diagrama de Classes genérico do padrão:</h3>
+			<img src="../../design_patterns/builder/builder_cd.png" alt="Builder">
+			
+			<h3>Exemplo:</h3>
+			<p>
+				Suponha que um programa de planejamento de férias deva ser criado.
+				Esse programa deverá possibilitar adicionar dias no planejamento, e as atividades ou reservas que serão feitas em tal dia.
+				Como essas atividades podem ser muito abrangentes, é interessante construi-las separadamente e depois agregá-las à composição do plano.
+			</p>
+			<p>
+				As atividades disponíveis para serem adicionadas a um dia do plano são:
+				<ul>
+					<li>Hotel de estadia (<em>Hotel</em>)</li>
+					<li>Reserva de atividades (<em>Reservation</em>)</li>
+					<li>Bilhetes de atividades (<em>Tickets</em>)</li>
+					<li>Participação em Eventos Especiais (<em>SpecialEvents</em>)</li>
+				</ul>
+			</p>
+			<p>
+				Para atingir essa tarefa, um Builder é ideal. Cria-se então uma classe abstrata <em>AbstractBuilder</em>,
+				que permitirá vários Builders serem herdados com a mesma finalidade, mesmo que com implementações diversas.
+			</p>
+			<p>
+				Cada método do <em>AbstractBuilder</em> se encarregará de construir uma parte do plano total:
+				<ul>
+					<li><em>build_day()</em>: adiciona um novo dia ao plano</li>
+					<li><em>add_hotel()</em>: adiciona o nome de um hotel ao plano de um devido dia</li>
+					<li><em>add_reservation()</em>, <em>add_tickets()</em>, e <em>add_special_event()</em> adicionam todos os outros tipos de atividade ao plano de um devido dia</li>
+				</ul>
+			</p>
+			<p>
+				Nessa situação, apenas um Builder concreto é necessário, então define-se o <em>VacationBuilder</em>. 
+				A implementação de cada um dos métodos definidos acima agregará a atividade ao plano <em>planner</em>,
+				e o método <em>get_vacation_planner()</em> o retornará ao fim de toda a construção para o cliente.
+			</p>
+			
+			<h3>Diagrama de Classes do exemplo:</h3>
+			<img src="../../design_patterns/builder/builder_example_cd.png" alt="Imagem do Exemplo sobre Builder no livro">
+			
+			<p style="text-align: center;">
+				<a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/02_Builder">Ver código fonte no Github</a>
+			</p>
+
 			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">
 		</div>
 	</body>

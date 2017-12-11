@@ -9,7 +9,7 @@
 		<div id="main-div">
 			<h2 style="text-align: center">Flyweight</h2>
 
-			<h3>Descrição do padrão:</h3>
+			<h3>Descrição:</h3>
 				<p >
                     O padrão de projeto flyweight é um padrão estrutural utilizado quando existe a necessidade de se compartilhar uma grande quantidade de objetos idênticos 
                     de granularidade baixa para com baixo consumo de memória. No padrão flyweight a instância de um único objeto é compartilhada 
@@ -28,9 +28,9 @@
                     -ConcreteFlyweight: A classe que contém todo o estado intrínseco e a implementação dos métodos abstratos de estado extrínseco da classe Flyweight;
                     -UnsharedConcreteFlyweight: A classe onde é armazenado todo o estado extrínseco do padrão.
 				</p>
-			<h3>UML do padrão:</h>
+			<h3>Diagrama de Classes genérico do padrão:</h>
 				<img src="../../design_patterns/flyweight/flyweight_structure.png" alt="Flyweight">
-			<h3>Descrição do exemplo do livro:</h3>
+			<h3>Exemplo:</h3>
 				<p >
                     No exemplo do livro temos um software de landscape design no qual é preciso dispor vários objetos em diferentes locais do mapa, cada árvore 
                     possui uma idade e um par de coordenadas. Após utilizar o software por uma semana, o cliente informa que ao instanciar uma quantidade muito 
@@ -39,7 +39,7 @@
                     A ideia apresentada para a solução desse problema está em criar uma classe manager que contenha um array responsável por armazenar todos os estados do objeto árvore 
                     e alterar a estrutura da classe árvore para um objeto sem estado, com um método responsável por gerar o desenho da árvore no landscape.
 				</p>
-			<h3>UML do exemplo do livro:</h3>
+			<h3>Diagrama de Classes do exemplo:</h3>
 				<img src="../../design_patterns/flyweight/flyweight_example.png" alt="Flyweight">
 			<p style="text-align: center;"> 				<a href="https://github.com/jucimarjr/zelda">Ver código fonte no Github</a> 			</p>
 			<img id="UEA-LOGO" src="../../images/uea-logo.png" alt="UEA Logo">

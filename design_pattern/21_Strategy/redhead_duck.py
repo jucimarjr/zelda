@@ -1,6 +1,6 @@
-from Duck import Duck
-from FlyWithWings import FlyWithWings
-from Quack import Quack
+from duck import Duck
+from fly_with_wings import FlyWithWings
+from quack import Quack
 
 class RedHeadDuck(Duck):
     def __init__(self):

@@ -1,4 +1,4 @@
-from FlyBehavior import FlyBehavior
+from fly_behavior import FlyBehavior
 
 class FlyNoWay(FlyBehavior):
     def fly():

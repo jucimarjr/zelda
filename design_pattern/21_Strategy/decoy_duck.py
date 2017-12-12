@@ -1,6 +1,6 @@
-from Duck import Duck
-from FlyNoWay import FlyNoWay
-from MuteQuack import MuteQuack
+from duck import Duck
+from fly_no_way import FlyNoWay
+from mute_quack import MuteQuack
 
 class DecoyDuck(Duck):
     def __init__(self):

@@ -1,4 +1,4 @@
-from CaffeineBeverage import CaffeineBeverage
+from caffeine_beverage import CaffeineBeverage
 
 class Coffee(CaffeineBeverage):
 

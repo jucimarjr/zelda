@@ -17,10 +17,37 @@
 			<h3>Diagrama de Classes genérico do padrão:</h>
 				<img src="../../design_patterns/factory_method/factory_method_uml.png" alt="Imagem do UML padrão do Factory Method">
 			<h3>Exemplo:</h3>
-				<p >
+				<p>
 					<!-- Descrição aqui -->
 					Criar utilizando o padrão de projeto Factory Method, pizzarias nas quais o cliente possa escolher o tipo de pizza desejada. As pizzarias oferecem os mesmos sabores, mas características diferentes para um mesmo tipo de pizza.
 				</p>
+				<ul>
+					<li style="font-size:25px;">
+						<p>
+							PizzaStore: Classe abstrata contendo construtor createPizza(tipo) e o método orderPizza(tipo) que respectivamente criam e preparam uma pizza de acordo com o tipo solicitado no parâmetro.
+						</p>
+					</li>
+					<li style="font-size:25px;">
+						<p>
+							NYPizzaStore, ChicagoPizzaStore: Subclasses de PizzaStore que podem sobrescrever os seus métodos para criar um pizza, representam duas pizzarias.							
+						</p>
+					</li>
+					<li style="font-size:25px;">
+						<p>
+							Pizza: Classe abstrata que representa uma pizza genérica.
+						</p>
+					</li>
+					<li style="font-size:25px;">
+						<p>
+							ChicagoStylePepperoniPizza, ChicagoStyleVeggiePizza, ChicagoStyleCheesePizza, ChicagoStyleClamPizza: Subclasses que representam os tipos de pizzas da ChicagoPizzaStore.
+						</p>
+					</li>
+					<li style="font-size:25px;">
+						<p>
+							NYStylePepperoniPizza, NYStyleVeggiePizza, NYStyleCheesePizza, NYStyleClamPizza: Subclasses que representam os tipos de pizzas da NYPizzaStore.
+						</p>
+					</li>
+				</ul>
 			<h3>Diagrama de Classes do exemplo:</h3>
 				<img src="../../design_patterns/factory_method/factory_method_example.png" alt="Imagem do Diagrama de Classes do exemplo de Factory Method">
 			<p style="text-align: center;"> <a href="https://github.com/jucimarjr/zelda/tree/master/design_pattern/03_FactoryMethod/headfirst_example">Ver código fonte no Github</a> 			</p>

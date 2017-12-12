@@ -1,5 +1,5 @@
-from Coffee import Coffee
-from Tea import Tea
+from coffee import Coffee
+from tea import Tea
 
 if __name__ == '__main__':
 

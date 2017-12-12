@@ -13,11 +13,30 @@
 				<p >
           Singleton é um padrão de projeto que permite que apenas uma instância de um determinado objeto seja criada, é muito útil em situações nas quais não pode haver inconsistencia de dados.
 				</p>
+				<p>
+					Descrição da Diagrama de Classes genérico do padrão de projeto Singleton.<br>
+					<li >
+						<strong>Singleton</strong>
+						<ul> - Possui apenas um atributo chamado uniqueInstance, que é o atributo no qual a intancia unica fica armazenada.</ul>
+						<ul> - Possui tambem um metodo chamado getInstance, o qual retorna a instancia anteriormente criada, caso esta instancia ainda não tenha sido criada ele irá cria-la e a retornará.</ul>
+					</li>
+				</p>
 			<h3>Diagrama de Classes genérico do padrão:</h>
 				<img src="../../design_patterns/singleton/patternDiagram.png">
 			<h3>Exemplo:</h3>
 				<p >
-					No exemplo acima é criada uma classe singleton que representa a caldeira de uma fábrica de chocolate, nessa situação não pode haver erros sobre qual o estado atual da caldeira, pois se por exemplo a caldeira estiver cheia e for informado que ela está vazia chocolate será colocado nela e esse chocolate transbordará.
+					No exemplo usado no livro é criada uma classe singleton que representa a caldeira de uma fábrica de chocolate, nessa situação não pode haver erros sobre qual o estado atual da caldeira, pois se por exemplo a caldeira estiver cheia e for informado que ela está vazia chocolate será colocado nela e esse chocolate transbordará.
+				</p>
+				<p>
+					para implementar o exemplo do livro em python foi necessário criar duas classes, ChocolateBoiler e __SIngleton, sendo __Singleton uma classe interna a ChocolateBoiler.<br>
+					<li >
+						<strong>ChocolateBoiler</strong>
+						<ul> - Possui um atributo chamado singleton, onde a instancia unica do tipo __Singleton será armazenado, possui também metodos que seram chamados fora da classe, entre esses métodos um que cale destacar é o método get_instance que é o método que retorna a instancia única, ele chama o metodo gete_instance da classe __Singleton.</ul>
+					</li>
+					<li >
+						<strong>__Singleton</strong>
+						<ul> - A classe __Singleton por sua vez possui os atributos _is_instantiated, que indica se a calsse ja foi instanciada anteriormente, e outros atributos relacionados a caldeira em si, esta classe possui tambem metodos que serão utilizados pela classe ChocolateBoiler, porem o método mais importnate é o método get_instance, que retorna a classe ChocolateBoiler a instancia unica, caso esteja criada, caso contrário ela sera criada e retornada.</ul>
+					</li>
 				</p>
 			<h3>Diagrama de Classes do exemplo:</h3>
 				<img src="../../design_patterns/singleton/exempleDiagram.png">

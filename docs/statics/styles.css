@@ -18,7 +18,7 @@ body {
 	background-color: #FFFFFF;
 	margin-left: 10%;
 	margin-right: 10%;
-
+	padding: 10px 25px;
 }
 
 #main-div h1 {
@@ -39,7 +39,9 @@ body {
 }
  
 #main-div h5 {
- 	font-size: 20px;
+	 font-size: 20px;
+	 margin-top: 10px;
+	 margin-bottom: 10px;
 }
 .title {
 	text-align:center;
@@ -84,18 +86,19 @@ a {
 #Linha_Principal {
 	background-color: #dddddd;
 	border-collapse: collapse;
-	width: 65%;
 	font-size: 15px;
 }
 
 #Linha_Secundaria {
 	text-align: left;
 	border-collapse: collapse;
-	width: 65%;
 	font-size: 15px;
 }
 
-#UC_INFO {
+#Linha_Secundaria td {
+	padding: 3px;
+}
+
+.UC_INFO {
 	font-size: 15px;
-	margin-left: 17%;
 }
